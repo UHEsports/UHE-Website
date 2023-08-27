@@ -5,6 +5,9 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import uheLogo from '../images/uhe_logo.png';
 import Grid from '@mui/material/Grid';
+
+// TODO add in listeners so when page is clicked the navbar changes position
+// from absolute to static and the color becomes our UHE green
 function Navbar() {
     return (
         <AppBar
