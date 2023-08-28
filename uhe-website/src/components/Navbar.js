@@ -17,27 +17,23 @@ function Navbar() {
             }}
             position="absolute"
             color="transparent"
-            elevation={0}
-        >
+            elevation={0}>
             <Toolbar sx={{flexWrap: 'wrap'}}>
-                {/*<div sx={{ width: 'auto' }}>*/}
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid
                         container
-                        alignItems="center"
-                    >
-                        <Grid md={4}>
-                            <img width='75px' src={uheLogo}/>
+                        alignItems="center">
+                        <Grid md={3}>
+                            <img alt="UHE Logo" width='75px' src={uheLogo}/>
                         </Grid>
-                        <Grid item md={8}>
+                        <Grid item md={9}>
                             <nav style={{float:'right'}}>
                                 <Link
                                     underline="none"
                                     variant="button"
                                     color="white"
                                     href="uhe-website/src/layouts#"
-                                    sx={{my: 1, mx: 1.5}}
-                                >
+                                    sx={{my: 1, mx: 1.5}}>
                                     Home
                                 </Link>
                                 <Link
@@ -45,8 +41,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     href="uhe-website/src/layouts#"
-                                    sx={{my: 1, mx: 1.5}}
-                                >
+                                    sx={{my: 1, mx: 1.5}}>
                                     Ilab
                                 </Link>
                                 <Link
@@ -54,8 +49,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     href="uhe-website/src/layouts#"
-                                    sx={{my: 1, mx: 1.5}}
-                                >
+                                    sx={{my: 1, mx: 1.5}}>
                                     Education
                                 </Link>
                                 <Link
@@ -63,23 +57,13 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     href="uhe-website/src/layouts#"
-                                    sx={{my: 1, mx: 1.5}}
-                                >
+                                    sx={{my: 1, mx: 1.5}}>
                                     Contact Us
                                 </Link>
                             </nav>
                         </Grid>
                     </Grid>
                 </Box>
-
-
-                {/*<Box sx={{*/}
-                {/*    width: 'auto',*/}
-                {/*    display:'flex',*/}
-                {/*    justifyContent: 'flex-end',*/}
-                {/*}}>*/}
-
-                {/*</Box>*/}
             </Toolbar>
         </AppBar>
     );
