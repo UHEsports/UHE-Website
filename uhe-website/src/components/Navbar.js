@@ -2,6 +2,7 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
+import { Outlet, Link as RouterLink } from "react-router-dom";
 import Box from '@mui/material/Box';
 import uheLogo from '../images/uhe_logo.png';
 import Grid from '@mui/material/Grid';
@@ -29,38 +30,43 @@ function Navbar() {
                         <Grid item md={9}>
                             <nav style={{float:'right'}}>
                                 <Link
+                                    component={RouterLink}
                                     underline="none"
                                     variant="button"
                                     color="white"
-                                    href="uhe-website/src/layouts#"
+                                    to="/"
                                     sx={{my: 1, mx: 1.5}}>
                                     Home
                                 </Link>
                                 <Link
+                                    component={RouterLink}
                                     underline="none"
                                     variant="button"
                                     color="white"
-                                    href="uhe-website/src/layouts#"
+                                    to="/ilab"
                                     sx={{my: 1, mx: 1.5}}>
                                     Ilab
                                 </Link>
                                 <Link
+                                    component={RouterLink}
                                     underline="none"
                                     variant="button"
                                     color="white"
-                                    href="uhe-website/src/layouts#"
+                                    to="/education"
                                     sx={{my: 1, mx: 1.5}}>
                                     Education
                                 </Link>
                                 <Link
+                                    component={RouterLink}
                                     underline="none"
                                     variant="button"
                                     color="white"
-                                    href="uhe-website/src/layouts#"
+                                    to="contact-us"
                                     sx={{my: 1, mx: 1.5}}>
                                     Contact Us
                                 </Link>
                             </nav>
+                            <Outlet />
                         </Grid>
                     </Grid>
                 </Box>
