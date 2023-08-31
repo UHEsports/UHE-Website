@@ -16,7 +16,6 @@ function Navbar() {
                 p: 2,
                 width: '100%'
             }}
-            position="absolute"
             color="transparent"
             elevation={0}>
             <Toolbar sx={{flexWrap: 'wrap'}}>
@@ -66,12 +65,13 @@ function Navbar() {
                                     Contact Us
                                 </Link>
                             </nav>
-                            <Outlet />
                         </Grid>
                     </Grid>
                 </Box>
             </Toolbar>
+            <Outlet />
         </AppBar>
+
     );
 }
 
