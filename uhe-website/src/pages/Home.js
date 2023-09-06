@@ -8,22 +8,29 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import group_1 from '../images/group_1.jpg'
-import group_2 from '../images/group_2.jpg'
-import group_3 from '../images/group_3.jpg'
-import group_4 from '../images/group_4.png'
+import { styled } from '@mui/system';
+import group_1 from '../images/group_1.jpg';
+import group_2 from '../images/group_2.jpg';
+import group_3 from '../images/group_3.jpg';
+import group_4 from '../images/group_4.png';
+
+const OpeningImage = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${group_4}')`,
+    backgroundSize: "cover",
+    height: "1000px",
+
+    [theme.breakpoints.down('lg')]: {
+        height: "600px",
+        [theme.breakpoints.down('sm')]: {
+    height: "300px"
+},
+    },
+}));
 
 function HomePageImage() {
     return(
-        <div>
-            {/*<img*/}
-            {/*    width="100%"*/}
-            {/*    src={group_4}*/}
-            {/*/>*/}
-            <div id="group4">
-
-            </div>
-        </div>
+        <OpeningImage>
+        </OpeningImage>
     );
 }
 function AboutSection() {
@@ -71,12 +78,12 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <>
 
             <HomePageImage />
             <AboutSection />
 
-        </div>
+        </>
 
     );
 }
