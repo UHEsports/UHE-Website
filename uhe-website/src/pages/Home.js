@@ -18,18 +18,82 @@ const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
     backgroundSize: "cover",
     height: "1000px",
-
+    display: "flex",
+    color: "white",
+    alignItems: "center",
+    alignContent: 'flex-start',
     [theme.breakpoints.down('lg')]: {
         height: "600px",
         [theme.breakpoints.down('sm')]: {
-    height: "300px"
-},
+            height: "300px"
+        },
+    },
+}));
+
+const OpeningImageText = styled('div')(({ theme }) => ({
+    "@keyframes slideIn": {
+        "0%": {
+            transform: "translateY(-1000px)",
+            opacity: 0,
+        },
+        "100%": {
+            transform: "translateY(0px)",
+            opacity: 1,
+        }
+    },
+    animation: `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+    fontSize:"5rem",
+    marginLeft:'20px',
+    [theme.breakpoints.down('lg')]: {
+        fontSize:"3rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"1.5rem",
+        },
+    },
+}));
+
+const OpeningImageSubtitle = styled('div')(({ theme }) => ({
+    "@keyframes slideIn": {
+        "0%": {
+            transform: "translateY(-1000px)",
+            opacity: 0,
+        },
+        "100%": {
+            transform: "translateY(0px)",
+            opacity: 1,
+        }
+    },
+    animation: `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+    marginLeft:"23px",
+    fontSize:"3.5rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize:"2rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"1rem",
+        },
     },
 }));
 
 function HomePageImage() {
     return(
         <OpeningImage>
+            <Grid
+                sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                }}
+                container>
+                <Grid item md={12}>
+                    <OpeningImageText item md={12}>
+                        University of Hawaii Esports
+                    </OpeningImageText>
+                </Grid>
+                <Grid item md={12}>
+                    <OpeningImageSubtitle item md={12}>
+                        subtitle text to add
+                    </OpeningImageSubtitle>
+                </Grid>
+            </Grid>
         </OpeningImage>
     );
 }
