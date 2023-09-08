@@ -33,7 +33,7 @@ const OpeningImage = styled('div')(({ theme }) => ({
 const OpeningImageText = styled('div')(({ theme }) => ({
     "@keyframes slideIn": {
         "0%": {
-            transform: "translateY(-1000px)",
+            transform: "translateY(-100px)",
             opacity: 0,
         },
         "100%": {
@@ -47,7 +47,7 @@ const OpeningImageText = styled('div')(({ theme }) => ({
     [theme.breakpoints.down('lg')]: {
         fontSize:"3rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"1.5rem",
+            fontSize:"1.7rem",
         },
     },
 }));
@@ -55,7 +55,7 @@ const OpeningImageText = styled('div')(({ theme }) => ({
 const OpeningImageSubtitle = styled('div')(({ theme }) => ({
     "@keyframes slideIn": {
         "0%": {
-            transform: "translateY(-1000px)",
+            transform: "translateY(-100px)",
             opacity: 0,
         },
         "100%": {
@@ -97,36 +97,85 @@ function HomePageImage() {
         </OpeningImage>
     );
 }
+
+const SectionTitles = styled('div')(({ theme }) => ({
+    fontWeight: "bold",
+    fontSize:"3rem",
+    [theme.breakpoints.down('lg')]: {
+    fontSize:"2.5rem",
+    [theme.breakpoints.down('sm')]: {
+        fontSize:"1.5rem",
+    },
+},
+}));
+
+const WhoAreWeDescription = styled('div')(({ theme }) => ({
+    textAlign: 'left',
+    fontSize:"2rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "1.25rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1.5rem",
+        },
+    },
+}));
 function AboutSection() {
     return (
-        <Grid sx={{mt: 4}} container>
-            <Grid item xs={5}>
-                <div id="group3">
-                    {/*test*/}
-                </div>
+        <Grid sx={{mt:8}} container>
+            <Grid item md={4}>
+                <SectionTitles>Who are we?</SectionTitles>
             </Grid>
-            <Grid item xs={7}>
-                <Card
-                    sx={{ p: 3, minWidth: 275 }}
-                    style={{backgroundColor: '#F6F6F6'}}
-                    variant="outlined" >
-                    <CardContent>
-                        <Typography
-                            sx={{textAlign:'center', fontWeight:'bold'}}
-                            variant="h4"
-                            component="div">
-                            About Us
-                        </Typography>
-                        <Typography
-                            sx={{textAlign:'left'}}
-                            variant="h5"
-                            component="div">
-                            UH Esports is a college esports program that draws on the strengths of our community of mentors,
-                            educators, and alumni to provide students with <span style={{fontWeight:'bold'}}>opportunities</span> for collegiate competition
-                            in esports, career paths into the wider video game industry, and a space tat welcomes the <span style={{fontWeight:'bold'}}>diversity</span> of students on all UH campuses
-                        </Typography>
-                    </CardContent>
-                </Card>
+            <Grid item md={7}>
+                <WhoAreWeDescription>
+                    Tempora aut est maiores error laudantium ut architecto impedit.
+                    Sit sit eius culpa sit. Non quia velit occaecati commodi.
+                    Sed eos distinctio magni maxime commodi maxime.
+                    Saepe quibusdam et quia ratione earum expedita.
+                </WhoAreWeDescription>
+            </Grid>
+            <Grid item md={1}>
+
+            </Grid>
+        </Grid>
+    );
+}
+
+const MileStoneImages = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${group_1}')`,
+    backgroundSize: "cover",
+    height: "500px",
+    borderRadius:'20px',
+    [theme.breakpoints.down('lg')]: {
+        height: "300px",
+        [theme.breakpoints.down('sm')]: {
+            height: "300px"
+        },
+    },
+}));
+
+const MileStoneText = styled('div')(({ theme }) => ({
+    textAlign: 'left',
+    fontSize:"2rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "1.25rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1.5rem",
+        },
+    },
+}));
+function OurMilestones() {
+    return(
+        <Grid sx={{mt:6}} container spacing={4} justifyContent="center">
+            <Grid item md={12} xs={12}>
+                <SectionTitles>Our Milestones</SectionTitles>
+            </Grid>
+            <Grid sx={{mt:6}} item md={5} xs={11}>
+                <MileStoneImages />
+                <MileStoneText>Esports Awards</MileStoneText>
+                <MileStoneText>TEST</MileStoneText>
+            </Grid>
+            <Grid sx={{mt:6}} item md={5} xs={11}>
+                <MileStoneImages />
             </Grid>
         </Grid>
     );
@@ -146,6 +195,7 @@ function Home() {
 
             <HomePageImage />
             <AboutSection />
+            <OurMilestones />
 
         </>
 
