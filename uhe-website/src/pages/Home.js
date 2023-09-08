@@ -121,7 +121,7 @@ const WhoAreWeDescription = styled('div')(({ theme }) => ({
 }));
 function AboutSection() {
     return (
-        <Grid sx={{mt:8}} container>
+        <Grid sx={{mt:8, p:3}} container>
             <Grid item md={4}>
                 <SectionTitles>Who are we?</SectionTitles>
             </Grid>
@@ -155,7 +155,7 @@ const MileStoneImages = styled('div')(({ theme }) => ({
 
 const MileStoneText = styled('div')(({ theme }) => ({
     textAlign: 'left',
-    fontSize:"2rem",
+    fontSize:"1.7rem",
     [theme.breakpoints.down('lg')]: {
         fontSize: "1.25rem",
         [theme.breakpoints.down('sm')]: {
@@ -169,13 +169,28 @@ function OurMilestones() {
             <Grid item md={12} xs={12}>
                 <SectionTitles>Our Milestones</SectionTitles>
             </Grid>
-            <Grid sx={{mt:6}} item md={5} xs={11}>
+            <Grid sx={{mt:5}} item md={5} xs={11}>
                 <MileStoneImages />
-                <MileStoneText>Esports Awards</MileStoneText>
-                <MileStoneText>TEST</MileStoneText>
+                <MileStoneText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</MileStoneText>
+                <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
             </Grid>
-            <Grid sx={{mt:6}} item md={5} xs={11}>
+            <Grid sx={{mt:5}} item md={5} xs={11}>
                 <MileStoneImages />
+                <MileStoneText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</MileStoneText>
+                <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
+            </Grid>
+        </Grid>
+    );
+}
+
+function JoinDiscord() {
+    return(
+        <Grid container>
+            <Grid md={8}>
+                Join Our College Program!
+            </Grid>
+            <Grid md={4}>
+
             </Grid>
         </Grid>
     );
@@ -195,8 +210,9 @@ function Home() {
 
             <HomePageImage />
             <AboutSection />
+            {/*This is where games will be*/}
             <OurMilestones />
-
+            {/*Sponsors    */}
         </>
 
     );
