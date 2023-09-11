@@ -5,14 +5,14 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 import group_1 from '../images/group_1.jpg';
 import group_2 from '../images/group_2.jpg';
 import group_3 from '../images/group_3.jpg';
 import group_4 from '../images/group_4.png';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
@@ -119,9 +119,66 @@ const WhoAreWeDescription = styled('div')(({ theme }) => ({
         },
     },
 }));
+
+const CarouselImages = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "400px",
+    borderRadius:'20px',
+    margin: '20px 0 20px 20px',
+    [theme.breakpoints.down('lg')]: {
+        height: "300px",
+        [theme.breakpoints.down('sm')]: {
+            height: "300px"
+        },
+    },
+}));
+
+const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    responsive: [
+        {
+            breakpoint: 1300,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 975,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
+};
+
+const images = [
+    group_1,
+    group_2,
+    group_3,
+    group_1,
+    group_2,
+    group_3
+]
+
 function AboutSection() {
     return (
-        <Grid sx={{mt:8, p:3}} container>
+        <Grid sx={{mt:8, p:3}} justifyContent="center" spacing={2} container>
             <Grid item md={4}>
                 <SectionTitles>Who are we?</SectionTitles>
             </Grid>
@@ -133,8 +190,19 @@ function AboutSection() {
                     Saepe quibusdam et quia ratione earum expedita.
                 </WhoAreWeDescription>
             </Grid>
-            <Grid item md={1}>
+            <Grid sx={{mt:3}} item md={11} xs={11}>
+                <Slider {...settings}>
+                    {
+                        images.map((image) => {
+                            return(
+                                <div>
+                                    <CarouselImages style={{backgroundImage:`url(${image})`}} />
+                                </div>
 
+                            );
+                        })
+                    }
+                </Slider>
             </Grid>
         </Grid>
     );
