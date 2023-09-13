@@ -108,6 +108,7 @@ function HomePageImage() {
 
 const SectionTitles = styled('div')(({ theme }) => ({
     fontWeight: "bold",
+    wordSpacing: '-3px',
     letterSpacing: "-1px",
     fontSize:"3.25rem",
     [theme.breakpoints.down('lg')]: {
@@ -120,6 +121,7 @@ const SectionTitles = styled('div')(({ theme }) => ({
 
 const SectionDescriptions = styled('div')(({ theme }) => ({
     textAlign: 'left',
+    letterSpacing: "0.15px",
     fontSize: "1.5rem",
     [theme.breakpoints.down('sm')]: {
         fontSize: "1.25rem",
