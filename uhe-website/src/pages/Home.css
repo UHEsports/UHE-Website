@@ -1,29 +1,3 @@
-#group1 {
-    background-image: url("../images/group_1.jpg");
-    background-size: cover;
-    /*width:100%;*/
-    height:1200px;
-}
-
-#group4 {
-    background-image: url("../images/group_4.png");
-    background-size: cover;
-    /*width:100%;*/
-    height:900px;
-}
-
-#group3 {
-    background-image: url("../images/group_3.jpg");
-    background-size: cover;
-    /*width:100%;*/
-    height:100%;
-    /*height:1000px;*/
-}
-
-.image-item {
-    margin: 20px 0 20px 20px;
-}
-
 .slick-prev:before {
     color: black !important;
 }

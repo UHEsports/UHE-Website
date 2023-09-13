@@ -1,8 +1,5 @@
 import * as React from 'react';
 import './Home.css';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
@@ -78,8 +75,9 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
 }));
 
 function HomePageImage() {
+    // TODO onload event to trigger animation
     const [slideIn, setSlideIn] = React.useState(false);
-    window.onload = (event) => {
+    window.onload = () => {
         console.log("page is fully loaded");
         setSlideIn(true);
     };
@@ -120,11 +118,8 @@ const SectionTitles = styled('div')(({ theme }) => ({
 const SectionDescriptions = styled('div')(({ theme }) => ({
     textAlign: 'left',
     fontSize: "1.5rem",
-    [theme.breakpoints.down('lg')]: {
-        fontSize: "1.5rem",
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "1.25rem",
-        },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: "1.25rem",
     },
 }));
 
@@ -135,9 +130,6 @@ const CarouselImages = styled('div')(({ theme }) => ({
     margin: '20px 0 20px 20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('sm')]: {
-            height: "300px"
-        },
     },
 }));
 
@@ -163,13 +155,6 @@ const settings = {
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
             }
         }
     ]
@@ -263,11 +248,11 @@ function JoinDiscord() {
                     <br/>
                     Discord Members
                 </SectionTitles>
+                {/*TODO add color styling*/}
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="success">Join</Button>
             </Grid>
             <Grid item md={5}>
-                <img width="100%" src={discord_server} />
-                {/*<Button variant="filled">Join Now</Button>*/}
+                <img alt="discord server" width="100%" src={discord_server} />
             </Grid>
         </Grid>
     );
@@ -279,36 +264,30 @@ const UHEInfoImages = styled('div')(({ theme }) => ({
     borderRadius:'20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('sm')]: {
-            height: "300px"
-        },
     },
 }));
 
 function UHEInfoBlock() {
     return(
-        <Grid sx={{mt:7, p:3, backgroundColor:"#f6f6f6"}} container spacing={4} alignItems="center" justifyContent="center">
+        <Grid sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}} container spacing={4} alignItems="center" justifyContent="center">
             <Grid lg={5} md={5} xs={7} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
                 <SectionTitles style={{textAlign:"left"}}>iLab</SectionTitles>
-                <SectionDescriptions style={{textAlign:"left"}}>
+                <SectionDescriptions>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescriptions>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <div>
-                    <SectionTitles style={{textAlign:"right"}}>Education</SectionTitles>
-                    <SectionDescriptions style={{textAlign:"right"}}>
-                        Tempora aut est maiores error laudantium
-                        <br/>
-                        ut architecto impedit.
-                    </SectionDescriptions>
-                </div>
-
+                <SectionTitles style={{textAlign:"right"}}>Education</SectionTitles>
+                <SectionDescriptions style={{textAlign:"right"}}>
+                    Tempora aut est maiores error laudantium
+                    <br/>
+                    ut architecto impedit.
+                </SectionDescriptions>
             </Grid>
             <Grid lg={5} md={5} xs={7} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
@@ -317,7 +296,7 @@ function UHEInfoBlock() {
     );
 }
 
-const SponsorLogos = styled('div')(({ theme }) => ({
+const SponsorLogos = styled('div')(() => ({
     backgroundImage: `url('${uheLogo}')`,
     backgroundSize: "cover",
     width: "150px",
@@ -351,8 +330,8 @@ function Home() {
 
             <HomePageImage />
             <AboutSection />
+            {/*TODO games component location*/}
             <JoinDiscord />
-            {/*This is where games will be*/}
             <OurMilestones />
             <UHEInfoBlock />
             <Sponsors />
