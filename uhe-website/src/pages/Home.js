@@ -10,9 +10,12 @@ import group_1 from '../images/group_1.jpg';
 import group_2 from '../images/group_2.jpg';
 import group_3 from '../images/group_3.jpg';
 import group_4 from '../images/group_4.png';
+import discord_server from '../images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import uheLogo from "../images/uhe_logo.png";
+
 
 const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
@@ -30,7 +33,7 @@ const OpeningImage = styled('div')(({ theme }) => ({
     },
 }));
 
-const OpeningImageText = styled('div')(({ theme }) => ({
+const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
     "@keyframes slideIn": {
         "0%": {
             transform: "translateY(-100px)",
@@ -41,18 +44,18 @@ const OpeningImageText = styled('div')(({ theme }) => ({
             opacity: 1,
         }
     },
-    animation: `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+    animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     fontSize:"5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
-        fontSize:"3rem",
+        fontSize:"3.5rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"1.7rem",
+            fontSize:"2.75rem",
         },
     },
 }));
 
-const OpeningImageSubtitle = styled('div')(({ theme }) => ({
+const OpeningImageSubtitle = styled('div')(({ theme}) => ({
     "@keyframes slideIn": {
         "0%": {
             transform: "translateY(-100px)",
@@ -69,12 +72,17 @@ const OpeningImageSubtitle = styled('div')(({ theme }) => ({
     [theme.breakpoints.down('lg')]: {
         fontSize:"2rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"1rem",
+            fontSize:"1.5rem",
         },
     },
 }));
 
 function HomePageImage() {
+    const [slideIn, setSlideIn] = React.useState(false);
+    window.onload = (event) => {
+        console.log("page is fully loaded");
+        setSlideIn(true);
+    };
     return(
         <OpeningImage>
             <Grid
@@ -84,7 +92,7 @@ function HomePageImage() {
                 }}
                 container>
                 <Grid item md={12}>
-                    <OpeningImageText item md={12}>
+                    <OpeningImageText slideIn={slideIn} item md={12}>
                         University of Hawaii Esports
                     </OpeningImageText>
                 </Grid>
@@ -100,22 +108,22 @@ function HomePageImage() {
 
 const SectionTitles = styled('div')(({ theme }) => ({
     fontWeight: "bold",
-    fontSize:"3rem",
+    fontSize:"3.25rem",
     [theme.breakpoints.down('lg')]: {
     fontSize:"2.5rem",
     [theme.breakpoints.down('sm')]: {
-        fontSize:"1.5rem",
+        fontSize:"2.25rem",
     },
 },
 }));
 
-const WhoAreWeDescription = styled('div')(({ theme }) => ({
+const SectionDescriptions = styled('div')(({ theme }) => ({
     textAlign: 'left',
-    fontSize:"2rem",
+    fontSize: "1.5rem",
     [theme.breakpoints.down('lg')]: {
-        fontSize: "1.25rem",
+        fontSize: "1.5rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize: "1.5rem",
+            fontSize: "1.25rem",
         },
     },
 }));
@@ -178,17 +186,17 @@ const images = [
 
 function AboutSection() {
     return (
-        <Grid sx={{mt:8, p:3}} justifyContent="center" spacing={2} container>
-            <Grid item md={4}>
+        <Grid sx={{mt:3, p:3}} justifyContent="center" spacing={2} container>
+            <Grid item lg={4} md={4}>
                 <SectionTitles>Who are we?</SectionTitles>
             </Grid>
-            <Grid item md={7}>
-                <WhoAreWeDescription>
+            <Grid item lg={5} md={7}>
+                <SectionDescriptions>
                     Tempora aut est maiores error laudantium ut architecto impedit.
                     Sit sit eius culpa sit. Non quia velit occaecati commodi.
                     Sed eos distinctio magni maxime commodi maxime.
                     Saepe quibusdam et quia ratione earum expedita.
-                </WhoAreWeDescription>
+                </SectionDescriptions>
             </Grid>
             <Grid sx={{mt:3}} item md={11} xs={11}>
                 <Slider {...settings}>
@@ -209,15 +217,11 @@ function AboutSection() {
 }
 
 const MileStoneImages = styled('div')(({ theme }) => ({
-    backgroundImage: `url('${group_1}')`,
     backgroundSize: "cover",
-    height: "500px",
+    height: "450px",
     borderRadius:'20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('sm')]: {
-            height: "300px"
-        },
     },
 }));
 
@@ -225,25 +229,22 @@ const MileStoneText = styled('div')(({ theme }) => ({
     textAlign: 'left',
     fontSize:"1.7rem",
     [theme.breakpoints.down('lg')]: {
-        fontSize: "1.25rem",
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "1.5rem",
-        },
+        fontSize: "1.5rem",
     },
 }));
 function OurMilestones() {
     return(
-        <Grid sx={{mt:6}} container spacing={4} justifyContent="center">
+        <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
             <Grid item md={12} xs={12}>
                 <SectionTitles>Our Milestones</SectionTitles>
             </Grid>
             <Grid sx={{mt:5}} item md={5} xs={11}>
-                <MileStoneImages />
+                <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
             </Grid>
             <Grid sx={{mt:5}} item md={5} xs={11}>
-                <MileStoneImages />
+                <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
             </Grid>
@@ -253,34 +254,109 @@ function OurMilestones() {
 
 function JoinDiscord() {
     return(
-        <Grid container>
-            <Grid md={8}>
-                Join Our College Program!
+        <Grid sx={{mt:6, backgroundColor:"#f6f6f6", p:3}} spacing={2} container justifyContent="center" alignItems="center" >
+            <Grid item md={5}>
+                <SectionTitles>
+                    Join a community
+                    <br/>
+                    of  1500+
+                    <br/>
+                    Discord Members
+                </SectionTitles>
+                <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="success">Join</Button>
             </Grid>
-            <Grid md={4}>
+            <Grid item md={5}>
+                <img width="100%" src={discord_server} />
+                {/*<Button variant="filled">Join Now</Button>*/}
+            </Grid>
+        </Grid>
+    );
+}
 
+const UHEInfoImages = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "400px",
+    borderRadius:'20px',
+    [theme.breakpoints.down('lg')]: {
+        height: "300px",
+        [theme.breakpoints.down('sm')]: {
+            height: "300px"
+        },
+    },
+}));
+
+function UHEInfoBlock() {
+    return(
+        <Grid sx={{mt:7, p:3, backgroundColor:"#f6f6f6"}} container spacing={4} alignItems="center" justifyContent="center">
+            <Grid lg={5} md={5} xs={7} item>
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+            </Grid>
+            <Grid lg={5} md={5} xs={5} item>
+                <SectionTitles style={{textAlign:"left"}}>iLab</SectionTitles>
+                <SectionDescriptions style={{textAlign:"left"}}>
+                    Tempora aut est maiores error laudantium
+                    <br/>
+                    ut architecto impedit.
+                </SectionDescriptions>
+            </Grid>
+            <Grid lg={5} md={5} xs={5} item>
+                <div>
+                    <SectionTitles style={{textAlign:"right"}}>Education</SectionTitles>
+                    <SectionDescriptions style={{textAlign:"right"}}>
+                        Tempora aut est maiores error laudantium
+                        <br/>
+                        ut architecto impedit.
+                    </SectionDescriptions>
+                </div>
+
+            </Grid>
+            <Grid lg={5} md={5} xs={7} item>
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+            </Grid>
+        </Grid>
+    );
+}
+
+const SponsorLogos = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${uheLogo}')`,
+    backgroundSize: "cover",
+    width: "150px",
+    height:"150px"
+}));
+function Sponsors() {
+    return(
+        <Grid sx={{mt:3, p:3}} container justifyContent="center">
+            <Grid item md={12} xs={12}>
+                <SectionTitles>Our Sponsors</SectionTitles>
+            </Grid>
+            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                <SponsorLogos />
+            </Grid>
+            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                <SponsorLogos />
+            </Grid>
+            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                <SponsorLogos />
+            </Grid>
+            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                <SponsorLogos />
             </Grid>
         </Grid>
     );
 }
 
 function Home() {
-    const [scrollTop, setScrollTop] = React.useState(0);
-    const handleScroll = () => setScrollTop(window.scrollY);
-    React.useEffect(() =>{
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
         <>
 
             <HomePageImage />
             <AboutSection />
+            <JoinDiscord />
             {/*This is where games will be*/}
             <OurMilestones />
-            {/*Sponsors    */}
+            <UHEInfoBlock />
+            <Sponsors />
+
         </>
 
     );
