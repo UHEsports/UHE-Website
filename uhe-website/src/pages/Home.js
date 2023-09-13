@@ -256,7 +256,7 @@ function JoinDiscord() {
                     Discord Members
                 </SectionTitles>
                 {/*TODO add color styling*/}
-                <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="success">Join</Button>
+                <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen">Join Now</Button>
             </Grid>
             <Grid item md={5}>
                 <img alt="discord server" width="100%" src={discord_server} />
