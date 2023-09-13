@@ -41,6 +41,7 @@ const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
             opacity: 1,
         }
     },
+    letterSpacing: "-1px",
     animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     fontSize:"5rem",
     marginLeft:'20px',
@@ -63,6 +64,7 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
             opacity: 1,
         }
     },
+    letterSpacing: "-1px",
     animation: `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     marginLeft:"23px",
     fontSize:"3.5rem",
@@ -106,6 +108,7 @@ function HomePageImage() {
 
 const SectionTitles = styled('div')(({ theme }) => ({
     fontWeight: "bold",
+    letterSpacing: "-1px",
     fontSize:"3.25rem",
     [theme.breakpoints.down('lg')]: {
     fontSize:"2.5rem",
@@ -173,7 +176,9 @@ function AboutSection() {
     return (
         <Grid sx={{mt:3, p:3}} justifyContent="center" spacing={2} container>
             <Grid item lg={4} md={4}>
-                <SectionTitles>Who are we?</SectionTitles>
+                <SectionTitles>
+                    Who are we?
+                </SectionTitles>
             </Grid>
             <Grid item lg={5} md={7}>
                 <SectionDescriptions>
