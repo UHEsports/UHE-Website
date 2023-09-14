@@ -12,6 +12,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import uheLogo from "../images/uhe_logo.png";
+import SectionTitle from "../components/SectionTitle";
+import SectionDescription from "../components/SectionDescription";
 
 
 const OpeningImage = styled('div')(({ theme }) => ({
@@ -106,28 +108,6 @@ function HomePageImage() {
     );
 }
 
-const SectionTitles = styled('div')(({ theme }) => ({
-    fontWeight: "bold",
-    wordSpacing: '-3px',
-    letterSpacing: "-1px",
-    fontSize:"3.25rem",
-    [theme.breakpoints.down('lg')]: {
-    fontSize:"2.5rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize:"2.25rem",
-    },
-},
-}));
-
-const SectionDescriptions = styled('div')(({ theme }) => ({
-    textAlign: 'left',
-    letterSpacing: "0.15px",
-    fontSize: "1.5rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize: "1.25rem",
-    },
-}));
-
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "400px",
@@ -178,17 +158,17 @@ function AboutSection() {
     return (
         <Grid sx={{mt:3, p:3}} justifyContent="center" spacing={2} container>
             <Grid item lg={4} md={4}>
-                <SectionTitles>
+                <SectionTitle>
                     Who are we?
-                </SectionTitles>
+                </SectionTitle>
             </Grid>
             <Grid item lg={5} md={7}>
-                <SectionDescriptions>
+                <SectionDescription>
                     Tempora aut est maiores error laudantium ut architecto impedit.
                     Sit sit eius culpa sit. Non quia velit occaecati commodi.
                     Sed eos distinctio magni maxime commodi maxime.
                     Saepe quibusdam et quia ratione earum expedita.
-                </SectionDescriptions>
+                </SectionDescription>
             </Grid>
             <Grid sx={{mt:3}} item md={11} xs={11}>
                 <Slider {...settings}>
@@ -228,7 +208,9 @@ function OurMilestones() {
     return(
         <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
             <Grid item md={12} xs={12}>
-                <SectionTitles>Our Milestones</SectionTitles>
+                <SectionTitle>
+                    Our Milestones
+                </SectionTitle>
             </Grid>
             <Grid sx={{mt:5}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
@@ -248,13 +230,13 @@ function JoinDiscord() {
     return(
         <Grid sx={{mt:6, backgroundColor:"#f6f6f6", p:3}} spacing={2} container justifyContent="center" alignItems="center" >
             <Grid item md={5}>
-                <SectionTitles>
+                <SectionTitle>
                     Join a community
                     <br/>
                     of  1500+
-                    <br/>
+                    <br />
                     Discord Members
-                </SectionTitles>
+                </SectionTitle>
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen">Join Now</Button>
             </Grid>
             <Grid item md={5}>
@@ -280,20 +262,24 @@ function UHEInfoBlock() {
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitles style={{textAlign:"left"}}>iLab</SectionTitles>
-                <SectionDescriptions>
+                <SectionTitle style={{textAlign:"left"}}>
+                    iLab
+                </SectionTitle>
+                <SectionDescription>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
-                </SectionDescriptions>
+                </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitles style={{textAlign:"right"}}>Education</SectionTitles>
-                <SectionDescriptions style={{textAlign:"right"}}>
+                <SectionTitle style={{textAlign:"right"}}>
+                    Education
+                </SectionTitle>
+                <SectionDescription sx={{textAlign:"right"}}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
-                </SectionDescriptions>
+                </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={7} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
@@ -312,7 +298,9 @@ function Sponsors() {
     return(
         <Grid sx={{mt:3, p:3}} container justifyContent="center">
             <Grid item md={12} xs={12}>
-                <SectionTitles>Our Sponsors</SectionTitles>
+                <SectionTitle>
+                    Our Sponsors
+                </SectionTitle>
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
                 <SponsorLogos />
@@ -333,7 +321,6 @@ function Sponsors() {
 function Home() {
     return (
         <>
-
             <HomePageImage />
             <AboutSection />
             {/*TODO games component location*/}
