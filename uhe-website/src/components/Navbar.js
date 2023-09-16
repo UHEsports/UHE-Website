@@ -18,6 +18,8 @@ function Navbar() {
     const [state, setState] = React.useState({
         top: false,
     });
+
+    // TODO come back to simplify this
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
