@@ -6,27 +6,48 @@ import { Outlet, Link as RouterLink } from "react-router-dom";
 import Box from '@mui/material/Box';
 import uheLogo from '../images/uhe_logo.png';
 import Grid from '@mui/material/Grid';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
-// TODO add in listeners so when page is clicked the navbar changes position
-// from absolute to static and the color becomes our UHE green
 function Navbar() {
+    const [state, setState] = React.useState({
+        top: false,
+    });
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        setState({ ...state, [anchor]: open });
+    };
+
     return (
         <AppBar
             sx={{
-                p: 2,
-                width: '100%'
+                width: '100%',
             }}
             color="transparent"
+            position="absolute"
             elevation={0}>
             <Toolbar sx={{flexWrap: 'wrap'}}>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid
                         container
                         alignItems="center">
-                        <Grid md={3}>
+                        <Grid md={3} xs={2}>
                             <img alt="UHE Logo" width='75px' src={uheLogo}/>
                         </Grid>
-                        <Grid item md={9}>
+                        <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={10}>
+                            <IconButton
+                                size="large"
+                                aria-label="menu"
+                                sx={{ mr: 2, float:"right", color:"white" }}
+                                onClick={toggleDrawer("top", true)}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Grid>
+                        <Grid item sx={{ display: {lg: 'block', md: 'block',xs:'none' }}} md={9} >
                             <nav style={{float:'right'}}>
                                 <Link
                                     component={RouterLink}
@@ -34,7 +55,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     to="/"
-                                    sx={{my: 1, mx: 1.5}}>
+                                    sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
                                     Home
                                 </Link>
                                 <Link
@@ -43,7 +64,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     to="/ilab"
-                                    sx={{my: 1, mx: 1.5}}>
+                                    sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
                                     Ilab
                                 </Link>
                                 <Link
@@ -52,7 +73,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     to="/education"
-                                    sx={{my: 1, mx: 1.5}}>
+                                    sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
                                     Education
                                 </Link>
                                 <Link
@@ -61,7 +82,7 @@ function Navbar() {
                                     variant="button"
                                     color="white"
                                     to="contact-us"
-                                    sx={{my: 1, mx: 1.5}}>
+                                    sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
                                     Contact Us
                                 </Link>
                             </nav>
@@ -70,6 +91,20 @@ function Navbar() {
                 </Box>
             </Toolbar>
             <Outlet />
+            <Drawer
+                anchor="top"
+                open={state["top"]}
+                onClose={toggleDrawer("top", false)}
+            >
+                <Box
+                    sx={{ width:'auto'}}
+                    role="presentation"
+                    onClick={toggleDrawer("top", false)}
+                    onKeyDown={toggleDrawer("top", false)}
+                >
+                    hello
+                </Box>
+            </Drawer>
         </AppBar>
 
     );
