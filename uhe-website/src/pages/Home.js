@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import uheLogo from "../images/uhe_logo.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
+import { useInView } from 'react-intersection-observer';
 
 
 const OpeningImage = styled('div')(({ theme }) => ({
@@ -35,7 +36,7 @@ const OpeningImage = styled('div')(({ theme }) => ({
 const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
     "@keyframes slideIn": {
         "0%": {
-            transform: "translateY(-100px)",
+            transform: "translateY(100px)",
             opacity: 0,
         },
         "100%": {
@@ -44,7 +45,7 @@ const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
         }
     },
     letterSpacing: "-1px",
-    animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+    animation: slideIn && `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     fontSize:"5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
@@ -55,10 +56,10 @@ const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
     },
 }));
 
-const OpeningImageSubtitle = styled('div')(({ theme}) => ({
+const OpeningImageSubtitle = styled('div')(({ theme, slideIn}) => ({
     "@keyframes slideIn": {
         "0%": {
-            transform: "translateY(-100px)",
+            transform: "translateY(100px)",
             opacity: 0,
         },
         "100%": {
@@ -66,8 +67,8 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
             opacity: 1,
         }
     },
+    animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     letterSpacing: "-1px",
-    animation: `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     marginLeft:"23px",
     fontSize:"3.5rem",
     [theme.breakpoints.down('lg')]: {
@@ -79,14 +80,24 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
 }));
 
 function HomePageImage() {
-    // TODO onload event to trigger animation
-    const [slideIn, setSlideIn] = React.useState(false);
-    window.onload = () => {
-        console.log("page is fully loaded");
-        setSlideIn(true);
-    };
+    const ref = React.useRef();
+    const { ref: inViewRef, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-100px 0px',
+    });
+    // Use `useCallback` so we don't recreate the function on each render
+    const setRefs = React.useCallback(
+        (node) => {
+            // Ref's from useRef needs to have the node assigned to `current`
+            ref.current = node;
+            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+            inViewRef(node);
+        },
+        [inViewRef],
+    );
+
     return(
-        <OpeningImage>
+        <OpeningImage ref={setRefs}>
             <Grid
                 sx={{
                     textAlign: "left",
@@ -94,12 +105,12 @@ function HomePageImage() {
                 }}
                 container>
                 <Grid item md={12}>
-                    <OpeningImageText slideIn={slideIn} item md={12}>
+                    <OpeningImageText slideIn={inView} item md={12}>
                         University of Hawaii Esports
                     </OpeningImageText>
                 </Grid>
                 <Grid item md={12}>
-                    <OpeningImageSubtitle item md={12}>
+                    <OpeningImageSubtitle slideIn={inView} item md={12}>
                         subtitle text to add
                     </OpeningImageSubtitle>
                 </Grid>
@@ -205,10 +216,25 @@ const MileStoneText = styled('div')(({ theme }) => ({
     },
 }));
 function OurMilestones() {
+    const ref = React.useRef();
+    const { ref: inViewRef, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '100px 0px',
+    });
+    // Use `useCallback` so we don't recreate the function on each render
+    const setRefs = React.useCallback(
+        (node) => {
+            // Ref's from useRef needs to have the node assigned to `current`
+            ref.current = node;
+            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+            inViewRef(node);
+        },
+        [inViewRef],
+    );
     return(
         <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
-            <Grid item md={12} xs={12}>
-                <SectionTitle>
+            <Grid item md={12} xs={12} ref={setRefs}>
+                <SectionTitle slideIn={inView}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
@@ -240,7 +266,11 @@ function JoinDiscord() {
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen">Join Now</Button>
             </Grid>
             <Grid item md={5}>
-                <img alt="discord server" width="100%" src={discord_server} />
+                <img
+                    alt="discord server"
+                    width="100%"
+                    src={discord_server}
+                />
             </Grid>
         </Grid>
     );
@@ -256,26 +286,47 @@ const UHEInfoImages = styled('div')(({ theme }) => ({
 }));
 
 function UHEInfoBlock() {
+    const ref = React.useRef();
+    const { ref: inViewRef, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-200px 0px',
+    });
+    // Use `useCallback` so we don't recreate the function on each render
+    const setRefs = React.useCallback(
+        (node) => {
+            // Ref's from useRef needs to have the node assigned to `current`
+            ref.current = node;
+            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+            inViewRef(node);
+        },
+        [inViewRef],
+    );
     return(
-        <Grid sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}} container spacing={4} alignItems="center" justifyContent="center">
+        <Grid
+            sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
+            container
+            spacing={4}
+            alignItems="center"
+            justifyContent="center"
+            ref={setRefs}>
             <Grid lg={5} md={5} xs={7} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"left"}}>
+                <SectionTitle style={{textAlign:"left"}} slideIn={inView}>
                     iLab
                 </SectionTitle>
-                <SectionDescription>
+                <SectionDescription slideIn={inView}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"right"}}>
+                <SectionTitle style={{textAlign:"right"}} slideIn={inView}>
                     Education
                 </SectionTitle>
-                <SectionDescription sx={{textAlign:"right"}}>
+                <SectionDescription sx={{textAlign:"right"}} slideIn={inView}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
@@ -295,10 +346,25 @@ const SponsorLogos = styled('div')(() => ({
     height:"150px"
 }));
 function Sponsors() {
+    const ref = React.useRef();
+    const { ref: inViewRef, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '100px 0px',
+    });
+    // Use `useCallback` so we don't recreate the function on each render
+    const setRefs = React.useCallback(
+        (node) => {
+            // Ref's from useRef needs to have the node assigned to `current`
+            ref.current = node;
+            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+            inViewRef(node);
+        },
+        [inViewRef],
+    );
     return(
         <Grid sx={{mt:3, p:3}} container justifyContent="center">
-            <Grid item md={12} xs={12}>
-                <SectionTitle>
+            <Grid item md={12} xs={12} ref={setRefs}>
+                <SectionTitle slideIn={inView}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
