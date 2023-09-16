@@ -80,24 +80,14 @@ const OpeningImageSubtitle = styled('div')(({ theme, slideIn}) => ({
 }));
 
 function HomePageImage() {
-    const ref = React.useRef();
-    const { ref: inViewRef, inView } = useInView({
+    // const ref = React.useRef();
+    const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-100px 0px',
     });
-    // Use `useCallback` so we don't recreate the function on each render
-    const setRefs = React.useCallback(
-        (node) => {
-            // Ref's from useRef needs to have the node assigned to `current`
-            ref.current = node;
-            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-            inViewRef(node);
-        },
-        [inViewRef],
-    );
 
     return(
-        <OpeningImage ref={setRefs}>
+        <OpeningImage ref={ref}>
             <Grid
                 sx={{
                     textAlign: "left",
@@ -216,24 +206,13 @@ const MileStoneText = styled('div')(({ theme }) => ({
     },
 }));
 function OurMilestones() {
-    const ref = React.useRef();
-    const { ref: inViewRef, inView } = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '100px 0px',
     });
-    // Use `useCallback` so we don't recreate the function on each render
-    const setRefs = React.useCallback(
-        (node) => {
-            // Ref's from useRef needs to have the node assigned to `current`
-            ref.current = node;
-            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-            inViewRef(node);
-        },
-        [inViewRef],
-    );
     return(
         <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
-            <Grid item md={12} xs={12} ref={setRefs}>
+            <Grid item md={12} xs={12} ref={ref}>
                 <SectionTitle slideIn={inView}>
                     Our Milestones
                 </SectionTitle>
@@ -298,21 +277,10 @@ const UHEInfoImages = styled('div')(({ theme , slideIn}) => ({
 }));
 
 function UHEInfoBlock() {
-    const ref = React.useRef();
-    const { ref: inViewRef, inView } = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '50px 0px',
     });
-    // Use `useCallback` so we don't recreate the function on each render
-    const setRefs = React.useCallback(
-        (node) => {
-            // Ref's from useRef needs to have the node assigned to `current`
-            ref.current = node;
-            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-            inViewRef(node);
-        },
-        [inViewRef],
-    );
     return(
         <Grid
             sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
@@ -320,7 +288,7 @@ function UHEInfoBlock() {
             spacing={4}
             alignItems="center"
             justifyContent="center"
-            ref={setRefs}>
+            ref={ref}>
             <Grid lg={5} md={5} xs={7} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} slideIn={inView}/>
             </Grid>
@@ -359,23 +327,12 @@ const SponsorLogos = styled('div')(() => ({
     height:"150px"
 }));
 function Sponsors() {
-    const ref = React.useRef();
-    const { ref: inViewRef, inView } = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '50px 0px',
     });
-    // Use `useCallback` so we don't recreate the function on each render
-    const setRefs = React.useCallback(
-        (node) => {
-            // Ref's from useRef needs to have the node assigned to `current`
-            ref.current = node;
-            // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-            inViewRef(node);
-        },
-        [inViewRef],
-    );
     return(
-        <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={setRefs}>
+        <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={ref}>
             <Grid item md={12} xs={12}>
                 <SectionTitle slideIn={inView}>
                     Our Sponsors
