@@ -9,6 +9,10 @@ import Grid from '@mui/material/Grid';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import Button from '@mui/material/Button';
 
 function Navbar() {
     const [state, setState] = React.useState({
@@ -20,6 +24,70 @@ function Navbar() {
         }
         setState({ ...state, [anchor]: open });
     };
+
+    const list = (anchor) => (
+        <Box
+            sx={{ width:'auto'}}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link
+                            component={RouterLink}
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            to="/"
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            Home
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link
+                            component={RouterLink}
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            to="/ilab"
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            Ilab
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link
+                            component={RouterLink}
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            to="/education"
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            Education
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link
+                            component={RouterLink}
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            to="contact-us"
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            Contact Us
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+        </Box>
+    );
 
     return (
         <AppBar
@@ -96,14 +164,7 @@ function Navbar() {
                 open={state["top"]}
                 onClose={toggleDrawer("top", false)}
             >
-                <Box
-                    sx={{ width:'auto'}}
-                    role="presentation"
-                    onClick={toggleDrawer("top", false)}
-                    onKeyDown={toggleDrawer("top", false)}
-                >
-                    hello
-                </Box>
+                {list("top")}
             </Drawer>
         </AppBar>
 
