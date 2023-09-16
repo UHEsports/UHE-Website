@@ -276,7 +276,19 @@ function JoinDiscord() {
     );
 }
 
-const UHEInfoImages = styled('div')(({ theme }) => ({
+const UHEInfoImages = styled('div')(({ theme , slideIn}) => ({
+    "@keyframes slideIn": {
+        "0%": {
+            transform: "translateY(100px)",
+            opacity: 0,
+        },
+        "100%": {
+            transform: "translateY(0px)",
+            opacity: 1,
+        }
+    },
+    // visibility: !slideIn && 'hidden',
+    animation: slideIn && `slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     backgroundSize: "cover",
     height: "400px",
     borderRadius:'20px',
@@ -289,7 +301,7 @@ function UHEInfoBlock() {
     const ref = React.useRef();
     const { ref: inViewRef, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '-200px 0px',
+        rootMargin: '50px 0px',
     });
     // Use `useCallback` so we don't recreate the function on each render
     const setRefs = React.useCallback(
@@ -310,7 +322,7 @@ function UHEInfoBlock() {
             justifyContent="center"
             ref={setRefs}>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} slideIn={inView}/>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
                 <SectionTitle style={{textAlign:"left"}} slideIn={inView}>
@@ -333,13 +345,14 @@ function UHEInfoBlock() {
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} slideIn={inView} />
             </Grid>
         </Grid>
     );
 }
 
 const SponsorLogos = styled('div')(() => ({
+    // visibility: !slideIn && 'hidden',
     backgroundImage: `url('${uheLogo}')`,
     backgroundSize: "cover",
     width: "150px",
@@ -349,7 +362,7 @@ function Sponsors() {
     const ref = React.useRef();
     const { ref: inViewRef, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '100px 0px',
+        rootMargin: '50px 0px',
     });
     // Use `useCallback` so we don't recreate the function on each render
     const setRefs = React.useCallback(
@@ -362,23 +375,23 @@ function Sponsors() {
         [inViewRef],
     );
     return(
-        <Grid sx={{mt:3, p:3}} container justifyContent="center">
-            <Grid item md={12} xs={12} ref={setRefs}>
+        <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={setRefs}>
+            <Grid item md={12} xs={12}>
                 <SectionTitle slideIn={inView}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'logoFirst' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'logoSecond' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'logoThird' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'logoFourth' : ''} />
             </Grid>
         </Grid>
     );
