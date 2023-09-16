@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import uheLogo from "../images/uhe_logo.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
+import { useInView } from 'react-intersection-observer';
 
 
 const OpeningImage = styled('div')(({ theme }) => ({
@@ -32,19 +33,8 @@ const OpeningImage = styled('div')(({ theme }) => ({
     },
 }));
 
-const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
-    "@keyframes slideIn": {
-        "0%": {
-            transform: "translateY(-100px)",
-            opacity: 0,
-        },
-        "100%": {
-            transform: "translateY(0px)",
-            opacity: 1,
-        }
-    },
+const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     fontSize:"5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
@@ -56,18 +46,7 @@ const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
 }));
 
 const OpeningImageSubtitle = styled('div')(({ theme}) => ({
-    "@keyframes slideIn": {
-        "0%": {
-            transform: "translateY(-100px)",
-            opacity: 0,
-        },
-        "100%": {
-            transform: "translateY(0px)",
-            opacity: 1,
-        }
-    },
     letterSpacing: "-1px",
-    animation: `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     marginLeft:"23px",
     fontSize:"3.5rem",
     [theme.breakpoints.down('lg')]: {
@@ -79,14 +58,12 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
 }));
 
 function HomePageImage() {
-    // TODO onload event to trigger animation
-    const [slideIn, setSlideIn] = React.useState(false);
-    window.onload = () => {
-        console.log("page is fully loaded");
-        setSlideIn(true);
-    };
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-100px 0px',
+    });
     return(
-        <OpeningImage>
+        <OpeningImage ref={ref}>
             <Grid
                 sx={{
                     textAlign: "left",
@@ -94,12 +71,12 @@ function HomePageImage() {
                 }}
                 container>
                 <Grid item md={12}>
-                    <OpeningImageText slideIn={slideIn} item md={12}>
+                    <OpeningImageText className={inView ? 'slideIn1300ms' : ''} item md={12}>
                         University of Hawaii Esports
                     </OpeningImageText>
                 </Grid>
                 <Grid item md={12}>
-                    <OpeningImageSubtitle item md={12}>
+                    <OpeningImageSubtitle className={inView ? 'slideIn1500ms' : ''} item md={12}>
                         subtitle text to add
                     </OpeningImageSubtitle>
                 </Grid>
@@ -205,10 +182,14 @@ const MileStoneText = styled('div')(({ theme }) => ({
     },
 }));
 function OurMilestones() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '100px 0px',
+    });
     return(
         <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
-            <Grid item md={12} xs={12}>
-                <SectionTitle>
+            <Grid item md={12} xs={12} ref={ref}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
@@ -240,13 +221,17 @@ function JoinDiscord() {
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen">Join Now</Button>
             </Grid>
             <Grid item md={5}>
-                <img alt="discord server" width="100%" src={discord_server} />
+                <img
+                    alt="discord server"
+                    width="100%"
+                    src={discord_server}
+                />
             </Grid>
         </Grid>
     );
 }
 
-const UHEInfoImages = styled('div')(({ theme }) => ({
+const UHEInfoImages = styled('div')(({ theme}) => ({
     backgroundSize: "cover",
     height: "400px",
     borderRadius:'20px',
@@ -256,33 +241,43 @@ const UHEInfoImages = styled('div')(({ theme }) => ({
 }));
 
 function UHEInfoBlock() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '50px 0px',
+    });
     return(
-        <Grid sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}} container spacing={4} alignItems="center" justifyContent="center">
+        <Grid
+            sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
+            container
+            spacing={4}
+            alignItems="center"
+            justifyContent="center"
+            ref={ref}>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''}/>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"left"}}>
+                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
                     iLab
                 </SectionTitle>
-                <SectionDescription>
+                <SectionDescription className={inView ? 'slideIn1500ms' : ''}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"right"}}>
+                <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : ''}>
                     Education
                 </SectionTitle>
-                <SectionDescription sx={{textAlign:"right"}}>
+                <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : ''}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
             </Grid>
         </Grid>
     );
@@ -295,24 +290,28 @@ const SponsorLogos = styled('div')(() => ({
     height:"150px"
 }));
 function Sponsors() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '50px 0px',
+    });
     return(
-        <Grid sx={{mt:3, p:3}} container justifyContent="center">
+        <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={ref}>
             <Grid item md={12} xs={12}>
-                <SectionTitle>
+                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'slideIn1300ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'slideIn1500ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'slideIn1700ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos />
+                <SponsorLogos className={inView ? 'slideIn1900ms' : ''} />
             </Grid>
         </Grid>
     );
