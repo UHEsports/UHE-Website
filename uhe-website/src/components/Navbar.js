@@ -12,7 +12,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import Button from '@mui/material/Button';
 
 function Navbar() {
     const [state, setState] = React.useState({
@@ -95,6 +94,7 @@ function Navbar() {
         <AppBar
             sx={{
                 width: '100%',
+                p: 2
             }}
             color="transparent"
             position="absolute"
