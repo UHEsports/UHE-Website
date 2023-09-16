@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+/* Slidein animation for components on webpage */
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.slideIn1000ms {
+  animation: slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1300ms {
+  animation: slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1500ms {
+  animation: slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1700ms {
+  animation: slideIn 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1900ms {
+  animation: slideIn 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}

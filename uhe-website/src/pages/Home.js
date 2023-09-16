@@ -33,19 +33,8 @@ const OpeningImage = styled('div')(({ theme }) => ({
     },
 }));
 
-const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
-    "@keyframes slideIn": {
-        "0%": {
-            transform: "translateY(100px)",
-            opacity: 0,
-        },
-        "100%": {
-            transform: "translateY(0px)",
-            opacity: 1,
-        }
-    },
+const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    animation: slideIn && `slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     fontSize:"5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
@@ -56,18 +45,7 @@ const OpeningImageText = styled('div')(({ theme , slideIn}) => ({
     },
 }));
 
-const OpeningImageSubtitle = styled('div')(({ theme, slideIn}) => ({
-    "@keyframes slideIn": {
-        "0%": {
-            transform: "translateY(100px)",
-            opacity: 0,
-        },
-        "100%": {
-            transform: "translateY(0px)",
-            opacity: 1,
-        }
-    },
-    animation: slideIn && `slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+const OpeningImageSubtitle = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
     marginLeft:"23px",
     fontSize:"3.5rem",
@@ -80,12 +58,10 @@ const OpeningImageSubtitle = styled('div')(({ theme, slideIn}) => ({
 }));
 
 function HomePageImage() {
-    // const ref = React.useRef();
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-100px 0px',
     });
-
     return(
         <OpeningImage ref={ref}>
             <Grid
@@ -95,12 +71,12 @@ function HomePageImage() {
                 }}
                 container>
                 <Grid item md={12}>
-                    <OpeningImageText slideIn={inView} item md={12}>
+                    <OpeningImageText className={inView ? 'slideIn1300ms' : ''} item md={12}>
                         University of Hawaii Esports
                     </OpeningImageText>
                 </Grid>
                 <Grid item md={12}>
-                    <OpeningImageSubtitle slideIn={inView} item md={12}>
+                    <OpeningImageSubtitle className={inView ? 'slideIn1500ms' : ''} item md={12}>
                         subtitle text to add
                     </OpeningImageSubtitle>
                 </Grid>
@@ -213,7 +189,7 @@ function OurMilestones() {
     return(
         <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
-                <SectionTitle slideIn={inView}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
@@ -255,19 +231,7 @@ function JoinDiscord() {
     );
 }
 
-const UHEInfoImages = styled('div')(({ theme , slideIn}) => ({
-    "@keyframes slideIn": {
-        "0%": {
-            transform: "translateY(100px)",
-            opacity: 0,
-        },
-        "100%": {
-            transform: "translateY(0px)",
-            opacity: 1,
-        }
-    },
-    // visibility: !slideIn && 'hidden',
-    animation: slideIn && `slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+const UHEInfoImages = styled('div')(({ theme}) => ({
     backgroundSize: "cover",
     height: "400px",
     borderRadius:'20px',
@@ -290,37 +254,36 @@ function UHEInfoBlock() {
             justifyContent="center"
             ref={ref}>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} slideIn={inView}/>
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''}/>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"left"}} slideIn={inView}>
+                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
                     iLab
                 </SectionTitle>
-                <SectionDescription slideIn={inView}>
+                <SectionDescription className={inView ? 'slideIn1500ms' : ''}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={5} item>
-                <SectionTitle style={{textAlign:"right"}} slideIn={inView}>
+                <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : ''}>
                     Education
                 </SectionTitle>
-                <SectionDescription sx={{textAlign:"right"}} slideIn={inView}>
+                <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : ''}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
                 </SectionDescription>
             </Grid>
             <Grid lg={5} md={5} xs={7} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} slideIn={inView} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
             </Grid>
         </Grid>
     );
 }
 
 const SponsorLogos = styled('div')(() => ({
-    // visibility: !slideIn && 'hidden',
     backgroundImage: `url('${uheLogo}')`,
     backgroundSize: "cover",
     width: "150px",
@@ -334,21 +297,21 @@ function Sponsors() {
     return(
         <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={ref}>
             <Grid item md={12} xs={12}>
-                <SectionTitle slideIn={inView}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'logoFirst' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1300ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'logoSecond' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1500ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'logoThird' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1700ms' : ''} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'logoFourth' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1900ms' : ''} />
             </Grid>
         </Grid>
     );
