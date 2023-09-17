@@ -15,7 +15,7 @@ import uheLogo from "../images/uhe_logo.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
-
+import {Link as RouterLink} from "react-router-dom";
 
 const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
@@ -88,11 +88,15 @@ function HomePageImage() {
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "400px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     margin: '20px 0 20px 20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
+
 }));
 
 const settings = {
@@ -109,7 +113,7 @@ const settings = {
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 infinite: true,
-                dots: true
+                dots: true,
             }
         },
         {
@@ -168,9 +172,12 @@ function AboutSection() {
 const MileStoneImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "450px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
 }));
 
@@ -218,7 +225,7 @@ function JoinDiscord() {
                     <br />
                     Discord Members
                 </SectionTitle>
-                <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen">Join Now</Button>
+                <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Join Now</Button>
             </Grid>
             <Grid item md={5}>
                 <img
@@ -234,9 +241,12 @@ function JoinDiscord() {
 const UHEInfoImages = styled('div')(({ theme}) => ({
     backgroundSize: "cover",
     height: "400px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
 }));
 
@@ -249,14 +259,14 @@ function UHEInfoBlock() {
         <Grid
             sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
             container
-            spacing={4}
+            spacing={2}
             alignItems="center"
             justifyContent="center"
             ref={ref}>
-            <Grid lg={5} md={5} xs={7} item>
+            <Grid lg={5} md={5} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''}/>
             </Grid>
-            <Grid lg={5} md={5} xs={5} item>
+            <Grid lg={5} md={5} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
                     iLab
                 </SectionTitle>
@@ -264,9 +274,20 @@ function UHEInfoBlock() {
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
+                    <br/>
+                    <Button
+                        sx={{mt:2, fontWeight:"bold"}}
+                        size="large"
+                        variant="contained"
+                        color="uhegreen"
+                        component={RouterLink}
+                        to="/ilab">
+                        Read More
+                    </Button>
                 </SectionDescription>
             </Grid>
-            <Grid lg={5} md={5} xs={5} item>
+            {/*Display when it is greater than or equal to md*/}
+            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
                 <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : ''}>
                     Education
                 </SectionTitle>
@@ -274,12 +295,48 @@ function UHEInfoBlock() {
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
+                    <br/>
+                    <Button
+                        sx={{mt:2, fontWeight:"bold"}}
+                        size="large"
+                        variant="contained"
+                        color="uhegreen"
+                        component={RouterLink}
+                        to="/education">
+                        Read More
+                    </Button>
                 </SectionDescription>
             </Grid>
-            <Grid lg={5} md={5} xs={7} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
             </Grid>
+
+            {/*Display when it is less than md*/}
+            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}} xs={12} item>
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
+            </Grid>
+            <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
+                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
+                    Education
+                </SectionTitle>
+                <SectionDescription className={inView ? 'slideIn1500ms' : ''}>
+                    Tempora aut est maiores error laudantium
+                    <br/>
+                    ut architecto impedit.
+                    <br/>
+                    <Button
+                        sx={{mt:2, fontWeight:"bold"}}
+                        size="large"
+                        variant="contained"
+                        color="uhegreen"
+                        component={RouterLink}
+                        to="/education">
+                        Read More
+                    </Button>
+                </SectionDescription>
+            </Grid>
         </Grid>
+
     );
 }
 

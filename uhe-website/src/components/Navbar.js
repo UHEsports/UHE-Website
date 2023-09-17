@@ -12,7 +12,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import Button from '@mui/material/Button';
 
 function Navbar() {
     const [state, setState] = React.useState({
@@ -43,7 +42,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Home
                         </Link>
                     </ListItemButton>
@@ -56,7 +55,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/ilab"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Ilab
                         </Link>
                     </ListItemButton>
@@ -69,7 +68,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/education"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Education
                         </Link>
                     </ListItemButton>
@@ -82,7 +81,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="contact-us"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Contact Us
                         </Link>
                     </ListItemButton>
@@ -95,6 +94,7 @@ function Navbar() {
         <AppBar
             sx={{
                 width: '100%',
+                p: 2
             }}
             color="transparent"
             position="absolute"
@@ -104,14 +104,14 @@ function Navbar() {
                     <Grid
                         container
                         alignItems="center">
-                        <Grid md={3} xs={2}>
+                        <Grid sx={{ display: {lg: 'block', md: 'block',xs:'none' }}} md={3}>
                             <img alt="UHE Logo" width='75px' src={uheLogo}/>
                         </Grid>
-                        <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={10}>
+                        <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12}>
                             <IconButton
                                 size="large"
                                 aria-label="menu"
-                                sx={{ mr: 2, float:"right", color:"white" }}
+                                sx={{ float:"right", color:"white" }}
                                 onClick={toggleDrawer("top", true)}
                             >
                                 <MenuIcon />
