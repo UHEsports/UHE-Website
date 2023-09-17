@@ -93,7 +93,11 @@ const CarouselImages = styled('div')(({ theme }) => ({
     margin: '20px 0 20px 20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
+
 }));
 
 const settings = {
@@ -110,7 +114,8 @@ const settings = {
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 infinite: true,
-                dots: true
+                dots: true,
+                // height
             }
         },
         {
@@ -172,6 +177,9 @@ const MileStoneImages = styled('div')(({ theme }) => ({
     borderRadius:'20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
 }));
 
@@ -238,6 +246,9 @@ const UHEInfoImages = styled('div')(({ theme}) => ({
     borderRadius:'20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
     },
 }));
 
