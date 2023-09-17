@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import Divider from '@mui/material/Divider';
 
 function Navbar() {
     const [state, setState] = React.useState({
@@ -33,7 +34,7 @@ function Navbar() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List>
+            <List disablePadding>
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link
@@ -47,6 +48,7 @@ function Navbar() {
                         </Link>
                     </ListItemButton>
                 </ListItem>
+                <Divider />
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link
@@ -60,6 +62,7 @@ function Navbar() {
                         </Link>
                     </ListItemButton>
                 </ListItem>
+                <Divider />
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link
@@ -73,6 +76,7 @@ function Navbar() {
                         </Link>
                     </ListItemButton>
                 </ListItem>
+                <Divider />
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link
