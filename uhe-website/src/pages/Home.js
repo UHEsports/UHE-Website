@@ -16,7 +16,6 @@ import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
-import Box from '@mui/material/Box';
 
 const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
@@ -287,7 +286,7 @@ function UHEInfoBlock() {
                     </Button>
                 </SectionDescription>
             </Grid>
-            {/*Display when it is greater than xs*/}
+            {/*Display when it is greater than or equal to md*/}
             <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
                 <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : ''}>
                     Education
@@ -308,12 +307,12 @@ function UHEInfoBlock() {
                     </Button>
                 </SectionDescription>
             </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block',xs:'none' }}} lg={5} md={5} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
             </Grid>
 
-            {/*Display when it is greater than xs*/}
-            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
+            {/*Display when it is less than md*/}
+            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
             </Grid>
             <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
