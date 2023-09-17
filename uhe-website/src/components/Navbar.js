@@ -42,7 +42,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Home
                         </Link>
                     </ListItemButton>
@@ -55,7 +55,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/ilab"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Ilab
                         </Link>
                     </ListItemButton>
@@ -68,7 +68,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="/education"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Education
                         </Link>
                     </ListItemButton>
@@ -81,7 +81,7 @@ function Navbar() {
                             variant="button"
                             color="black"
                             to="contact-us"
-                            sx={{my: 1, mx: 1.5, fontWeight:'bold'}}>
+                            sx={{my: 1, mx: 1.5, fontWeight:'bold', width:'100%'}}>
                             Contact Us
                         </Link>
                     </ListItemButton>

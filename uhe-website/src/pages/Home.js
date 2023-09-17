@@ -89,7 +89,7 @@ function HomePageImage() {
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "400px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     margin: '20px 0 20px 20px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
@@ -174,7 +174,7 @@ function AboutSection() {
 const MileStoneImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "450px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
         [theme.breakpoints.down('md')]: {
@@ -243,7 +243,7 @@ function JoinDiscord() {
 const UHEInfoImages = styled('div')(({ theme}) => ({
     backgroundSize: "cover",
     height: "400px",
-    borderRadius:'20px',
+    borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
         [theme.breakpoints.down('md')]: {
