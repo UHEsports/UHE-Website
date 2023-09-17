@@ -104,14 +104,14 @@ function Navbar() {
                     <Grid
                         container
                         alignItems="center">
-                        <Grid md={3} xs={2}>
+                        <Grid sx={{ display: {lg: 'block', md: 'block',xs:'none' }}} md={3}>
                             <img alt="UHE Logo" width='75px' src={uheLogo}/>
                         </Grid>
-                        <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={10}>
+                        <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12}>
                             <IconButton
                                 size="large"
                                 aria-label="menu"
-                                sx={{ mr: 2, float:"right", color:"white" }}
+                                sx={{ float:"right", color:"white" }}
                                 onClick={toggleDrawer("top", true)}
                             >
                                 <MenuIcon />
