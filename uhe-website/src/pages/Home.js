@@ -137,7 +137,7 @@ const images = [
 
 function AboutSection() {
     return (
-        <Grid sx={{mt:3, p:3}} justifyContent="center" spacing={2} container>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={2} container>
             <Grid item lg={4} md={4}>
                 <SectionTitle>
                     Who are we?
@@ -191,21 +191,21 @@ const MileStoneText = styled('div')(({ theme }) => ({
 function OurMilestones() {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '100px 0px',
+        rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:2}} container spacing={4} justifyContent="center">
+        <Grid sx={{mt:{ lg:2, md:2, xs:1 }}} container spacing={4} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
-                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:5}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:5, md:3, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
             </Grid>
-            <Grid sx={{mt:5}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:5, md:3, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
@@ -253,7 +253,7 @@ const UHEInfoImages = styled('div')(({ theme}) => ({
 function UHEInfoBlock() {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '50px 0px',
+        rootMargin: '-150px',
     });
     return(
         <Grid
@@ -264,13 +264,13 @@ function UHEInfoBlock() {
             justifyContent="center"
             ref={ref}>
             <Grid lg={5} md={5} xs={12} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''}/>
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
             </Grid>
             <Grid lg={5} md={5} xs={12} item>
-                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
+                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     iLab
                 </SectionTitle>
-                <SectionDescription className={inView ? 'slideIn1500ms' : ''}>
+                <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
@@ -288,10 +288,10 @@ function UHEInfoBlock() {
             </Grid>
             {/*Display when it is greater than or equal to md*/}
             <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
-                <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : ''}>
+                <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
-                <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : ''}>
+                <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : 'hidden'}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
@@ -308,18 +308,18 @@ function UHEInfoBlock() {
                 </SectionDescription>
             </Grid>
             <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
 
             {/*Display when it is less than md*/}
             <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}} xs={12} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : ''} />
+                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
             <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
-                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : ''}>
+                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
-                <SectionDescription className={inView ? 'slideIn1500ms' : ''}>
+                <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
                     Tempora aut est maiores error laudantium
                     <br/>
                     ut architecto impedit.
@@ -349,26 +349,26 @@ const SponsorLogos = styled('div')(() => ({
 function Sponsors() {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '50px 0px',
+        rootMargin: '-50px 0px',
     });
     return(
-        <Grid sx={{mt:3, p:3}} container justifyContent="center" ref={ref}>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} container justifyContent="center" ref={ref}>
             <Grid item md={12} xs={12}>
-                <SectionTitle className={inView ? 'slideIn1300ms' : ''}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1300ms' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1300ms' : 'hidden'} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1500ms' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1500ms' : 'hidden'} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1700ms' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1700ms' : 'hidden'} />
             </Grid>
             <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1900ms' : ''} />
+                <SponsorLogos className={inView ? 'slideIn1900ms' : 'hidden'} />
             </Grid>
         </Grid>
     );
