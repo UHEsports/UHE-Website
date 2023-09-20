@@ -16,6 +16,7 @@ import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
+import Games from "../components/Games";
 
 const OpeningImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${group_4}')`,
@@ -379,6 +380,7 @@ function Home() {
         <>
             <HomePageImage />
             <AboutSection />
+            <Games />
             {/*TODO games component location*/}
             <JoinDiscord />
             <OurMilestones />

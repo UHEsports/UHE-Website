@@ -77,3 +77,32 @@
   visibility: visible;
   animation: slideIn 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+.parent {
+  width: 100px;
+  height: 461px;
+  overflow: hidden;
+  border-radius:10px;
+  position: relative;
+}
+
+/*.parent:hover .child,*/
+/*.parent:focus .child {*/
+/*  transform: scale(1.1);*/
+/*  background-color: #00a772;*/
+/*}*/
+
+/*.parent:hover .child:before,*/
+/*.parent:focus .child:before {*/
+/*  display: block;*/
+/*}*/
+.child:hover,
+.child:focus {
+  transform: scale(1.1);
+  background-color: #00a772;
+}
+
+/*.parent:hover .child:before,*/
+/*.parent:focus .child:before {*/
+/*  display: block;*/
+/*}*/
