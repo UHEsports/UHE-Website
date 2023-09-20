@@ -253,7 +253,7 @@ const UHEInfoImages = styled('div')(({ theme}) => ({
 function UHEInfoBlock() {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        rootMargin: '-200px',
+        rootMargin: '-150px',
     });
     return(
         <Grid
