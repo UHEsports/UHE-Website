@@ -49,22 +49,31 @@
   }
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .slideIn1000ms {
+  visibility: visible;
   animation: slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slideIn1300ms {
+  visibility: visible;
   animation: slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slideIn1500ms {
+  visibility: visible;
   animation: slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slideIn1700ms {
+  visibility: visible;
   animation: slideIn 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slideIn1900ms {
+  visibility: visible;
   animation: slideIn 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
