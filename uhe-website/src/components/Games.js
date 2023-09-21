@@ -15,17 +15,20 @@ import './Games.css';
 const ApexImage = styled('div')(({ theme }) => ({
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-40px 20px",
-    width: '155px',
-    height: '461px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
+    position:'absolute',
+    width: '200px',
+    height: '527px',
+    backgroundPosition: "-40px 20px",
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-40px 20px",
+        width: '155px',
+        height: '461px',
     //     height: "300px",
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const ValorantImage = styled('div')(({ theme }) => ({
@@ -61,16 +64,20 @@ const LOLImage = styled('div')(({ theme }) => ({
 }));
 
 const GameCard = styled('div')(({theme, background}) => ({
-    width: '100px',
-    height: '400px',
     overflow: 'hidden',
-    borderRadius:'10px',
+    borderRadius: '10px',
     position: 'relative',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundImage: `url('${background}')`,
-    color:'rgba(255,255,255,0)',
+    color: 'rgba(255,255,255,0)',
     transition: 'background-image .5s, color .5s',
+    width: '125px',
+    height: '450px',
+    [theme.breakpoints.down('lg')]: {
+        width: '100px',
+        height: '400px',
+    },
 }));
 
 const GameTitleText = styled('div')(({ theme }) => ({
@@ -78,10 +85,14 @@ const GameTitleText = styled('div')(({ theme }) => ({
     fontSize: "2.30rem",
     textAlign:'left',
     transform: 'rotate(-90deg)',
-    width: '420px',
-    top: '40%',
-    left:'-130px',
     position:'absolute',
+    width: '420px',
+    top: '45%',
+    left:'-105px',
+    [theme.breakpoints.down('lg')]: {
+        top: '40%',
+        left:'-130px',
+    },
     // transition: 'opacity .7s',
 }));
 function Games() {
@@ -103,11 +114,41 @@ function Games() {
                     APEX LEGENDS
                 </GameTitleText>
             </GameCard>
-
             <GameCard style={{marginLeft:'10px'}} background={haven} className="parentValorant">
                 <ValorantImage className="child" style={{backgroundImage: `url('${valorant}')`}} />
                 <GameTitleText>
                     VALORANT
+                </GameTitleText>
+            </GameCard>
+            <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
+                <LOLImage className="child" style={{backgroundImage: `url('${league}')`}} />
+                <GameTitleText>
+                    LEAGUE OF LEGENDS
+                </GameTitleText>
+            </GameCard>
+            {/*test*/}
+            <GameCard style={{marginLeft:'10px'}} className="parent" background={worldsEdge}>
+                <ApexImage className="child" style={{backgroundImage: `url('${apex}')`}} />
+                <GameTitleText>
+                    APEX LEGENDS
+                </GameTitleText>
+            </GameCard>
+            <GameCard style={{marginLeft:'10px'}} className="parent" background={worldsEdge}>
+                <ApexImage className="child" style={{backgroundImage: `url('${apex}')`}} />
+                <GameTitleText>
+                    APEX LEGENDS
+                </GameTitleText>
+            </GameCard>
+            <GameCard style={{marginLeft:'10px'}} background={haven} className="parentValorant">
+                <ValorantImage className="child" style={{backgroundImage: `url('${valorant}')`}} />
+                <GameTitleText>
+                    VALORANT
+                </GameTitleText>
+            </GameCard>
+            <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
+                <LOLImage className="child" style={{backgroundImage: `url('${league}')`}} />
+                <GameTitleText>
+                    LEAGUE OF LEGENDS
                 </GameTitleText>
             </GameCard>
             <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
