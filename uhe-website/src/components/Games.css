@@ -1,0 +1,35 @@
+/*.gamesText {*/
+/*    opacity: 0;*/
+/*}*/
+
+.parent {
+    width: 100px;
+    height: 400px;
+    overflow: hidden;
+    border-radius:10px;
+    position: relative;
+    background-size: cover;
+    background-image: url("../images/worlds-edge-1.png");
+    color:rgba(255,255,255,0);
+    transition: background-image .5s, color .5s;
+    /*background-color:#61dafb;*/
+}
+
+.parent:hover,
+.parent:focus {
+    background-image: url("../images/worlds-edge-2.png");
+    color:rgba(255,255,255,1);
+}
+
+.parent:hover .child,
+.parent:focus .child {
+    transform: scale(1.1);
+    /*transition: background-image .7s;*/
+    /*background-size: cover;*/
+    /*background-color: #00a772;*/
+}
+
+/*.parent:hover .child:before,*/
+/*.parent:focus .child:before {*/
+/*  display: block;*/
+/*}*/
