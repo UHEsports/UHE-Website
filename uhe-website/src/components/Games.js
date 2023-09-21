@@ -25,9 +25,11 @@ const ApexImage = styled('div')(({ theme }) => ({
         width: '155px',
         height: '461px',
     //     height: "300px",
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
+        [theme.breakpoints.down('md')]: {
+            backgroundPosition: "220px 10px",
+            width: '375px',
+            // height: '461px',
+        },
     },
 }));
 
@@ -77,6 +79,10 @@ const GameCard = styled('div')(({theme, background}) => ({
     [theme.breakpoints.down('lg')]: {
         width: '100px',
         height: '400px',
+        [theme.breakpoints.down('md')]: {
+            width: '375px',
+            height: '100px',
+        },
     },
 }));
 
