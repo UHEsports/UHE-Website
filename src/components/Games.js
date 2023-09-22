@@ -1,18 +1,22 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import {styled} from "@mui/material/styles";
-import apex from '../images/wraith_apex.png';
-import valorant from '../images/jett_valorant.webp';
-import league from '../images/ahri_lol.png';
+import wraith from '../images/wraith_apex.png';
+import jett from '../images/jett_valorant.webp';
+import ahri from '../images/ahri_lol.png';
+import winston from '../images/winston_overwatch.png';
+import lucio from '../images/lucio_overwatch.png';
 import worldsEdge from '../images/worlds_edge_v2_1.png';
 import summonersRift from '../images/summoners_rift_1.png';
 import haven from '../images/haven_1.png';
+import eichenwald from '../images/eichenwald_overwatch_1.png';
 import SectionTitle from "./SectionTitle";
 import {useInView} from "react-intersection-observer";
 import './Games.css';
 
 
-const ApexImage = styled('div')(({ theme }) => ({
+const ApexCharacterImage = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${wraith}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     transition: 'all .7s',
@@ -24,16 +28,15 @@ const ApexImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-40px 20px",
         width: '155px',
         height: '461px',
-    //     height: "300px",
         [theme.breakpoints.down('md')]: {
             backgroundPosition: "220px 10px",
             width: '375px',
-            // height: '461px',
         },
     },
 }));
 
-const ValorantImage = styled('div')(({ theme }) => ({
+const ValorantCharacterImage = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${jett}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-60px 20px",
@@ -49,7 +52,8 @@ const ValorantImage = styled('div')(({ theme }) => ({
     // },
 }));
 
-const LOLImage = styled('div')(({ theme }) => ({
+const LOLCharacterImage = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${ahri}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-220px 5px",
@@ -65,13 +69,30 @@ const LOLImage = styled('div')(({ theme }) => ({
     // },
 }));
 
-const GameCard = styled('div')(({theme, background}) => ({
+const OverwatchCharacterImage = styled('div')(({ theme }) => ({
+    backgroundImage: `url('${lucio}')`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "-100px -15px",
+    width: '420px',
+    height: '500px',
+    transition: 'all .7s',
+    position:'absolute'
+    // [theme.breakpoints.down('lg')]: {
+    //     height: "300px",
+    //     [theme.breakpoints.down('md')]: {
+    //         height: "250px",
+    //     },
+    // },
+}));
+
+const GameCard = styled('div')(({theme, defaultBackground}) => ({
     overflow: 'hidden',
     borderRadius: '10px',
     position: 'relative',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundImage: `url('${background}')`,
+    backgroundImage: `url('${defaultBackground}')`,
     color: 'rgba(255,255,255,0)',
     transition: 'background-image .5s, color .5s',
     width: '125px',
@@ -114,53 +135,34 @@ function Games() {
                 </SectionTitle>
             </Grid>
 
-            <GameCard className="parent" background={worldsEdge}>
-                <ApexImage className="child" style={{backgroundImage: `url('${apex}')`}} />
+            <GameCard defaultBackground={worldsEdge} className="apexBackgroundTransition characterImageScale">
+                <ApexCharacterImage className="child" />
                 <GameTitleText>
                     APEX LEGENDS
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} background={haven} className="parentValorant">
-                <ValorantImage className="child" style={{backgroundImage: `url('${valorant}')`}} />
+            <GameCard style={{marginLeft:'10px'}} defaultBackground={haven} className="valorantBackgroundTransition characterImageScale">
+                <ValorantCharacterImage className="child" />
                 <GameTitleText>
                     VALORANT
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
-                <LOLImage className="child" style={{backgroundImage: `url('${league}')`}} />
+            <GameCard style={{marginLeft:'10px'}} defaultBackground={summonersRift} className="leagueBackgroundTransition characterImageScale">
+                <LOLCharacterImage className="child" />
                 <GameTitleText>
                     LEAGUE OF LEGENDS
                 </GameTitleText>
             </GameCard>
-            {/*test*/}
-            <GameCard style={{marginLeft:'10px'}} className="parent" background={worldsEdge}>
-                <ApexImage className="child" style={{backgroundImage: `url('${apex}')`}} />
+            <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className="overwatchBackgroundTransition characterImageScale">
+                <OverwatchCharacterImage className="child" />
                 <GameTitleText>
-                    APEX LEGENDS
+                    OVERWATCH 2
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} className="parent" background={worldsEdge}>
-                <ApexImage className="child" style={{backgroundImage: `url('${apex}')`}} />
+            <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className="overwatchBackgroundTransition characterImageScale">
+                <OverwatchCharacterImage className="child" />
                 <GameTitleText>
-                    APEX LEGENDS
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} background={haven} className="parentValorant">
-                <ValorantImage className="child" style={{backgroundImage: `url('${valorant}')`}} />
-                <GameTitleText>
-                    VALORANT
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
-                <LOLImage className="child" style={{backgroundImage: `url('${league}')`}} />
-                <GameTitleText>
-                    LEAGUE OF LEGENDS
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} background={summonersRift} className="parentLeague">
-                <LOLImage className="child" style={{backgroundImage: `url('${league}')`}} />
-                <GameTitleText>
-                    LEAGUE OF LEGENDS
+                    OVERWATCH 2
                 </GameTitleText>
             </GameCard>
         </Grid>
