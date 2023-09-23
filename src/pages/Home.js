@@ -195,18 +195,18 @@ function OurMilestones() {
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:2, md:2, xs:1 }}} container spacing={4} justifyContent="center">
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:5, md:3, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
             </Grid>
-            <Grid sx={{mt:{ lg:5, md:3, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</MileStoneText>
                 <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
@@ -380,9 +380,9 @@ function Home() {
         <>
             <HomePageImage />
             <AboutSection />
-            <Games />
             {/*TODO games component location*/}
             <JoinDiscord />
+            <Games />
             <OurMilestones />
             <UHEInfoBlock />
             <Sponsors />

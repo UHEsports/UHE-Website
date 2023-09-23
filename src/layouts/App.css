@@ -58,12 +58,42 @@
   animation: slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.slideIn1200ms {
+  visibility: visible;
+  animation: slideIn 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1250ms {
+  visibility: visible;
+  animation: slideIn 1.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .slideIn1300ms {
   visibility: visible;
   animation: slideIn 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.slideIn1350ms {
+  visibility: visible;
+  animation: slideIn 1.35s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1400ms {
+  visibility: visible;
+  animation: slideIn 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1450ms {
+  visibility: visible;
+  animation: slideIn 1.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .slideIn1500ms {
+  visibility: visible;
+  animation: slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slideIn1550ms {
   visibility: visible;
   animation: slideIn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
