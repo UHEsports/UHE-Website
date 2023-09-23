@@ -37,8 +37,8 @@ const ApexCharacterImage = styled('div')(({ theme }) => ({
     height: '527px',
     backgroundPosition: "-40px 20px",
     [theme.breakpoints.down('lg')]: {
-        backgroundPosition: "-40px 45px",
-        width: '155px',
+        backgroundPosition: "-45px 35px",
+        width: '175px',
         height: '461px',
         [theme.breakpoints.down('md')]: {
             backgroundPosition: "220px 10px",
@@ -57,9 +57,9 @@ const ValorantCharacterImage = styled('div')(({ theme }) => ({
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
-        backgroundPosition: "-65px 40px",
-        width: '270px',
-        height: '414px',
+        backgroundPosition: "-75px 40px",
+        width: '300px',
+        height: '500px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
@@ -89,9 +89,9 @@ const OverwatchCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${lucio}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-140px -15px",
-    width: '500px',
-    height: '600px',
+    backgroundPosition: "-140px -40px",
+    width: '530px',
+    height: '650px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
@@ -112,13 +112,15 @@ const SSBUCharacterImage = styled('div')(({ theme }) => ({
     width: '350px',
     height: '500px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-40px 70px",
+        width: '300px',
+        height: '500px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const CODCharacterImage = styled('div')(({ theme }) => ({
@@ -129,13 +131,15 @@ const CODCharacterImage = styled('div')(({ theme }) => ({
     width: '450px',
     height: '700px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-150px 60px",
+        width: '380px',
+        height: '700px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const RainbowSixCharacterImage = styled('div')(({ theme }) => ({
@@ -167,7 +171,7 @@ const MobileLegendsCharacterImage = styled('div')(({ theme }) => ({
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
-        backgroundPosition: "-250px 80px",
+        backgroundPosition: "-250px 60px",
         width: '600px',
         height: '800px',
     //     [theme.breakpoints.down('md')]: {
