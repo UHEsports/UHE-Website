@@ -4,7 +4,6 @@ import {styled} from "@mui/material/styles";
 import wraith from '../images/wraith_apex.png';
 import jett from '../images/jett_valorant.webp';
 import ahri from '../images/ahri_lol.png';
-import winston from '../images/winston_overwatch.png';
 import lucio from '../images/lucio_overwatch.png';
 import mario from '../images/mario_ssbu.png';
 import soldier from '../images/soldier_cod.png';
