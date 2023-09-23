@@ -51,51 +51,57 @@ const ValorantCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${jett}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-65px 40px",
-    width: '270px',
-    height: '414px',
+    backgroundPosition: "-90px 40px",
+    width: '370px',
+    height: '600px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-65px 40px",
+        width: '270px',
+        height: '414px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const LOLCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${ahri}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
+    backgroundPosition: "-220px 20px",
+    width: '600px',
+    height: '500px',
+    transition: 'all .7s',
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
     backgroundPosition: "-220px 5px",
     width: '600px',
     height: '431px',
-    transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const OverwatchCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${lucio}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-100px -15px",
-    width: '420px',
-    height: '500px',
+    backgroundPosition: "-140px -15px",
+    width: '500px',
+    height: '600px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-100px -15px",
+        width: '420px',
+        height: '500px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const SSBUCharacterImage = styled('div')(({ theme }) => ({
@@ -103,7 +109,7 @@ const SSBUCharacterImage = styled('div')(({ theme }) => ({
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-30px 70px",
-    width: '300px',
+    width: '350px',
     height: '500px',
     transition: 'all .7s',
     position:'absolute'
@@ -119,8 +125,8 @@ const CODCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${soldier}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-130px 85px",
-    width: '355px',
+    backgroundPosition: "-170px 40px",
+    width: '450px',
     height: '700px',
     transition: 'all .7s',
     position:'absolute'
@@ -189,14 +195,15 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
 
 const GameTitleText = styled('div')(({ theme }) => ({
     fontWeight: 'bold',
-    fontSize: "2.30rem",
+    fontSize: "2.45rem",
     textAlign:'left',
     transform: 'rotate(-90deg)',
     position:'absolute',
     width: '420px',
-    top: '45%',
+    top: '47%',
     left:'-105px',
     [theme.breakpoints.down('lg')]: {
+        fontSize: "2.30rem",
         top: '40%',
         left:'-130px',
     },
