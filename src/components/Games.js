@@ -229,43 +229,46 @@ function Games() {
                     UHE Teams
                 </SectionTitle>
             </Grid>
-            <Grid item md={12} sx={{
-                mt:{ lg:4, md:3, xs:1 },
-                display: "flex",
-                // alignItems: "center",
-                justifyContent: "center"
+            <Grid
+                item
+                md={12}
+                className={inView ? 'slideIn1400ms' : 'hidden'}
+                sx={{
+                    mt:{ lg:4, md:3, xs:1 },
+                    display: "flex",
+                    justifyContent: "center"
                 }}>
-                <GameCard defaultBackground={worldsEdgeGrey} className={inView ? 'slideIn1300ms apexBackgroundTransition characterImageScale' : 'hidden'}>
+                <GameCard defaultBackground={worldsEdgeGrey} className='apexBackgroundTransition characterImageScale'>
                     <ApexCharacterImage className="child" />
                     <GameTitleText>
                         APEX LEGENDS
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className="slideIn1350ms valorantBackgroundTransition characterImageScale">
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className='slideIn1300ms valorantBackgroundTransition characterImageScale'>
                     <ValorantCharacterImage className="child" />
                     <GameTitleText>
                         VALORANT
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={summonersRift} className="slideIn1400ms leagueBackgroundTransition characterImageScale">
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={summonersRift} className='leagueBackgroundTransition characterImageScale'>
                     <LOLCharacterImage className="child" />
                     <GameTitleText>
                         LEAGUE OF LEGENDS
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className="slideIn1450ms overwatchBackgroundTransition characterImageScale">
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className='overwatchBackgroundTransition characterImageScale'>
                     <OverwatchCharacterImage className="child" />
                     <GameTitleText>
                         OVERWATCH 2
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={finalDestination} className="slideIn1500ms ssbuBackgroundTransition characterImageScale">
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={finalDestination} className='ssbuBackgroundTransition characterImageScale'>
                     <SSBUCharacterImage className="child" />
                     <GameTitleText>
                         SUPER SMASH BROS.
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={nukeTown} className="codBackgroundTransition characterImageScale">
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={nukeTown} className='codBackgroundTransition characterImageScale'>
                     <CODCharacterImage className="child" />
                     <GameTitleText>
                         CALL OF DUTY
