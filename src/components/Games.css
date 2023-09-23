@@ -39,6 +39,30 @@
     color:rgba(255,255,255,1);
 }
 
+.ssbuBackgroundTransition:hover,
+.ssbuBackgroundTransition:focus {
+    background-image: url("../images/final_destination_ssbu_2.png");
+    color:rgba(255,255,255,1);
+}
+
+.codBackgroundTransition:hover,
+.codBackgroundTransition:focus {
+    background-image: url("../images/nuketown_cod_2.png");
+    color:rgba(255,255,255,1);
+}
+
+.rainbowsixBackgroundTransition:hover,
+.rainbowsixBackgroundTransition:focus {
+    background-image: url("../images/bank_rainbowsix_2.png");
+    color:rgba(255,255,255,1);
+}
+
+.mlbbBackgroundTransition:hover,
+.mlbbBackgroundTransition:focus {
+    background-image: url("../images/battlefield_mlbb_2.png");
+    color:rgba(255,255,255,1);
+}
+
 .characterImageScale:hover .child,
 .characterImageScale:focus .child {
     transform: scale(1.1);
