@@ -51,7 +51,7 @@ const ValorantCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${jett}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-90px 40px",
+    backgroundPosition: "-90px 30px",
     width: '370px',
     height: '600px',
     transition: 'all .7s',
@@ -70,8 +70,8 @@ const LOLCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${ahri}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-220px 20px",
-    width: '600px',
+    backgroundPosition: "-230px 0px",
+    width: '650px',
     height: '500px',
     transition: 'all .7s',
     position:'absolute',
@@ -142,34 +142,38 @@ const RainbowSixCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${sledge}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-120px 50px",
-    width: '300px',
+    backgroundPosition: "-150px 35px",
+    width: '380px',
     height: '700px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-120px 50px",
+        width: '300px',
+        height: '700px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const MobileLegendsCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${alucard}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "-250px 80px",
-    width: '600px',
+    backgroundPosition: "-280px 55px",
+    width: '700px',
     height: '800px',
     transition: 'all .7s',
-    position:'absolute'
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
+    position:'absolute',
+    [theme.breakpoints.down('lg')]: {
+        backgroundPosition: "-250px 80px",
+        width: '600px',
+        height: '800px',
     //     [theme.breakpoints.down('md')]: {
     //         height: "250px",
     //     },
-    // },
+    },
 }));
 
 const GameCard = styled('div')(({theme, defaultBackground}) => ({
