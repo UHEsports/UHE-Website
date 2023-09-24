@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../images/group_1.jpg';
 import group_2 from '../images/group_2.jpg';
 import group_3 from '../images/group_3.jpg';
+import group_4 from '../images/group_4.png';
 import discord_server from '../images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -311,7 +312,7 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            <OpeningPageImage header="University of Hawaii Esports" subtitle="Subtitle text"/>
+            <OpeningPageImage header="University of Hawaii Esports" subtitle="Subtitle text" imageURL={group_4}/>
             <AboutSection />
             <JoinDiscord />
             {/*TODO games component location*/}
