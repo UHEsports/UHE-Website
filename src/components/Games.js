@@ -59,9 +59,6 @@ const ValorantCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-75px 40px",
         width: '300px',
         height: '500px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -78,9 +75,6 @@ const LOLCharacterImage = styled('div')(({ theme }) => ({
     backgroundPosition: "-220px 5px",
     width: '600px',
     height: '431px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -97,9 +91,6 @@ const OverwatchCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-100px -15px",
         width: '420px',
         height: '500px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -116,9 +107,6 @@ const SSBUCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-40px 70px",
         width: '300px',
         height: '500px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -135,9 +123,6 @@ const CODCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-150px 60px",
         width: '380px',
         height: '700px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -154,9 +139,6 @@ const RainbowSixCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-120px 50px",
         width: '300px',
         height: '700px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -173,9 +155,6 @@ const MobileLegendsCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-250px 60px",
         width: '600px',
         height: '800px',
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
     },
 }));
 
@@ -193,10 +172,6 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
     [theme.breakpoints.down('lg')]: {
         width: '100px',
         height: '400px',
-        [theme.breakpoints.down('md')]: {
-            // width: '375px',
-            // height: '100px',
-        },
     },
 }));
 
@@ -214,7 +189,6 @@ const GameTitleText = styled('div')(({ theme }) => ({
         top: '40%',
         left:'-130px',
     },
-    // transition: 'opacity .7s',
 }));
 function Games() {
     const { ref, inView } = useInView({
@@ -286,9 +260,7 @@ function Games() {
                     </GameTitleText>
                 </GameCard>
             </Grid>
-
         </Grid>
-
     );
 }
 
