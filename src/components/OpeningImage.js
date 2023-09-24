@@ -17,4 +17,29 @@ const OpeningImage = styled('div')(({ theme }) => ({
     },
 }));
 
+const OpeningImageText = styled('div')(({ theme}) => ({
+    letterSpacing: "-1px",
+    fontSize:"5rem",
+    marginLeft:'20px',
+    [theme.breakpoints.down('lg')]: {
+        fontSize:"3.5rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"2.75rem",
+        },
+    },
+}));
+
+const OpeningImageSubtitle = styled('div')(({ theme}) => ({
+    letterSpacing: "-1px",
+    marginLeft:"23px",
+    fontSize:"3.5rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize:"2rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"1.5rem",
+        },
+    },
+}));
+
+
 export default OpeningImage;
