@@ -6,7 +6,6 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../images/group_1.jpg';
 import group_2 from '../images/group_2.jpg';
 import group_3 from '../images/group_3.jpg';
-import group_4 from '../images/group_4.png';
 import discord_server from '../images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -17,22 +16,7 @@ import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
-
-const OpeningImage = styled('div')(({ theme }) => ({
-    backgroundImage: `url('${group_4}')`,
-    backgroundSize: "cover",
-    height: "1000px",
-    display: "flex",
-    color: "white",
-    alignItems: "center",
-    alignContent: 'flex-start',
-    [theme.breakpoints.down('lg')]: {
-        height: "600px",
-        [theme.breakpoints.down('sm')]: {
-            height: "300px"
-        },
-    },
-}));
+import OpeningImage from "../components/OpeningImage";
 
 const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
@@ -380,15 +364,13 @@ function Home() {
         <>
             <HomePageImage />
             <AboutSection />
-            {/*TODO games component location*/}
             <JoinDiscord />
+            {/*TODO games component location*/}
             <Games />
             <OurMilestones />
             <UHEInfoBlock />
             <Sponsors />
-
         </>
-
     );
 }
 
