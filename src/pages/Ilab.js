@@ -1,6 +1,12 @@
 import * as React from 'react';
 import logo from "../logo.svg";
 import Button from "@mui/material/Button";
+import { useInView } from 'react-intersection-observer';
+//importing everything 
+
+function IlabPageImage(){
+
+}
 
 function Ilab() {
     return (
