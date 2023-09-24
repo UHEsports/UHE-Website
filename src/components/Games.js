@@ -213,7 +213,7 @@ function Games() {
                         APEX LEGENDS
                     </GameTitleText>
                 </GameCard>
-                <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className='slideIn1300ms valorantBackgroundTransition characterImageScale'>
+                <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className='valorantBackgroundTransition characterImageScale'>
                     <ValorantCharacterImage className="child" />
                     <GameTitleText>
                         VALORANT
