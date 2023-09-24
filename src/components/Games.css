@@ -1,20 +1,3 @@
-/*.gamesText {*/
-/*    opacity: 0;*/
-/*}*/
-/*.parent {*/
-/*    width: 100px;*/
-/*    height: 400px;*/
-/*    overflow: hidden;*/
-/*    border-radius:10px;*/
-/*    position: relative;*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    background-image: url("../images/worlds_edge_v2_1.png");*/
-/*    color:rgba(255,255,255,0);*/
-/*    transition: background-image .5s, color .5s;*/
-/*}*/
-
-/*TODO make classes for each individual component*/
 .leagueBackgroundTransition:hover,
 .leagueBackgroundTransition:focus {
     background-image: url("../images/summoners_rift_2.png");
@@ -66,12 +49,4 @@
 .characterImageScale:hover .child,
 .characterImageScale:focus .child {
     transform: scale(1.1);
-    /*transition: background-image .7s;*/
-    /*background-size: cover;*/
-    /*background-color: #00a772;*/
 }
-
-/*.parent:hover .child:before,*/
-/*.parent:focus .child:before {*/
-/*  display: block;*/
-/*}*/
