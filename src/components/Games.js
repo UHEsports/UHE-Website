@@ -39,10 +39,6 @@ const ApexCharacterImage = styled('div')(({ theme }) => ({
         backgroundPosition: "-45px 35px",
         width: '175px',
         height: '461px',
-        [theme.breakpoints.down('md')]: {
-            backgroundPosition: "220px 10px",
-            width: '375px',
-        },
     },
 }));
 
@@ -72,9 +68,9 @@ const LOLCharacterImage = styled('div')(({ theme }) => ({
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
-    backgroundPosition: "-220px 5px",
-    width: '600px',
-    height: '431px',
+        backgroundPosition: "-220px 5px",
+        width: '600px',
+        height: '431px',
     },
 }));
 
