@@ -1,4 +1,4 @@
-import {styled} from "@mui/material/styles";
+import { Grid, styled } from '@mui/material';
 import group_4 from "../images/group_4.png";
 
 const OpeningImage = styled('div')(({ theme }) => ({
@@ -42,4 +42,33 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
 }));
 
 
-export default OpeningImage;
+function OpeningPageImage() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-100px 0px',
+    });
+    return(
+        <OpeningImage ref={ref}>
+            <Grid
+                sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                }}
+                container>
+                <Grid item md={12}>
+                    <OpeningImageText className={inView ? 'slideIn1300ms' : ''} item md={12}>
+                        University of Hawaii Esports
+                    </OpeningImageText>
+                </Grid>
+                <Grid item md={12}>
+                    <OpeningImageSubtitle className={inView ? 'slideIn1500ms' : ''} item md={12}>
+                        subtitle text to add
+                    </OpeningImageSubtitle>
+                </Grid>
+            </Grid>
+        </OpeningImage>
+    );
+}
+
+
+export default OpeningPageImage;
