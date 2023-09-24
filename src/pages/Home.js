@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../images/group_1.jpg';
 import group_2 from '../images/group_2.jpg';
 import group_3 from '../images/group_3.jpg';
+import group_4 from '../images/group_4.png';
 import discord_server from '../images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -16,59 +17,8 @@ import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
-import OpeningImage from "../components/OpeningImage";
+import OpeningPageImage from '../components/OpeningPageImage';
 
-const OpeningImageText = styled('div')(({ theme}) => ({
-    letterSpacing: "-1px",
-    fontSize:"5rem",
-    marginLeft:'20px',
-    [theme.breakpoints.down('lg')]: {
-        fontSize:"3.5rem",
-        [theme.breakpoints.down('sm')]: {
-            fontSize:"2.75rem",
-        },
-    },
-}));
-
-const OpeningImageSubtitle = styled('div')(({ theme}) => ({
-    letterSpacing: "-1px",
-    marginLeft:"23px",
-    fontSize:"3.5rem",
-    [theme.breakpoints.down('lg')]: {
-        fontSize:"2rem",
-        [theme.breakpoints.down('sm')]: {
-            fontSize:"1.5rem",
-        },
-    },
-}));
-
-function HomePageImage() {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        rootMargin: '-100px 0px',
-    });
-    return(
-        <OpeningImage ref={ref}>
-            <Grid
-                sx={{
-                    textAlign: "left",
-                    fontWeight: "bold",
-                }}
-                container>
-                <Grid item md={12}>
-                    <OpeningImageText className={inView ? 'slideIn1300ms' : ''} item md={12}>
-                        University of Hawaii Esports
-                    </OpeningImageText>
-                </Grid>
-                <Grid item md={12}>
-                    <OpeningImageSubtitle className={inView ? 'slideIn1500ms' : ''} item md={12}>
-                        subtitle text to add
-                    </OpeningImageSubtitle>
-                </Grid>
-            </Grid>
-        </OpeningImage>
-    );
-}
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -362,7 +312,7 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            <HomePageImage />
+            <OpeningPageImage header="University of Hawaii Esports" subtitle="Subtitle text" imageURL={group_4}/>
             <AboutSection />
             <JoinDiscord />
             {/*TODO games component location*/}
