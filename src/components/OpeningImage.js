@@ -1,4 +1,5 @@
 import { Grid, styled } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
 import group_4 from "../images/group_4.png";
 
 const OpeningImage = styled('div')(({ theme }) => ({
