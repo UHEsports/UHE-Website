@@ -1,9 +1,8 @@
 import { Grid, styled } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import group_4 from "../images/group_4.png";
 
-const OpeningImage = styled('div')(({ theme }) => ({
-    backgroundImage: `url('${group_4}')`,
+const OpeningImage = styled('div')(({ theme, imageURL }) => ({
+    backgroundImage: `url('${imageURL}')`,
     backgroundSize: "cover",
     height: "1000px",
     display: "flex",
@@ -43,13 +42,13 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
 }));
 
 
-function OpeningPageImage({ header, subtitle }) {
+function OpeningPageImage({ header, subtitle, imageURL }) {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-100px 0px',
     });
     return(
-        <OpeningImage ref={ref}>
+        <OpeningImage ref={ref} imageURL={imageURL}>
             <Grid
                 sx={{
                     textAlign: "left",
