@@ -18,8 +18,6 @@ const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     backgroundPosition:"center",
     height: "450px",
-    // borderRadius:'10px',
-    // margin: '20px 0 20px 20px',
     [theme.breakpoints.down('lg')]: {
         height: "320px",
         [theme.breakpoints.down('md')]: {
@@ -62,7 +60,7 @@ const gengText = [
     ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
 ];
 
-function Internships() {
+function InternshipHeader() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-50px 0px',
@@ -74,13 +72,21 @@ function Internships() {
                     Internships
                 </SectionTitle>
             </Grid>
-            <Grid  item md={7} sm={10} sx={{p:2, mb:{ lg:6, md:4, sm:4, xs:4},}}>
+            <Grid  item md={7} sm={10} sx={{p:2,}}>
                 <SectionDescription className={inView ? 'slideIn1400ms' : 'hidden'}>
                     Talk about the team’s history here.
                     Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
                     Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim
                 </SectionDescription>
             </Grid>
+        </Grid>
+    );
+}
+
+// TODO Convert into a local component
+function InternshipGraphicRight(){
+    return(
+        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
             <Grid item lg={7} md={7} sm={12} xs={12} sx={{pt:{sm:2, xs:2}, pb:{sm:4, xs:4}, mb:{ sm:3 }, backgroundImage:`url('${gen_g_background}')`, backgroundSize:'cover', backgroundPosition:'center', display:'flex', alignItems:'center', justifyContent:'center' }}>
                 <Box sx={{ width:{ lg:'70%', md:'85%', sm:'70%', xs:'80%'}}}>
                     <SectionTitle>
@@ -120,12 +126,58 @@ function Internships() {
     );
 }
 
+function InternshipGraphicLeft(){
+    return(
+        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
+            <Grid item lg={5} md={5} sm={12} xs={12}>
+                <Box sx={{top:{lg:25, md:30, sm:0}, right:{lg:-30, md:-10, sm:0}, position:'relative',}}>
+                    <Slider {...imageCarouselSettings}>
+                        {
+                            images.map((image) => {
+                                return(
+                                    <>
+                                        <CarouselImages style={{backgroundImage:`url(${image})`}} />
+                                    </>
+                                );
+                            })
+                        }
+                    </Slider>
+                </Box>
+            </Grid>
+            <Grid item lg={7} md={7} sm={12} xs={12} sx={{pt:{sm:2, xs:2}, pb:{sm:4, xs:4}, mb:{ sm:3 }, backgroundImage:`url('${gen_g_background}')`, backgroundSize:'cover', backgroundPosition:'center', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                <Box sx={{ width:{ lg:'70%', md:'85%', sm:'70%', xs:'80%'}}}>
+                    <SectionTitle>
+                        GEN G
+                    </SectionTitle>
+                    <Slider {...textCarouselSettings}>
+                        {
+                            gengText.map((text) => {
+                                return(
+                                    <>
+                                        <SectionDescription sx={{p:2, textAlign:'center'}}>
+                                            <Box sx={{fontWeight:'bold'}}>{text[0]}</Box>{text[1]}
+                                        </SectionDescription>
+                                    </>
+                                );
+                            })
+                        }
+                    </Slider>
+                </Box>
+            </Grid>
+        </Grid>
+    );
+}
+
 function Education() {
     return (
         <>
             <OpeningPageImage header="Education" imageURL={education_1}/>
             {/*TODO instead of position absolute use grids and push the element out??*/}
-            <Internships />
+            <InternshipHeader />
+            <InternshipGraphicRight />
+            <Box sx={{display: {lg: 'block', md: 'block', xs:'none' }}}><InternshipGraphicLeft  /></Box>
+            <Box sx={{display: {lg: 'none', md: 'none', xs:'block' }}}><InternshipGraphicRight  /></Box>
+            <InternshipGraphicRight />
         </>
 
     );
