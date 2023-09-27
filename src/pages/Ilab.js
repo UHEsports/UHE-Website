@@ -19,16 +19,64 @@ import SectionDescription from "../components/SectionDescription";
 import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
 import OpeningPageImage from '../components/OpeningPageImage';
+import { Block, ChildCare } from '@mui/icons-material';
 
-function Spaces(){
+const SpacesMainImage = styled('images')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "250px",
+    [theme.breakpoints.down('lg')]: {
+        height: "200px",
+        [theme.breakpoints.down('md')]: {
+            height: "150px",
+        },
+    },
+}));
 
+const SpaceSideImage = styled('images')(({ theme }) => ({
+    
+}));
+
+function AvailableEquipment({/*will and to change this later to be more like OpeningImage*/}){
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-170px 0px',
+    });
+    return(
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
+            <Grid item md={12} xs={12} ref={ref}>
+                <AvailableEquipmentTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
+                    Available Equipment
+                </AvailableEquipmentTitle>
+            </Grid>
+            {/*problem with scrollable starting off the screen*/}
+            <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}> 
+                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
+            </Grid>
+        </Grid>
+    );
 }
+
+const AvailableEquipmentTitle = styled('div')(({ theme }) => ({
+    fontWeight: "bold",
+    wordSpacing: '-3px',
+    letterSpacing: "-1px",
+    fontSize: "3.25rem",
+    textAlign: "left",
+    marginBottom: "-2.0rem",
+    marginLeft: "1.5rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "2.5rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "2.25rem",
+        },
+    },
+}));
 
 const AvailableEquipmentImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "250px",
     [theme.breakpoints.down('lg')]: {
-        height: "100px",
+        height: "200px",
         [theme.breakpoints.down('md')]: {
             height: "150px",
         },
@@ -44,9 +92,10 @@ const AvailableEquipmentText = styled('div')(({ theme }) => ({
     },
 }));
 
-const EquipmentBlock = styled('div')(({ theme }) => ({
+const AvailableEquipmentBlock = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     borderRadius:'10px',
+    marginRight: "10px",
     [theme.breakpoints.down('lg')]: {
         height: "45%",
         width: "30%",
@@ -54,47 +103,48 @@ const EquipmentBlock = styled('div')(({ theme }) => ({
             height: "45%",
             width: "30%",
             [theme.breakpoints.down('sm')]: {
-                height: "35%",
-                width: "20%",
+                height: "50%",
+                width: "40%",
             }
         },
     },
-    margin: "10px",
 }));
 
-function AvailableEquipment() {
+function AvailableEquipment({/*will and to change this later to be more like OpeningImage*/}){
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"pink"}>
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
             <Grid item md={12} xs={12} ref={ref}>
-                <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
+                <AvailableEquipmentTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Available Equipment
-                </SectionTitle>
+                </AvailableEquipmentTitle>
             </Grid>
+            {/*problem with scrollable starting off the screen*/}
             <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}> 
-                <EquipmentBlock>
+                <AvailableEquipmentBlock className={inView ? 'slideIn1300ms' : 'hidden'} sx={{ml:3}}>
+                    {/*problem with element initially loading into screen (resizes after getting into position*/}
                     <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                     <AvailableEquipmentText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</AvailableEquipmentText>
                     <AvailableEquipmentText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</AvailableEquipmentText>
-                </EquipmentBlock>
-                <EquipmentBlock>
+                </AvailableEquipmentBlock>
+                <AvailableEquipmentBlock className={inView ? 'slideIn1300ms' : 'hidden'}>
                     <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                     <AvailableEquipmentText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</AvailableEquipmentText>
                     <AvailableEquipmentText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</AvailableEquipmentText>
-                </EquipmentBlock>
-                <EquipmentBlock>
+                </AvailableEquipmentBlock>
+                <AvailableEquipmentBlock className={inView ? 'slideIn1300ms' : 'hidden'}>
                     <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                     <AvailableEquipmentText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</AvailableEquipmentText>
                     <AvailableEquipmentText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</AvailableEquipmentText>
-                </EquipmentBlock>
-                <EquipmentBlock>
+                </AvailableEquipmentBlock>
+                <AvailableEquipmentBlock className={inView ? 'slideIn1300ms' : 'hidden'}>
                     <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                     <AvailableEquipmentText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</AvailableEquipmentText>
                     <AvailableEquipmentText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</AvailableEquipmentText>
-                </EquipmentBlock>
+                </AvailableEquipmentBlock>
             </Grid>
         </Grid>
     );
@@ -105,6 +155,7 @@ function Ilab() {
     return (
         <>
         <OpeningPageImage header="iLab" subtitle="Subtitle text" imageURL={group_4} />
+        <Spaces />
         <AvailableEquipment />
         </>
     );
