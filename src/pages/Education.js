@@ -12,6 +12,9 @@ import {styled} from "@mui/material";
 import geng_1 from "../images/geng_1.png";
 import geng_2 from "../images/geng_2.png";
 import geng_3 from "../images/geng_3.png";
+import Button from "@mui/material/Button";
+import courses_graphic from "../images/com369_graphic_fall_2023.png";
+import discord_server from "../images/discord_server.png";
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -139,11 +142,56 @@ function InternshipGraphicLeft({title, descriptions, images}){
     );
 }
 
+const CoursesGraphic = styled('div')(({ theme }) => ({
+    backgroundImage:`url('${courses_graphic}')`,
+    backgroundSize: "cover",
+    backgroundPosition:"center",
+    width:"562px",
+    height: "550px",
+    [theme.breakpoints.down('lg')]: {
+        height: "320px",
+        [theme.breakpoints.down('md')]: {
+            height: "400px",
+        },
+    },
+}));
+function Courses() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '-150px',
+    });
+    return(
+        <Grid sx={{mt:8, backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+            <Grid item lg={5} md={5} sm={11} xs={11}>
+                <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Courses</SectionTitle>
+                <Box sx={{mt:{lg:4, md:2, xs:2}}}>
+                    <SectionDescription style={{textAlign:'center'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+                        Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
+                        Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim dolor do aliqua duis nulla ad.
+                        Fugiat incididunt id quis cillum eiusmod consectetur aliqua
+                        <br/>
+                        <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
+                    </SectionDescription>
+                </Box>
+
+
+            </Grid>
+            <Grid item lg={4} md={5} sm={10} xs={11}>
+                <img
+                    style={{borderRadius:'10px'}}
+                    alt="UHE Courses"
+                    width="100%"
+                    className={inView ? 'slideIn1000ms' : 'hidden'}
+                    src={courses_graphic}
+                />
+                {/*<CoursesGraphic className={inView ? 'slideIn1000ms' : 'hidden'} />*/}
+            </Grid>
+        </Grid>
+    );
+}
+
 function Education() {
-    // We need org title
-    // we need org array descriptions
-    // images array
-    const images = [
+    const exampleImages = [
         geng_1,
         geng_2,
         geng_3,
@@ -157,10 +205,11 @@ function Education() {
         <>
             <OpeningPageImage header="Education" imageURL={education_1}/>
             <InternshipHeader />
-            <InternshipGraphicRight images={images} title="GEN G" descriptions={exampleText} />
-            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={images} title="OVERWATCH LEAGUE" descriptions={exampleText}  /></Box>
-            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={images} title="OVERWATCH LEAGUE" descriptions={exampleText} /> </Box>
-            <InternshipGraphicRight images={images} title="VANTA" descriptions={exampleText} />
+            <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} />
+            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText}  /></Box>
+            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} /> </Box>
+            <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} />
+            <Courses />
         </>
 
     );
