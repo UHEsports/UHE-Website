@@ -1,7 +1,17 @@
-.carouselRight {
-
+.InternshipInformation {
+    background-image: url('../images/gen_g_grey_background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/*.carouselLeft {*/
-/*    */
-/*}*/
+.InternshipInformation {
+    background-image: url('../images/gen_g_grey_background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
