@@ -54,7 +54,8 @@ function OpeningPageImage({ header, subtitle, imageURL }) {
                     textAlign: "left",
                     fontWeight: "bold",
                 }}
-                container>
+                container
+                direction="column">
                 <Grid item md={12}>
                     {inView ? (
                         <OpeningImageText className="slideIn1300ms" item md={12}>

@@ -1,18 +1,22 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
-import { Outlet, Link as RouterLink } from "react-router-dom";
-import Box from '@mui/material/Box';
+import React from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Link,
+  Box,
+  Grid,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  Divider,
+} from '@mui/material';
+import { Outlet, Link as RouterLink } from 'react-router-dom';
+
 import uheLogo from '../images/uhe_logo.png';
-import Grid from '@mui/material/Grid';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import Divider from '@mui/material/Divider';
+
 
 function Navbar() {
     const [state, setState] = React.useState({
