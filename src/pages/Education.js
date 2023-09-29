@@ -14,6 +14,9 @@ import geng_2 from "../images/geng_2.png";
 import geng_3 from "../images/geng_3.png";
 import Button from "@mui/material/Button";
 import courses_graphic from "../images/com369_graphic_fall_2023.png";
+import geng_background from "../images/geng_background.png";
+import overwatch_background from "../images/overwatch_background.png";
+import vanta_background from "../images/vanta_background.png";
 import discord_server from "../images/discord_server.png";
 
 const CarouselImages = styled('div')(({ theme }) => ({
@@ -74,9 +77,9 @@ function InternshipHeader() {
     );
 }
 
-function InternshipDescription({title, descriptions}) {
+function InternshipDescription({title, descriptions, backgroundURL}) {
     return(
-        <Grid item lg={7} md={7} sm={12} xs={12} sx={{pt:{sm:2, xs:2}, pb:{sm:5, xs:5}, flexDirection: 'column' }} className="InternshipInformation">
+        <Grid item lg={7} md={7} sm={12} xs={12} sx={{pt:{sm:2, xs:2}, pb:{sm:5, xs:5}, flexDirection: 'column',backgroundImage:`url('${backgroundURL}')`, backgroundPosition:'center', backgroundSize:'cover' }} className="InternshipInformation">
             <SectionTitle>
                 {title}
             </SectionTitle>
@@ -96,10 +99,10 @@ function InternshipDescription({title, descriptions}) {
         </Grid>
     );
 }
-function InternshipGraphicRight({title, descriptions, images}){
+function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
-            <InternshipDescription title={title} descriptions={descriptions} />
+            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
             <Grid item lg={5} md={5} sm={12} xs={12}>
                 <Box sx={{top:{lg:25, md:25, sm:0}, left:{lg:-30, md:-10, sm:0}, position:'relative'}}>
                     <Slider {...imageCarouselSettings}>
@@ -119,7 +122,7 @@ function InternshipGraphicRight({title, descriptions, images}){
     );
 }
 
-function InternshipGraphicLeft({title, descriptions, images}){
+function InternshipGraphicLeft({title, descriptions, images, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
             <Grid item lg={5} md={5} sm={12} xs={12}>
@@ -137,24 +140,11 @@ function InternshipGraphicLeft({title, descriptions, images}){
                     </Slider>
                 </Box>
             </Grid>
-            <InternshipDescription title={title} descriptions={descriptions} />
+            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
         </Grid>
     );
 }
 
-const CoursesGraphic = styled('div')(({ theme }) => ({
-    backgroundImage:`url('${courses_graphic}')`,
-    backgroundSize: "cover",
-    backgroundPosition:"center",
-    width:"562px",
-    height: "550px",
-    [theme.breakpoints.down('lg')]: {
-        height: "320px",
-        [theme.breakpoints.down('md')]: {
-            height: "400px",
-        },
-    },
-}));
 function Courses() {
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -205,10 +195,10 @@ function Education() {
         <>
             <OpeningPageImage header="Education" imageURL={education_1}/>
             <InternshipHeader />
-            <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} />
-            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText}  /></Box>
-            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} /> </Box>
-            <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} />
+            <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} backgroundURL={geng_background} />
+            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
+            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /> </Box>
+            <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} backgroundURL={vanta_background} />
             <Courses />
         </>
 
