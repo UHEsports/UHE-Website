@@ -5,7 +5,7 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Slider from "react-slick";
-import education_1 from "../images/education_intro_image_1.png";
+import education from "../images/education_intro_image.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import {styled} from "@mui/material";
@@ -98,6 +98,7 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
         </Grid>
     );
 }
+
 function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
@@ -162,8 +163,6 @@ function Courses() {
                         <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
                     </SectionDescription>
                 </Box>
-
-
             </Grid>
             <Grid item lg={4} md={5} sm={10} xs={11}>
                 <img
@@ -191,7 +190,7 @@ function Education() {
     ];
     return (
         <>
-            <OpeningPageImage header="Education" imageURL={education_1}/>
+            <OpeningPageImage header="Education" imageURL={education}/>
             <InternshipHeader />
             <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} backgroundURL={geng_background} />
             <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
@@ -199,7 +198,6 @@ function Education() {
             <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} backgroundURL={vanta_background} />
             <Courses />
         </>
-
     );
 }
 
