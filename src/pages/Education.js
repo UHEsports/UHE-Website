@@ -17,7 +17,6 @@ import courses_graphic from "../images/com369_graphic_fall_2023.png";
 import geng_background from "../images/geng_background.png";
 import overwatch_background from "../images/overwatch_background.png";
 import vanta_background from "../images/vanta_background.png";
-import discord_server from "../images/discord_server.png";
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -174,7 +173,6 @@ function Courses() {
                     className={inView ? 'slideIn1000ms' : 'hidden'}
                     src={courses_graphic}
                 />
-                {/*<CoursesGraphic className={inView ? 'slideIn1000ms' : 'hidden'} />*/}
             </Grid>
         </Grid>
     );
