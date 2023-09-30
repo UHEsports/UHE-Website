@@ -93,7 +93,6 @@ function AboutSection() {
                                 <div>
                                     <CarouselImages style={{backgroundImage:`url(${image})`}} />
                                 </div>
-
                             );
                         })
                     }
