@@ -5,18 +5,18 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Slider from "react-slick";
-import education from "../images/education_intro_image.png";
+import education from "../assets/images/education_intro_image.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import {styled} from "@mui/material";
-import geng_1 from "../images/geng_1.png";
-import geng_2 from "../images/geng_2.png";
-import geng_3 from "../images/geng_3.png";
+import geng_1 from "../assets/images/geng_1.png";
+import geng_2 from "../assets/images/geng_2.png";
+import geng_3 from "../assets/images/geng_3.png";
 import Button from "@mui/material/Button";
-import courses_graphic from "../images/com369_graphic_fall_2023.png";
-import geng_background from "../images/geng_background.png";
-import overwatch_background from "../images/overwatch_background.png";
-import vanta_background from "../images/vanta_background.png";
+import courses_graphic from "../assets/images/com369_graphic_fall_2023.png";
+import geng_background from "../assets/images/geng_background.png";
+import overwatch_background from "../assets/images/overwatch_background.png";
+import vanta_background from "../assets/images/vanta_background.png";
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
