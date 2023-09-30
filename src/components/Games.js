@@ -168,8 +168,12 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
     width: '125px !important',
     height: '450px',
     [theme.breakpoints.down('lg')]: {
-        width: '100px',
+        width: '115px !important',
         height: '400px',
+        // [theme.breakpoints.down('md')]: {
+        //     width: '75px',
+        //     height: '400px',
+        // },
     },
 }));
 
@@ -186,6 +190,11 @@ const GameTitleText = styled('div')(({ theme }) => ({
         fontSize: "2.30rem",
         top: '40%',
         left:'-130px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: "2.30rem",
+            top: '40%',
+            left:'-115px',
+        },
     },
 }));
 
@@ -243,24 +252,28 @@ const GameCards = () =>  (
     );
 
 const mobileGamesCarouselSettings = {
+    // focusOnSelect: true,
+    // centerMode: true,
     dots: false,
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
     speed: 500,
+    draggable:true,
+    swipeToSlide:true,
     // centerPadding: "60px",
     // swipeToSlide: true,
     arrows:false,
     responsive: [
         {
-            breakpoint: 825,
+            breakpoint: 800,
             settings: {
                 slidesToShow: 5,
                 slidesToScroll: 1,
             }
         },
         {
-            breakpoint: 700,
+            breakpoint: 680,
             settings: {
                 slidesToShow: 4,
                 slidesToScroll: 1,
