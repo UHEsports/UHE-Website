@@ -19,7 +19,7 @@ const OpeningImage = styled('div')(({ theme, imageURL }) => ({
 
 const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    fontSize:"8rem",
+    fontSize:"7.5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
         fontSize:"5rem",
