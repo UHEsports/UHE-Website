@@ -25,9 +25,6 @@ import battlefield from '../images/battlefield_mlbb_1.png';
 import SectionTitle from "./SectionTitle";
 import {useInView} from "react-intersection-observer";
 import './Games.css';
-import SectionDescription from "./SectionDescription";
-import Box from "@mui/material/Box";
-
 
 const ApexCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${wraith}')`,
@@ -213,7 +210,6 @@ const mobileGamesCarouselSettings = {
         {
             breakpoint: 790,
             settings: {
-                speed: 50,
                 slidesToShow: 5,
                 slidesToScroll: 1,
             }
@@ -221,7 +217,6 @@ const mobileGamesCarouselSettings = {
         {
             breakpoint: 670,
             settings: {
-                speed: 50,
                 slidesToShow: 4,
                 slidesToScroll: 1,
             }
@@ -229,7 +224,6 @@ const mobileGamesCarouselSettings = {
         {
             breakpoint: 570,
             settings: {
-                speed: 50,
                 slidesToShow: 3,
                 slidesToScroll: 1,
             }
