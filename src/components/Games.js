@@ -10,13 +10,13 @@ import soldier from '../images/soldier_cod.png';
 import sledge from '../images/sledge_rainbowsix.webp';
 import alucard from '../images/alucard_mlbb.png';
 import Slider from "react-slick";
-import worldsEdge from '../images/worlds_edge_v2_1.png';
-// TODO remove example
+// TODO remove examples | example start
 import worldsEdgeGrey from '../images/worlds_edge_1_v3.png';
 import summonersRift from '../images/summoners_rift_1.png';
-import haven from '../images/haven_1.png';
-//  TODO remove example
 import havenGreen from '../images/haven_2.png';
+// example end
+import worldsEdge from '../images/worlds_edge_v2_1.png';
+import haven from '../images/haven_1.png';
 import eichenwald from '../images/eichenwald_overwatch_1.png';
 import finalDestination from '../images/final_destination_ssbu_1.png';
 import nukeTown from '../images/nuketown_cod_1.png';
@@ -25,6 +25,8 @@ import battlefield from '../images/battlefield_mlbb_1.png';
 import SectionTitle from "./SectionTitle";
 import {useInView} from "react-intersection-observer";
 import './Games.css';
+import SectionDescription from "./SectionDescription";
+import Box from "@mui/material/Box";
 
 
 const ApexCharacterImage = styled('div')(({ theme }) => ({
@@ -156,7 +158,6 @@ const MobileLegendsCharacterImage = styled('div')(({ theme }) => ({
 }));
 
 const GameCard = styled('div')(({theme, defaultBackground}) => ({
-    // margin: '0px 20px 20px 20px',
     overflow: 'hidden',
     borderRadius: '10px',
     position: 'relative',
@@ -170,10 +171,10 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
     [theme.breakpoints.down('lg')]: {
         width: '115px !important',
         height: '400px',
-        // [theme.breakpoints.down('md')]: {
-        //     width: '75px',
-        //     height: '400px',
-        // },
+        [theme.breakpoints.down('sm')]: {
+            width: '105px !important',
+            height: '400px',
+        },
     },
 }));
 
@@ -191,90 +192,36 @@ const GameTitleText = styled('div')(({ theme }) => ({
         top: '40%',
         left:'-130px',
         [theme.breakpoints.down('md')]: {
-            fontSize: "2.30rem",
-            top: '40%',
             left:'-115px',
+            [theme.breakpoints.down('sm')]: {
+                left:'-125px',
+            },
         },
     },
 }));
 
-const GameCards = () =>  (
-        <>
-            <GameCard defaultBackground={worldsEdgeGrey} className='apexBackgroundTransition characterImageScale'>
-                <ApexCharacterImage className="child" />
-                <GameTitleText>
-                    APEX LEGENDS
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className='valorantBackgroundTransition characterImageScale'>
-                <ValorantCharacterImage className="child" />
-                <GameTitleText>
-                    VALORANT
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={summonersRift} className='leagueBackgroundTransition characterImageScale'>
-                <LOLCharacterImage className="child" />
-                <GameTitleText>
-                    LEAGUE OF LEGENDS
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className='overwatchBackgroundTransition characterImageScale'>
-                <OverwatchCharacterImage className="child" />
-                <GameTitleText>
-                    OVERWATCH 2
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={finalDestination} className='ssbuBackgroundTransition characterImageScale'>
-                <SSBUCharacterImage className="child" />
-                <GameTitleText>
-                    SUPER SMASH BROS.
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={nukeTown} className='codBackgroundTransition characterImageScale'>
-                <CODCharacterImage className="child" />
-                <GameTitleText>
-                    CALL OF DUTY
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={bank} className="rainbowsixBackgroundTransition characterImageScale">
-                <RainbowSixCharacterImage className="child" />
-                <GameTitleText>
-                    RAINBOW SIX SIEGE
-                </GameTitleText>
-            </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={battlefield} className="mlbbBackgroundTransition characterImageScale">
-                <MobileLegendsCharacterImage className="child" />
-                <GameTitleText>
-                    MOBILE LEGENDS
-                </GameTitleText>
-            </GameCard>
-        </>
-    );
-
 const mobileGamesCarouselSettings = {
-    // focusOnSelect: true,
-    // centerMode: true,
     dots: false,
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
-    speed: 500,
+    speed: 50,
     draggable:true,
     swipeToSlide:true,
-    // centerPadding: "60px",
-    // swipeToSlide: true,
     arrows:false,
     responsive: [
         {
-            breakpoint: 800,
+            breakpoint: 790,
             settings: {
+                speed: 50,
                 slidesToShow: 5,
                 slidesToScroll: 1,
             }
         },
         {
-            breakpoint: 680,
+            breakpoint: 670,
             settings: {
+                speed: 50,
                 slidesToShow: 4,
                 slidesToScroll: 1,
             }
@@ -282,12 +229,14 @@ const mobileGamesCarouselSettings = {
         {
             breakpoint: 570,
             settings: {
+                speed: 50,
                 slidesToShow: 3,
                 slidesToScroll: 1,
             }
         },
     ]
 };
+
 function MobileGameCarousel() {
     return (
         <Slider {...mobileGamesCarouselSettings}>
@@ -297,19 +246,19 @@ function MobileGameCarousel() {
                     APEX LEGENDS
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={havenGreen} className='valorantBackgroundTransition characterImageScale'>
+            <GameCard defaultBackground={havenGreen} className='valorantBackgroundTransition characterImageScale'>
                 <ValorantCharacterImage className="child" />
                 <GameTitleText>
                     VALORANT
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={summonersRift} className='leagueBackgroundTransition characterImageScale'>
+            <GameCard defaultBackground={summonersRift} className='leagueBackgroundTransition characterImageScale'>
                 <LOLCharacterImage className="child" />
                 <GameTitleText>
                     LEAGUE OF LEGENDS
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={eichenwald} className='overwatchBackgroundTransition characterImageScale'>
+            <GameCard defaultBackground={eichenwald} className='overwatchBackgroundTransition characterImageScale'>
                 <OverwatchCharacterImage className="child" />
                 <GameTitleText>
                     OVERWATCH 2
@@ -321,19 +270,19 @@ function MobileGameCarousel() {
                     SUPER SMASH BROS.
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={nukeTown} className='codBackgroundTransition characterImageScale'>
+            <GameCard defaultBackground={nukeTown} className='codBackgroundTransition characterImageScale'>
                 <CODCharacterImage className="child" />
                 <GameTitleText>
                     CALL OF DUTY
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={bank} className="rainbowsixBackgroundTransition characterImageScale">
+            <GameCard defaultBackground={bank} className="rainbowsixBackgroundTransition characterImageScale">
                 <RainbowSixCharacterImage className="child" />
                 <GameTitleText>
                     RAINBOW SIX SIEGE
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={battlefield} className="mlbbBackgroundTransition characterImageScale">
+            <GameCard defaultBackground={battlefield} className="mlbbBackgroundTransition characterImageScale">
                 <MobileLegendsCharacterImage className="child" />
                 <GameTitleText>
                     MOBILE LEGENDS
@@ -372,7 +321,6 @@ function Games() {
                 sx={{
                     mt:{ lg:4, md:3, xs:1 },
                     display: {lg: 'flex', md: 'flex', sm:'none', xs:'none' },
-                    // display: "flex",
                     justifyContent: "center"
                 }}>
                 <GameCard defaultBackground={worldsEdgeGrey} className='apexBackgroundTransition characterImageScale'>
@@ -424,7 +372,6 @@ function Games() {
                     </GameTitleText>
                 </GameCard>
             </Grid>
-
         </Grid>
     );
 }
