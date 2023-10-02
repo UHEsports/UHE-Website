@@ -31,7 +31,6 @@ const CarouselImages = styled('div')(({ theme }) => ({
             height: "250px",
         },
     },
-
 }));
 
 const settings = {
