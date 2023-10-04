@@ -315,7 +315,7 @@ function Games() {
                 md={12}
                 sx={{
                     mt:{ lg:4, md:3, xs:1 },
-                    display: "flex",
+                    display: {lg: 'flex', md: 'flex', sm:'none', xs:'none' },
                     justifyContent: "center"
                 }}>
                 <GameCard defaultBackground={worldsEdgeGrey} className='apexBackgroundTransition characterImageScale'>
