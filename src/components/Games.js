@@ -49,13 +49,13 @@ const ValorantCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-90px 30px",
     width: '370px',
-    height: '600px',
+    height: '567px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-75px 40px",
         width: '300px',
-        height: '500px',
+        height: '460px',
     },
 }));
 
@@ -65,7 +65,7 @@ const LOLCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-230px 0px",
     width: '650px',
-    height: '500px',
+    height: '467px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
@@ -81,13 +81,13 @@ const OverwatchCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-140px -40px",
     width: '530px',
-    height: '650px',
+    height: '683px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-100px -15px",
         width: '420px',
-        height: '500px',
+        height: '541px',
     },
 }));
 
@@ -97,13 +97,13 @@ const SSBUCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-30px 70px",
     width: '350px',
-    height: '500px',
+    height: '400px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-40px 70px",
         width: '300px',
-        height: '500px',
+        height: '350px',
     },
 }));
 
@@ -113,13 +113,13 @@ const CODCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-170px 40px",
     width: '450px',
-    height: '700px',
+    height: '501px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-150px 60px",
         width: '380px',
-        height: '700px',
+        height: '400px',
     },
 }));
 
@@ -129,13 +129,13 @@ const RainbowSixCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-150px 35px",
     width: '380px',
-    height: '700px',
+    height: '586px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-120px 50px",
         width: '300px',
-        height: '700px',
+        height: '463px',
     },
 }));
 
@@ -145,13 +145,13 @@ const MobileLegendsCharacterImage = styled('div')(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "-280px 55px",
     width: '700px',
-    height: '800px',
+    height: '450px',
     transition: 'all .7s',
     position:'absolute',
     [theme.breakpoints.down('lg')]: {
         backgroundPosition: "-250px 60px",
         width: '600px',
-        height: '800px',
+        height: '400px',
     },
 }));
 
@@ -199,7 +199,7 @@ const GameTitleText = styled('div')(({ theme }) => ({
 }));
 
 const mobileGamesCarouselSettings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -293,7 +293,7 @@ function Games() {
         rootMargin: '-50px 0px',
     });
     return (
-        <Grid container sx={{mt:{ lg:3, md:3, xs:1 }, p:2}} ref={ref} justifyContent="center">
+        <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, p:2}} ref={ref} justifyContent="center">
             <Grid item md={12}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     UHE Teams
@@ -304,7 +304,7 @@ function Games() {
                 sm={12}
                 xs={12}
                 sx={{
-                    mt:{ lg:4, md:3, xs:1 },
+                    mt:{ sm:4, xs:4 },
                     display: {lg: 'none', md: 'none', sm:'block', xs:'block' }
                 }}>
                 <MobileGameCarousel />
@@ -314,7 +314,7 @@ function Games() {
                 lg={12}
                 md={12}
                 sx={{
-                    mt:{ lg:4, md:3, xs:1 },
+                    mt:{ lg:5, md:4 },
                     display: {lg: 'flex', md: 'flex', sm:'none', xs:'none' },
                     justifyContent: "center"
                 }}>
