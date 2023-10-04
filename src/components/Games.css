@@ -1,48 +1,48 @@
 .leagueBackgroundTransition:hover,
 .leagueBackgroundTransition:focus {
-    background-image: url("../images/summoners_rift_2.png");
+    background-image: url("../assets/images/summoners_rift_2.png");
     color:rgba(255,255,255,1);
 }
 
 .valorantBackgroundTransition:hover,
 .valorantBackgroundTransition:focus {
-    background-image: url("../images/haven_2.png");
+    background-image: url("../assets/images/haven_2.png");
     color:rgba(255,255,255,1);
 }
 
 .apexBackgroundTransition:hover,
 .apexBackgroundTransition:focus {
-    background-image: url("../images/worlds_edge_v2_2.png");
+    background-image: url("../assets/images/worlds_edge_v2_2.png");
     color:rgba(255,255,255,1);
 }
 
 .overwatchBackgroundTransition:hover,
 .overwatchBackgroundTransition:focus {
-    background-image: url("../images/eichenwald_overwatch_2.png");
+    background-image: url("../assets/images/eichenwald_overwatch_2.png");
     color:rgba(255,255,255,1);
 }
 
 .ssbuBackgroundTransition:hover,
 .ssbuBackgroundTransition:focus {
-    background-image: url("../images/final_destination_ssbu_2.png");
+    background-image: url("../assets/images/final_destination_ssbu_2.png");
     color:rgba(255,255,255,1);
 }
 
 .codBackgroundTransition:hover,
 .codBackgroundTransition:focus {
-    background-image: url("../images/nuketown_cod_2.png");
+    background-image: url("../assets/images/nuketown_cod_2.png");
     color:rgba(255,255,255,1);
 }
 
 .rainbowsixBackgroundTransition:hover,
 .rainbowsixBackgroundTransition:focus {
-    background-image: url("../images/bank_rainbowsix_2.png");
+    background-image: url("../assets/images/bank_rainbowsix_2.png");
     color:rgba(255,255,255,1);
 }
 
 .mlbbBackgroundTransition:hover,
 .mlbbBackgroundTransition:focus {
-    background-image: url("../images/battlefield_mlbb_2.png");
+    background-image: url("../assets/images/battlefield_mlbb_2.png");
     color:rgba(255,255,255,1);
 }
 
