@@ -6,9 +6,8 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
-import group_4 from '../assets/images/group_4.png';
 // TODO REMOVE TEST
-import group_4 from '../images/group_4_test_compression.png';
+import group_4 from '../assets/images/group_4_test_compression.png';
 import discord_server from '../assets/images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -153,17 +152,17 @@ function OurMilestones() {
 function JoinDiscord() {
     return(
         <Grid sx={{mt:6, backgroundColor:"#f6f6f6", p:3}} spacing={2} container justifyContent="center" alignItems="center" >
-            <Grid item md={5}>
+            <Grid item lg={5} md={6}>
                 <SectionTitle>
                     Join a community
                     <br/>
-                    of  1500+
-                    <br />
+                    of 1500+
+                    <br/>
                     Discord Members
                 </SectionTitle>
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Join Now</Button>
             </Grid>
-            <Grid item md={5}>
+            <Grid item lg={5} md={6}>
                 <img
                     alt="discord server"
                     width="100%"
