@@ -6,8 +6,7 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
-// TODO REMOVE TEST
-import group_4 from '../assets/images/group_4_test_compression.png';
+import group_4 from '../assets/images/group_4.png';
 import discord_server from '../assets/images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
