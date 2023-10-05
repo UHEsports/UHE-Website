@@ -72,12 +72,12 @@ const images = [
 function AboutSection() {
     return (
         <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={2} container>
-            <Grid item lg={4} md={4}>
+            <Grid item lg={5} md={12} sm={12} xs={11}>
                 <SectionTitle>
                     Who are we?
                 </SectionTitle>
             </Grid>
-            <Grid item lg={5} md={7}>
+            <Grid item lg={5} md={10} sm={11} xs={12}>
                 <SectionDescription>
                     Tempora aut est maiores error laudantium ut architecto impedit.
                     Sit sit eius culpa sit. Non quia velit occaecati commodi.
@@ -151,17 +151,17 @@ function OurMilestones() {
 function JoinDiscord() {
     return(
         <Grid sx={{mt:6, backgroundColor:"#f6f6f6", p:3}} spacing={2} container justifyContent="center" alignItems="center" >
-            <Grid item md={5}>
+            <Grid item lg={5} md={6}>
                 <SectionTitle>
                     Join a community
                     <br/>
-                    of  1500+
-                    <br />
+                    of 1500+
+                    <br/>
                     Discord Members
                 </SectionTitle>
                 <Button sx={{mt:3, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Join Now</Button>
             </Grid>
-            <Grid item md={5}>
+            <Grid item lg={5} md={6}>
                 <img
                     alt="discord server"
                     width="100%"
