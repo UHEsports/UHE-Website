@@ -19,12 +19,12 @@ const OpeningImage = styled('div')(({ theme, imageURL }) => ({
 
 const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    fontSize:"5rem",
+    fontSize:"7.5rem",
     marginLeft:'20px',
     [theme.breakpoints.down('lg')]: {
-        fontSize:"3.5rem",
+        fontSize:"5rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"2.75rem",
+            fontSize:"3.5rem",
         },
     },
 }));
@@ -52,7 +52,7 @@ function OpeningPageImage({ header, subtitle, imageURL }) {
             <Grid
                 sx={{
                     textAlign: "left",
-                    fontWeight: "bold",
+                    fontWeight: "900",
                 }}
                 container
                 direction="column">

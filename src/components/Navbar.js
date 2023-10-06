@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { Outlet, Link as RouterLink } from 'react-router-dom';
 
-import uheLogo from '../images/uhe_logo.png';
+import uheLogo from '../assets/images/uhe_logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
