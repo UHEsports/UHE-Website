@@ -8,6 +8,12 @@
     display: flex;
 }
 
+.LocationImageStyle {
+    height: 25%;
+    width: 75%;
+    object-fit: cover;
+}
+
 /*making scroll bar nice*/
 ::-webkit-scrollbar:horizontal{
     width: 12px;

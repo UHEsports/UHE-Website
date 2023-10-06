@@ -31,11 +31,19 @@ const LocationMainText = styled('images')(({ theme }) => ({
         },
     },
 }));
-
+/*
 const LocationSideImages = styled('images')(({ theme }) => ({
-    
-}));
+    backgroundSize: "cover",
+    height: "50px",
+    [theme.breakpoints.down('lg')]: {
+        height: "40px",
+        [theme.breakpoints.down('md')]: {
+            height: "30px",
+        },
+    },
+}));*/
 
+/*
 function Location({}){
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -44,25 +52,65 @@ function Location({}){
     return(
         <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
             <Grid item md={12} xs={12} ref={ref}>
-                <IlabTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
+                <LocationTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Location
-                </IlabTitle>
+                </LocationTitle>
             </Grid>
-            {/*problem with scrollable starting off the screen*/}
-            <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}> 
-                    <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} />
+            <Grid item lg={12} md={12} xs={12} ref={ref}> 
+                    <LocationSideImages style={{backgroundImage:`url("${group_2}"`}} />
             </Grid>
         </Grid>
     );
 }
+*/
+
+function Location() {
+    function LocationSideImages({ imageUrl }) {
+        return (
+            <img src={imageUrl} alt="Image" className="LocationImageStyle" />
+        );
+    }
+
+    return (
+        <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} md={6}>
+                <div>
+                    <h1>Location</h1>
+                </div>
+                <div>
+                    {/* Text on the left */}
+                    <p>Your text on the left</p>
+                </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <LocationSideImages imageUrl={group_1} />
+                <LocationSideImages imageUrl={group_2} />
+                <LocationSideImages imageUrl={group_3} />
+            </Grid>
+        </Grid>
+    );
+}
+const LocationTitle = styled('div')(({ theme }) => ({
+    fontWeight: "bold",
+    wordSpacing: '-3px',
+    letterSpacing: "-1px",
+    fontSize: "3.25rem",
+    textAlign: "left",
+    marginLeft: "1.5rem",
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "2.5rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "2.25rem",
+        },
+    },
+}));
 
 const IlabTitle = styled('div')(({ theme }) => ({
     fontWeight: "bold",
     wordSpacing: '-3px',
     letterSpacing: "-1px",
     fontSize: "3.25rem",
-    textAlign: "left",
-    marginBottom: "-2.0rem",
+    textAlign: "center",
     marginLeft: "1.5rem",
     [theme.breakpoints.down('lg')]: {
         fontSize: "2.5rem",
@@ -99,6 +147,8 @@ const AvailableEquipmentBlock = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     borderRadius:'10px',
     marginRight: "10px",
+    height: "300px",
+    width: "270px",
     [theme.breakpoints.down('lg')]: {
         height: "300px",
         width: "270px",
