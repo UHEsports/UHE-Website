@@ -14,42 +14,8 @@ import group_4 from '../assets/images/group_4.png';
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
-import {Link as RouterLink} from "react-router-dom";
 import OpeningPageImage from '../components/OpeningPageImage';
-import { Block, ChildCare } from '@mui/icons-material';
-
-/*
-const LocationSideImages = styled('images')(({ theme }) => ({
-    backgroundSize: "cover",
-    height: "50px",
-    [theme.breakpoints.down('lg')]: {
-        height: "40px",
-        [theme.breakpoints.down('md')]: {
-            height: "30px",
-        },
-    },
-}));*/
-
-/*
-function Location({}){
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        rootMargin: '-170px 0px',
-    });
-    return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
-            <Grid item md={12} xs={12} ref={ref}>
-                <LocationTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
-                    Location
-                </LocationTitle>
-            </Grid>
-            <Grid item lg={12} md={12} xs={12} ref={ref}> 
-                    <LocationSideImages style={{backgroundImage:`url("${group_2}"`}} />
-            </Grid>
-        </Grid>
-    );
-}
-*/
+import Divider from '@mui/material/Divider';
 
 const LocationSideImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -99,6 +65,37 @@ function Location() {
     );
 }
 
+function Policies(){
+    return (
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
+            <Grid item md={12} xs={12}>
+                <SectionTitle sx={{mb:3}}>
+                    POLICIES & USAGE
+                </SectionTitle>
+            </Grid>
+            <Grid item xs={10} md={5} sx={{mb:5}}>
+                <SectionDescription md={4} sx={{ml: 3, mr:3, mb: 3,}}>
+                    &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Sed malesuada lobortis pretium.
+                </SectionDescription>
+                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
+                    &#8226;     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Sed malesuada lobortis pretium.
+                </SectionDescription>
+            </Grid>
+            <Divider orientation="vertical" flexItem sx={{ border: 2, mb:3}} />
+            <Grid item xs={12} md={5} sx={{mb:5}}>
+                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
+                    &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Sed malesuada lobortis pretium.
+                </SectionDescription>
+            </Grid>
+        </Grid>
+    )
+}
 
 /*needs centered in the equipmentblock*/
 const AvailableEquipmentImages = styled('div')(({ theme }) => ({
@@ -187,6 +184,7 @@ function Ilab() {
         {/*gonna figure out how to have line breaks within the subtitle*/}
         <OpeningPageImage header="ILab" subtitle=">>MONDAY - FRIDAY 10:30 AM - 4:00 PM HST"imageURL={group_4} />
         <Location />
+        <Policies />
         <AvailableEquipment />
         </>
     );
