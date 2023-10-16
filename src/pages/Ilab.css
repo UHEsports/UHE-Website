@@ -9,9 +9,11 @@
 }
 
 .LocationImageStyle {
-    height: 25%;
-    width: 75%;
+    height: 30%;
+    width: 50%;
+    display: block;
     object-fit: cover;
+    margin: 0 auto;
 }
 
 /*making scroll bar nice*/
