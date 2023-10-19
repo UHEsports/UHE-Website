@@ -20,12 +20,12 @@ import Divider from '@mui/material/Divider';
 const LocationSideImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     width: "100%",
-    height: "350px",
+    height: "250px",
     margin: "10px",
     [theme.breakpoints.down('lg')]: {
-        height: "300px",
+        height: "200px",
         [theme.breakpoints.down('md')]: {
-            height: "250px",
+            height: "150px",
             [theme.breakpoints.down('xs')]: {
                 width: "100%",
             },
@@ -36,12 +36,12 @@ const LocationSideImages = styled('div')(({ theme }) => ({
 function Location() {
     return (
         <Grid container spacing={2} justifyContent="center" sx={{mt: 2,}}>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={4}>
                 <SectionTitle style={{textAlign:"left", fontSize: "5 rem",}} sx={{ml:3, mb: 4, }}>
                     LOCATION
                 </SectionTitle>
                 <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                &#8226; {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
+                {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
                 {" "}ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -50,15 +50,16 @@ function Location() {
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </SectionDescription>
                 <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                &#8226; {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
+                {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
                 {" "}ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat 
                 </SectionDescription>
             </Grid>
-            <Grid item xs={12} s={6} md={6}>
+            <Grid item xs={12} s={5} md={5}>
                 <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7} />
+                <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7}/>
                 <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7}/>
             </Grid>
         </Grid>
@@ -75,12 +76,12 @@ function Policies(){
             </Grid>
             <Grid item xs={10} md={5} sx={{mb:5}}>
                 <SectionDescription md={4} sx={{ml: 3, mr:3, mb: 3,}}>
-                    &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+                    &#8226; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
                     Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
                     Sed malesuada lobortis pretium.
                 </SectionDescription>
                 <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                    &#8226;     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+                    &#8226; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
                     Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
                     Sed malesuada lobortis pretium.
                 </SectionDescription>
@@ -100,40 +101,28 @@ function Policies(){
 /*needs centered in the equipmentblock*/
 const AvailableEquipmentImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
-    height: "300px",
-    width: "300px",
+    height: "350px",
+    width: "350px",
     [theme.breakpoints.down('lg')]: {
-        height: "250px",
-        width: "250px",
+        height: "300px",
+        width: "300px",
         [theme.breakpoints.down('md')]: {
-            height: "200px",
-            width: "200px",
+            height: "250px",
+            width: "250px",
         },
     },
 }));
 
 const AvailableEquipmentBlock = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
-    marginRight: "10px",
-    border: "2px solid",/* <-- temporary*/
-    height: "300px",
-    width: "270px",
-    [theme.breakpoints.down('lg')]: {
-        height: "300px",
-        width: "270px",
-        [theme.breakpoints.down('md')]: {
-            height: "300px",
-            width: "220px",
-            [theme.breakpoints.down('sm')]: {
-                height: "200px",
-                width: "175px",
-            }
-        },
-    },
+    marginRight: "35px",
+    /*border: "2px solid", <-- temporary*/
 }));
 
 /*to change the overflow for the AvailableEquipmentDescription TEMPORARY */
 const AEDesc = {
+    wordWrap: 'break-word',
+    whiteSpace: 'normal',
     marginTop: 1,
     overflow: 'hidden',
   };
@@ -146,14 +135,13 @@ function AvailableEquipment({/*will and to change this later to be more like Ope
     return(
         <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
             <Grid item md={12} xs={12} ref={ref}>
-                <SectionTitle>
+                <SectionTitle sx={{mb:1}}>
                     AVAILABLE EQUIPMENT
                 </SectionTitle>
             </Grid>
             {/*problem with scrollable starting off the screen*/}
-            <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}> 
+            <Grid className="horizontal-scrollable" item sx={{ml:10}} lg={12} md={12} xs={12} ref={ref}> 
                 <AvailableEquipmentBlock>
-                    {/*problem with element initially loading into screen (resizes after getting into position*/}
                     <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                     <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Esports Awards</SectionDescription>
                     <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
@@ -173,9 +161,23 @@ function AvailableEquipment({/*will and to change this later to be more like Ope
                     <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
                     <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
                 </AvailableEquipmentBlock>
+                <AvailableEquipmentBlock>
+                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
+                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
+                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
+                </AvailableEquipmentBlock>
+                <AvailableEquipmentBlock>
+                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
+                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
+                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
+                </AvailableEquipmentBlock>
             </Grid>
         </Grid>
     );
+}
+
+function Staff(){
+
 }
 
 function Ilab() {
@@ -186,6 +188,7 @@ function Ilab() {
         <Location />
         <Policies />
         <AvailableEquipment />
+        <Staff />
         </>
     );
 }

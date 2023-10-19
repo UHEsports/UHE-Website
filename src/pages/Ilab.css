@@ -8,17 +8,11 @@
     display: flex;
 }
 
-.LocationImageStyle {
-    height: 30%;
-    width: 50%;
-    display: block;
-    object-fit: cover;
-    margin: 0 auto;
-}
 
 /*making scroll bar nice*/
 ::-webkit-scrollbar:horizontal{
     width: 12px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track{
