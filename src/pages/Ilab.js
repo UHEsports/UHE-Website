@@ -17,6 +17,8 @@ import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from '../components/OpeningPageImage';
 import Divider from '@mui/material/Divider';
 
+
+/*Need to fix sizing issues*/
 const LocationSideImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     width: "100%",
@@ -27,6 +29,7 @@ const LocationSideImages = styled('div')(({ theme }) => ({
         [theme.breakpoints.down('md')]: {
             height: "150px",
             [theme.breakpoints.down('xs')]: {
+                height: "100%",
                 width: "100%",
             },
         },
@@ -66,6 +69,7 @@ function Location() {
     );
 }
 
+/**Find way to change the vertial divider */
 function Policies(){
     return (
         <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
@@ -86,8 +90,9 @@ function Policies(){
                     Sed malesuada lobortis pretium.
                 </SectionDescription>
             </Grid>
-            <Divider orientation="vertical" flexItem sx={{ border: 2, mb:3}} />
-            <Grid item xs={12} md={5} sx={{mb:5}}>
+            <Divider orientation={useMediaQuery(theme.breakpoints.down("md")) ? "horixontal" : "vertical"} flexItems={true}/>
+            {/*<Divider orientation={{sm: 'horizontal', m: 'vertical'}} flexItem xs={0} sx={{ border: 2, mb:3 }} />*/}
+            <Grid item xs={10} md={5} sx={{mb:5}}>
                 <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
                     &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
                     Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
