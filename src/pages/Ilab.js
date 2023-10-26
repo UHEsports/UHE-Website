@@ -90,8 +90,7 @@ function Policies(){
                     Sed malesuada lobortis pretium.
                 </SectionDescription>
             </Grid>
-            <Divider orientation={useMediaQuery(theme.breakpoints.down("md")) ? "horixontal" : "vertical"} flexItems={true}/>
-            {/*<Divider orientation={{sm: 'horizontal', m: 'vertical'}} flexItem xs={0} sx={{ border: 2, mb:3 }} />*/}
+            {/* REMOVING DIVIDER ALL TOGETHER <Divider orientation={{sm: 'horizontal', m: 'vertical'}} flexItem xs={0} sx={{ border: 2, mb:3 }} />*/}
             <Grid item xs={10} md={5} sx={{mb:5}}>
                 <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
                     &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
@@ -119,8 +118,10 @@ const AvailableEquipmentImages = styled('div')(({ theme }) => ({
 }));
 
 const AvailableEquipmentBlock = styled('div')(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
     backgroundSize: "cover",
-    marginRight: "35px",
+    overflow: "visible",
     /*border: "2px solid", <-- temporary*/
 }));
 
@@ -132,54 +133,78 @@ const AEDesc = {
     overflow: 'hidden',
   };
 
-function AvailableEquipment({/*will and to change this later to be more like OpeningImage*/}){
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        rootMargin: '-170px 0px',
-    });
-    return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
-            <Grid item md={12} xs={12} ref={ref}>
-                <SectionTitle sx={{mb:1}}>
-                    AVAILABLE EQUIPMENT
-                </SectionTitle>
-            </Grid>
-            {/*problem with scrollable starting off the screen*/}
-            <Grid className="horizontal-scrollable" item sx={{ml:10}} lg={12} md={12} xs={12} ref={ref}> 
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Esports Awards</SectionDescription>
-                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
-                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Esports Awards</SectionDescription>
-                    <SectionDescription sx={AEDesc} >Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
-                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
-                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-                <AvailableEquipmentBlock>
-                    <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                    <SectionDescription sx={{mt:2, fontWeight:'bold'}}>OWL Internship</SectionDescription>
-                    <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-                </AvailableEquipmentBlock>
-            </Grid>
-        </Grid>
+function EquipmentBlock({ image, title, description }) {
+    return (
+        <AvailableEquipmentBlock  sx={{ml:"20px"}}>
+            <AvailableEquipmentImages style={{ backgroundImage: `url("${image}")` }} />
+            <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{title}</SectionDescription>
+            <SectionDescription sx={AEDesc}>{description}</SectionDescription>
+        </AvailableEquipmentBlock>
     );
-}
+  }
+  
+  function AvailableEquipment() {
+    const { ref } = useInView({
+      triggerOnce: true,
+      rootMargin: '-170px 0px',
+    });
+  
+    const equipmentData = [
+      {
+        image: group_1,
+        title: "Bose QuietComfort 35",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_2,
+        title: "Logitech Pro Wireless",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_3,
+        title: "Esports Awards",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_1,
+        title: "Esports Awards",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_2,
+        title: "Esports Awards",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_3,
+        title: "Esports Awards",
+        description: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      // Add more equipment items as needed
+    ];
+  
+    return (
+      <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 } }} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
+        <Grid item md={12} xs={12} ref={ref}>
+          <SectionTitle sx={{ mb: 1 }}>
+            AVAILABLE EQUIPMENT
+          </SectionTitle>
+        </Grid>
+        <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}>
+            <AvailableEquipmentBlock sx={{pl:"50px"}}>
+                <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
+                <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Bose QuietComfort 35</SectionDescription>
+                <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
+            </AvailableEquipmentBlock>
+            
+            {equipmentData.map((equipment, index) => (
+                <EquipmentBlock key={index} {...equipment} />
+            ))}
+        </Grid>
+      </Grid>
+    );
+  }
+
 
 function Staff(){
 
