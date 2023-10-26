@@ -148,13 +148,8 @@ function EquipmentBlock({ image, title, description }) {
       triggerOnce: true,
       rootMargin: '-170px 0px',
     });
-  
+    /**Start with the second equippment data since the first will not be within this list */
     const equipmentData = [
-      {
-        image: group_1,
-        title: "Bose QuietComfort 35",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
       {
         image: group_2,
         title: "Logitech Pro Wireless",
@@ -162,22 +157,22 @@ function EquipmentBlock({ image, title, description }) {
       },
       {
         image: group_3,
-        title: "Esports Awards",
+        title: "Logitech Superlight",
         description: "Tempora aut est maiores error laudantium ut architecto",
       },
       {
         image: group_1,
-        title: "Esports Awards",
+        title: "Xbox One",
         description: "Tempora aut est maiores error laudantium ut architecto",
       },
       {
         image: group_2,
-        title: "Esports Awards",
+        title: "Xbox One S",
         description: "Tempora aut est maiores error laudantium ut architecto",
       },
       {
         image: group_3,
-        title: "Esports Awards",
+        title: "PS5",
         description: "Tempora aut est maiores error laudantium ut architecto",
       },
       // Add more equipment items as needed
@@ -191,6 +186,7 @@ function EquipmentBlock({ image, title, description }) {
           </SectionTitle>
         </Grid>
         <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}>
+            {/**This will be the first equipment data since there is a change in padding-left */}
             <AvailableEquipmentBlock sx={{pl:"50px"}}>
                 <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
                 <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Bose QuietComfort 35</SectionDescription>
@@ -205,10 +201,91 @@ function EquipmentBlock({ image, title, description }) {
     );
   }
 
-
-function Staff(){
-
-}
+  const StaffImages = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    backgroundPosition: "center", // Center the background image
+    height: "350px",
+    width: "350px",
+    borderRadius: "50%", // Make the images round
+    [theme.breakpoints.down('lg')]: {
+      height: "300px",
+      width: "300px",
+      [theme.breakpoints.down('md')]: {
+        height: "250px",
+        width: "250px",
+      },
+    },
+  }));
+  
+  const StaffBlock = styled('div')(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    backgroundSize: "cover",
+    overflow: "visible",
+    /*border: "2px solid", <-- temporary*/
+  }));
+  
+  /* Temporary style for description overflow */
+  const StaffDesc = {
+    wordWrap: 'break-word',
+    whiteSpace: 'normal',
+    marginTop: 1,
+    overflow: 'hidden',
+  };
+  
+  function StaffMember({ image, name, role }) {
+    return (
+      <StaffBlock>
+        <StaffImages style={{ backgroundImage: `url("${image}")` }} />
+        <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{name}</SectionDescription>
+        <SectionDescription sx={StaffDesc}>{role}</SectionDescription>
+      </StaffBlock>
+    );
+  }
+  
+  function Staff() {
+    const { ref } = useInView({
+      triggerOnce: true,
+      rootMargin: '-170px 0px',
+    });
+  
+    const staffData = [
+      {
+        image: group_1,
+        name: "Logitech Pro Wireless",
+        role: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_2,
+        name: "Logitech Pro Wireless",
+        role: "Tempora aut est maiores error laudantium ut architecto",
+      },
+      {
+        image: group_3,
+        name: "Logitech Superlight",
+        role: "Tempora aut est maiores error laudantium ut architecto",
+      },
+    ];
+  
+    return (
+      <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 } }} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
+        <Grid item md={12} xs={12} ref={ref}>
+          <SectionTitle sx={{ mb: 1 }}>
+            STAFF
+          </SectionTitle>
+          <SectionDescription sx={{ mb: 1 }}>
+          Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+          </SectionDescription>
+        </Grid>
+        <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}>  
+          {staffData.map((staff, index) => (
+            <StaffMember key={index} {...staff} />
+          ))}
+        </Grid>
+      </Grid>
+    );
+  }
+  
 
 function Ilab() {
     return (
