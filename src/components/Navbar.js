@@ -118,55 +118,61 @@ function Navbar() {
       <Toolbar sx={{ flexWrap: "wrap" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container alignItems="center">
-            <img
-              alt="UHE Logo"
-              width="100rem"
-              src={uheLogo}
-              stlyle={{ float: "left" }}
-            />
-            <Box sx={{ flexGrow: 1 }} />
-            <nav style={{ float: "right" }}>
-              <Link
-                component={RouterLink}
-                underline="none"
-                variant="button"
-                color="white"
-                to="/"
-                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-              >
-                Home
-              </Link>
-              <Link
-                component={RouterLink}
-                underline="none"
-                variant="button"
-                color="white"
-                to="/ilab"
-                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-              >
-                Ilab
-              </Link>
-              <Link
-                component={RouterLink}
-                underline="none"
-                variant="button"
-                color="white"
-                to="/education"
-                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-              >
-                Education
-              </Link>
-              <Link
-                component={RouterLink}
-                underline="none"
-                variant="button"
-                color="white"
-                to="contact-us"
-                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-              >
-                Contact Us
-              </Link>
-            </nav>
+            <Grid
+              sx={{ display: { lg: "block", md: "block", xs: "none" } }}
+              xs={12}
+            >
+              <img
+                alt="UHE Logo"
+                width="100rem"
+                src={uheLogo}
+                stlyle={{ float: "left" }}
+              />
+              <Box sx={{ flexGrow: 1 }} />
+              <nav style={{ float: "right" }}>
+                <Link
+                  component={RouterLink}
+                  underline="none"
+                  variant="button"
+                  color="white"
+                  to="/"
+                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                >
+                  Home
+                </Link>
+                <Link
+                  component={RouterLink}
+                  underline="none"
+                  variant="button"
+                  color="white"
+                  to="/ilab"
+                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                >
+                  Ilab
+                </Link>
+                <Link
+                  component={RouterLink}
+                  underline="none"
+                  variant="button"
+                  color="white"
+                  to="/education"
+                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                >
+                  Education
+                </Link>
+                <Link
+                  component={RouterLink}
+                  underline="none"
+                  variant="button"
+                  color="white"
+                  to="contact-us"
+                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                >
+                  Contact Us
+                </Link>
+              </nav>
+            </Grid>
+
             <Grid
               sx={{ display: { lg: "none", md: "none", xs: "block" } }}
               xs={12}
