@@ -118,12 +118,55 @@ function Navbar() {
       <Toolbar sx={{ flexWrap: "wrap" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container alignItems="center">
-            <Grid
-              sx={{ display: { lg: "block", md: "block", xs: "none" } }}
-              md={3}
-            >
-              <img alt="UHE Logo" width="75px" src={uheLogo} />
-            </Grid>
+            <img
+              alt="UHE Logo"
+              width="100rem"
+              src={uheLogo}
+              stlyle={{ float: "left" }}
+            />
+            <Box sx={{ flexGrow: 1 }} />
+            <nav style={{ float: "right" }}>
+              <Link
+                component={RouterLink}
+                underline="none"
+                variant="button"
+                color="white"
+                to="/"
+                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+              >
+                Home
+              </Link>
+              <Link
+                component={RouterLink}
+                underline="none"
+                variant="button"
+                color="white"
+                to="/ilab"
+                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+              >
+                Ilab
+              </Link>
+              <Link
+                component={RouterLink}
+                underline="none"
+                variant="button"
+                color="white"
+                to="/education"
+                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+              >
+                Education
+              </Link>
+              <Link
+                component={RouterLink}
+                underline="none"
+                variant="button"
+                color="white"
+                to="contact-us"
+                sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+              >
+                Contact Us
+              </Link>
+            </nav>
             <Grid
               sx={{ display: { lg: "none", md: "none", xs: "block" } }}
               xs={12}
@@ -136,54 +179,6 @@ function Navbar() {
               >
                 <MenuIcon />
               </IconButton>
-            </Grid>
-            <Grid
-              item
-              sx={{ display: { lg: "block", md: "block", xs: "none" } }}
-              md={9}
-            >
-              <nav style={{ float: "right" }}>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="/"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-                >
-                  Home
-                </Link>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="/ilab"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-                >
-                  Ilab
-                </Link>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="/education"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-                >
-                  Education
-                </Link>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="contact-us"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-                >
-                  Contact Us
-                </Link>
-              </nav>
             </Grid>
           </Grid>
         </Box>
