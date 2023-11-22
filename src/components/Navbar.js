@@ -126,10 +126,10 @@ function Navbar() {
                 alt="UHE Logo"
                 width="100rem"
                 src={uheLogo}
-                stlyle={{ float: "left" }}
+                style={{ float: "left" }}
               />
               <Box sx={{ flexGrow: 1 }} />
-              <nav style={{ float: "right" }}>
+              <nav style={{ float: "right", marginTop: "2rem" }}>
                 <Link
                   component={RouterLink}
                   underline="none"
