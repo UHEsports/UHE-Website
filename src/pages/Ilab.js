@@ -16,275 +16,270 @@ import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from '../components/OpeningPageImage';
 import Divider from '@mui/material/Divider';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 
 /*Need to fix sizing issues*/
 const LocationSideImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    width: "100%",
-    height: "250px",
-    margin: "10px",
-    [theme.breakpoints.down('lg')]: {
-        height: "200px",
-        [theme.breakpoints.down('md')]: {
-            height: "150px",
-            [theme.breakpoints.down('xs')]: {
-                height: "100%",
-                width: "100%",
-            },
-        },
+  backgroundSize: 'cover',
+  width: '100%',
+  height: '250px',
+  margin: '10px',
+  [theme.breakpoints.down('lg')]: {
+    height: '200px',
+    [theme.breakpoints.down('md')]: {
+      height: '150px',
+      [theme.breakpoints.down('xs')]: {
+        height: '100%',
+        width: '100%',
+      },
     },
+  },
 }));
 
-function Location() {
-    return (
-        <Grid container spacing={2} justifyContent="center" sx={{mt: 2,}}>
-            <Grid item xs={12} md={4}>
-                <SectionTitle style={{textAlign:"left", fontSize: "5 rem",}} sx={{ml:3, mb: 4, }}>
-                    LOCATION
-                </SectionTitle>
-                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
-                {" "}ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </SectionDescription>
-                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                {/* <-- bulletpoint*/} <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
-                {" "}ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-                </SectionDescription>
-            </Grid>
-            <Grid item xs={12} s={5} md={5}>
-                <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7} />
-                <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7}/>
-                <LocationSideImages style={{backgroundImage:`url("${group_1}"`}} s={6} md={7}/>
-            </Grid>
-        </Grid>
-    );
-}
-
-/**Find way to change the vertial divider */
-function Policies(){
-    return (
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
-            <Grid item md={12} xs={12}>
-                <SectionTitle sx={{mb:3}}>
-                    POLICIES & USAGE
-                </SectionTitle>
-            </Grid>
-            <Grid item xs={10} md={5} sx={{mb:5}}>
-                <SectionDescription md={4} sx={{ml: 3, mr:3, mb: 3,}}>
-                    &#8226; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
-                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Sed malesuada lobortis pretium.
-                </SectionDescription>
-                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                    &#8226; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
-                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Sed malesuada lobortis pretium.
-                </SectionDescription>
-            </Grid>
-            {/* REMOVING DIVIDER ALL TOGETHER <Divider orientation={{sm: 'horizontal', m: 'vertical'}} flexItem xs={0} sx={{ border: 2, mb:3 }} />*/}
-            <Grid item xs={10} md={5} sx={{mb:5}}>
-                <SectionDescription sx={{ml: 3, mr:3, mb: 3,}}>
-                    &#8226;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
-                    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Sed malesuada lobortis pretium.
-                </SectionDescription>
-            </Grid>
-        </Grid>
-    )
-}
-
-/*needs centered in the equipmentblock*/
-const AvailableEquipmentImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    height: "350px",
-    width: "350px",
-    [theme.breakpoints.down('lg')]: {
-        height: "300px",
-        width: "300px",
-        [theme.breakpoints.down('md')]: {
-            height: "250px",
-            width: "250px",
-        },
-    },
-}));
-
-const AvailableEquipmentBlock = styled('div')(({ theme }) => ({
-    display: "flex",
-    flexDirection: "column",
-    backgroundSize: "cover",
-    overflow: "visible",
-    /*border: "2px solid", <-- temporary*/
-}));
-
-/*to change the overflow for the AvailableEquipmentDescription TEMPORARY */
-const AEDesc = {
-    wordWrap: 'break-word',
-    whiteSpace: 'normal',
-    marginTop: 1,
-    overflow: 'hidden',
-  };
-
-function EquipmentBlock({ image, title, description }) {
-    return (
-        <AvailableEquipmentBlock  sx={{ml:"20px"}}>
-            <AvailableEquipmentImages style={{ backgroundImage: `url("${image}")` }} />
-            <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{title}</SectionDescription>
-            <SectionDescription sx={AEDesc}>{description}</SectionDescription>
-        </AvailableEquipmentBlock>
-    );
-  }
-  
-  function AvailableEquipment() {
-    const { ref } = useInView({
-      triggerOnce: true,
-      rootMargin: '-170px 0px',
-    });
-    /**Start with the second equippment data since the first will not be within this list */
-    const equipmentData = [
-      {
-        image: group_2,
-        title: "Logitech Pro Wireless",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_3,
-        title: "Logitech Superlight",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_1,
-        title: "Xbox One",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_2,
-        title: "Xbox One S",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_3,
-        title: "PS5",
-        description: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      // Add more equipment items as needed
-    ];
-  
-    return (
-      <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 } }} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
-        <Grid item md={12} xs={12} ref={ref}>
-          <SectionTitle sx={{ mb: 1 }}>
-            AVAILABLE EQUIPMENT
-          </SectionTitle>
-        </Grid>
-        <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}>
-            {/**This will be the first equipment data since there is a change in padding-left */}
-            <AvailableEquipmentBlock sx={{pl:"50px"}}>
-                <AvailableEquipmentImages style={{backgroundImage:`url("${group_1}"`}} />
-                <SectionDescription sx={{mt:2, fontWeight:'bold'}}>Bose QuietComfort 35</SectionDescription>
-                <SectionDescription sx={AEDesc}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-            </AvailableEquipmentBlock>
-            
-            {equipmentData.map((equipment, index) => (
-                <EquipmentBlock key={index} {...equipment} />
-            ))}
-        </Grid>
+const Location = () => {
+  return (
+    <Grid container spacing={2} justifyContent="center" sx={{ mt: 2 }}>
+      <Grid item xs={12} md={4}>
+        <SectionTitle sx={{ml: 3, mb: 4 }}>
+          LOCATION
+        </SectionTitle>
+        <SectionDescription sx={{ml: 3, mr: 3, mb: 3 }}>
+          <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
+          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+          enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+          sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </SectionDescription>
+        <SectionDescription sx={{ml: 3, mr: 3, mb: 3 }}>
+          <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
+          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+          enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        </SectionDescription>
       </Grid>
-    );
-  }
+      <Grid item xs={12} sm={5} md={5}>
+        <LocationSideImages style={{ backgroundImage: `url("${group_1}")` }} />
+        <LocationSideImages style={{ backgroundImage: `url("${group_2}")` }} />
+        <LocationSideImages style={{ backgroundImage: `url("${group_3}")` }} />
+      </Grid>
+    </Grid>
+  );
+};
 
-  const StaffImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    backgroundPosition: "center", // Center the background image
-    height: "350px",
-    width: "350px",
-    borderRadius: "50%", // Make the images round
-    [theme.breakpoints.down('lg')]: {
-      height: "300px",
-      width: "300px",
-      [theme.breakpoints.down('md')]: {
-        height: "250px",
-        width: "250px",
-      },
-    },
-  }));
-  
-  const StaffBlock = styled('div')(({ theme }) => ({
-    display: "flex",
-    flexDirection: "column",
-    backgroundSize: "cover",
-    overflow: "visible",
-    /*border: "2px solid", <-- temporary*/
-  }));
-  
-  /* Temporary style for description overflow */
-  const StaffDesc = {
-    wordWrap: 'break-word',
-    whiteSpace: 'normal',
-    marginTop: 1,
-    overflow: 'hidden',
-  };
-  
-  function StaffMember({ image, name, role }) {
-    return (
-      <StaffBlock>
-        <StaffImages style={{ backgroundImage: `url("${image}")` }} />
-        <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{name}</SectionDescription>
-        <SectionDescription sx={StaffDesc}>{role}</SectionDescription>
-      </StaffBlock>
-    );
-  }
-  
-  function Staff() {
-    const { ref } = useInView({
+function AvailableEquipment() {
+  const { ref } = useInView({
       triggerOnce: true,
       rootMargin: '-170px 0px',
-    });
-  
-    const staffData = [
-      {
-        image: group_1,
-        name: "Logitech Pro Wireless",
-        role: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_2,
-        name: "Logitech Pro Wireless",
-        role: "Tempora aut est maiores error laudantium ut architecto",
-      },
-      {
-        image: group_3,
-        name: "Logitech Superlight",
-        role: "Tempora aut est maiores error laudantium ut architecto",
-      },
-    ];
-  
-    return (
-      <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 } }} container spacing={4} justifyContent="center" backgroundColor={"#cfcece"}>
-        <Grid item md={12} xs={12} ref={ref}>
-          <SectionTitle sx={{ mb: 1 }}>
-            STAFF
-          </SectionTitle>
-          <SectionDescription sx={{ mb: 1 }}>
-          Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-          </SectionDescription>
-        </Grid>
-        <Grid className="horizontal-scrollable" item lg={12} md={12} xs={12} ref={ref}>  
-          {staffData.map((staff, index) => (
-            <StaffMember key={index} {...staff} />
+  });
+
+ 
+  const settings = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 1.5,
+      autoplay: true,
+      speed: 500,
+      responsive: [
+          {
+              breakpoint: 1300,
+              settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  dots: true,
+              }
+          },
+          {
+              breakpoint: 975,
+              settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+              }
+          },
+          
+          {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }
+          
+      ]
+  };
+  // EquipmentItem component
+  const EquipmentItem = ({ image, title, description }) => (
+    <div style={{ margin: '8px', height: '200px' }}>
+      <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div>
+        <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{title}</SectionDescription>
+        <SectionDescription>{description}</SectionDescription>
+      </div>
+    </div>
+  );
+
+  const equipmentData = [
+    {
+      image: group_1,
+      title: "Bose QuietComfort 35",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_2,
+      title: "Logitech Pro Wireless",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_3,
+      title: "Logitech Superlight",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_1,
+      title: "Xbox One",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_2,
+      title: "Xbox One S",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_3,
+      title: "PS5",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+  ];
+
+  return (
+    <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 }, pb: 3 }} container spacing={4} justifyContent="center" alignItems="center">
+      <Grid item md={12} xs={12} ref={ref}>
+        <SectionTitle sx={{ mb: 1 }}>
+          AVAILABLE EQUIPMENT
+        </SectionTitle>
+      </Grid>
+      <Grid sx={{ mt: 3 }} item md={11} xs={11}>
+        <Slider {...settings}>
+          {equipmentData.map((item, index) => (
+            <Grid key={index} className='test'>
+              <EquipmentItem {...item} />
+            </Grid>
           ))}
-        </Grid>
+        </Slider>
       </Grid>
-    );
-  }
+    </Grid>
+  );  
+}
+
+const StaffImages = styled('div')(({ theme }) => ({
+  backgroundSize: "cover",
+  backgroundPosition: "center", 
+  height: "250px",
+  width: "250px",
+  borderRadius: "50%", 
+  [theme.breakpoints.down('lg')]: {
+    height: "200px",
+    width: "200px",
+    [theme.breakpoints.down('md')]: {
+      height: "150px",
+      width: "150px",
+    },
+  },
+}));
+  
+const StaffBlock = styled('div')(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  marginLeft: "2%",
+  marginRight: "2%",
+  textAlign: "center",
+  flexDirection: "column",
+}));
+
+/* Temporary style for description overflow */
+const StaffDesc = {
+  wordWrap: 'break-word',
+  whiteSpace: 'normal',
+  marginTop: 1,
+  overflow: 'hidden',
+};
+
+function StaffMember({ image, name, role, slideIn }) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-50px 0px',
+  });
+
+  return (
+    <StaffBlock ref={ref} className={inView ? slideIn : 'hidden'}>
+      <StaffImages style={{ backgroundImage: `url("${image}")` }} />
+      <SectionDescription sx={{ mt: 2, fontWeight: 'bold' }}>{name}</SectionDescription>
+      <SectionDescription>{role}</SectionDescription>
+    </StaffBlock>
+  );
+}
+
+const staffData = [
+  {
+    image: group_1,
+    name: "First Last",
+    role: "Role in iLab",
+    slideIn: "slideIn1300ms",
+  },
+  {
+    image: group_2,
+    name: "First Last",
+    role: "Role in iLab",
+    slideIn: "slideIn1700ms",
+  },
+  {
+    image: group_3,
+    name: "First Last",
+    role: "Role in iLab",
+    slideIn: "slideIn2100ms",
+  },
+];
+
+function Staff() {
+  const { ref , inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-50px 0px',
+  });
+
+
+  return (
+    <Grid 
+      item lg={8} md={8} xs={10}
+      sx={{ 
+          mt: { lg: 1, md: 1, xs: 1 }, 
+          display:'flex', 
+          justifyContent:"center", 
+          margin: 'auto',
+          alignContent:"center",
+          borderRadius: '10px',}} 
+          ref={ref}
+          container spacing={4}  
+          backgroundColor={"rgba(219, 215, 215, 0.3)"}>
+      <Grid item md={8} xs={10} ref={ref}>
+        <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'} sx={{ mb: 1 }}>
+          STAFF
+        </SectionTitle>
+        <SectionDescription className={inView ? 'slideIn1300ms' : 'hidden'} sx={{ mb: 1 }}>
+        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+        </SectionDescription>
+      </Grid>
+      <Grid className="staff" justifyContent="center" item md={8} xs={10} ref={ref}>  
+        {staffData.map((staff, index) => (
+          <StaffMember key={index} {...staff} />
+        ))}
+      </Grid>
+    </Grid>
+  );
+}
   
 
 function Ilab() {
@@ -293,7 +288,6 @@ function Ilab() {
         {/*gonna figure out how to have line breaks within the subtitle*/}
         <OpeningPageImage header="ILab" subtitle=">>MONDAY - FRIDAY 10:30 AM - 4:00 PM HST"imageURL={group_4} />
         <Location />
-        <Policies />
         <AvailableEquipment />
         <Staff />
         </>
