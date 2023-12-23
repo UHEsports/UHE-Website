@@ -9,23 +9,44 @@ import ContactUs from "../pages/ContactUs";
 import { useRef, useState, useEffect } from "react";
 
 function App() {
-    const ref = useRef();
+    // const ref = useRef();
 
     const [pos, setPos] = useState(false);
-
+    const [scrollPosition, setScrollPosition] = useState(0);
+    // console.log(ref.current);
     const handleTop = () => {
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        // console.log(window.scrollY);
         setPos(false);
     };
 
-    window.onscroll = function() {scrollFunction()};
-    function scrollFunction() {
-        if (document.body.scrollHeight - Math.round(document.body.scrollTop) === document.body.clientHeight) {
-            setPos(true);
+    // window.onscroll = function() {scrollFunction()};
+
+
+    const handleScroll = () => {
+        let appID = document.getElementById('test');
+        if (appID) {
+            // console.log(appID.style.height);
+            console.log("windowHeight: " + window.scrollY);
+            console.log("height offset" + (appID.clientHeight-window.innerHeight))
+            // console.log(window.scrollY)
+            // console.log(appID.clientHeight-window.innerHeight)
+            if (window.scrollY >= appID.clientHeight-window.innerHeight - 50) {
+                // console.log("clientheight offset: " + (appID.offsetHeight))
+                // console.log("clientheight : " + (appID.clientHeight))
+                console.log('hits');
+                setPos(true)
+            } else {
+                setPos(false)
+            }
         } else {
-            setPos(false);
+            console.log('miss');
         }
+
+
+
     }
+
     // const handleScroll = () => {
     //     if (
     //         ref.current.scrollHeight - Math.round(ref.current.scrollTop) ===
@@ -37,13 +58,14 @@ function App() {
     //     }
     // };
 
-    // useEffect(() => {
-    //     const temp = ref.current;
-    //     temp.addEventListener("scroll", handleScroll);
-    //     return () => temp.removeEventListener("scroll", handleScroll);
-    // });
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
   return (
-    <div className="App">
+    <div id="test" onScroll={handleScroll} className="App">
         <Router>
             <Navbar />
             <Routes>
@@ -59,10 +81,11 @@ function App() {
                 bottom: 10,
                 right: 10,
                 display: pos ? "block" : "none"
+                // display: "block"
             }}
             onClick={handleTop}
         >
-            Up
+            Scroll to top
         </IconButton>
     </div>
   );
