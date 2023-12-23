@@ -6,32 +6,36 @@ import Home from "../pages/Home";
 import Ilab from "../pages/Ilab";
 import Education from "../pages/Education";
 import ContactUs from "../pages/ContactUs";
-import { useRef, useState, useEffect } from "react";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import { useState, useEffect } from "react";
+import {Link} from "@mui/material";
+import Button from "@mui/material/Button";
 
 function App() {
-    // const ref = useRef();
-
     const [pos, setPos] = useState(false);
-    const [scrollPosition, setScrollPosition] = useState(0);
-    // console.log(ref.current);
     const handleTop = () => {
+        document.body.scrollTop = 0;
+        // document.documentElement.scrollTop = 0;
+        // let navbarID = document.getElementById('test2');
+        // if (navbarID) {
+        //     navbarID.scrollIntoView();
+        // }
+
         window.scrollTo(0,0);
-        // console.log(window.scrollY);
         setPos(false);
     };
 
-    // window.onscroll = function() {scrollFunction()};
-
-
     const handleScroll = () => {
         let appID = document.getElementById('test');
+        // retrieve ID name and check if it is loaded in
         if (appID) {
             // console.log(appID.style.height);
-            console.log("windowHeight: " + window.scrollY);
-            console.log("height offset" + (appID.clientHeight-window.innerHeight))
+            let scrollPosition = window.scrollY;
+            const maxScrollHeight = appID.clientHeight-window.innerHeight;
+            const scrollHeightOffset = 100;
             // console.log(window.scrollY)
             // console.log(appID.clientHeight-window.innerHeight)
-            if (window.scrollY >= appID.clientHeight-window.innerHeight - 50) {
+            if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
                 // console.log("clientheight offset: " + (appID.offsetHeight))
                 // console.log("clientheight : " + (appID.clientHeight))
                 console.log('hits');
@@ -42,22 +46,7 @@ function App() {
         } else {
             console.log('miss');
         }
-
-
-
     }
-
-    // const handleScroll = () => {
-    //     if (
-    //         ref.current.scrollHeight - Math.round(ref.current.scrollTop) ===
-    //         ref.current.clientHeight
-    //     ) {
-    //         if (!pos) setPos(true);
-    //     } else {
-    //         if (pos) setPos(false);
-    //     }
-    // };
-
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -67,7 +56,7 @@ function App() {
   return (
     <div id="test" onScroll={handleScroll} className="App">
         <Router>
-            <Navbar />
+            <Navbar id='test2' />
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="ilab" element={<Ilab />} />
@@ -75,18 +64,36 @@ function App() {
                 <Route path="contact-us" element={<ContactUs />} />
             </Routes>
         </Router>
-        <IconButton
-            style={{
+        {/*<Link*/}
+        {/*    component="button"*/}
+        {/*    variant="body2"*/}
+        {/*    underline="hover"*/}
+        {/*    style={{*/}
+        {/*        position: "fixed",*/}
+        {/*        bottom: 10,*/}
+        {/*        right: 10,*/}
+        {/*        display: pos ? "block" : "none"*/}
+        {/*        // display: "block"*/}
+        {/*    }}*/}
+        {/*    onClick={handleTop}*/}
+        {/*>*/}
+        {/*    <ArrowUpwardIcon />*/}
+        {/*    Button Link*/}
+        {/*</Link>*/}
+        <Button
+            componenet="label"
+            variant="outlined"
+            sx={{
                 position: "fixed",
                 bottom: 10,
                 right: 10,
-                display: pos ? "block" : "none"
-                // display: "block"
+                display: pos ? "flex" : "none"
             }}
+            startIcon={<ArrowUpwardIcon />}
             onClick={handleTop}
         >
-            Scroll to top
-        </IconButton>
+            To Top
+        </Button>
     </div>
   );
 }
