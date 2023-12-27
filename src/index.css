@@ -13,22 +13,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* custom scrollbar */
-::-webkit-scrollbar {
-  width: 20px;
-}
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
+/* TODO REMOVE POTENTIALLY custom scrollbar */
+/*::-webkit-scrollbar {*/
+/*  width: 20px;*/
+/*}*/
 
-::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  border-radius: 20px;
-  border: 6px solid transparent;
-  background-clip: content-box;
-}
+/*::-webkit-scrollbar-track {*/
+/*  background-color: transparent;*/
+/*}*/
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #595757;
-}
+/*::-webkit-scrollbar-thumb {*/
+/*  background-color: #000000;*/
+/*  border-radius: 20px;*/
+/*  border: 6px solid transparent;*/
+/*  background-clip: content-box;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb:hover {*/
+/*  background-color: #595757;*/
+/*}*/
