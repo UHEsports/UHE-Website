@@ -10,8 +10,13 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { useState, useEffect } from "react";
 import {Link} from "@mui/material";
 import Button from "@mui/material/Button";
+import {useInView} from "react-intersection-observer";
 
 function App() {
+    const { ref, inView } = useInView({
+        triggerOnce: false,
+        rootMargin: '-50px 0px',
+    });
     const [pos, setPos] = useState(false);
     const handleTop = () => {
         document.body.scrollTop = 0;
@@ -24,23 +29,25 @@ function App() {
         window.scrollTo(0,0);
         setPos(false);
     };
-
     const handleScroll = () => {
+        let scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+        // console.log(scrollToTopBtn);
         let appID = document.getElementById('test');
         // retrieve ID name and check if it is loaded in
         if (appID) {
-            // console.log(appID.style.height);
             let scrollPosition = window.scrollY;
             const maxScrollHeight = appID.clientHeight-window.innerHeight;
             const scrollHeightOffset = 100;
-            // console.log(window.scrollY)
-            // console.log(appID.clientHeight-window.innerHeight)
             if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
+                scrollToTopBtn.classList.add("slideIn500ms");
+                scrollToTopBtn.classList.remove("slideOut1000ms");
                 // console.log("clientheight offset: " + (appID.offsetHeight))
-                // console.log("clientheight : " + (appID.clientHeight))
-                console.log('hits');
+                // console.log("clientheight : " + (appID.clientHeight);
                 setPos(true)
             } else {
+                scrollToTopBtn.classList.remove("slideIn500ms");
+                scrollToTopBtn.classList.add("slideOut1000ms");
+                console.log('hits');
                 setPos(false)
             }
         } else {
@@ -54,7 +61,7 @@ function App() {
         };
     }, []);
   return (
-    <div id="test" onScroll={handleScroll} className="App">
+    <div id="test" onScroll={handleScroll} className="App" ref={ref}>
         <Router>
             <Navbar id='test2' />
             <Routes>
@@ -81,13 +88,15 @@ function App() {
         {/*    Button Link*/}
         {/*</Link>*/}
         <Button
+            className="scrollToTopBtn"
+            // className={inView ? 'slideIn1000ms' : ''}
             componenet="label"
             variant="outlined"
             sx={{
                 position: "fixed",
-                bottom: 10,
-                right: 10,
-                display: pos ? "flex" : "none"
+                bottom: 20,
+                right: 20,
+                // display: pos ? "flex" : "none"
             }}
             startIcon={<ArrowUpwardIcon />}
             onClick={handleTop}
