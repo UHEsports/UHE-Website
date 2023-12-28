@@ -6,18 +6,20 @@ import Ilab from "../pages/Ilab";
 import Education from "../pages/Education";
 import ContactUs from "../pages/ContactUs";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import {useInView} from "react-intersection-observer";
 
 function App() {
-    const { ref, inView } = useInView({
+    const { ref } = useInView({
         triggerOnce: false,
-        rootMargin: '-50px 0px',
     });
     const handleTop = () => {
-        document.body.scrollTop = 0;
-        window.scrollTo(0,0);
+        // TODO change delay
+        // delay is placed to allow page to fully render to allow  for a full scroll to the top of the page on google chrome
+        window.setTimeout(function() {
+            window.scrollTo(0,0);
+        }, 220);
     };
     const handleScroll = () => {
         let scrollToTopBtn = document.querySelector(".scrollToTopBtn");
@@ -25,13 +27,13 @@ function App() {
         if (appID) {
             let scrollPosition = window.scrollY;
             const maxScrollHeight = appID.clientHeight-window.innerHeight;
-            const scrollHeightOffset = 150;
+            const scrollHeightOffset = 200;
             if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
-                scrollToTopBtn.classList.add("slideIn500ms");
+                scrollToTopBtn.classList.add("slideIn1000ms");
                 scrollToTopBtn.classList.remove("slideOut1000ms");
                 scrollToTopBtn.classList.remove("hidden");
             } else {
-                scrollToTopBtn.classList.remove("slideIn500ms");
+                scrollToTopBtn.classList.remove("slideIn1000ms");
                 scrollToTopBtn.classList.add("slideOut1000ms");
                 console.log('hits');
             }

@@ -64,17 +64,7 @@
   visibility: hidden;
 }
 
-/*.scrollToTopBtn {*/
-/*  opacity: 0;*/
-/*}*/
-
-/*.slideOut1000ms {*/
-/*  visibility: visible;*/
-/*  animation: slideOut 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
-/*}*/
-
 .slideOut1000ms {
-  /*visibility: visible;*/
   animation: slideOut 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
