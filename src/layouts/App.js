@@ -8,37 +8,32 @@ import ContactUs from "../pages/ContactUs";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { useEffect } from "react";
 import Button from "@mui/material/Button";
-import {useInView} from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 function App() {
     const { ref } = useInView({
         triggerOnce: false,
     });
-    const handleTop = () => {
-        // TODO change delay
-        // delay is placed to allow page to fully render to allow  for a full scroll to the top of the page on google chrome
+    const scrollToTop = () => {
+        // Delay is in place to allow for the page to load completely before scrolling
+        // In place for chrome browser
         window.setTimeout(function() {
             window.scrollTo(0,0);
         }, 220);
     };
     const handleScroll = () => {
         let scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-        let appID = document.getElementById('test');
-        if (appID) {
-            let scrollPosition = window.scrollY;
-            const maxScrollHeight = appID.clientHeight-window.innerHeight;
-            const scrollHeightOffset = 200;
-            if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
-                scrollToTopBtn.classList.add("slideIn1000ms");
-                scrollToTopBtn.classList.remove("slideOut1000ms");
-                scrollToTopBtn.classList.remove("hidden");
-            } else {
-                scrollToTopBtn.classList.remove("slideIn1000ms");
-                scrollToTopBtn.classList.add("slideOut1000ms");
-                console.log('hits');
-            }
+        let appID = document.getElementById('AppID');
+        let scrollPosition = window.scrollY;
+        const maxScrollHeight = appID.clientHeight-window.innerHeight;
+        const scrollHeightOffset = 200;
+        if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
+            scrollToTopBtn.classList.add("slideIn1000ms");
+            scrollToTopBtn.classList.remove("slideOut1000ms");
+            scrollToTopBtn.classList.remove("hidden");
         } else {
-            console.log('miss');
+            scrollToTopBtn.classList.remove("slideIn1000ms");
+            scrollToTopBtn.classList.add("slideOut1000ms");
         }
     }
     useEffect(() => {
@@ -47,8 +42,9 @@ function App() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
   return (
-    <div id="test" onScroll={handleScroll} className="App" ref={ref}>
+    <div id="AppID" onScroll={handleScroll} className="App" ref={ref}>
         <Router>
             <Navbar id='test2' />
             <Routes>
@@ -70,7 +66,7 @@ function App() {
                 bottom: 20,
                 right: 20,
             }}
-            onClick={handleTop}
+            onClick={scrollToTop}
         >
             <ArrowUpwardIcon />
         </Button>

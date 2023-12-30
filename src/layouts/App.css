@@ -68,11 +68,6 @@
   animation: slideOut 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.slideIn500ms {
-  visibility: visible;
-  animation: slideIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
 .slideIn1000ms {
   visibility: visible;
   animation: slideIn 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
