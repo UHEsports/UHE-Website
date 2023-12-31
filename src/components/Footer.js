@@ -17,6 +17,7 @@ const FooterText = styled('div')(({ theme }) => ({
     letterSpacing: "-0.15px",
     fontSize: "1.2rem",
     [theme.breakpoints.down('sm')]: {
+        fontSize: "1.15rem",
         // fontSize: "1.25rem",
     },
 }));
@@ -85,7 +86,7 @@ function Footer() {
                         rel="noopener noreferrer"
                         href="https://twitter.com/UHEsport"
                         target="_blank"
-                        sx={{ml: 0.5, mr:3 }}
+                        sx={{ml: 0.5, mr:4 }}
                     >
                         <TwitterIcon sx={{fontSize:40}} />
                     </Link>
@@ -105,7 +106,7 @@ function Footer() {
                         </FooterText>
                     </Grid>
                     <Grid sx={{float:'right'}} lg={2} md={4}>
-                        <FooterText sx={{textAlign:'right', color:'grey', mr:3}}>
+                        <FooterText sx={{textAlign:'right', color:'grey', mr:4}}>
                             2532 Correa Rd,
                             <br/>
                             Honolulu, HI 96822
@@ -130,7 +131,7 @@ function Footer() {
                         </FooterText>
                     </Grid>
                     <Grid sx={{alignItems: 'center'}} sm={12} xs={12}>
-                        <FooterText sx={{textAlign:'left', color:'grey', ml:7}}>
+                        <FooterText sx={{fontSize:{sm:'0.9rem', xs:'0.9rem'}, textAlign:'left', color:'grey', ml:7}}>
                             <br/>
                             &copy; 2023 UH Esports. All Rights reserved.
                         </FooterText>
