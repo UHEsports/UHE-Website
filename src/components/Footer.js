@@ -90,27 +90,50 @@ function Footer() {
                         <TwitterIcon sx={{fontSize:40}} />
                     </Link>
                 </nav>
-                <Grid container spacing={3}>
-                    <Grid sx={{alignItems: 'center'}} lg={5} md={6} sm={12}>
+                <Grid container spacing={3} sx={{ display: { lg: "flex", md: "flex", sm: "none", xs: "none" } }}>
+                    <Grid sx={{alignItems: 'center'}} lg={5} md={6}>
                         <FooterText sx={{textAlign:'left', color:'grey', ml:7}}>
                             <br/>
                             &copy; 2023 UH Esports. All Rights reserved.
                         </FooterText>
                     </Grid>
-                    <Grid lg={2} md={1} sm={0} />
-                    <Grid lg={3} md={1} sm={6} >
+                    <Grid lg={2} md={1} />
+                    <Grid lg={3} md={1} >
                         <FooterText sx={{textAlign:'right', color:'grey'}}>
                             <br/>
                             uhesport@hawaii.edu
                         </FooterText>
                     </Grid>
-                    <Grid sx={{float:'right'}} lg={2} md={4} sm={6}>
+                    <Grid sx={{float:'right'}} lg={2} md={4}>
                         <FooterText sx={{textAlign:'right', color:'grey', mr:3}}>
                             2532 Correa Rd,
                             <br/>
                             Honolulu, HI 96822
                         </FooterText>
 
+                    </Grid>
+
+                </Grid>
+                <Grid container spacing={3} sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" } }}>
+                    <Grid sm={2} xs={0}></Grid>
+                    <Grid sm={6} xs={6}>
+                        <FooterText sx={{textAlign:'right', color:'grey'}}>
+                            <br/>
+                            uhesport@hawaii.edu
+                        </FooterText>
+                    </Grid>
+                    <Grid sx={{float:'right'}} sm={4} xs={6}>
+                        <FooterText sx={{textAlign:'right', color:'grey', mr:3}}>
+                            2532 Correa Rd,
+                            <br/>
+                            Honolulu, HI 96822
+                        </FooterText>
+                    </Grid>
+                    <Grid sx={{alignItems: 'center'}} sm={12} xs={12}>
+                        <FooterText sx={{textAlign:'left', color:'grey', ml:7}}>
+                            <br/>
+                            &copy; 2023 UH Esports. All Rights reserved.
+                        </FooterText>
                     </Grid>
                 </Grid>
             </Grid>
