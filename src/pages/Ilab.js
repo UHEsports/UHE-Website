@@ -20,54 +20,60 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+const LocationImages = styled('div')(({theme}) => ({
+  backgroundSize: "cover",
+  height: "250px",
+  borderRadius: "5px",
+  [theme.breakpoints.down('lg')]:{
+    height: "200px",
+    [theme.breakpoints.up('md')]:{
+      height: "150px",
+    }
+  }
+}))
 
-/*Need to fix sizing issues*/
-const LocationSideImages = styled('div')(({ theme }) => ({
-  backgroundSize: 'cover',
-  width: '100%',
-  height: '250px',
-  margin: '10px',
-  [theme.breakpoints.down('lg')]: {
-    height: '200px',
-    [theme.breakpoints.down('md')]: {
-      height: '150px',
-      [theme.breakpoints.down('xs')]: {
-        height: '100%',
-        width: '100%',
-      },
-    },
-  },
-}));
+function Location(){
+  const{ref, inView} = useInView({
+    triggerOnce: true,
+    rootMargin: '-150px',
+  });
 
-const Location = () => {
-  return (
-    <Grid container spacing={2} justifyContent="center" sx={{ mt: 2 }}>
-      <Grid item xs={12} md={4}>
-        <SectionTitle sx={{ml: 3, mb: 4 }}>
-          LOCATION
-        </SectionTitle>
-        <SectionDescription sx={{ml: 3, mr: 3, mb: 3 }}>
+  return(
+    <Grid
+      sx={{mt:4, p:1, pb:3,}}
+      container
+      spacing={2}
+      alignItems="center"
+      justifyContent="center"
+      ref={ref}>
+        <Grid lg={5} md={5} xs={12} item>
+          <SectionTitle sx={{mb: 4 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+            LOCATION
+          </SectionTitle>
+          <SectionDescription sx={{textAlign:'left', mb:3}} className={inView ? 'slideIn1500ms' : 'hidden'}>
           <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
           ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
           enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
           sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </SectionDescription>
-        <SectionDescription sx={{ml: 3, mr: 3, mb: 3 }}>
+          </SectionDescription>
+          <SectionDescription sx={{textAlign:'left', mb:3}} className={inView ? 'slideIn1500ms' : 'hidden'}>
           <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
           ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
           enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        </SectionDescription>
-      </Grid>
-      <Grid item xs={12} sm={5} md={5}>
-        <LocationSideImages style={{ backgroundImage: `url("${group_1}")` }} />
-        <LocationSideImages style={{ backgroundImage: `url("${group_2}")` }} />
-        <LocationSideImages style={{ backgroundImage: `url("${group_3}")` }} />
-      </Grid>
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+          sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </SectionDescription>
+        </Grid>
+        <Grid lg={5} md={5} xs={12} item>
+        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        </Grid>
+
     </Grid>
-  );
-};
+  )
+}
 
 function AvailableEquipment() {
   const { ref } = useInView({
@@ -80,7 +86,7 @@ function AvailableEquipment() {
       dots: true,
       infinite: true,
       slidesToShow: 4,
-      slidesToScroll: 1.5,
+      slidesToScroll: 1,
       autoplay: true,
       speed: 500,
       responsive: [
@@ -162,7 +168,7 @@ function AvailableEquipment() {
           AVAILABLE EQUIPMENT
         </SectionTitle>
       </Grid>
-      <Grid sx={{ mt: 3 }} item md={11} xs={11}>
+      <Grid sx={{ mt: 3 , mb:7}} item md={11} xs={11}>
         <Slider {...settings}>
           {equipmentData.map((item, index) => (
             <Grid key={index} className='test'>
@@ -256,6 +262,7 @@ function Staff() {
       item lg={8} md={8} xs={10}
       sx={{ 
           mt: { lg: 1, md: 1, xs: 1 }, 
+          pb: 10,
           display:'flex', 
           justifyContent:"center", 
           margin: 'auto',
