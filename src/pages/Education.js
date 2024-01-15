@@ -151,6 +151,7 @@ function Courses() {
         rootMargin: '-150px',
     });
     return(
+        // TODO remove the mb spacing. Only added to showcase footer spacing
         <Grid sx={{mt:8, backgroundColor:"#f6f6f6", pt:1, pb:5, mb:6}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
             <Grid item lg={5} md={5} sm={11} xs={11}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Courses</SectionTitle>
