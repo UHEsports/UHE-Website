@@ -9,6 +9,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
+import Footer from "../components/Footer";
 
 function App() {
     const { ref } = useInView({
@@ -70,6 +71,7 @@ function App() {
         >
             <ArrowUpwardIcon />
         </Button>
+        <Footer />
     </div>
   );
 }
