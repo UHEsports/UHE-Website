@@ -6,35 +6,29 @@ import InstagramSolidIcon from "./InstagramSolidIcon";
 import TwitchSolidIcon from "./TwitchSolidIcon";
 import TiktokSolidIcon from "./TiktokSolidIcon";
 import DiscordSolidIcon from "./DiscordSolidIcon";
-import SectionDescription from "./SectionDescription";
-import CopyrightIcon from '@mui/icons-material/Copyright';
 
 import {styled} from "@mui/material/styles";
 
-// Use this component like a div box
+// Utilize as a DIV box
 const FooterText = styled('div')(({ theme }) => ({
     fontWeight: 300,
     letterSpacing: "-0.15px",
     fontSize: "1.2rem",
     [theme.breakpoints.down('sm')]: {
         fontSize: "1.15rem",
-        // fontSize: "1.25rem",
     },
 }));
 
 function Footer() {
     return(
             <Grid container sx={{pt:2, pb:4, backgroundColor: "#f6f6f6", alignItems: "center", justifyContent: "space-between"}}>
-               {/*<Grid lg={12} alignItems="center" sx={{display:'flex'}}>*/}
-               {/*<Box sx={{ml:2}}>*/}
+               <Box sx={{ml:{lg:1, md:1, sm:0, xs:0}}}>
                    <img
                        alt="UHE Logo"
                        width="150px"
                        src={uheLogo}
                    />
-                {/*<Grid item lg="auto" md="auto" sm="auto" xs="auto" />*/}
-               {/*</Box>*/}
-               {/*<Box sx={{ flexGrow: 1 }} />*/}
+               </Box>
                <Box sx={{display: 'flex', flexDirection: 'flex-end'}}>
                    <Link
                        underline="none"
@@ -87,14 +81,13 @@ function Footer() {
                        rel="noopener noreferrer"
                        href="https://twitter.com/UHEsport"
                        target="_blank"
-                       sx={{ml: 0.25, mr:{lg:4, md:4, sm:3, xs:2} }}
+                       sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
                    >
                        <TwitterIcon sx={{fontSize:35}} />
                    </Link>
                </Box>
-               {/*</Grid>*/}
 
-                <Grid container spacing={3} sx={{ display: { lg: "flex", md: "flex", sm: "none", xs: "none" } }}>
+                <Grid container  spacing={2} sx={{ display: { lg: "flex", md: "flex", sm: "none", xs: "none" } }}>
                     <Grid sx={{alignItems: 'center'}} lg={5} md={6}>
                         <FooterText sx={{textAlign:'left', color:'grey', ml:7}}>
                             <br/>
@@ -113,10 +106,9 @@ function Footer() {
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822
                         </FooterText>
-
                     </Grid>
-
                 </Grid>
+
                 <Grid container spacing={3} sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" } }}>
                     <Grid sm={2} xs={0}></Grid>
                     <Grid sm={6} xs={12}>
