@@ -59,13 +59,13 @@ function InternshipHeader() {
         rootMargin: '-50px 0px',
     });
     return (
-        <Grid container sx={{ mt:{ lg:6, md:4, sm:4, xs:4 }}} justifyContent="center" ref={ref}>
-            <Grid item md={12} sm={12}>
+        <Grid container sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={2} ref={ref}>
+            <Grid item lg={12} md={12} sm={12} xs={11}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Internships
                 </SectionTitle>
             </Grid>
-            <Grid  item md={7} sm={10} sx={{p:2,}}>
+            <Grid item lg={7} md={10} sm={11} xs={12}>
                 <SectionDescription className={inView ? 'slideIn1400ms' : 'hidden'}>
                     Talk about the team’s history here.
                     Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.

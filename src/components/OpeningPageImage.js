@@ -24,6 +24,7 @@ const OpeningImageText = styled('div')(({ theme}) => ({
     fontWeight: 900,
     [theme.breakpoints.down('lg')]: {
         fontSize:"80px",
+        marginLeft:'30px',
         [theme.breakpoints.down('sm')]: {
             marginLeft:'20px',
             fontSize:"44px",
@@ -37,9 +38,10 @@ const OpeningImageSubtitle = styled('div')(({ theme}) => ({
     fontSize:"50px",
     fontWeight: 600,
     [theme.breakpoints.down('lg')]: {
+        marginLeft:"30px",
         fontSize:"32px",
         [theme.breakpoints.down('sm')]: {
-            marginLeft:"23px",
+            marginLeft:"21px",
             fontSize:"24px",
         },
     },
