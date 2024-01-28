@@ -311,7 +311,7 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            <OpeningPageImage header="University of Hawaii Esports" subtitle="Subtitle text" imageURL={group_4}/>
+            <OpeningPageImage header="University of Hawaii Esports" subtitle1="Monday - Fridays" subtitle2="10:30 AM - 4:00 PM HST" imageURL={group_4}/>
             <AboutSection />
             <JoinDiscord />
             {/*TODO games component location*/}

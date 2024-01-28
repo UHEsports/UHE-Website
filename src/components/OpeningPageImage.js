@@ -19,30 +19,34 @@ const OpeningImage = styled('div')(({ theme, imageURL }) => ({
 
 const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    fontSize:"7.5rem",
-    marginLeft:'20px',
+    fontSize:"120px",
+    marginLeft:'40px',
+    fontWeight: 900,
     [theme.breakpoints.down('lg')]: {
-        fontSize:"5rem",
+        fontSize:"80px",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"3.5rem",
+            marginLeft:'20px',
+            fontSize:"44px",
         },
     },
 }));
 
 const OpeningImageSubtitle = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
-    marginLeft:"23px",
-    fontSize:"3.5rem",
+    marginLeft:'41px',
+    fontSize:"50px",
+    fontWeight: 600,
     [theme.breakpoints.down('lg')]: {
-        fontSize:"2rem",
+        fontSize:"32px",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"1.5rem",
+            marginLeft:"23px",
+            fontSize:"24px",
         },
     },
 }));
 
 
-function OpeningPageImage({ header, subtitle, imageURL }) {
+function OpeningPageImage({ header, subtitle1, subtitle2, imageURL }) {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-100px 0px',
@@ -52,7 +56,6 @@ function OpeningPageImage({ header, subtitle, imageURL }) {
             <Grid
                 sx={{
                     textAlign: "left",
-                    fontWeight: "900",
                 }}
                 container
                 direction="column">
@@ -66,7 +69,14 @@ function OpeningPageImage({ header, subtitle, imageURL }) {
                 <Grid item md={12}>
                     {inView ? (
                         <OpeningImageSubtitle className="slideIn1500ms" item md={12}>
-                            {subtitle}
+                            {subtitle1}
+                        </OpeningImageSubtitle>
+                    ) : null}
+                </Grid>
+                <Grid item md={12}>
+                    {inView ? (
+                        <OpeningImageSubtitle className="slideIn1500ms" item md={12}>
+                            {subtitle2}
                         </OpeningImageSubtitle>
                     ) : null}
                 </Grid>
