@@ -311,11 +311,9 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            {/**/}
             <OpeningPageImage header="University of Hawai'i Esports" imageURL={group_4}/>
             <AboutSection />
             <JoinDiscord />
-            {/*TODO games component location*/}
             <Games />
             <OurMilestones />
             <UHEInfoBlock />
