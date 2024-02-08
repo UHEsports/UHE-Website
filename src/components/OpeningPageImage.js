@@ -35,7 +35,7 @@ const OpeningImageText = styled('div')(({ theme}) => ({
 const OpeningImageSubtitle = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
     marginLeft:'41px',
-    fontSize:"50px",
+    fontSize:"46px",
     fontWeight: 600,
     [theme.breakpoints.down('lg')]: {
         marginLeft:"30px",
