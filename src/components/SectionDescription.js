@@ -4,9 +4,9 @@ import {styled} from "@mui/material/styles";
 const SectionDescription = styled('div')(({ theme }) => ({
     textAlign: 'left',
     letterSpacing: "0.15px",
-    fontSize: "1.5rem",
+    fontSize: "24px",
     [theme.breakpoints.down('sm')]: {
-        fontSize: "1.25rem",
+        fontSize: "18px",
     },
 }));
 

@@ -5,11 +5,11 @@ const SectionTitle = styled('div')(({ theme }) => ({
     fontWeight: "800",
     wordSpacing: '-3px',
     letterSpacing: "-1px",
-    fontSize: "4.5rem",
+    fontSize: "72px",
     [theme.breakpoints.down('lg')]: {
-        fontSize: "3.5rem",
+        fontSize: "56px",
         [theme.breakpoints.down('sm')]: {
-            fontSize: "2.5rem",
+            fontSize: "40px",
         },
     },
 }));
