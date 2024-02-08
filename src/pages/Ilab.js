@@ -292,8 +292,7 @@ function Staff() {
 function Ilab() {
     return (
         <>
-        {/*gonna figure out how to have line breaks within the subtitle*/}
-        <OpeningPageImage header="ILab" subtitle=">>MONDAY - FRIDAY 10:30 AM - 4:00 PM HST"imageURL={group_4} />
+        <OpeningPageImage header="ILab" subtitle1="Monday - Fridays" subtitle2="10:30 AM - 4:00 PM HST" imageURL={group_4} />
         <Location />
         <AvailableEquipment />
         <Staff />
