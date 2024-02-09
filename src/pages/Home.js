@@ -115,20 +115,20 @@ const MileStoneImages = styled('div')(({ theme }) => ({
     },
 }));
 
-const MileStoneText = styled('div')(({ theme }) => ({
+const MileStoneTextTitle = styled('div')(({ theme }) => ({
     textAlign: 'left',
-    fontSize:"1.7rem",
-    [theme.breakpoints.down('lg')]: {
-        fontSize: "1.5rem",
-    },
+    fontSize:"28px",
+    fontWeight:'bold',
+    marginTop:'16px',
 }));
+
 function OurMilestones() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={4} justifyContent="center">
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={3} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
@@ -136,13 +136,13 @@ function OurMilestones() {
             </Grid>
             <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
-                <MileStoneText sx={{mt:2, fontWeight:'bold'}}>Esports Awards</MileStoneText>
-                <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
+                <MileStoneTextTitle>Esports Awards</MileStoneTextTitle>
+                <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
             </Grid>
             <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
-                <MileStoneText sx={{mt:2, fontWeight:'bold'}}>OWL Internship</MileStoneText>
-                <MileStoneText sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</MileStoneText>
+                <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>
+                <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
             </Grid>
         </Grid>
     );
@@ -311,10 +311,9 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            <OpeningPageImage header="University of Hawaii Esports" subtitle="Subtitle text" imageURL={group_4}/>
+            <OpeningPageImage header="University of Hawai'i Esports" imageURL={group_4}/>
             <AboutSection />
             <JoinDiscord />
-            {/*TODO games component location*/}
             <Games />
             <OurMilestones />
             <UHEInfoBlock />
