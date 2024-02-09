@@ -7,15 +7,17 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import './Ilab.css';
 import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
 import group_4 from '../assets/images/group_4.png';
+import Button from "@mui/material/Button";
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from '../components/OpeningPageImage';
-import Divider from '@mui/material/Divider';
+import volunteer_graphic from "../assets/images/ilab_volunteer_graphic.png";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -213,7 +215,7 @@ const StaffDesc = {
   marginTop: 1,
   overflow: 'hidden',
 };
-
+/*
 function StaffMember({ image, name, role, slideIn }) {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -228,8 +230,8 @@ function StaffMember({ image, name, role, slideIn }) {
     </StaffBlock>
   );
 }
-
-const staffData = [
+*/
+/*const staffData = [
   {
     image: group_1,
     name: "First Last",
@@ -248,8 +250,8 @@ const staffData = [
     role: "Role in iLab",
     slideIn: "slideIn2100ms",
   },
-];
-
+];*/
+/*
 function Staff() {
   const { ref , inView } = useInView({
     triggerOnce: true,
@@ -287,7 +289,40 @@ function Staff() {
     </Grid>
   );
 }
-  
+  */
+
+function Volunteer(){
+  const {ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-150px',
+  });
+  return(
+    <Grid sx={{mt:8, backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+      <Grid item lg={5} md={5} sm={11} xs={11}>
+        <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Volunteer!</SectionTitle>
+        <Box sx={{mt:{lg:4, md:2, xs:2}}}>
+          <SectionDescription style={{textAlign:'center'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+            Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
+            Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim dolor do aliqua duis nulla ad.
+            Fugiat incididunt id quis cillum eiusmod consectetur aliqua
+            <br/>
+            <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
+          </SectionDescription>
+        </Box>
+      </Grid>
+      <Grid item lg={4} md={5} sm={10} xs={11}>
+          <img
+              style={{borderRadius:'10px'}}
+              alt="UHE Courses"
+              width="100%"
+              className={inView ? 'slideIn1000ms' : 'hidden'}
+              src={volunteer_graphic}
+          />
+      </Grid>
+    </Grid>
+  );
+}
+
 
 function Ilab() {
     return (
@@ -296,7 +331,7 @@ function Ilab() {
         <OpeningPageImage header="ILab" subtitle=">>MONDAY - FRIDAY 10:30 AM - 4:00 PM HST"imageURL={group_4} />
         <Location />
         <AvailableEquipment />
-        <Staff />
+        <Volunteer />
         </>
     );
 }
