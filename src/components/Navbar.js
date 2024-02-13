@@ -89,6 +89,21 @@ function Navbar() {
         <ListItem disablePadding>
           <ListItemButton>
             <Link
+                component={RouterLink}
+                underline="none"
+                variant="button"
+                color="black"
+                to="/wouhe"
+                sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
+            >
+              WoUHE
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <Divider />
+        <ListItem disablePadding>
+          <ListItemButton>
+            <Link
               component={RouterLink}
               underline="none"
               variant="button"
@@ -159,6 +174,16 @@ function Navbar() {
                   sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
                 >
                   Education
+                </Link>
+                <Link
+                    component={RouterLink}
+                    underline="none"
+                    variant="button"
+                    color="white"
+                    to="/wouhe"
+                    sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                >
+                  WoUHE
                 </Link>
                 <Link
                   component={RouterLink}

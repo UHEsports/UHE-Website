@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
+import WoUHE from "../pages/WoUHE";
 
 function App() {
     const { ref } = useInView({
@@ -52,6 +53,7 @@ function App() {
                 <Route exact path="/" element={<Home />} />
                 <Route path="ilab" element={<Ilab />} />
                 <Route path="education" element={<Education />} />
+                <Route path="wouhe" element={<WoUHE />} />
                 <Route path="contact-us" element={<ContactUs />} />
             </Routes>
         </Router>
