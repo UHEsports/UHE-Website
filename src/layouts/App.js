@@ -48,7 +48,7 @@ function App() {
   return (
     <div id="AppID" onScroll={handleScroll} className="App" ref={ref}>
         <Router>
-            <Navbar id='test2' />
+            <Navbar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="ilab" element={<Ilab />} />
