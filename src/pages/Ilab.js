@@ -1,8 +1,3 @@
-/*import * as React from 'react';
-import logo from "../logo.svg";
-import Button from "@mui/material/Button";
-import { useInView } from 'react-intersection-observer';*/
-//importing everything 
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import './Ilab.css';
@@ -119,7 +114,6 @@ function AvailableEquipment() {
           
       ]
   };
-  // EquipmentItem component
   const EquipmentItem = ({ image, title, description }) => (
     <div style={{ margin: '8px', height: '200px' }}>
       <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -161,6 +155,31 @@ function AvailableEquipment() {
       title: "PS5",
       description: "Tempora aut est maiores error laudantium ut architecto",
     },
+    {
+      image: group_1,
+      title: "Nintendo Switch",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_1,
+      title: "Nintendo Switch Pro Controllers",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_2,
+      title: "Community Monitors",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_3,
+      title: "PS5 Controllers",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
+    {
+      image: group_2,
+      title: "Xbox One Controllers",
+      description: "Tempora aut est maiores error laudantium ut architecto",
+    },
   ];
 
   return (
@@ -182,114 +201,6 @@ function AvailableEquipment() {
     </Grid>
   );  
 }
-
-const StaffImages = styled('div')(({ theme }) => ({
-  backgroundSize: "cover",
-  backgroundPosition: "center", 
-  height: "250px",
-  width: "250px",
-  borderRadius: "50%", 
-  [theme.breakpoints.down('lg')]: {
-    height: "200px",
-    width: "200px",
-    [theme.breakpoints.down('md')]: {
-      height: "150px",
-      width: "150px",
-    },
-  },
-}));
-  
-const StaffBlock = styled('div')(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  marginLeft: "2%",
-  marginRight: "2%",
-  textAlign: "center",
-  flexDirection: "column",
-}));
-
-/* Temporary style for description overflow */
-const StaffDesc = {
-  wordWrap: 'break-word',
-  whiteSpace: 'normal',
-  marginTop: 1,
-  overflow: 'hidden',
-};
-/*
-function StaffMember({ image, name, role, slideIn }) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '-50px 0px',
-  });
-
-  return (
-    <StaffBlock ref={ref} className={inView ? slideIn : 'hidden'}>
-      <StaffImages style={{ backgroundImage: `url("${image}")` }} />
-      <SectionDescription sx={{ mt: 2, fontWeight: 'bold' }}>{name}</SectionDescription>
-      <SectionDescription>{role}</SectionDescription>
-    </StaffBlock>
-  );
-}
-*/
-/*const staffData = [
-  {
-    image: group_1,
-    name: "First Last",
-    role: "Role in iLab",
-    slideIn: "slideIn1300ms",
-  },
-  {
-    image: group_2,
-    name: "First Last",
-    role: "Role in iLab",
-    slideIn: "slideIn1700ms",
-  },
-  {
-    image: group_3,
-    name: "First Last",
-    role: "Role in iLab",
-    slideIn: "slideIn2100ms",
-  },
-];*/
-/*
-function Staff() {
-  const { ref , inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '-50px 0px',
-  });
-
-
-  return (
-    <Grid 
-      item lg={8} md={8} xs={10}
-      sx={{ 
-          mt: { lg: 1, md: 1, xs: 1 }, 
-          pb: 10,
-          display:'flex', 
-          justifyContent:"center", 
-          margin: 'auto',
-          alignContent:"center",
-          borderRadius: '10px',}} 
-          ref={ref}
-          container spacing={4}  
-          backgroundColor={"rgba(219, 215, 215, 0.3)"}>
-      <Grid item md={8} xs={10} ref={ref}>
-        <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'} sx={{ mb: 1 }}>
-          STAFF
-        </SectionTitle>
-        <SectionDescription className={inView ? 'slideIn1300ms' : 'hidden'} sx={{ mb: 1 }}>
-        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-        </SectionDescription>
-      </Grid>
-      <Grid className="staff" justifyContent="center" item md={8} xs={10} ref={ref}>  
-        {staffData.map((staff, index) => (
-          <StaffMember key={index} {...staff} />
-        ))}
-      </Grid>
-    </Grid>
-  );
-}
-  */
 
 function Volunteer(){
   const {ref, inView } = useInView({
