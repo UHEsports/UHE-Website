@@ -139,7 +139,7 @@ function Navbar() {
             >
               <img
                 alt="UHE Logo"
-                width="100rem"
+                width="125"
                 src={uheLogo}
                 style={{ float: "left" }}
               />
