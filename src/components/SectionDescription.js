@@ -5,6 +5,9 @@ const SectionDescription = styled('div')(({ theme }) => ({
     textAlign: 'left',
     letterSpacing: "0.15px",
     fontSize: "24px",
+    [theme.breakpoints.down('md')]: {
+        // fontSize: "22px",
+    },
     [theme.breakpoints.down('sm')]: {
         fontSize: "18px",
     },

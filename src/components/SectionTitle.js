@@ -7,7 +7,7 @@ const SectionTitle = styled('div')(({ theme }) => ({
     letterSpacing: "-1px",
     fontSize: "72px",
     [theme.breakpoints.down('lg')]: {
-        fontSize: "56px",
+        fontSize: "60px",
         [theme.breakpoints.down('sm')]: {
             fontSize: "40px",
         },

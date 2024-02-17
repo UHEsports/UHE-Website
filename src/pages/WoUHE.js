@@ -12,38 +12,39 @@ import battlefield from "../assets/images/battlefield_mlbb_1.png";
 
 const WoUHEOpeningImage = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
+    backgroundPosition: "center",
     height: "700px",
     borderRadius:'10px',
-    // [theme.breakpoints.down('lg')]: {
-    //     height: "300px",
-    //     [theme.breakpoints.down('md')]: {
-    //         height: "250px",
-    //     },
-    // },
+    [theme.breakpoints.down('lg')]: {
+        height: "400px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
+    },
 }));
 function AboutWoUHE() {
     return (
-        <Grid container sx={{ mt:{ lg:'152px', md:4, sm:4, xs:4 }}} justifyContent="center">
-            <Grid item md={12} sm={12}>
+        <Grid container sx={{ mt:{ lg:'182px', md:'182px', sm:'110px', xs:'100px' }}} justifyContent="center">
+            <Grid item md={12} sm={12} xs={12}>
                 <img
                     alt="Women of UHE Logo"
                     width="115"
                     src={woUHELogo}
                 />
             </Grid>
-            <Grid item md={12} sm={12} sx={{ mt:{ lg:1 }}}>
+            <Grid item md={12} sm={12} xs={12} sx={{ mt:{ lg:2, md:2 }}}>
                 <SectionTitle>
                     Women of UHE
                 </SectionTitle>
             </Grid>
-            <Grid item md={7} sm={10} sx={{ mt:{ lg:1 }, p:2,}}>
+            <Grid item lg={7} md={8} sm={10} xs={11} sx={{ mt:{ lg:1, md:1 }, p:2,}}>
                 <SectionDescription sx={{textAlign:'center'}}>
                     Talk about the team’s history here.
                     Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
                 </SectionDescription>
             </Grid>
-            <Grid item md={8} sx={{ mt:{ lg:5 }}}>
-                <WoUHEOpeningImage style={{backgroundImage:`url("${group_1}"`}}></WoUHEOpeningImage>
+            <Grid item lg={8} md={9} sm={11} xs={11} sx={{ mt:{ lg:5, md:4 }}}>
+                <img src={group_1} width="100%" style={{borderRadius:'10px'}}></img>
             </Grid>
         </Grid>
     );
