@@ -7,22 +7,7 @@ import {styled} from "@mui/material/styles";
 import group_1 from "../assets/images/group_1.jpg";
 import leagueWoUHE from "../assets/images/league_wouhe.png";
 import valorantWoUHE from "../assets/images/valorant_wouhe.png";
-import wraith from "../assets/images/wraith_apex.png";
-import battlefield from "../assets/images/battlefield_mlbb_1.png";
 
-// TODO remove if the img tag works better
-// const WoUHEOpeningImage = styled('div')(({ theme }) => ({
-//     backgroundSize: "cover",
-//     backgroundPosition: "center",
-//     height: "700px",
-//     borderRadius:'10px',
-//     [theme.breakpoints.down('lg')]: {
-//         height: "400px",
-//         [theme.breakpoints.down('md')]: {
-//             height: "250px",
-//         },
-//     },
-// }));
 function AboutWoUHE() {
     return (
         <Grid container sx={{ mt:{ lg:'182px', md:'182px', sm:'110px', xs:'100px' }}} justifyContent="center">
@@ -51,27 +36,48 @@ function AboutWoUHE() {
     );
 }
 
-const GameCard = styled('div')(({theme, defaultBackground}) => ({
-    backgroundImage: `url('${defaultBackground}')`,
+const GameCardWoUHEValorant = styled('div')(({theme}) => ({
+    backgroundImage: `url('${valorantWoUHE}')`,
+    overflow: 'hidden',
+    borderRadius: '10px',
+    position: 'relative',
+    backgroundSize: '900px',
+    backgroundPosition: "-275px 0px",
+    width:"100%",
+    height: '425px',
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        height: '400px',
+        backgroundSize: '800px',
+        backgroundPosition: "-320px 0px",
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            backgroundPosition: "-380px 0px",
+            // TODO add in mobile conversion
+        },
+    },
+}));
+
+const GameCardWoUHELeague = styled('div')(({theme}) => ({
+    backgroundImage: `url('${leagueWoUHE}')`,
     overflow: 'hidden',
     borderRadius: '10px',
     position: 'relative',
     backgroundSize: '800px',
-    backgroundPosition: "-150px",
-    // backgroundPosition:"center",
-    // width: '634px !important',
+    backgroundPosition: "-160px",
     width:"100%",
     height: '425px',
-    // TODO add in mobile conversion
     [theme.breakpoints.down('lg')]: {
         width: '100%',
-        height: '300px',
-        backgroundSize: '650px',
-        backgroundPosition: "-160px",
-    //     [theme.breakpoints.down('sm')]: {
-    //         width: '105px !important',
-    //         height: '400px',
-    //     },
+        height: '400px',
+        backgroundSize: '750px',
+        backgroundPosition: "-180px",
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            backgroundSize: '710px',
+            backgroundPosition: "-175px 0px",
+            // TODO add in mobile conversion
+        },
     },
 }));
 
@@ -80,24 +86,36 @@ const GameTitleText = styled('div')(({ theme }) => ({
     fontSize: "38px",
     textAlign:'right',
     // transform: 'rotate(-90deg)',
-    writingMode: 'vertical-lr',
+    writingMode: 'vertical-rl',
     position:'relative',
     height: '100%',
     bottom: '3%',
-    // left:'91%',
     float:'right',
     // TODO add in mobile conversion
-    // [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "2.30rem",
+        bottom:'1%',
+    //     float:'left',
+    //     textAlign:'left',
+    //     left: '3%',
+    //     top:'86%',
+    //     writingMode: 'horizontal-tb',
     //     fontSize: "2.30rem",
-    //     top: '40%',
-    //     left:'-130px',
-    //     [theme.breakpoints.down('md')]: {
-    //         left:'-115px',
-    //         [theme.breakpoints.down('sm')]: {
-    //             left:'-125px',
-    //         },
+        [theme.breakpoints.down('md')]: {
+            // bottom: '10px',
+            // textAlign: 'right',
+            // writingMode: 'vertical-rl',
+            // left:'0%',
+            // height: '100%',
+            // bottom: '5px',
+            // top: '-1%',
+            // float:'right',
+        }
+    //     [theme.breakpoints.down('sm')]: {
+    //         left:'-125px',
     //     },
-    // },
+    //     },
+    },
 }));
 
 function WoUHEGames() {
@@ -108,22 +126,19 @@ function WoUHEGames() {
                     Our Teams
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} xs={11}>
-                <GameCard defaultBackground={valorantWoUHE}>
-                    {/*<ApexCharacterImage />*/}
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} sm={5.5} xs={11}>
+                <GameCardWoUHEValorant>
                     <GameTitleText>
                         VALORANT
                     </GameTitleText>
-                </GameCard>
+                </GameCardWoUHEValorant>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} xs={11}>
-                <GameCard defaultBackground={leagueWoUHE}>
-                    {/*<ApexCharacterImage2 />*/}
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} sm={5.5} xs={11}>
+                <GameCardWoUHELeague>
                     <GameTitleText>
                         LEAGUE OF LEGENDS
                     </GameTitleText>
-                </GameCard>
-                {/*<GameImage style={{backgroundImage:`url("${leagueWoUHE}"`}} />*/}
+                </GameCardWoUHELeague>
             </Grid>
         </Grid>
     );
