@@ -1,18 +1,23 @@
 import './App.css';
 import Navbar from "../components/Navbar";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import {HashRouter as Router, Routes, Route, useLocation} from "react-router-dom";
 import Home from "../pages/Home";
 import Ilab from "../pages/Ilab";
 import Education from "../pages/Education";
 import ContactUs from "../pages/ContactUs";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
+import FooterWoUHE from "../components/FooterWoUHE";
 import WoUHE from "../pages/WoUHE";
 
 function App() {
+    const [showFooter, setShowFooter] = useState(true);
+    // const { pathname } = useLocation();
+    console.log('HITTING HITTI')
+    // console.log()
     const { ref } = useInView({
         triggerOnce: false,
     });
@@ -51,11 +56,13 @@ function App() {
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route path="ilab" element={<Ilab />} />
-                <Route path="education" element={<Education />} />
-                <Route path="wouhe" element={<WoUHE />} />
-                <Route path="contact-us" element={<ContactUs />} />
+                <Route path="/ilab" element={<Ilab />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/wouhe" element={<WoUHE footerCheck={setShowFooter} />} />
+                <Route path="/contact-us" element={<ContactUs />} />
             </Routes>
+            <FooterWoUHE />
+            <Footer />
         </Router>
         <Button
             className="scrollToTopBtn hidden"
@@ -73,7 +80,11 @@ function App() {
         >
             <ArrowUpwardIcon />
         </Button>
-        <Footer />
+        {/*{!showFooter && <FooterWoUHE />}*/}
+        {/*{window.location.href.includes('/wouhe') && }*/}
+        {/*{window.location.href !== '/wouhe'}*/}
+        {/*{showFooter && <Footer />}*/}
+
     </div>
   );
 }

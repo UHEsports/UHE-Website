@@ -8,6 +8,7 @@ import TiktokSolidIcon from "./TiktokSolidIcon";
 import DiscordSolidIcon from "./DiscordSolidIcon";
 
 import {styled} from "@mui/material/styles";
+import {useLocation} from "react-router-dom";
 
 // Utilize as a DIV box
 const FooterText = styled('div')(({ theme }) => ({
@@ -20,7 +21,9 @@ const FooterText = styled('div')(({ theme }) => ({
 }));
 
 function Footer() {
-    return(
+    const { pathname } = useLocation();
+    if (pathname === "/wouhe") return null;
+    else return(
             <Grid container sx={{pt:2, pb:4, backgroundColor: "#f6f6f6", alignItems: "center", justifyContent: "space-between"}}>
                <Box sx={{ml:{lg:1, md:1, sm:0, xs:0}}}>
                    <img

@@ -147,9 +147,17 @@ function WoUHEGames() {
 function Events() {
     return (
         <>
-            <SectionTitle>
+            <SectionTitle sx={{mt:{ lg:4, md:1, xs:1 }}}>
                 Events
             </SectionTitle>
+            {/*<iframe*/}
+            {/*    src="https://9vey1wx7wknj1n.embednotionpage.com/65307ff35678453ea66b134f3dd1a121?pvs=4"*/}
+            {/*    style={{width: '100%', height: '800px', border: 'none !important', padding: '0'}}*/}
+            {/*></iframe>*/}
+            <iframe
+                src="https://9vey1wx7wknj1n.embednotionpage.com/65307ff35678453ea66b134f3dd1a121?pvs=4"
+                style={{width: '100%', height: '922px', border: 'none !important', padding: '0'}}
+            ></iframe>
         </>
     );
 }
@@ -180,7 +188,8 @@ function WoUHEFooter() {
         </>
     );
 }
-function WoUHE() {
+function WoUHE(setShowFooter) {
+    setShowFooter = false;
     return (
         <>
             <AboutWoUHE />

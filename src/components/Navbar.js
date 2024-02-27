@@ -190,7 +190,7 @@ function Navbar() {
                   underline="none"
                   variant="button"
                   color="white"
-                  to="contact-us"
+                  to="/contact-us"
                   sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
                 >
                   Contact Us
