@@ -194,7 +194,7 @@ function WoUHE(setShowFooter) {
         <>
             <AboutWoUHE />
             <WoUHEGames />
-            <Events />
+            {/*<Events />*/}
         </>
     );
 }
