@@ -1,0 +1,7 @@
+#WoUHEValorantImage {
+    float: right;
+    transform: scaleX(-1);
+    clip-path: inset(0px 20px 30px 150px);
+    /*background-size: cover;*/
+    /*background-position: -200px 0px;*/
+}

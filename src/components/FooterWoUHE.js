@@ -40,7 +40,7 @@ function FooterWoUHE() {
                     Copyright &copy; 2024 WoUHE | All Rights reserved.
                 </FooterText>
             </Box>
-            <Box item sx={{display: 'flex', alignItems:'center', flexDirection: 'flex-end'}}>
+            <Box item sx={{display: 'flex', alignItems:'center', flexDirection: 'flex-end', ml:{lg:0, md:0, sm:'35px', xs:'35px'}}}>
                 <Link
                     underline="none"
                     variant="button"

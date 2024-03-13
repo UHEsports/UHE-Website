@@ -5,8 +5,8 @@ import SectionDescription from "../components/SectionDescription";
 import woUHELogo from "../assets/images/wouhe_logo.png";
 import {styled} from "@mui/material/styles";
 import group_1 from "../assets/images/group_1.jpg";
-import leagueWoUHE from "../assets/images/league_wouhe.png";
-import valorantWoUHE from "../assets/images/valorant_wouhe.png";
+import valorantWoUHE from "../assets/images/valorant_cropped_wouhe.png";
+import './WoUHE.css';
 
 function AboutWoUHE() {
     return (
@@ -25,8 +25,7 @@ function AboutWoUHE() {
             </Grid>
             <Grid item lg={7} md={8} sm={10} xs={11} sx={{ mt:{ lg:3, md:3, sm:3, xs:2 }, px:2, pb:2 }}>
                 <SectionDescription sx={{textAlign:'center'}}>
-                    Talk about the team’s history here.
-                    Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
+                    Supporting marginalized genders in the program by providing opportunities, space, and community to fruther their education and careers.
                 </SectionDescription>
             </Grid>
             <Grid item lg={8} md={10} sm={11} xs={11} sx={{ mt:{ lg:5, md:4, sm:4, xs:2 }}}>
@@ -38,47 +37,25 @@ function AboutWoUHE() {
 
 const GameCardWoUHEValorant = styled('div')(({theme}) => ({
     backgroundImage: `url('${valorantWoUHE}')`,
+    transform: 'scaleX(-1)',
     overflow: 'hidden',
-    borderRadius: '10px',
     position: 'relative',
-    backgroundSize: '900px',
-    backgroundPosition: "-275px 0px",
-    width:"100%",
-    height: '425px',
-    [theme.breakpoints.down('lg')]: {
-        width: '100%',
-        height: '400px',
-        backgroundSize: '800px',
-        backgroundPosition: "-320px 0px",
-        [theme.breakpoints.down('md')]: {
-            width: '100%',
-            backgroundPosition: "-380px 0px",
-            // TODO add in mobile conversion
-        },
-    },
-}));
-
-const GameCardWoUHELeague = styled('div')(({theme}) => ({
-    backgroundImage: `url('${leagueWoUHE}')`,
-    overflow: 'hidden',
-    borderRadius: '10px',
-    position: 'relative',
-    backgroundSize: '800px',
-    backgroundPosition: "-160px",
-    width:"100%",
-    height: '425px',
-    [theme.breakpoints.down('lg')]: {
-        width: '100%',
-        height: '400px',
-        backgroundSize: '750px',
-        backgroundPosition: "-180px",
-        [theme.breakpoints.down('md')]: {
-            width: '100%',
-            backgroundSize: '710px',
-            backgroundPosition: "-175px 0px",
-            // TODO add in mobile conversion
-        },
-    },
+    backgroundSize: 'cover',
+    // backgroundPosition: "-100px 0px",
+    float:'right',
+    width:"900px",
+    height: '596px',
+    // [theme.breakpoints.down('lg')]: {
+    //     width: '100%',
+    //     height: '400px',
+    //     backgroundSize: '800px',
+    //     backgroundPosition: "-320px 0px",
+    //     [theme.breakpoints.down('md')]: {
+    //         width: '100%',
+    //         backgroundPosition: "-380px 0px",
+    //         // TODO add in mobile conversion
+    //     },
+    // },
 }));
 
 const GameTitleText = styled('div')(({ theme }) => ({
@@ -118,7 +95,20 @@ const GameTitleText = styled('div')(({ theme }) => ({
     },
 }));
 
-function WoUHEGames() {
+const ExampleVideoBox = styled('div')(({ theme }) => ({
+    width:'720px',
+    height:'425px',
+    position:'relative',
+    zIndex:1,
+    backgroundColor:'grey',
+    marginRight:'-100px',
+    float:'right',
+    [theme.breakpoints.down('lg')]: {
+
+    },
+}));
+
+function WoUHEGame() {
     return(
         <Grid sx={{mt:{ lg:4, md:1, xs:1 }}} spacing={2} container justifyContent="center">
             <Grid item md={12} xs={12}>
@@ -126,19 +116,19 @@ function WoUHEGames() {
                     Our Teams
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} sm={5.5} xs={11}>
-                <GameCardWoUHEValorant>
-                    <GameTitleText>
-                        VALORANT
-                    </GameTitleText>
-                </GameCardWoUHEValorant>
+            <Grid item lg={7} md={8} sm={10} xs={11} sx={{ mt:{ lg:3, md:3, sm:3, xs:2 }, px:2, pb:2 }}>
+                <SectionDescription sx={{textAlign:'center'}}>
+                    Our collegiate Valorant team, representing marginalized genders, sets a new standard for excellence and inspires a more inclusive and innovative future for all gamers.
+                </SectionDescription>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item lg={4} md={5} sm={5.5} xs={11}>
-                <GameCardWoUHELeague>
-                    <GameTitleText>
-                        LEAGUE OF LEGENDS
-                    </GameTitleText>
-                </GameCardWoUHELeague>
+            <Grid item />
+            <Grid item sx={{display:'flex', justifyContent:'flex-end', alignItems:'center', mt:{ lg:2, md:1, xs:1 }}} lg={6} md={12} sm={12} xs={11}>
+                <ExampleVideoBox />
+                {/*<GameCardWoUHEValorant />*/}
+            </Grid>
+            <Grid item sx={{mt:{ lg:2, md:1, xs:1 }}} lg={6} md={12} sm={12} xs={11}>
+                {/*<ExampleVideoBox />*/}
+                <GameCardWoUHEValorant />
             </Grid>
         </Grid>
     );
@@ -162,11 +152,11 @@ function Events() {
     );
 }
 
-function WoUHEPodcast() {
+function WoUHEContent() {
     return (
         <>
             <SectionTitle>
-                WoUHE Podcast
+                WoUHE Content
             </SectionTitle>
         </>
     );
@@ -182,18 +172,11 @@ function MeetOurTeam() {
     );
 }
 
-function WoUHEFooter() {
-    return (
-        <>
-        </>
-    );
-}
-function WoUHE(setShowFooter) {
-    setShowFooter = false;
+function WoUHE() {
     return (
         <>
             <AboutWoUHE />
-            <WoUHEGames />
+            <WoUHEGame />
             {/*<Events />*/}
         </>
     );
