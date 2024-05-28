@@ -62,7 +62,7 @@ function DonationComponent() {
         p: 3,
         mt: { lg: 6, md: 4, sm: 4, xs: 4 },
         bgcolor: "#f5f5f5",
-        width: "100vw",
+
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -83,12 +83,14 @@ function DonationComponent() {
           item
           xs={12}
           md={6}
-          sx={{ pl: 2 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "auto",
+            overflow: "hidden",
+          }}
           className={inView ? "slideIn1300ms" : "hidden"}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          style={{ height: "auto" }}
         >
           <SectionTitle>INSERT TITLE:</SectionTitle>
           <SectionDescription>
