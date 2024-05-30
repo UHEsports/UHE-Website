@@ -17,9 +17,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const LocationImages = styled('div')(({theme}) => ({
+const SpacesImage = styled('div')(({theme}) => ({
   backgroundSize: "cover",
-  height: "250px",
+  height: "260px",
   borderRadius: "5px",
   [theme.breakpoints.down('lg')]:{
     height: "200px",
@@ -28,7 +28,17 @@ const LocationImages = styled('div')(({theme}) => ({
     }
   }
 }))
-
+const LocationImages = styled('div')(({theme}) => ({
+  backgroundSize: "cover",
+  height: "800px",
+  borderRadius: "5px",
+  [theme.breakpoints.down('lg')]:{
+    height: "200px",
+    [theme.breakpoints.up('md')]:{
+      height: "150px",
+    }
+  }
+}))
 function Location(){
   const{ref, inView} = useInView({
     triggerOnce: true,
@@ -43,7 +53,7 @@ function Location(){
       alignItems="center"
       justifyContent="center"
       ref={ref}>
-        <Grid lg={5} md={5} xs={12} item>
+        <Grid lg={4} md={4} xs={12} item>
           <SectionTitle sx={{mb: 4 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             LOCATION
           </SectionTitle>
@@ -62,10 +72,40 @@ function Location(){
           sunt in culpa qui officia deserunt mollit anim id est laborum.
           </SectionDescription>
         </Grid>
-        <Grid lg={5} md={5} xs={12} item>
+        <Grid lg={7} md={7} xs={12} item>
         <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
-        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
-        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        </Grid>
+
+    </Grid>
+  )
+}
+/* fix spaces large images' name */
+function Spaces(){
+  const{ref, inView} = useInView({
+    triggerOnce: true,
+    rootMargin: '-150px',
+  });
+
+  return(
+    <Grid
+      sx={{mt:4, p:1, pb:3,}}
+      container
+      spacing={2}
+      alignItems="center"
+      justifyContent="center"
+      ref={ref}>
+        <Grid lg={12} md={8} xs={12} item>
+          <SectionTitle sx={{ml:9 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+            SPACES
+          </SectionTitle>
+          </Grid>
+        <Grid lg={8} md={8} xs={12} item>
+          <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        </Grid>
+        <Grid lg={3} md={3} xs={12} item>
+        <SpacesImage sx={{mb:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <SpacesImage sx={{mb:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <SpacesImage sx={{mb:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
 
     </Grid>
@@ -217,7 +257,7 @@ function Volunteer(){
             Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim dolor do aliqua duis nulla ad.
             Fugiat incididunt id quis cillum eiusmod consectetur aliqua
             <br/>
-            <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
+            <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Sign up</Button>
           </SectionDescription>
         </Box>
       </Grid>
@@ -240,8 +280,8 @@ function Ilab() {
         <>
         <OpeningPageImage header="ILab" subtitle1="Monday - Fridays" subtitle2="10:30 AM - 4:00 PM HST" imageURL={group_4} />
         <Location />
-        <AvailableEquipment />
-        <Volunteer />
+        <Spaces />
+        <Volunteer/>
         </>
     );
 }
