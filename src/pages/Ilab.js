@@ -17,25 +17,21 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const SpacesImage = styled('div')(({theme}) => ({
-  backgroundSize: "cover",
-  height: "260px",
-  borderRadius: "5px",
-  [theme.breakpoints.down('lg')]:{
-    height: "200px",
-    [theme.breakpoints.up('md')]:{
-      height: "150px",
-    }
-  }
-}))
+//TODO: fix location section to seamless transition between page size
 const LocationImages = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "800px",
   borderRadius: "5px",
   [theme.breakpoints.down('lg')]:{
-    height: "200px",
+    height: "600px",
     [theme.breakpoints.up('md')]:{
-      height: "150px",
+      height: "400px",
+      [theme.breakpoints.up('sm')]:{
+        height: "400px",
+        [theme.breakpoints.up('xs')]:{
+          height: "400px",
+        }
+      }
     }
   }
 }))
@@ -79,7 +75,39 @@ function Location(){
     </Grid>
   )
 }
-/* fix spaces large images' name */
+
+
+const SpacesImage = styled('div')(({theme}) => ({
+  backgroundSize: "cover",
+  height: "260px",
+  borderRadius: "5px",
+  [theme.breakpoints.down('lg')]:{
+    height: "200px",
+    [theme.breakpoints.up('md')]:{
+      height: "150px",
+    }
+  }
+}))
+
+const SpacesMainImages = styled('div')(({theme}) => ({
+  backgroundSize: "cover",
+  height: "800px",
+  borderRadius: "5px",
+  [theme.breakpoints.down('lg')]:{
+    height: "600px",
+    [theme.breakpoints.up('md')]:{
+      height: "500px",
+      [theme.breakpoints.up('sm')]:{
+        height: "475px",
+        [theme.breakpoints.up('xs')]:{
+          height: "450px",
+        }
+      }
+    }
+  }
+}))
+
+
 function Spaces(){
   const{ref, inView} = useInView({
     triggerOnce: true,
@@ -100,7 +128,7 @@ function Spaces(){
           </SectionTitle>
           </Grid>
         <Grid lg={8} md={8} xs={12} item>
-          <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+          <SpacesMainImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
         <Grid lg={3} md={3} xs={12} item>
         <SpacesImage sx={{mb:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
