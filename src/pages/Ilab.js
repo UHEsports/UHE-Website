@@ -43,13 +43,13 @@ function Location(){
 
   return(
     <Grid
-      sx={{mt:4, p:1, pb:3,}}
+      sx={{m: 2, mt:4, p:1, pb:3,}}
       container
       spacing={2}
       alignItems="center"
       justifyContent="center"
       ref={ref}>
-        <Grid lg={4} md={4} xs={12} item>
+        <Grid lg={4} md={12} xs={12} sx = {{}}item>
           <SectionTitle sx={{mb: 4 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             LOCATION
           </SectionTitle>
@@ -68,7 +68,7 @@ function Location(){
           sunt in culpa qui officia deserunt mollit anim id est laborum.
           </SectionDescription>
         </Grid>
-        <Grid lg={7} md={7} xs={12} item>
+        <Grid lg={7} md={12} xs={12} sx = {{}} item>
         <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
 
@@ -107,7 +107,7 @@ const SpacesMainImages = styled('div')(({theme}) => ({
   }
 }))
 
-
+/**TODO: fix 'Spaces' indentation when in medium - small screen */
 function Spaces(){
   const{ref, inView} = useInView({
     triggerOnce: true,
@@ -116,7 +116,7 @@ function Spaces(){
 
   return(
     <Grid
-      sx={{mt:4, p:1, pb:3,}}
+      sx={{mt:4, p:1, pb:3, display: {md: 'flex', sm:'none', xs:'none'}}}
       container
       spacing={2}
       alignItems="center"
@@ -150,114 +150,40 @@ function AvailableEquipment() {
   const settings = {
       dots: true,
       infinite: true,
-      slidesToShow: 4,
+      slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 500,
-      responsive: [
-          {
-              breakpoint: 1300,
-              settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 1,
-                  infinite: true,
-                  dots: true,
-              }
-          },
-          {
-              breakpoint: 975,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1,
-              }
-          },
-          
-          {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            }
-        }
-          
-      ]
+      speed: 500
   };
-  const EquipmentItem = ({ image, title, description }) => (
-    <div style={{ margin: '8px', height: '200px' }}>
-      <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      <div>
-        <SectionDescription sx={{ mt: 2, fontWeight: "bold" }}>{title}</SectionDescription>
-        <SectionDescription>{description}</SectionDescription>
-      </div>
+  const EquipmentItem = ({ image }) => (
+    <div style={{ margin: '8px', height: '420px' }}>
+      <img src={image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
     </div>
   );
 
   const equipmentData = [
     {
       image: group_1,
-      title: "Bose QuietComfort 35",
-      description: "Tempora aut est maiores error laudantium ut architecto",
     },
     {
       image: group_2,
-      title: "Logitech Pro Wireless",
-      description: "Tempora aut est maiores error laudantium ut architecto",
     },
     {
       image: group_3,
-      title: "Logitech Superlight",
-      description: "Tempora aut est maiores error laudantium ut architecto",
     },
     {
       image: group_1,
-      title: "Xbox One",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_2,
-      title: "Xbox One S",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_3,
-      title: "PS5",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_1,
-      title: "Nintendo Switch",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_1,
-      title: "Nintendo Switch Pro Controllers",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_2,
-      title: "Community Monitors",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_3,
-      title: "PS5 Controllers",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
-    {
-      image: group_2,
-      title: "Xbox One Controllers",
-      description: "Tempora aut est maiores error laudantium ut architecto",
-    },
+    }
   ];
 
   return (
-    <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 }, pb: 3 }} container spacing={4} justifyContent="center" alignItems="center">
+    <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 }, display: {md:'none', }}} container spacing={4} justifyContent="center" alignItems="center">
       <Grid item md={12} xs={12} ref={ref}>
-        <SectionTitle sx={{ mb: 1 }}>
-          AVAILABLE EQUIPMENT
+        <SectionTitle sx={{ml:5}} style={{textAlign: 'left'}}>  
+          SPACES
         </SectionTitle>
       </Grid>
-      <Grid sx={{ mt: 3 , mb:7}} item md={11} xs={11}>
+      <Grid sx={{mb:2}} item md={11} xs={11}>
         <Slider {...settings}>
           {equipmentData.map((item, index) => (
             <Grid key={index} className='test'>
@@ -308,6 +234,7 @@ function Ilab() {
         <>
         <OpeningPageImage header="ILab" subtitle1="Monday - Fridays" subtitle2="10:30 AM - 4:00 PM HST" imageURL={group_4} />
         <Location />
+        <AvailableEquipment />
         <Spaces />
         <Volunteer/>
         </>
