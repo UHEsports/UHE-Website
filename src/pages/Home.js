@@ -109,7 +109,7 @@ const MileStoneImages = styled('div')(({ theme }) => ({
     borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             height: "250px",
         },
     },
@@ -128,18 +128,18 @@ function OurMilestones() {
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={3} justifyContent="center">
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }, p:3}} container spacing={3} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneTextTitle>Esports Awards</MileStoneTextTitle>
                 <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>
                 <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
@@ -178,7 +178,7 @@ const UHEInfoImages = styled('div')(({ theme}) => ({
     borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             height: "250px",
         },
     },
@@ -197,10 +197,10 @@ function UHEInfoBlock() {
             alignItems="center"
             justifyContent="center"
             ref={ref}>
-            <Grid lg={5} md={5} xs={12} item>
+            <Grid lg={5} md={5} sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
             </Grid>
-            <Grid lg={5} md={5} xs={12} item>
+            <Grid lg={5} md={5} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     iLab
                 </SectionTitle>
@@ -221,7 +221,7 @@ function UHEInfoBlock() {
                 </SectionDescription>
             </Grid>
             {/*Display when it is greater than or equal to md*/}
-            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
                 <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
@@ -241,15 +241,15 @@ function UHEInfoBlock() {
                     </Button>
                 </SectionDescription>
             </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
 
             {/*Display when it is less than md*/}
-            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}} xs={12} item>
+            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}}  sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
-            <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
+            <Grid sx={{ display: {lg: 'none', md: 'none', xs:'block' }}} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
