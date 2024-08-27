@@ -12,25 +12,17 @@ import { useInView } from 'react-intersection-observer';
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from '../components/OpeningPageImage';
-import volunteer_graphic from "../assets/images/ilab_volunteer_graphic.png";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-//TODO: fix location section to seamless transition between page size
 const LocationImages = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "800px",
   borderRadius: "5px",
-  [theme.breakpoints.down('lg')]:{
-    height: "600px",
-    [theme.breakpoints.up('md')]:{
-      height: "400px",
-      [theme.breakpoints.up('sm')]:{
-        height: "400px",
-        [theme.breakpoints.up('xs')]:{
-          height: "400px",
-        }
+  [theme.breakpoints.down('lg')]:{ height: "600px",
+    [theme.breakpoints.up('md')]:{ height: "400px",
+      [theme.breakpoints.up('sm')]:{ height: "300px"
       }
     }
   }
@@ -43,7 +35,7 @@ function Location(){
 
   return(
     <Grid
-      sx={{m: 2, mt:4, p:1, pb:3,}}
+      sx={{mt:4, p:1, pb:3,}}
       container
       spacing={2}
       alignItems="center"
@@ -116,6 +108,8 @@ function Spaces(){
 
   return(
     <Grid
+      // Set display to 'none' for small and extra small screens, and 'flex' for medium and larger screens to ensure proper visibility and alignment.
+      // Using 'flex' maintains layout integrity on medium and larger screens.
       sx={{mt:4, p:1, pb:3, display: {md: 'flex', sm:'none', xs:'none'}}}
       container
       spacing={2}
@@ -140,7 +134,7 @@ function Spaces(){
   )
 }
 
-function AvailableEquipment() {
+function SpacesCarousel() {
   const { ref } = useInView({
       triggerOnce: true,
       rootMargin: '-170px 0px',
@@ -155,13 +149,16 @@ function AvailableEquipment() {
       autoplay: true,
       speed: 500
   };
-  const EquipmentItem = ({ image }) => (
+
+
+  const SpacesItem = ({ image }) => (
+    //TODO: Change format to account to size of screen
     <div style={{ margin: '8px', height: '420px' }}>
       <img src={image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
     </div>
   );
 
-  const equipmentData = [
+  const SpacesData = [
     {
       image: group_1,
     },
@@ -177,7 +174,8 @@ function AvailableEquipment() {
   ];
 
   return (
-    <Grid sx={{ mt: { lg: 1, md: 1, xs: 1 }, display: {md:'none', }}} container spacing={4} justifyContent="center" alignItems="center">
+    // Only displays when the screen is smaller than medium; hide on medium and larger screens (md: 'none').
+    <Grid sx={{ backgroundColor:"#f6f6f6", p:3, mt: 1, display: {md:'none', }}} container spacing={2} justifyContent="center" alignItems="center">
       <Grid item md={12} xs={12} ref={ref}>
         <SectionTitle sx={{ml:5}} style={{textAlign: 'left'}}>  
           SPACES
@@ -185,9 +183,9 @@ function AvailableEquipment() {
       </Grid>
       <Grid sx={{mb:2}} item md={11} xs={11}>
         <Slider {...settings}>
-          {equipmentData.map((item, index) => (
+          {SpacesData.map((item, index) => (
             <Grid key={index} className='test'>
-              <EquipmentItem {...item} />
+              <SpacesItem {...item} />
             </Grid>
           ))}
         </Slider>
@@ -202,7 +200,7 @@ function Volunteer(){
     rootMargin: '-150px',
   });
   return(
-    <Grid sx={{mt:8, backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+    <Grid sx={{mt:{lg:3, md:3, xs:1}, pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
       <Grid item lg={5} md={5} sm={11} xs={11}>
         <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Volunteer!</SectionTitle>
         <Box sx={{mt:{lg:4, md:2, xs:2}}}>
@@ -215,13 +213,13 @@ function Volunteer(){
           </SectionDescription>
         </Box>
       </Grid>
-      <Grid item lg={4} md={5} sm={10} xs={11}>
+      <Grid item lg={4} md={5} sm={8} xs={10}>
           <img
-              style={{borderRadius:'10px'}}
+              style={{borderRadius:'5px'}}
               alt="UHE Courses"
               width="100%"
               className={inView ? 'slideIn1000ms' : 'hidden'}
-              src={volunteer_graphic}
+              src={group_1}
           />
       </Grid>
     </Grid>
@@ -234,7 +232,7 @@ function Ilab() {
         <>
         <OpeningPageImage header="ILab" subtitle1="Monday - Fridays" subtitle2="10:30 AM - 4:00 PM HST" imageURL={group_4} />
         <Location />
-        <AvailableEquipment />
+        <SpacesCarousel />
         <Spaces />
         <Volunteer/>
         </>
