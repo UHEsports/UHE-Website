@@ -19,7 +19,11 @@ function App() {
         // Delay is in place to allow for the page to load completely before scrolling
         // In place for chrome browser
         window.setTimeout(function() {
-            window.scrollTo(0,0);
+            window.scrollTo({
+                top:0,
+                // y:0,
+                behavior: "smooth",
+            })
         }, 220);
     };
     const handleScroll = () => {

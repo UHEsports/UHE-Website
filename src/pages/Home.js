@@ -19,7 +19,6 @@ import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
 import OpeningPageImage from '../components/OpeningPageImage';
 
-
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "400px",
@@ -189,6 +188,15 @@ function UHEInfoBlock() {
         triggerOnce: true,
         rootMargin: '-150px',
     });
+
+    const scrollToTop = () => {
+        // behavor is auto so it instantly appears at the top instead of scrolling
+        window.scrollTo({
+            top:0,
+            behavior: "auto",
+        });
+    };
+
     return(
         <Grid
             sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
@@ -215,6 +223,7 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
+                        onClick={scrollToTop}
                         to="/ilab">
                         Read More
                     </Button>
@@ -236,7 +245,9 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
-                        to="/education">
+                        to="education"
+                        onClick={scrollToTop}
+                    >
                         Read More
                     </Button>
                 </SectionDescription>
@@ -264,6 +275,7 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
+                        onClick={scrollToTop}
                         to="/education">
                         Read More
                     </Button>
