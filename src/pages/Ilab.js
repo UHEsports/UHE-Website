@@ -7,6 +7,7 @@ import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
 import group_4 from '../assets/images/group_4.png';
+import volunteer_graphic from "../assets/images/ilab_volunteer_graphic.png";
 import Button from "@mui/material/Button";
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from "../components/SectionTitle";
@@ -16,6 +17,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+
+//Fix when in mobile mode, make paddings that'll align with the carousel
 const LocationImages = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "800px",
@@ -45,7 +48,7 @@ function Location(){
           <SectionTitle sx={{mb: 4 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             LOCATION
           </SectionTitle>
-          <SectionDescription sx={{textAlign:'left', mb:3}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+          <SectionDescription sx={{textAlign:'left', mb:{lg:3, md:3, sm:3, xs:2}}} className={inView ? 'slideIn1500ms' : 'hidden'}>
           <span style={{ fontWeight: 'bold' }}>Lorem ipsum - </span>
           ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
           enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -60,8 +63,7 @@ function Location(){
           sunt in culpa qui officia deserunt mollit anim id est laborum.
           </SectionDescription>
         </Grid>
-        <Grid lg={7} md={12} xs={12} sx = {{}} item>
-        <LocationImages sx={{m:1 }} style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <Grid lg={7} md={10} sm={11} xs={12} item>        <LocationImages style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
 
     </Grid>
@@ -219,7 +221,7 @@ function Volunteer(){
               alt="UHE Courses"
               width="100%"
               className={inView ? 'slideIn1000ms' : 'hidden'}
-              src={group_1}
+              src={volunteer_graphic}
           />
       </Grid>
     </Grid>
