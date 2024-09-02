@@ -313,7 +313,7 @@ function Home() {
         <>
             <OpeningPageImage header="University of Hawai'i Esports" imageURL={group_4}/>
             <AboutSection />
-            <JoinDiscord />
+            {/*<JoinDiscord />*/}
             <Games />
             <OurMilestones />
             <UHEInfoBlock />

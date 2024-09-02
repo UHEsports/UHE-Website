@@ -293,7 +293,7 @@ function Games() {
         rootMargin: '-50px 0px',
     });
     return (
-        <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, p:2}} ref={ref} justifyContent="center">
+        <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, p:2, pb:5, backgroundColor:"#f6f6f6"}} ref={ref} justifyContent="center">
             <Grid item md={12}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     UHE Teams
