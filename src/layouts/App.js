@@ -21,7 +21,6 @@ function App() {
         window.setTimeout(function() {
             window.scrollTo({
                 top:0,
-                // y:0,
                 behavior: "smooth",
             })
         }, 220);

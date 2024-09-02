@@ -245,8 +245,8 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
-                        to="education"
                         onClick={scrollToTop}
+                        to="/education"
                     >
                         Read More
                     </Button>
