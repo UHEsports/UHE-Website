@@ -193,8 +193,6 @@ function Education() {
         ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
     ];
 
-    console.log(window.location.href);
-
     return (
         <>
             <OpeningPageImage header="Education" imageURL={education}/>
