@@ -18,6 +18,9 @@ import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
 import OpeningPageImage from '../components/OpeningPageImage';
+import ReactGA from "react-ga4";
+
+ReactGA.send({ hitType: "pageview", page: '/', title: "Home" }); // Page information for Google Analytics
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",

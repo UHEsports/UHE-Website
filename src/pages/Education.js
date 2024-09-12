@@ -17,6 +17,9 @@ import courses_graphic from "../assets/images/com369_graphic_fall_2023.png";
 import geng_background from "../assets/images/geng_background.png";
 import overwatch_background from "../assets/images/overwatch_background.png";
 import vanta_background from "../assets/images/vanta_background.png";
+import ReactGA from "react-ga4";
+
+ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" }); // Page information for Google Analytics
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -189,6 +192,7 @@ function Education() {
         ["Learn from the Pros", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."],
         ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
     ];
+
     return (
         <>
             <OpeningPageImage header="Education" imageURL={education}/>
