@@ -19,7 +19,7 @@ import overwatch_background from "../assets/images/overwatch_background.png";
 import vanta_background from "../assets/images/vanta_background.png";
 import ReactGA from "react-ga4";
 
-ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" });
+ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" }); // Page information for Google Analytics
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",

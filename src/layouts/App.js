@@ -12,7 +12,7 @@ import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import  ReactGA from 'react-ga4';
 
-const TRACKING_ID = "G-XQZWBNG700"; // YOUR_OWN_TRACKING_ID
+const TRACKING_ID = "G-XQZWBNG700"; // Tracking ID for Google Analytics
 ReactGA.initialize(TRACKING_ID);
 function App() {
     const { ref } = useInView({
