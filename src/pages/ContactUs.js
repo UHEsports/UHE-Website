@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
 import SectionTitle from "../components/SectionTitle";
+import SectionSubTitle from "../components/SectionSubTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/group_3.jpg";
@@ -16,6 +17,7 @@ import {
     Grid,
 } from "@mui/material";
 import ReactGA from "react-ga4";
+import LeadershipSection from "../components/LeadershipSection";
 
 ReactGA.send({ hitType: "pageview", page: '/contact-us', title: "ContactUs" }); // Page information for Google Analytics
 
@@ -195,45 +197,11 @@ function KeepInTouch() {
   );
 }
 
-const leaders = [
-  {
-    name: "FIRST LAST",
-    title: "INSERT TITLE HERE",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    email: "exampleemail@gmail.com",
-  },
-  {
-    name: "FIRST LAST",
-    title: "INSERT TITLE HERE",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    email: "exampleemail@gmail.com",
-  },
-  {
-    name: "FIRST LAST",
-    title: "INSERT TITLE HERE",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    email: "exampleemail@gmail.com",
-  },
-];
-
-const LeadershipImage = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    height: "450px",
-    width: "400px",
-    // position: 'absolute',
-    // left:'15px',
-    // top:'1300px',
-    [theme.breakpoints.down('lg')]: {
-        height: "300px",
-        [theme.breakpoints.down('md')]: {
-            height: "250px",
-        },
-    },
-}));
-function LeadershipSection() {
+function Leadership() {
+    // TODO temporary will convert into a dictionary or array that contains each member of leadership and we loop through it
+    const test = '                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n' +
+        '                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n' +
+        '                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-150px",
@@ -253,64 +221,13 @@ function LeadershipSection() {
                 Leadership
             </SectionTitle>
         </Grid>
-        <Grid lg={12} sx={{my:2}} container justifyContent='center'>
+        <Grid item lg={12} sx={{my:2}} container justifyContent='center'>
             <Grid lg={11}>
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>
-        <Grid item lg={12} container>
-            <Grid item lg={3}>
-                <LeadershipImage sx={{ml:4}} style={{backgroundImage: `url(${group_3})`}} />
-            </Grid>
-            {/*<Grid lg={0}></Grid>*/}
-            <Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5 }} flexItem />
-            <Grid item lg={8} sx={{pl:2}}>
-                <SectionTitle style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
-                    Madeline Gilbert
-                </SectionTitle>
-                <SectionTitle style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
-                    Leadership Role
-                </SectionTitle>
-                <SectionDescription style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    <br />
-                    <br />
-                        madeline@gmail.com
-                </SectionDescription>
-            </Grid>
-            {/*{leaders.map((leader, index) => (*/}
-            {/*    <Paper*/}
-            {/*        key={index}*/}
-            {/*        elevation={3}*/}
-            {/*        sx={{ p: 2, mb: 2, backgroundColor: "#f5f5f5" }}*/}
-            {/*        className={inView ? "slideIn1300ms" : "hidden"}*/}
-            {/*    >*/}
-            {/*        <Box display="flex" alignItems="center" sx={{ mb: 2 }}>*/}
-            {/*            <Avatar*/}
-            {/*                sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}*/}
-            {/*            >*/}
-            {/*                {leader.name[0]}*/}
-            {/*            </Avatar>*/}
-            {/*            <Box>*/}
-            {/*                <Typography variant="h6" sx={{ color: "#333" }}>*/}
-            {/*                    {leader.name}*/}
-            {/*                </Typography>*/}
-            {/*                <Typography variant="subtitle1" sx={{ color: "#555" }}>*/}
-            {/*                    {leader.title}*/}
-            {/*                </Typography>*/}
-            {/*            </Box>*/}
-            {/*        </Box>*/}
-            {/*        <Typography variant="body1" sx={{ color: "#666", mb: 1 }}>*/}
-            {/*            {leader.description}*/}
-            {/*        </Typography>*/}
-            {/*        <Typography variant="body2" sx={{ color: "#888" }}>*/}
-            {/*            {leader.email}*/}
-            {/*        </Typography>*/}
-            {/*    </Paper>*/}
-            {/*))}*/}
-        </Grid>
+        <LeadershipSection name="Madeline Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+
     </Grid>
   );
 }
@@ -322,7 +239,7 @@ function ContactUs() {
       <InternshipHeader />
       <DonationComponent />
       {/*<KeepInTouch />*/}
-      <LeadershipSection />
+      <Leadership/>
     </>
   );
 }
