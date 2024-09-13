@@ -14,6 +14,9 @@ import {
   Button,
   Grid,
 } from "@mui/material";
+import ReactGA from "react-ga4";
+
+ReactGA.send({ hitType: "pageview", page: '/contact-us', title: "ContactUs" }); // Page information for Google Analytics
 
 function InternshipHeader() {
   const { ref, inView } = useInView({
@@ -23,13 +26,14 @@ function InternshipHeader() {
   return (
     <Grid
       container
-      sx={{ mt: { lg: 6, md: 4, sm: 4, xs: 4 } }}
+      sx={{ pt:3, pb:5, bgcolor: "#f5f5f5", }}
       justifyContent="center"
+      spacing={2}
       ref={ref}
     >
       <Grid item md={12} sm={12}>
         <SectionTitle className={inView ? "slideIn1300ms" : "hidden"}>
-          GIVING
+          Giving
         </SectionTitle>
       </Grid>
       <Grid item md={7} sm={10} sx={{ p: 2 }}>
@@ -44,93 +48,64 @@ function InternshipHeader() {
   );
 }
 
+const ImageTest = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "600px",
+    width: "700px",
+    position: 'absolute',
+    left:'15px',
+    top:'1300px',
+        [theme.breakpoints.down('lg')]: {
+        height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
+    },
+}));
 function DonationComponent() {
-  const DonateButton = styled(Button)({
-    minWidth: "100px",
-    height: "40px",
-    margin: "5px",
-    fontSize: "16px",
-    fontWeight: "bold",
-  });
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-150px",
   });
   return (
-    <Box
-      sx={{
-        p: 3,
-        mt: { lg: 6, md: 4, sm: 4, xs: 4 },
-        bgcolor: "#f5f5f5",
-
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      ref={ref}
-    >
-      <Grid container>
-        <Grid item xs={12} md={6}>
-          <img
-            src={group_3}
-            alt="Esports"
-            style={{ width: "70%", height: "auto", borderRadius: "4px" }}
-            className={inView ? "slideIn1300ms" : "hidden"}
-          />
-        </Grid>
+      <Grid container sx={{mt:{ lg:5, md:4, sm:4, xs:4}}} ref={ref}>
+        <Grid item lg={5} />
         <Grid
           item
-          xs={12}
-          md={6}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            height: "auto",
-            overflow: "hidden",
-          }}
+          lg={7}
           className={inView ? "slideIn1300ms" : "hidden"}
         >
-          <SectionTitle>INSERT TITLE:</SectionTitle>
-          <SectionDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </SectionDescription>
-          <br />
-          <SectionDescription>
-            Short paragraph that will appear with each image to describe where
-            the donations will go and how they will benefit the students in the
-            Esports programs.
-          </SectionDescription>
-          <Typography
-            variant="h6"
-            sx={{ mb: 2, fontWeight: "bold", color: "#004D40" }}
-          >
-            DONATE:
-          </Typography>
-          <Box>
-            <DonateButton variant="contained" color="primary">
-              $5
-            </DonateButton>
-            <DonateButton variant="contained" color="primary">
-              $10
-            </DonateButton>
-            <DonateButton variant="contained" color="primary">
-              $15
-            </DonateButton>
-            <DonateButton variant="contained" color="primary">
-              $20
-            </DonateButton>
-            <DonateButton variant="contained" color="secondary">
-              CUSTOM
-            </DonateButton>
-          </Box>
+            <Grid container spacing={2} sx={{pb:5}}>
+                <Grid item lg={12}>
+                    <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
+                </Grid>
+                <Grid item lg={10}>
+                    <SectionDescription>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </SectionDescription>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid item lg={5} sx={{bgcolor: "#f5f5f5"}}>
+            <ImageTest style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
+        </Grid>
+        <Grid item lg={7} sx={{bgcolor: "#f5f5f5", pt:3}}>
+            <Grid container spacing={2} sx={{pb:5}} className={inView ? "slideIn1700ms" : "hidden"}>
+                <Grid item lg={12}>
+                    <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
+                </Grid>
+                <Grid item lg={10}>
+                    <SectionDescription>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </SectionDescription>
+                    <Button sx={{mt:3, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
+                </Grid>
+            </Grid>
         </Grid>
       </Grid>
-    </Box>
   );
 }
 
@@ -297,10 +272,10 @@ function LeadershipSection() {
 function ContactUs() {
   return (
     <>
-      <OpeningPageImage header="Contact" imageURL={headerImage} />
+      <OpeningPageImage header="Contact Us" imageURL={headerImage} />
       <InternshipHeader />
       <DonationComponent />
-      <KeepInTouch />
+      {/*<KeepInTouch />*/}
       <LeadershipSection />
     </>
   );
