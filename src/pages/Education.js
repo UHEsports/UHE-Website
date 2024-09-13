@@ -17,6 +17,9 @@ import courses_graphic from "../assets/images/com369_graphic_fall_2023.png";
 import geng_background from "../assets/images/geng_background.png";
 import overwatch_background from "../assets/images/overwatch_background.png";
 import vanta_background from "../assets/images/vanta_background.png";
+import ReactGA from "react-ga4";
+
+ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" }); // Page information for Google Analytics
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -101,7 +104,7 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
 
 function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
     return(
-        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
+        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}, mb:6}}>
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
             <Grid item lg={5} md={5} sm={12} xs={12}>
                 <Box sx={{top:{lg:25, md:25, sm:0}, left:{lg:-30, md:-10, sm:0}, position:'relative'}}>
@@ -152,7 +155,7 @@ function Courses() {
     });
     return(
         // TODO remove the mb spacing. Only added to showcase footer spacing
-        <Grid sx={{mt:8, backgroundColor:"#f6f6f6", pt:1, pb:5, mb:6}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+        <Grid sx={{backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
             <Grid item lg={5} md={5} sm={11} xs={11}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Courses</SectionTitle>
                 <Box sx={{mt:{lg:4, md:2, xs:2}}}>
@@ -189,15 +192,18 @@ function Education() {
         ["Learn from the Pros", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."],
         ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
     ];
+
     return (
         <>
             <OpeningPageImage header="Education" imageURL={education}/>
+            <Courses />
+            {/* TODO section for special cert SKY*/}
             <InternshipHeader />
             <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} backgroundURL={geng_background} />
             <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
             <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /> </Box>
             <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} backgroundURL={vanta_background} />
-            <Courses />
+
         </>
     );
 }

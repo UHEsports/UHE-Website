@@ -10,16 +10,23 @@ import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
+import  ReactGA from 'react-ga4';
 
+const TRACKING_ID = "G-XQZWBNG700"; // Tracking ID for Google Analytics
+ReactGA.initialize(TRACKING_ID);
 function App() {
     const { ref } = useInView({
         triggerOnce: false,
     });
+
     const scrollToTop = () => {
         // Delay is in place to allow for the page to load completely before scrolling
         // In place for chrome browser
         window.setTimeout(function() {
-            window.scrollTo(0,0);
+            window.scrollTo({
+                top:0,
+                behavior: "smooth",
+            })
         }, 220);
     };
     const handleScroll = () => {

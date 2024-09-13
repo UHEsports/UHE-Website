@@ -19,7 +19,9 @@ import { useInView } from 'react-intersection-observer';
 import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
 import OpeningPageImage from '../components/OpeningPageImage';
+import ReactGA from "react-ga4";
 
+ReactGA.send({ hitType: "pageview", page: '/', title: "Home" }); // Page information for Google Analytics
 
 const CarouselImages = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
@@ -110,7 +112,7 @@ const MileStoneImages = styled('div')(({ theme }) => ({
     borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             height: "250px",
         },
     },
@@ -129,18 +131,18 @@ function OurMilestones() {
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }}} container spacing={3} justifyContent="center">
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }, p:3}} container spacing={3} justifyContent="center">
             <Grid item md={12} xs={12} ref={ref}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneTextTitle>Esports Awards</MileStoneTextTitle>
                 <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
                 <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
                 <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>
                 <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
@@ -179,7 +181,7 @@ const UHEInfoImages = styled('div')(({ theme}) => ({
     borderRadius:'10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             height: "250px",
         },
     },
@@ -190,6 +192,15 @@ function UHEInfoBlock() {
         triggerOnce: true,
         rootMargin: '-150px',
     });
+
+    const scrollToTop = () => {
+        // behavor is auto so it instantly appears at the top instead of scrolling
+        window.scrollTo({
+            top:0,
+            behavior: "auto",
+        });
+    };
+
     return(
         <Grid
             sx={{mt:7, p:3, pb:6, backgroundColor:"#f6f6f6"}}
@@ -198,10 +209,10 @@ function UHEInfoBlock() {
             alignItems="center"
             justifyContent="center"
             ref={ref}>
-            <Grid lg={5} md={5} xs={12} item>
+            <Grid lg={5} md={5} sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
             </Grid>
-            <Grid lg={5} md={5} xs={12} item>
+            <Grid lg={5} md={5} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     iLab
                 </SectionTitle>
@@ -216,13 +227,14 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
+                        onClick={scrollToTop}
                         to="/ilab">
                         Read More
                     </Button>
                 </SectionDescription>
             </Grid>
             {/*Display when it is greater than or equal to md*/}
-            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
                 <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
@@ -237,20 +249,22 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
-                        to="/education">
+                        onClick={scrollToTop}
+                        to="/education"
+                    >
                         Read More
                     </Button>
                 </SectionDescription>
             </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'none' }}} lg={5} md={5} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
 
             {/*Display when it is less than md*/}
-            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}} xs={12} item>
+            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}}  sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
-            <Grid sx={{ display: {lg: 'none', md: 'none',xs:'block' }}} xs={12} item>
+            <Grid sx={{ display: {lg: 'none', md: 'none', xs:'block' }}} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
@@ -265,6 +279,7 @@ function UHEInfoBlock() {
                         variant="contained"
                         color="uhegreen"
                         component={RouterLink}
+                        onClick={scrollToTop}
                         to="/education">
                         Read More
                     </Button>
@@ -314,7 +329,7 @@ function Home() {
         <>
             <OpeningPageImage header="University of Hawai'i Esports" imageURL={uhesports_stan_sherrif}/>
             <AboutSection />
-            <JoinDiscord />
+            {/*<JoinDiscord />*/}
             <Games />
             <OurMilestones />
             <UHEInfoBlock />
