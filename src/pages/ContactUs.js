@@ -6,13 +6,14 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/group_3.jpg";
 import headerImage from "../assets/images/group_4.png";
 import {
-  Typography,
-  Paper,
-  Box,
-  Avatar,
-  styled,
-  Button,
-  Grid,
+    Divider,
+    Typography,
+    Paper,
+    Box,
+    Avatar,
+    styled,
+    Button,
+    Grid,
 } from "@mui/material";
 import ReactGA from "react-ga4";
 
@@ -31,12 +32,12 @@ function InternshipHeader() {
       spacing={2}
       ref={ref}
     >
-      <Grid item md={12} sm={12}>
+      <Grid item lg={12} sm={12}>
         <SectionTitle className={inView ? "slideIn1300ms" : "hidden"}>
           Giving
         </SectionTitle>
       </Grid>
-      <Grid item md={7} sm={10} sx={{ p: 2 }}>
+      <Grid item lg={7} sm={10} sx={{ p: 2 }}>
         <SectionDescription className={inView ? "slideIn1400ms" : "hidden"}>
           Talk about the team’s history here. Duis in nulla ullamco cillum
           aliqua et incididunt in culpa tempor cupidatat irure consectetur est
@@ -54,7 +55,7 @@ const ImageTest = styled('div')(({ theme }) => ({
     width: "700px",
     position: 'absolute',
     left:'15px',
-    top:'1300px',
+    top:'1290px',
         [theme.breakpoints.down('lg')]: {
         height: "300px",
         [theme.breakpoints.down('md')]: {
@@ -218,54 +219,99 @@ const leaders = [
   },
 ];
 
+const LeadershipImage = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "450px",
+    width: "400px",
+    // position: 'absolute',
+    // left:'15px',
+    // top:'1300px',
+    [theme.breakpoints.down('lg')]: {
+        height: "300px",
+        [theme.breakpoints.down('md')]: {
+            height: "250px",
+        },
+    },
+}));
 function LeadershipSection() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-150px",
   });
   return (
-    <Box
-      sx={{
-        p: 4,
-        backgroundColor: "#f5f5f5",
-        mt: { lg: 6, md: 4, sm: 4, xs: 4 },
-      }}
-      ref={ref}
+    <Grid
+        container
+        spacing={2}
+        sx={{
+            pl: 3,
+            mt: { lg: 3, md: 4, sm: 4, xs: 4 },
+        }}
+        ref={ref}
     >
-      <SectionTitle className={inView ? "slideIn1300ms" : "hidden"}>
-        LEADERSHIP
-      </SectionTitle>
-      {leaders.map((leader, index) => (
-        <Paper
-          key={index}
-          elevation={3}
-          sx={{ p: 2, mb: 2, backgroundColor: "#f5f5f5" }}
-          className={inView ? "slideIn1300ms" : "hidden"}
-        >
-          <Box display="flex" alignItems="center" sx={{ mb: 2 }}>
-            <Avatar
-              sx={{ bgcolor: "secondary.main", width: 56, height: 56, mr: 2 }}
-            >
-              {leader.name[0]}
-            </Avatar>
-            <Box>
-              <Typography variant="h6" sx={{ color: "#333" }}>
-                {leader.name}
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: "#555" }}>
-                {leader.title}
-              </Typography>
-            </Box>
-          </Box>
-          <Typography variant="body1" sx={{ color: "#666", mb: 1 }}>
-            {leader.description}
-          </Typography>
-          <Typography variant="body2" sx={{ color: "#888" }}>
-            {leader.email}
-          </Typography>
-        </Paper>
-      ))}
-    </Box>
+        <Grid item lg={12}>
+            <SectionTitle sx={{ml:3}} style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
+                Leadership
+            </SectionTitle>
+        </Grid>
+        <Grid lg={12} sx={{my:2}} container justifyContent='center'>
+            <Grid lg={11}>
+                <Divider sx={{ borderBottomWidth: 5 }} />
+            </Grid>
+        </Grid>
+        <Grid item lg={12} container>
+            <Grid item lg={3}>
+                <LeadershipImage sx={{ml:4}} style={{backgroundImage: `url(${group_3})`}} />
+            </Grid>
+            {/*<Grid lg={0}></Grid>*/}
+            <Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5 }} flexItem />
+            <Grid item lg={8} sx={{pl:2}}>
+                <SectionTitle style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
+                    Madeline Gilbert
+                </SectionTitle>
+                <SectionTitle style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
+                    Leadership Role
+                </SectionTitle>
+                <SectionDescription style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    <br />
+                    <br />
+                        madeline@gmail.com
+                </SectionDescription>
+            </Grid>
+            {/*{leaders.map((leader, index) => (*/}
+            {/*    <Paper*/}
+            {/*        key={index}*/}
+            {/*        elevation={3}*/}
+            {/*        sx={{ p: 2, mb: 2, backgroundColor: "#f5f5f5" }}*/}
+            {/*        className={inView ? "slideIn1300ms" : "hidden"}*/}
+            {/*    >*/}
+            {/*        <Box display="flex" alignItems="center" sx={{ mb: 2 }}>*/}
+            {/*            <Avatar*/}
+            {/*                sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}*/}
+            {/*            >*/}
+            {/*                {leader.name[0]}*/}
+            {/*            </Avatar>*/}
+            {/*            <Box>*/}
+            {/*                <Typography variant="h6" sx={{ color: "#333" }}>*/}
+            {/*                    {leader.name}*/}
+            {/*                </Typography>*/}
+            {/*                <Typography variant="subtitle1" sx={{ color: "#555" }}>*/}
+            {/*                    {leader.title}*/}
+            {/*                </Typography>*/}
+            {/*            </Box>*/}
+            {/*        </Box>*/}
+            {/*        <Typography variant="body1" sx={{ color: "#666", mb: 1 }}>*/}
+            {/*            {leader.description}*/}
+            {/*        </Typography>*/}
+            {/*        <Typography variant="body2" sx={{ color: "#888" }}>*/}
+            {/*            {leader.email}*/}
+            {/*        </Typography>*/}
+            {/*    </Paper>*/}
+            {/*))}*/}
+        </Grid>
+    </Grid>
   );
 }
 
