@@ -41,7 +41,7 @@ function LeadershipSection({ name, role, description, email }) {
             </Grid>
             <Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5}} flexItem />
             <Grid item lg={8} sx={{pl:2}}>
-                <SectionSubTitle style={{textAlign: 'left'}}>
+                <SectionSubTitle sx={{mt:2}} style={{textAlign: 'left'}}>
                     {name}
                 </SectionSubTitle>
                 <LeadershipRole style={{textAlign: 'left'}}>
@@ -51,7 +51,7 @@ function LeadershipSection({ name, role, description, email }) {
                     {description}
                 </SectionDescription>
                 {/*TODO Change from hardcode to use the theme in material UI this is currently a bug*/}
-                <LeadershipRole sx={{mt:3}} style={{textAlign:'left', color:'#00a772'}}>
+                <LeadershipRole sx={{mt:4}} style={{textAlign:'left', color:'#00a772'}}>
                     {email}
                 </LeadershipRole>
             </Grid>

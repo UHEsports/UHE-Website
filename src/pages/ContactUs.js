@@ -1,4 +1,5 @@
 import * as React from "react";
+import './ContactUs.css';
 import { useInView } from "react-intersection-observer";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubTitle from "../components/SectionSubTitle";
@@ -29,17 +30,17 @@ function InternshipHeader() {
   return (
     <Grid
       container
-      sx={{ pt:3, pb:5, bgcolor: "#f5f5f5", }}
+      sx={{ pt:3, pb:5, bgcolor: "#f5f5f5", pl:3, pr:3 }}
       justifyContent="center"
       spacing={2}
       ref={ref}
     >
-      <Grid item lg={12} sm={12}>
+      <Grid item lg={12} md={12} sm={12} xs={11}>
         <SectionTitle className={inView ? "slideIn1300ms" : "hidden"}>
           Giving
         </SectionTitle>
       </Grid>
-      <Grid item lg={7} sm={10} sx={{ p: 2 }}>
+      <Grid item lg={7} md={10} sm={11} xs={12}>
         <SectionDescription className={inView ? "slideIn1400ms" : "hidden"}>
           Talk about the team’s history here. Duis in nulla ullamco cillum
           aliqua et incididunt in culpa tempor cupidatat irure consectetur est
@@ -110,6 +111,67 @@ function DonationComponent() {
         </Grid>
       </Grid>
   );
+}
+
+const ImageTest2 = styled('div')(({ theme }) => ({
+    backgroundSize: "cover",
+    height: "650px",
+    width: "625px",
+    // position: 'absolute',
+    [theme.breakpoints.down('1650')]: {
+        height: "650px",
+        width: "575px",
+        [theme.breakpoints.down('1500')]: {
+            height: "650px",
+            width: "525px",
+            [theme.breakpoints.down('1350')]: {
+                height: "650px",
+                width: "500px",
+                [theme.breakpoints.down('lg')]: {
+                    height: "250px",
+                },
+            },
+        },
+
+    },
+}));
+
+function DonationComponent2() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: "-150px",
+    });
+    return (
+        <Grid container sx={{mt:{ lg:8, md:4, sm:4, xs:4} }} ref={ref}>
+            <Grid item lg={5} sx={{position:'relative'}} justifyContent='center' container>
+                <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '52%', backgroundColor: "#f5f5f5"}}></Box>
+                <ImageTest2 sx={{bottom:{lg:25, md:25, sm:0}, position:'relative',}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
+            </Grid>
+            <Grid item lg={7} className={inView ? "slideIn1300ms" : "hidden"}>
+                <Grid container sx={{pb:0, height:'48%'}}>
+                    {/*<SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>*/}
+                    <Grid item lg={11}>
+                        <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
+                        <SectionDescription sx={{mt:2}}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </SectionDescription>
+                    </Grid>
+                </Grid>
+                <Grid container sx={{pt:3, pb:0, height:'52%', bgcolor: "#f5f5f5",}} className={inView ? "slideIn1700ms" : "hidden"}>
+                    <Grid item lg={11}>
+                        <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
+                        <SectionDescription sx={{mt:2}}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </SectionDescription>
+                        <Button sx={{mt:2, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    );
 }
 
 function KeepInTouch() {
@@ -213,6 +275,7 @@ function Leadership() {
         sx={{
             pl: 3,
             mt: { lg: 3, md: 4, sm: 4, xs: 4 },
+            pb:5
         }}
         ref={ref}
     >
@@ -226,7 +289,12 @@ function Leadership() {
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>
+        <LeadershipSection name="Sky" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+        <LeadershipSection name="Kevin" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
         <LeadershipSection name="Madeline Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+        <LeadershipSection name="Alex Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+        <LeadershipSection name="Camielle Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+        <LeadershipSection name="Gunn Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
 
     </Grid>
   );
@@ -237,7 +305,8 @@ function ContactUs() {
     <>
       <OpeningPageImage header="Contact Us" imageURL={headerImage} />
       <InternshipHeader />
-      <DonationComponent />
+      {/*<DonationComponent />*/}
+        <DonationComponent2 />
       {/*<KeepInTouch />*/}
       <Leadership/>
     </>
