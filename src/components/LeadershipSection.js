@@ -7,7 +7,7 @@ import group_3 from "../assets/images/group_3.jpg";
 
 const LeadershipImage = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
-    height: "450px",
+    height: "425px",
     width: "400px",
     // [theme.breakpoints.down('lg')]: {
     //     height: "300px",
@@ -36,24 +36,27 @@ function LeadershipSection({ name, role, description, email }) {
     });
     return(
         <Grid item lg={12} sx={{mt:3}} container>
-            <Grid item lg={3}>
-                <LeadershipImage sx={{ml:4}} style={{backgroundImage: `url(${group_3})`}} />
+            <Grid item lg={4} justifyContent='flex-end' container>
+                <LeadershipImage sx={{ml:0, }} style={{backgroundImage: `url(${group_3})`}} />
+                <Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5, mx:5}} flexItem />
             </Grid>
-            <Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5}} flexItem />
-            <Grid item lg={8} sx={{pl:2}}>
-                <SectionSubTitle sx={{mt:2}} style={{textAlign: 'left'}}>
-                    {name}
-                </SectionSubTitle>
-                <LeadershipRole style={{textAlign: 'left'}}>
-                    {role}
-                </LeadershipRole>
-                <SectionDescription sx={{mt:3}} style={{textAlign: 'left'}}>
-                    {description}
-                </SectionDescription>
-                {/*TODO Change from hardcode to use the theme in material UI this is currently a bug*/}
-                <LeadershipRole sx={{mt:4}} style={{textAlign:'left', color:'#00a772'}}>
-                    {email}
-                </LeadershipRole>
+
+            <Grid item lg={8} sx={{pl:0}} container>
+                <Grid item lg={11}>
+                    <SectionSubTitle sx={{mt:2}} style={{textAlign: 'left'}}>
+                        {name}
+                    </SectionSubTitle>
+                    <LeadershipRole style={{textAlign: 'left'}}>
+                        {role}
+                    </LeadershipRole>
+                    <SectionDescription sx={{mt:3}} style={{textAlign: 'left'}}>
+                        {description}
+                    </SectionDescription>
+                    {/*TODO Change from hardcode to use the theme in material UI this is currently a bug*/}
+                    <LeadershipRole sx={{mt:4}} style={{textAlign:'left', color:'#00a772'}}>
+                        {email}
+                    </LeadershipRole>
+                </Grid>
             </Grid>
         </Grid>
 

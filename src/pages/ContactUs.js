@@ -54,67 +54,6 @@ function InternshipHeader() {
 
 const ImageTest = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
-    height: "600px",
-    width: "700px",
-    position: 'absolute',
-    left:'15px',
-    top:'1290px',
-        [theme.breakpoints.down('lg')]: {
-        height: "300px",
-        [theme.breakpoints.down('md')]: {
-            height: "250px",
-        },
-    },
-}));
-function DonationComponent() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "-150px",
-  });
-  return (
-      <Grid container sx={{mt:{ lg:5, md:4, sm:4, xs:4}}} ref={ref}>
-        <Grid item lg={5} />
-        <Grid
-          item
-          lg={7}
-          className={inView ? "slideIn1300ms" : "hidden"}
-        >
-            <Grid container spacing={2} sx={{pb:5}}>
-                <Grid item lg={12}>
-                    <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
-                </Grid>
-                <Grid item lg={10}>
-                    <SectionDescription>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </SectionDescription>
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid item lg={5} sx={{bgcolor: "#f5f5f5"}}>
-            <ImageTest style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
-        </Grid>
-        <Grid item lg={7} sx={{bgcolor: "#f5f5f5", pt:3}}>
-            <Grid container spacing={2} sx={{pb:5}} className={inView ? "slideIn1700ms" : "hidden"}>
-                <Grid item lg={12}>
-                    <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
-                </Grid>
-                <Grid item lg={10}>
-                    <SectionDescription>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </SectionDescription>
-                    <Button sx={{mt:3, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
-                </Grid>
-            </Grid>
-        </Grid>
-      </Grid>
-  );
-}
-
-const ImageTest2 = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
     height: "650px",
     width: "625px",
     // position: 'absolute',
@@ -128,7 +67,8 @@ const ImageTest2 = styled('div')(({ theme }) => ({
                 height: "650px",
                 width: "500px",
                 [theme.breakpoints.down('lg')]: {
-                    height: "250px",
+                    height: "400px",
+                    width: "625px",
                 },
             },
         },
@@ -136,31 +76,38 @@ const ImageTest2 = styled('div')(({ theme }) => ({
     },
 }));
 
-function DonationComponent2() {
+function DonationComponent() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: "-150px",
     });
     return (
         <Grid container sx={{mt:{ lg:8, md:4, sm:4, xs:4} }} ref={ref}>
-            <Grid item lg={5} sx={{position:'relative'}} justifyContent='center' container>
+            {/*make this box invisible past a certain size*/}
+            <Grid item lg={5} sx={{position:'relative', display: {lg: 'flex', md: 'none', sm:'none', xs:'none' }}} justifyContent='flex-end' container>
                 <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '52%', backgroundColor: "#f5f5f5"}}></Box>
-                <ImageTest2 sx={{bottom:{lg:25, md:25, sm:0}, position:'relative',}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
+                <ImageTest sx={{bottom:{lg:25, md:25, sm:0}, position:'relative'}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
             </Grid>
-            <Grid item lg={7} className={inView ? "slideIn1300ms" : "hidden"}>
-                <Grid container sx={{pb:0, height:'48%'}}>
-                    {/*<SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>*/}
-                    <Grid item lg={11}>
-                        <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
-                        <SectionDescription sx={{mt:2}}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </SectionDescription>
+            <Grid item lg={7} md={12} className={inView ? "slideIn1300ms" : "hidden"}>
+                <Grid item container sx={{height:{lg:'48%'}, mt:{lg:0, md:3}}} justifyContent='center'>
+                    <Grid item md={4} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' } }}>
+                        <ImageTest style={{backgroundImage: `url(${group_3})`, borderRadius:'10px'}} className={inView ? "slideIn1300ms" : "hidden"} />
+                    </Grid>
+                    <Grid item lg={11} md={6} sx={{p:{lg:0, md:3}, ml:{lg:0, md:1}}}>
+                        <Box sx={{height:'100%', flexDirection: 'column', display: 'flex', justifyContent:'center',alignItems:'flex-start'}}>
+                            <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
+                            <SectionDescription sx={{mt:2}}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </SectionDescription>
+                        </Box>
+
                     </Grid>
                 </Grid>
-                <Grid container sx={{pt:3, pb:0, height:'52%', bgcolor: "#f5f5f5",}} className={inView ? "slideIn1700ms" : "hidden"}>
-                    <Grid item lg={11}>
+
+                <Grid item container justifyContent='center' sx={{p:{lg:3, md:3}, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5}, height:{lg:'52%'}, bgcolor: "#f5f5f5",}} className={inView ? "slideIn1700ms" : "hidden"}>
+                    <Grid item lg={11} md={11}>
                         <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
                         <SectionDescription sx={{mt:2}}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -170,6 +117,7 @@ function DonationComponent2() {
                     </Grid>
                 </Grid>
             </Grid>
+
         </Grid>
     );
 }
@@ -269,18 +217,9 @@ function Leadership() {
     rootMargin: "-150px",
   });
   return (
-    <Grid
-        container
-        spacing={2}
-        sx={{
-            pl: 3,
-            mt: { lg: 3, md: 4, sm: 4, xs: 4 },
-            pb:5
-        }}
-        ref={ref}
-    >
+    <Grid container spacing={2} sx={{pl: 3, mt: { lg: 3, md: 4, sm: 4, xs: 4 }, pb:5}} ref={ref}>
         <Grid item lg={12}>
-            <SectionTitle sx={{ml:3}} style={{textAlign: 'left'}} className={inView ? "slideIn1300ms" : "hidden"}>
+            <SectionTitle sx={{ml:3}} style={{textAlign: 'center'}} className={inView ? "slideIn1300ms" : "hidden"}>
                 Leadership
             </SectionTitle>
         </Grid>
@@ -306,7 +245,7 @@ function ContactUs() {
       <OpeningPageImage header="Contact Us" imageURL={headerImage} />
       <InternshipHeader />
       {/*<DonationComponent />*/}
-        <DonationComponent2 />
+        <DonationComponent />
       {/*<KeepInTouch />*/}
       <Leadership/>
     </>
