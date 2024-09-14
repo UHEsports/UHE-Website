@@ -2,17 +2,13 @@ import * as React from "react";
 import './ContactUs.css';
 import { useInView } from "react-intersection-observer";
 import SectionTitle from "../components/SectionTitle";
-import SectionSubTitle from "../components/SectionSubTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/group_3.jpg";
 import headerImage from "../assets/images/group_4.png";
 import {
     Divider,
-    Typography,
-    Paper,
     Box,
-    Avatar,
     styled,
     Button,
     Grid,
@@ -67,8 +63,15 @@ const ImageTest = styled('div')(({ theme }) => ({
                 height: "650px",
                 width: "500px",
                 [theme.breakpoints.down('lg')]: {
-                    height: "400px",
-                    width: "625px",
+                    height: "425px",
+                    [theme.breakpoints.down('md')]: {
+                        height: "375px",
+                        [theme.breakpoints.down('md')]: {
+                            height: "350px",
+                            width: "425px",
+                            // width: "625px",
+                        },
+                    },
                 },
             },
         },
@@ -88,12 +91,13 @@ function DonationComponent() {
                 <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '52%', backgroundColor: "#f5f5f5"}}></Box>
                 <ImageTest sx={{bottom:{lg:25, md:25, sm:0}, position:'relative'}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
             </Grid>
-            <Grid item lg={7} md={12} className={inView ? "slideIn1300ms" : "hidden"}>
-                <Grid item container sx={{height:{lg:'48%'}, mt:{lg:0, md:3}}} justifyContent='center'>
-                    <Grid item md={4} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' } }}>
+            <Grid item lg={7} md={12} sm={12} xs={12} className={inView ? "slideIn1300ms" : "hidden"}>
+                <Grid item container sx={{height:{lg:'48%'}, mt:{lg:0, md:3} }} justifyContent='center'>
+                    {/*the justfiy center is fine to leave as it does not come into use until we reach screen sm*/}
+                    <Grid item md={4} sm={8} xs={11} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' }}} justifyContent='center'>
                         <ImageTest style={{backgroundImage: `url(${group_3})`, borderRadius:'10px'}} className={inView ? "slideIn1300ms" : "hidden"} />
                     </Grid>
-                    <Grid item lg={11} md={6} sx={{p:{lg:0, md:3}, ml:{lg:0, md:1}}}>
+                    <Grid item lg={11} md={6} sm={11} xs={12} sx={{p:{lg:0, md:3, sm:3, xs:3}, pb:{lg:0, md:3, sm:5}, ml:{lg:0, md:1}}}>
                         <Box sx={{height:'100%', flexDirection: 'column', display: 'flex', justifyContent:'center',alignItems:'flex-start'}}>
                             <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
                             <SectionDescription sx={{mt:2}}>
@@ -106,105 +110,20 @@ function DonationComponent() {
                     </Grid>
                 </Grid>
 
-                <Grid item container justifyContent='center' sx={{p:{lg:3, md:3}, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5}, height:{lg:'52%'}, bgcolor: "#f5f5f5",}} className={inView ? "slideIn1700ms" : "hidden"}>
-                    <Grid item lg={11} md={11}>
+                <Grid item container justifyContent='center' sx={{p:{lg:3, md:3, sm:3, xs:3}, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5, sm:5, xs:5}, height:{lg:'52%'}, bgcolor: "#f5f5f5",}}>
+                    <Grid item lg={11} md={11} sm={11} xs={12} className={inView ? "slideIn1700ms" : "hidden"}>
                         <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
                         <SectionDescription sx={{mt:2}}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </SectionDescription>
-                        <Button sx={{mt:2, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
+                        <Button sx={{mt:{lg:2, md:3, sm:3, xs:3}, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
                     </Grid>
                 </Grid>
             </Grid>
 
         </Grid>
     );
-}
-
-function KeepInTouch() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "-150px",
-  });
-
-  const buttonStyles = {
-    backgroundColor: "#4caf50",
-    color: "#fff",
-    marginBottom: "16px",
-    width: "100%",
-    display: "block",
-    textTransform: "none",
-    fontSize: "24px",
-    "&:hover": {
-      backgroundColor: "#026440",
-      opacity: 1,
-    },
-  };
-  const videoPlayerHeight = 240; // Defined for consistent use
-  return (
-    <Box
-      sx={{
-        mt: { lg: 6, md: 4, sm: 4, xs: 4 },
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        p: 2,
-      }}
-      ref={ref}
-      className={inView ? "slideIn1300ms" : "hidden"}
-    >
-      <Box sx={{ width: "60%", p: 2 }} ref={ref}>
-        <SectionTitle className={inView ? "slideIn1300ms" : "hidden"}>
-          KEEP IN TOUCH!
-        </SectionTitle>
-        <SectionDescription sx={{ padding: "8px" }}>
-          See the work made by UH Esports Content Teams and the various
-          opportunities, tryouts, community nights, and more available to
-          students
-        </SectionDescription>
-        <Paper
-          elevation={4}
-          sx={{
-            height: 240,
-            mb: 1,
-            backgroundColor: "#333",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            UH Esports Twitch Stream
-          </Typography>
-          {/* <iframe
-            src="https://player.twitch.tv/?channel=uh_esports&parent=yourwebsite.com" // Replace 'yourwebsite.com' with your actual domain
-            height="100%"
-            width="100%"
-            frameBorder="0"
-            scrolling="no"
-            allowFullScreen={true}
-          ></iframe> */}
-          <div id="twitch-embed"></div>
-        </Paper>
-      </Box>
-      <Box
-        sx={{
-          width: "30%",
-          ml: 2,
-          height: `calc(${videoPlayerHeight}px - 40px)`,
-        }}
-      >
-        {" "}
-        {/* Customizable Buttons */}
-        <Button sx={buttonStyles}>@uhesports #1</Button>
-        <Button sx={buttonStyles}>@uhesports #2</Button>
-        <Button sx={buttonStyles}>@uhesports #3</Button>
-        <Button sx={buttonStyles}>@uhesports #4</Button>
-        <Button sx={buttonStyles}>@uhesports #5</Button>
-      </Box>
-    </Box>
-  );
 }
 
 function Leadership() {
@@ -240,16 +159,14 @@ function Leadership() {
 }
 
 function ContactUs() {
-  return (
-    <>
-      <OpeningPageImage header="Contact Us" imageURL={headerImage} />
-      <InternshipHeader />
-      {/*<DonationComponent />*/}
-        <DonationComponent />
-      {/*<KeepInTouch />*/}
-      <Leadership/>
-    </>
-  );
+    return (
+        <>
+            <OpeningPageImage header="Contact Us" imageURL={headerImage} />
+            <InternshipHeader />
+            <DonationComponent />
+            <Leadership/>
+        </>
+    );
 }
 
 export default ContactUs;
