@@ -6,12 +6,12 @@ const SectionSubTitle = styled('div')(({ theme }) => ({
     wordSpacing: '-3px',
     letterSpacing: "-1px",
     fontSize: "61px",
-    // [theme.breakpoints.down('lg')]: {
-    //     fontSize: "56px",
-    //     [theme.breakpoints.down('sm')]: {
-    //         fontSize: "40px",
-    //     },
-    // },
+    [theme.breakpoints.down('lg')]: {
+        fontSize: "51px",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "35px",
+        },
+    },
 }));
 
 export default SectionSubTitle;

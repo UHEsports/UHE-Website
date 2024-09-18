@@ -66,9 +66,9 @@ const ImageTest = styled('div')(({ theme }) => ({
                     height: "425px",
                     [theme.breakpoints.down('md')]: {
                         height: "375px",
-                        [theme.breakpoints.down('md')]: {
-                            height: "350px",
-                            width: "425px",
+                        [theme.breakpoints.down('sm')]: {
+                            height: "250px",
+                            width: "435px",
                             // width: "625px",
                         },
                     },
@@ -97,7 +97,7 @@ function DonationComponent() {
                     <Grid item md={4} sm={8} xs={11} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' }}} justifyContent='center'>
                         <ImageTest style={{backgroundImage: `url(${group_3})`, borderRadius:'10px'}} className={inView ? "slideIn1300ms" : "hidden"} />
                     </Grid>
-                    <Grid item lg={11} md={6} sm={11} xs={12} sx={{p:{lg:0, md:3, sm:3, xs:3}, pb:{lg:0, md:3, sm:5}, ml:{lg:0, md:1}}}>
+                    <Grid item lg={11} md={6} sm={11} xs={12} sx={{p:{lg:0, md:3, sm:3, xs:3} , pb:{lg:0, md:3, sm:5}, ml:{lg:0, md:1}}}>
                         <Box sx={{height:'100%', flexDirection: 'column', display: 'flex', justifyContent:'center',alignItems:'flex-start'}}>
                             <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
                             <SectionDescription sx={{mt:2}}>
@@ -136,14 +136,14 @@ function Leadership() {
     rootMargin: "-150px",
   });
   return (
-    <Grid container spacing={2} sx={{pl: 3, mt: { lg: 3, md: 4, sm: 4, xs: 4 }, pb:5}} ref={ref}>
-        <Grid item lg={12}>
+    <Grid container sx={{mt: { lg: 3, md: 4, sm: 4, xs: 4 }, pb:5}} ref={ref}>
+        <Grid item lg={12} md={12} sm={12}>
             <SectionTitle sx={{ml:3}} style={{textAlign: 'center'}} className={inView ? "slideIn1300ms" : "hidden"}>
                 Leadership
             </SectionTitle>
         </Grid>
-        <Grid item lg={12} sx={{my:2}} container justifyContent='center'>
-            <Grid lg={11}>
+        <Grid item lg={12} md={12} sm={12} sx={{my:2}} container justifyContent='center'>
+            <Grid lg={11} md={11} sm={11}>
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>
