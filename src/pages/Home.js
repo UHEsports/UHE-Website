@@ -6,7 +6,8 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
-import group_4 from '../assets/images/group_4.png';
+// import group_4 from '../assets/images/group_4.png';
+import uhesports_stan_sherrif from '../assets/images/uhesports-stan-sheriff.png';
 import discord_server from '../assets/images/discord_server.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -326,7 +327,7 @@ function Sponsors() {
 function Home() {
     return (
         <>
-            <OpeningPageImage header="University of Hawai'i Esports" imageURL={group_4}/>
+            <OpeningPageImage header="University of Hawai'i Esports" imageURL={uhesports_stan_sherrif}/>
             <AboutSection />
             {/*<JoinDiscord />*/}
             <Games />
