@@ -137,13 +137,13 @@ function Leadership() {
   });
   return (
     <Grid container sx={{mt: { lg: 3, md: 4, sm: 4, xs: 4 }, pb:5}} ref={ref}>
-        <Grid item lg={12} md={12} sm={12}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
             <SectionTitle sx={{ml:3}} style={{textAlign: 'center'}} className={inView ? "slideIn1300ms" : "hidden"}>
                 Leadership
             </SectionTitle>
         </Grid>
-        <Grid item lg={12} md={12} sm={12} sx={{my:2}} container justifyContent='center'>
-            <Grid lg={11} md={11} sm={11}>
+        <Grid item lg={12} md={12} sm={12} xs={12} sx={{my:2}} container justifyContent='center'>
+            <Grid lg={11} md={11} sm={11} xs={11}>
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>

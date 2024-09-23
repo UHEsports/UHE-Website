@@ -15,6 +15,11 @@ const LeadershipImage = styled('div')(({ theme }) => ({
         width:"375px",
         [theme.breakpoints.down('md')]: {
             height: "375px",
+            width:"325px",
+            [theme.breakpoints.down('sm')]: {
+                height: "300px",
+                width:"275px"
+            },
         },
     },
 }));
@@ -41,13 +46,13 @@ function LeadershipSection({ name, role, description, email }) {
     });
     const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('md'));
     return(
-        <Grid item lg={12} md={12} sm={12} sx={{mt:{lg:2, md:2, sm:0}}} justifyContent={isSmallScreen ? 'center' : ''}  container>
-            <Grid item lg={4} md={5} sm={12} sx={{p:3, pb:{lg:3, md:3, sm:0}}} justifyContent={isSmallScreen ? 'center' : 'flex-end'} container>
+        <Grid item lg={12} md={12} sm={12} xs={12} sx={{mb:{lg:2, md:2, sm:3, xs:0}}} justifyContent={isSmallScreen ? 'center' : ''}  container>
+            <Grid item lg={4} md={5} sm={12} xs={12} sx={{p:3, pb:{lg:3, md:3, sm:0, xs:0}}} justifyContent={isSmallScreen ? 'center' : 'flex-end'} container>
                 <LeadershipImage sx={{ml:0}} style={{backgroundImage: `url(${group_3})`}} />
                 {/*<Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5, ml:{xl:2, lg:2}}} flexItem />*/}
             </Grid>
-            <Grid item lg={8} md={7} sm={11} sx={{p:{lg:3, md:3, sm:3}, pt:{lg:3, md:3, sm:0}}} justifyContent={isSmallScreen ? 'center' : ''} container>
-                <Grid item lg={11} md={12} sm={11} container direction='column' justifyContent={isSmallScreen ? 'center' : ''} alignItems={isSmallScreen ? 'center' : ''} >
+            <Grid item lg={8} md={7} sm={11} xs={12} sx={{p:{lg:3, md:3, sm:0, xs:3}, pt:{lg:3, md:3, sm:0, xs:1}}} justifyContent={isSmallScreen ? 'center' : ''} container>
+                <Grid item lg={11} md={12} sm={11} xs={12} container direction='column' justifyContent={isSmallScreen ? 'center' : ''} alignItems={isSmallScreen ? 'center' : ''} >
                     <SectionSubTitle sx={{mt:2}} style={{textAlign: 'left'}}>
                         {name}
                     </SectionSubTitle>
@@ -58,7 +63,7 @@ function LeadershipSection({ name, role, description, email }) {
                         {description}
                     </SectionDescription>
                     {/*TODO Change from hardcode to use the theme in material UI this is currently a bug*/}
-                    <LeadershipRole sx={{mt:{lg:4, md:2, sm:2}}} style={{textAlign:'left', color:'#00a772'}}>
+                    <LeadershipRole sx={{mt:{lg:4, md:2, sm:2, xs:2}}} style={{textAlign:'left', color:'#00a772'}}>
                         {email}
                     </LeadershipRole>
                 </Grid>
