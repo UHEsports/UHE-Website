@@ -49,7 +49,6 @@ function LeadershipSection({ name, role, description, email }) {
         <Grid item lg={12} md={12} sm={12} xs={12} sx={{mb:{lg:2, md:2, sm:3, xs:0}}} justifyContent={isSmallScreen ? 'center' : ''}  container>
             <Grid item lg={4} md={5} sm={12} xs={12} sx={{p:3, pb:{lg:3, md:3, sm:0, xs:0}}} justifyContent={isSmallScreen ? 'center' : 'flex-end'} container>
                 <LeadershipImage sx={{ml:0}} style={{backgroundImage: `url(${group_3})`}} />
-                {/*<Divider orientation="vertical" variant="middle" sx={{ borderRightWidth: 5, ml:{xl:2, lg:2}}} flexItem />*/}
             </Grid>
             <Grid item lg={8} md={7} sm={11} xs={12} sx={{p:{lg:3, md:3, sm:0, xs:3}, pt:{lg:3, md:3, sm:0, xs:1}}} justifyContent={isSmallScreen ? 'center' : ''} container>
                 <Grid item lg={11} md={12} sm={11} xs={12} container direction='column' justifyContent={isSmallScreen ? 'center' : ''} alignItems={isSmallScreen ? 'center' : ''} >

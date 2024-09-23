@@ -1,5 +1,4 @@
 import * as React from "react";
-import './ContactUs.css';
 import { useInView } from "react-intersection-observer";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
@@ -26,7 +25,7 @@ function InternshipHeader() {
   return (
     <Grid
       container
-      sx={{ pt:3, pb:5, bgcolor: "#f5f5f5", pl:3, pr:3 }}
+      sx={{ p:3, pb:5, backgroundColor: "#f5f5f5" }}
       justifyContent="center"
       spacing={2}
       ref={ref}
@@ -52,7 +51,6 @@ const ImageTest = styled('div')(({ theme }) => ({
     backgroundSize: "cover",
     height: "650px",
     width: "625px",
-    // position: 'absolute',
     [theme.breakpoints.down('1650')]: {
         height: "650px",
         width: "575px",
@@ -69,7 +67,6 @@ const ImageTest = styled('div')(({ theme }) => ({
                         [theme.breakpoints.down('sm')]: {
                             height: "250px",
                             width: "435px",
-                            // width: "625px",
                         },
                     },
                 },
@@ -80,13 +77,13 @@ const ImageTest = styled('div')(({ theme }) => ({
 }));
 
 function DonationComponent() {
+    // TODO the heights=52% and 48% are to give more spacing to our grid columns, this todo signifies further documentation and comments to describe the code structure.
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: "-150px",
     });
     return (
         <Grid container sx={{mt:{ lg:8, md:4, sm:4, xs:4} }} ref={ref}>
-            {/*make this box invisible past a certain size*/}
             <Grid item lg={5} sx={{position:'relative', display: {lg: 'flex', md: 'none', sm:'none', xs:'none' }}} justifyContent='flex-end' container>
                 <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '52%', backgroundColor: "#f5f5f5"}}></Box>
                 <ImageTest sx={{bottom:{lg:25, md:25, sm:0}, position:'relative'}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
@@ -110,7 +107,7 @@ function DonationComponent() {
                     </Grid>
                 </Grid>
 
-                <Grid item container justifyContent='center' sx={{p:{lg:3, md:3, sm:3, xs:3}, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5, sm:5, xs:5}, height:{lg:'52%'}, bgcolor: "#f5f5f5",}}>
+                <Grid item container justifyContent='center' sx={{p:3, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5, sm:5, xs:5}, height:{lg:'52%'}, backgroundColor: "#f5f5f5",}}>
                     <Grid item lg={11} md={11} sm={11} xs={12} className={inView ? "slideIn1700ms" : "hidden"}>
                         <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
                         <SectionDescription sx={{mt:2}}>
