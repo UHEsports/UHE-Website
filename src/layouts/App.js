@@ -67,12 +67,12 @@ function App() {
             variant="contained"
             arial-label="Scroll to top"
             color="uhegreen"
-            style={{maxWidth: '50px', maxHeight: '50px', minWidth: '50px', minHeight: '50px'}}
+            style={{maxWidth: '100px', maxHeight: '100px', minWidth: '50px', minHeight: '50px'}}
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
-                bottom: 20,
-                right: 20,
+                bottom: 220, //changed the position of the button to be above the footer text
+                right: 25,
             }}
             onClick={scrollToTop}
         >
