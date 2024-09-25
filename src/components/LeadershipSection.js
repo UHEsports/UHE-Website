@@ -1,6 +1,4 @@
-import { Grid, styled, Divider } from '@mui/material';
-import { useInView } from 'react-intersection-observer';
-import SectionTitle from "../components/SectionTitle";
+import { Grid, styled } from '@mui/material';
 import SectionSubTitle from "../components/SectionSubTitle";
 import SectionDescription from "../components/SectionDescription";
 import group_3 from "../assets/images/group_3.jpg";
@@ -38,12 +36,7 @@ const LeadershipRole = styled('div')(({ theme }) => ({
     },
 }));
 
-
 function LeadershipSection({ name, role, description, email }) {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        rootMargin: '-100px 0px',
-    });
     const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('md'));
     return(
         <Grid item lg={12} md={12} sm={12} xs={12} sx={{mb:{lg:2, md:2, sm:3, xs:0}}} justifyContent={isSmallScreen ? 'center' : ''}  container>
