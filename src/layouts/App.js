@@ -67,7 +67,7 @@ function App() {
             variant="contained"
             arial-label="Scroll to top"
             color="uhegreen"
-            style={{maxWidth: '100px', maxHeight: '100px', minWidth: '50px', minHeight: '50px'}}
+            style={{maxWidth: '100px', maxHeight: '100px', minWidth: '75px', minHeight: '75px'}}
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
