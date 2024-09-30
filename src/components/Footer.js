@@ -111,7 +111,7 @@ function Footer() {
                         &copy; 2023 UH Esports. All Rights reserved.
                     </FooterText>
                 </Box>
-               <Grid container  spacing={2} sx={{ position: 'relative', display: { lg: "flex", md: "flex", sm: "none", xs: "none" }}}>
+               <Grid container  spacing={2} sx={{ position: 'relative', display: { lg: "flex", md: "flex", sm: "flex", xs: "none" }}}>
                     <Grid lg={2} md={1} />
                     <Grid sx={{position: 'absolute', right:0, top:'-159px'}} lg={2} md={4}> {/*unable to find a way to keep the contents of each box level, so used positioning and top/right to make it even */}
                         <ContactFooterText sx={{textAlign:'right', color:'black', fontWeight:'bold',fontSize:'1.5rem', mr:4}}>
@@ -127,7 +127,7 @@ function Footer() {
                 </Grid>
 
 
-                <Grid container spacing={3} sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" } }}>
+                <Grid container spacing={3} sx={{ display: { lg: "none", md: "none", sm: "none", xs: "flex" } }}>
                     <Grid sx={{float:'right', mt:{sm:0, xs:2}, ml:{sm:11, xs:10}}} sm={4} xs={12}>
                         <FooterText>
                             <br/>

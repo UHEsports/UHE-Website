@@ -67,16 +67,21 @@ function App() {
             variant="contained"
             arial-label="Scroll to top"
             color="uhegreen"
-            style={{maxWidth: '100px', maxHeight: '100px', minWidth: '75px', minHeight: '75px'}}
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
-                bottom: 220, //changed the position of the button to be above the footer text
+                bottom: { xs: 50, sm: 240, md: 220, lg: 220 }, 
                 right: 25,
+                width: { xs: '150px', sm: '90px', md: '80px', lg: '80px' }, 
+                height: { xs: '150px', sm: '90px', md: '80px', lg: '80px' },             
+                display: 'flex', 
+                alignItems: 'center',
+                justifyContent: 'center',
+
             }}
             onClick={scrollToTop}
         >
-            <ArrowUpwardIcon />
+        <ArrowUpwardIcon sx={{ fontSize: { xs: '80px', sm: '35px', md: '35px', lg: '50px' } }} /> {/* adjust icon size */}
         </Button>
         <Footer />
     </div>
