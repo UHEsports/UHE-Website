@@ -44,7 +44,7 @@ function Location(){
       alignItems="center"
       justifyContent="center"
       ref={ref}>
-        <Grid lg={4} md={12} xs={12} sx = {{}}item>
+        <Grid lg={4} md={11} xs={11} sx = {{}}item>
           <SectionTitle sx={{mb: 4 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             LOCATION
           </SectionTitle>
@@ -63,13 +63,13 @@ function Location(){
           sunt in culpa qui officia deserunt mollit anim id est laborum.
           </SectionDescription>
         </Grid>
-        <Grid lg={7} md={10} sm={11} xs={12} item>        <LocationImages style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
+        <Grid lg={7} md={10} sm={11} xs={11} item>        
+          <LocationImages style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
 
     </Grid>
   )
 }
-
 
 const SpacesImage = styled('div')(({theme}) => ({
   backgroundSize: "cover",
@@ -101,7 +101,6 @@ const SpacesMainImages = styled('div')(({theme}) => ({
   }
 }))
 
-/**TODO: fix 'Spaces' indentation when in medium - small screen */
 function Spaces(){
   const{ref, inView} = useInView({
     triggerOnce: true,
@@ -154,7 +153,6 @@ function SpacesCarousel() {
 
 
   const SpacesItem = ({ image }) => (
-    //TODO: Change format to account to size of screen
     <div style={{ margin: '8px', height: '420px' }}>
       <img src={image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
     </div>
@@ -179,7 +177,7 @@ function SpacesCarousel() {
     // Only displays when the screen is smaller than medium; hide on medium and larger screens (md: 'none').
     <Grid sx={{ backgroundColor:"#f6f6f6", p:3, mt: 1, display: {md:'none', }}} container spacing={2} justifyContent="center" alignItems="center">
       <Grid item md={12} xs={12} ref={ref}>
-        <SectionTitle sx={{ml:5}} style={{textAlign: 'left'}}>  
+        <SectionTitle sx={{ml:4}} style={{textAlign: 'left'}}>  
           SPACES
         </SectionTitle>
       </Grid>
