@@ -37,7 +37,7 @@ function Footer() {
                     src={uheLogo}
                     sx={{
                         width: {
-                            xs: '300px',  // for extra small screens (mobile)
+                            xs: '275px',  // for extra small screens (mobile)
                             sm: '300px',  // for small screens (tablets)
                             md: '150px',
                             
@@ -55,7 +55,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TwitchSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 50}}} />
+                            <TwitchSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -66,7 +66,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <InstagramSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 50}}} />
+                            <InstagramSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -77,7 +77,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TiktokSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 50}}} />
+                            <TiktokSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -88,7 +88,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <DiscordSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 50}}} />
+                            <DiscordSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -99,7 +99,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
                         >
-                            <TwitterIcon sx={{fontSize:{md: 35, sm: 50, xs: 50}}} />
+                            <TwitterIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
                         </Link>
                     </Box>
 
@@ -149,7 +149,7 @@ function Footer() {
                         </FooterText>
                     </Grid>
                     <Grid sx={{alignItems: 'center', mt:{sm:1}}} sm={12} xs={12}>
-                        <FooterText sx={{fontSize:{sm:'0.9rem', xs:'0.9rem'}, textAlign:'left', color:'grey', ml:{sm:11, xs:10}}}>
+                        <FooterText sx={{fontSize:{sm:'0.9rem', xs:'0.9rem'}, textAlign:'left', color:'grey', ml:{sm:11, xs:10}, mb:{sm:0, xs:5}}}>
                             <br/>
                             &copy; 2023 UH Esports.<br/> 
                             All Rights reserved.

@@ -70,10 +70,10 @@ function App() {
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
-                bottom: { xs: 50, sm: 240, md: 220, lg: 220 }, 
-                right: 25,
-                width: { xs: '150px', sm: '90px', md: '80px', lg: '80px' }, 
-                height: { xs: '150px', sm: '90px', md: '80px', lg: '80px' },             
+                bottom: { xs: 25, sm: 240, md: 220, lg: 220 }, 
+                right:{xs: 50, sm: 25, md: 25, lg: 25},
+                width: { xs: '95px', sm: '90px', md: '80px', lg: '80px' }, 
+                height: { xs: '95px', sm: '90px', md: '80px', lg: '80px' },             
                 display: 'flex', 
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -81,7 +81,7 @@ function App() {
             }}
             onClick={scrollToTop}
         >
-        <ArrowUpwardIcon sx={{ fontSize: { xs: '80px', sm: '35px', md: '35px', lg: '50px' } }} /> {/* adjust icon size */}
+        <ArrowUpwardIcon sx={{ fontSize: { xs: '70px', sm: '35px', md: '35px', lg: '50px' } }} /> {/* adjust icon size */}
         </Button>
         <Footer />
     </div>
