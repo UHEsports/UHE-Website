@@ -23,7 +23,7 @@ const ContactFooterText = styled('div')(({ theme }) => ({
     letterSpacing: "-0.15px",
     fontSize: "1.5rem",
     [theme.breakpoints.down('sm')]: {
-        fontSize: "2.3rem",
+        fontSize: "1.7rem",
     },
 }));
 
@@ -37,7 +37,7 @@ function Footer() {
                     src={uheLogo}
                     sx={{
                         width: {
-                            xs: '275px',  // for extra small screens (mobile)
+                            xs: '250px',  // for extra small screens (mobile)
                             sm: '300px',  // for small screens (tablets)
                             md: '150px',
                             
@@ -55,7 +55,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TwitchSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
+                            <TwitchSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 40}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -66,7 +66,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <InstagramSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
+                            <InstagramSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 40}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -77,7 +77,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TiktokSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
+                            <TiktokSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 40}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -88,7 +88,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <DiscordSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
+                            <DiscordSolidIcon sx={{fontSize:{md: 35, sm: 50, xs: 40}}} />
                         </Link>
                         <Link
                             underline="none"
@@ -99,7 +99,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
                         >
-                            <TwitterIcon sx={{fontSize:{md: 35, sm: 50, xs: 45}}} />
+                            <TwitterIcon sx={{fontSize:{md: 35, sm: 50, xs: 40}}} />
                         </Link>
                     </Box>
 
@@ -135,7 +135,7 @@ function Footer() {
                         <FooterText sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "none" } }}>
                             <br/>
                         </FooterText>
-                        <ContactFooterText sx={{ textAlign: 'left', color: 'black', fontWeight: 'bold', fontSize: '2.3rem' }}>
+                        <ContactFooterText sx={{ textAlign: 'left', color: 'black', fontWeight: 'bold' }}>
                             Contact
                         </ContactFooterText>
                         <FooterText>
