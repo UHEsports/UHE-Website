@@ -22,7 +22,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const LocationImages = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "800px",
-  borderRadius: "5px",
+  borderRadius: "10px",
   [theme.breakpoints.down('lg')]:{ height: "600px",
     [theme.breakpoints.up('md')]:{ height: "400px",
       [theme.breakpoints.up('sm')]:{ height: "300px"
@@ -74,7 +74,7 @@ function Location(){
 const SpacesImage = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "260px",
-  borderRadius: "5px",
+  borderRadius: "10px",
   [theme.breakpoints.down('lg')]:{
     height: "200px",
     [theme.breakpoints.up('md')]:{
@@ -86,7 +86,7 @@ const SpacesImage = styled('div')(({theme}) => ({
 const SpacesMainImages = styled('div')(({theme}) => ({
   backgroundSize: "cover",
   height: "800px",
-  borderRadius: "5px",
+  borderRadius: "10px",
   [theme.breakpoints.down('lg')]:{
     height: "600px",
     [theme.breakpoints.up('md')]:{
@@ -118,7 +118,7 @@ function Spaces(){
       justifyContent="center"
       ref={ref}>
         <Grid lg={12} md={8} xs={12} item>
-          <SectionTitle sx={{ml:9 }} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+          <SectionTitle sx={{ml:9,  backgroundColor:"#f6f6f6"}} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             SPACES
           </SectionTitle>
           </Grid>
