@@ -24,8 +24,8 @@ const LocationImages = styled('div')(({theme}) => ({
   height: "800px",
   borderRadius: "10px",
   [theme.breakpoints.down('lg')]:{ height: "600px",
-    [theme.breakpoints.up('md')]:{ height: "400px",
-      [theme.breakpoints.up('sm')]:{ height: "300px"
+    [theme.breakpoints.up('md')]:{ height: "500px",
+      [theme.breakpoints.up('sm')]:{ height: "500px"
       }
     }
   }
@@ -63,7 +63,7 @@ function Location(){
           sunt in culpa qui officia deserunt mollit anim id est laborum.
           </SectionDescription>
         </Grid>
-        <Grid lg={7} md={10} sm={11} xs={11} item>        
+        <Grid lg={7} md={11} sm={12} xs={11} item>        
           <LocationImages style={{backgroundImage:`url("${group_1}")`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
         </Grid>
 
@@ -111,14 +111,14 @@ function Spaces(){
     <Grid
       // Set display to 'none' for small and extra small screens, and 'flex' for medium and larger screens to ensure proper visibility and alignment.
       // Using 'flex' maintains layout integrity on medium and larger screens.
-      sx={{mt:4, p:1, pb:3, display: {md: 'flex', sm:'none', xs:'none'}}}
+      sx={{mt:4, pt:3, pb:6, pl:1, pr:1, display: {md: 'flex', sm:'none', xs:'none'}, backgroundColor:"#f6f6f6"}}
       container
       spacing={2}
       alignItems="center"
       justifyContent="center"
       ref={ref}>
-        <Grid lg={12} md={8} xs={12} item>
-          <SectionTitle sx={{ml:9,  backgroundColor:"#f6f6f6"}} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
+        <Grid lg={12} md={12} xs={12} item>
+          <SectionTitle sx={{pl:{lg:9, md:7}}} style={{textAlign: 'left'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
             SPACES
           </SectionTitle>
           </Grid>
