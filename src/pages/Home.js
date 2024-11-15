@@ -6,6 +6,8 @@ import { styled } from '@mui/material/styles';
 import group_1 from '../assets/images/group_1.jpg';
 import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
+import acm_logo from '../assets/images/ACMlogo_stacked.png';
+import apcu_logo from '../assets/images/APCU_vert_2016_black.png';
 // import group_4 from '../assets/images/group_4.png';
 import uhesports_stan_sherrif from '../assets/images/uhesports-stan-sheriff.png';
 import discord_server from '../assets/images/discord_server.png';
@@ -293,8 +295,15 @@ function UHEInfoBlock() {
 const SponsorLogos = styled('div')(() => ({
     backgroundImage: `url('${uheLogo}')`,
     backgroundSize: "cover",
-    width: "150px",
-    height:"150px"
+    // width: "150px",
+    // height:"150px"
+    // // TODO TEST
+    // display: "block",
+    // maxWidth: "200px",
+    // maxHeight: "90px",
+    // width: "auto",
+    // height: "auto",
+
 }));
 function Sponsors() {
     const { ref, inView } = useInView({
@@ -302,23 +311,20 @@ function Sponsors() {
         rootMargin: '-50px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} container justifyContent="center" ref={ref}>
-            <Grid item md={12} xs={12}>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3, pb:5}} container justifyContent="center" ref={ref}>
+            <Grid item lg={12} md={12} xs={12} sx={{mb:{lg:4, md:4, xs:3}}}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Sponsors
                 </SectionTitle>
             </Grid>
-            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1300ms' : 'hidden'} />
+            <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <img src={apcu_logo} className="logos" />
             </Grid>
-            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1500ms' : 'hidden'} />
-            </Grid>
-            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1700ms' : 'hidden'} />
-            </Grid>
-            <Grid item md={2} xs={6} sx={{mt:2, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <SponsorLogos className={inView ? 'slideIn1900ms' : 'hidden'} />
+            <Grid lg={1} md={1}></Grid>
+            <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <img src={acm_logo} className="logos"/>
+                {/*<SponsorLogos style={{backgroundImage: `url('${acm_logo}')`, width: "200px", height: "150px"}}*/}
+                {/*              className={inView ? 'slideIn1700ms' : 'hidden'}/>*/}
             </Grid>
         </Grid>
     );
@@ -328,7 +334,7 @@ function Home() {
     return (
         <>
             <OpeningPageImage header="University of Hawai'i Esports" imageURL={uhesports_stan_sherrif}/>
-            <AboutSection />
+            <AboutSection/>
             {/*<JoinDiscord />*/}
             <Games />
             <OurMilestones />
