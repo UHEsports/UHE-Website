@@ -24,6 +24,14 @@ import who_are_we_12 from '../assets/images/who_are_we_12.png';
 import who_are_we_13 from '../assets/images/who_are_we_13.png';
 
 import education_uhe_info from '../assets/images/education_uhe_info.jpg';
+import milestone_1 from '../assets/images/milestone_0_Overwatch Internship 2021-22.png';
+import milestone_2 from '../assets/images/milestone_1_Esports Awards 2022 - Collegiate Program of the Year.png';
+import milestone_3 from '../assets/images/milestone_2_Aloha Pacific Federal Credit Union Scholarships 2023.jpg';
+import milestone_4 from '../assets/images/milestone_3_Joe Marsh Visit to UH 2023 (PACE x UHE).jpg';
+import milestone_5 from '../assets/images/milestone_4_Gen G Interns (23 & 24).png';
+import milestone_6 from '../assets/images/milestone_5_T1 Intern Jazmin 2024.jpg';
+import milestone_7 from '../assets/images/milestone_6_Good Jobs Hawaii x UH Esports Pathway 2024 fall.png';
+
 
 
 import uhesports_stan_sherrif from '../assets/images/uhesports-stan-sheriff.png';
@@ -123,7 +131,6 @@ function AboutSection() {
                                 <div>
                                     <CarouselImages style={{backgroundImage:`url(${image})`}} />
                                 </div>
-
                             );
                         })
                     }
@@ -153,16 +160,44 @@ const MileStoneTextTitle = styled('div')(({ theme }) => ({
     margin: '16px 0 0px 20px',
 }));
 
+// import milestone_6 from '../assets/images/milestone_5_T1 Intern Jazmin 2024.jpg';
+// import milestone_7 from '../assets/images/milestone_6_Good Jobs Hawaii x UH Esports Pathway 2024 fall.png';
+
 
 const milestone_images = [
     {
-        image: who_are_we_1,
-        title: 'OWL',
+        image: milestone_1,
+        title: 'Overwatch Internship',
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
-        image: who_are_we_2,
-        title: 'Two two',
+        image: milestone_2,
+        title: 'Esports Awards 2022',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: milestone_3,
+        title: 'Aloha Pacific Federal Credit Union Scholarships',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: milestone_4,
+        title: 'Joe Marsh Visit to UH 2023 (PACE x UHE)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: milestone_5,
+        title: 'Gen G Interns',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: milestone_6,
+        title: 'T1 Intern Jazmin 2024',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: milestone_7,
+        title: 'Good Jobs Hawaii x UH Esports Pathway 2024 fall',
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
 ];
@@ -189,13 +224,19 @@ function OurMilestones() {
             {/*    <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>*/}
             {/*    <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>*/}
             {/*</Grid>*/}
-            <Grid lg={11}>
+            <Grid lg={11} md={11} xs={11}>
                 <Slider {...settings}>
                     {
-                        milestone_images.map((milestone) => {
+                        milestone_images.map((milestone, index) => {
                             return(
-                                <div>
-                                    <CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />
+                                <div key={{index}}>
+                                    <Grid container justifyContent="center" alignItems="center">
+                                        <Grid item>
+                                            <img src={milestone.image} className="test" alt="Milestone Logo" />
+                                        </Grid>
+                                    </Grid>
+                                    {/*<img src={apcu_logo} className="test" />*/}
+                                    {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
                                     <MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>
                                     <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>
                                 </div>
