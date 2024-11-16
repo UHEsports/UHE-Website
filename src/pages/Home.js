@@ -8,7 +8,24 @@ import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
 import acm_logo from '../assets/images/ACMlogo_stacked.png';
 import apcu_logo from '../assets/images/APCU_vert_2016_black.png';
-// import group_4 from '../assets/images/group_4.png';
+// import group_4 from '../assets/who_are_we_images/group_4.png';
+import who_are_we_1 from '../assets/images/who_are_we_1.png';
+import who_are_we_2 from '../assets/images/who_are_we_2.png';
+import who_are_we_3 from '../assets/images/who_are_we_3.jpg';
+import who_are_we_4 from '../assets/images/who_are_we_4.png';
+import who_are_we_5 from '../assets/images/who_are_we_5.PNG';
+import who_are_we_6 from '../assets/images/who_are_we_6.jpg';
+import who_are_we_7 from '../assets/images/who_are_we_7.png';
+import who_are_we_8 from '../assets/images/who_are_we_8.png';
+import who_are_we_9 from '../assets/images/who_are_we_9.png';
+import who_are_we_10 from '../assets/images/who_are_we_10.png';
+import who_are_we_11 from '../assets/images/who_are_we_11.jpg';
+import who_are_we_12 from '../assets/images/who_are_we_12.png';
+import who_are_we_13 from '../assets/images/who_are_we_13.png';
+
+import education_uhe_info from '../assets/images/education_uhe_info.jpg';
+
+
 import uhesports_stan_sherrif from '../assets/images/uhesports-stan-sheriff.png';
 import discord_server from '../assets/images/discord_server.png';
 import Slider from "react-slick";
@@ -30,6 +47,7 @@ const CarouselImages = styled('div')(({ theme }) => ({
     height: "400px",
     borderRadius:'10px',
     margin: '20px 0 20px 20px',
+    backgroundPosition: 'center',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
         [theme.breakpoints.down('md')]: {
@@ -65,14 +83,21 @@ const settings = {
     ]
 };
 
-const images = [
-    group_1,
-    group_2,
-    group_3,
-    group_1,
-    group_2,
-    group_3
-]
+const who_are_we_images = [
+    who_are_we_1,
+    who_are_we_2,
+    who_are_we_3,
+    who_are_we_4,
+    who_are_we_5,
+    who_are_we_6,
+    who_are_we_7,
+    who_are_we_8,
+    who_are_we_9,
+    who_are_we_10,
+    who_are_we_11,
+    who_are_we_12,
+    who_are_we_13,
+];
 
 function AboutSection() {
     return (
@@ -93,7 +118,7 @@ function AboutSection() {
             <Grid sx={{mt:3}} item md={11} xs={11}>
                 <Slider {...settings}>
                     {
-                        images.map((image) => {
+                        who_are_we_images.map((image) => {
                             return(
                                 <div>
                                     <CarouselImages style={{backgroundImage:`url(${image})`}} />
@@ -124,8 +149,23 @@ const MileStoneTextTitle = styled('div')(({ theme }) => ({
     textAlign: 'left',
     fontSize:"28px",
     fontWeight:'bold',
-    marginTop:'16px',
+    // marginTop:'16px',
+    margin: '16px 0 0px 20px',
 }));
+
+
+const milestone_images = [
+    {
+        image: who_are_we_1,
+        title: 'OWL',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_2,
+        title: 'Two two',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+];
 
 function OurMilestones() {
     const { ref, inView } = useInView({
@@ -139,15 +179,30 @@ function OurMilestones() {
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
-                <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
-                <MileStoneTextTitle>Esports Awards</MileStoneTextTitle>
-                <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
-            </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>
-                <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />
-                <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>
-                <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>
+            {/*<Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>*/}
+            {/*    <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />*/}
+            {/*    <MileStoneTextTitle>Esports Awards</MileStoneTextTitle>*/}
+            {/*    <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>*/}
+            {/*</Grid>*/}
+            {/*<Grid sx={{mt:{ lg:2, md:1, xs:1 }}} item md={5} sm={11} xs={12}>*/}
+            {/*    <MileStoneImages style={{backgroundImage:`url("${group_1}"`}} />*/}
+            {/*    <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>*/}
+            {/*    <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>*/}
+            {/*</Grid>*/}
+            <Grid lg={11}>
+                <Slider {...settings}>
+                    {
+                        milestone_images.map((milestone) => {
+                            return(
+                                <div>
+                                    <CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />
+                                    <MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>
+                                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>
+                                </div>
+                            );
+                        })
+                    }
+                </Slider>
             </Grid>
         </Grid>
     );
@@ -211,7 +266,7 @@ function UHEInfoBlock() {
             alignItems="center"
             justifyContent="center"
             ref={ref}>
-            <Grid lg={5} md={5} sm={11} xs={12} item>
+            <Grid lg={4} md={5} sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
             </Grid>
             <Grid lg={5} md={5} sm={11} xs={12} item>
@@ -258,13 +313,13 @@ function UHEInfoBlock() {
                     </Button>
                 </SectionDescription>
             </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
+            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={4} md={5} item>
+                <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
 
             {/*Display when it is less than md*/}
             <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}}  sm={11} xs={12} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
+                <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
             <Grid sx={{ display: {lg: 'none', md: 'none', xs:'block' }}} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
@@ -292,6 +347,7 @@ function UHEInfoBlock() {
     );
 }
 
+// TODO REMOVE
 const SponsorLogos = styled('div')(() => ({
     backgroundImage: `url('${uheLogo}')`,
     backgroundSize: "cover",
