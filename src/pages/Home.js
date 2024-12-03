@@ -69,7 +69,7 @@ const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     speed: 500,
     responsive: [
         {
@@ -123,13 +123,30 @@ function AboutSection() {
                     Saepe quibusdam et quia ratione earum expedita.
                 </SectionDescription>
             </Grid>
-            <Grid sx={{mt:3}} item md={11} xs={11}>
+            <Grid sx={{mt:3}} item lg={11} md={11} xs={11} >
+                {/*<Slider {...settings}>*/}
+                {/*    {*/}
+                {/*        who_are_we_images.map((image) => {*/}
+                {/*            return(*/}
+                {/*                <div>*/}
+                {/*                    <CarouselImages style={{backgroundImage:`url(${image})`}} />*/}
+                {/*                </div>*/}
+                {/*            );*/}
+                {/*        })*/}
+                {/*    }*/}
+                {/*</Slider>*/}
                 <Slider {...settings}>
                     {
                         who_are_we_images.map((image) => {
                             return(
                                 <div>
-                                    <CarouselImages style={{backgroundImage:`url(${image})`}} />
+                                    <Grid container justifyContent="center" alignItems="center" sx={{ height: '350px' }}>
+                                        <img src={image} className="whoAreWeImages" alt="Who are we images" />
+                                    </Grid>
+                                    {/*<img src={apcu_logo} className="test" />*/}
+                                    {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
+                                    {/*<MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>*/}
+                                    {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
                                 </div>
                             );
                         })
