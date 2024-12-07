@@ -69,7 +69,7 @@ const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     speed: 500,
     responsive: [
         {
@@ -241,7 +241,7 @@ function OurMilestones() {
             {/*    <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>*/}
             {/*    <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>*/}
             {/*</Grid>*/}
-            <Grid lg={11} md={11} xs={11}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} xs={11}>
                 <Slider {...settings}>
                     {
                         milestone_images.map((milestone, index) => {
