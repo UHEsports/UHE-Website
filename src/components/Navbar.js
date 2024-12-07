@@ -1,5 +1,9 @@
 import React from "react";
-import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png'
+import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png';
+import css_logo from '../assets/images/css-logo-color-1.png';
+// import isp_logo from '../assets/images/isp-transparent-1.png';
+import isp_logo from '../assets/images/isp-colored-1.png';
+
 import {
   AppBar,
   Toolbar,
@@ -13,12 +17,13 @@ import {
   ListItemButton,
   Divider,
 } from "@mui/material";
-import { Outlet, Link as RouterLink } from "react-router-dom";
+import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 
 import uheLogo from "../assets/images/uhe_logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {
+  const { pathname } = useLocation();
   const [state, setState] = React.useState({
     top: false,
   });
@@ -134,11 +139,28 @@ function Navbar() {
                     width="125"
                     src={uheLogo}
                 />
-                <img
-                    alt="APCU Logo"
-                    width="125"
-                    src={apcu_white_logo}
-                />
+                {pathname==='/' && ( // Conditionally render the APCU logo
+                    <img
+                        alt="APCU Logo"
+                        width="125"
+                        src={apcu_white_logo}
+                    />
+                )}
+                {pathname==='/education' && ( // Conditionally render the APCU logo
+                    <img
+                        alt="APCU Logo"
+                        width="75"
+                        src={css_logo}
+                    />
+                )}
+                {pathname==='/education' && ( // Conditionally render the APCU logo
+                    <img
+                        style={{marginLeft:'30px'}}
+                        alt="APCU Logo"
+                        width="250"
+                        src={isp_logo}
+                    />
+                )}
               </Box>
               <Box sx={{ flexGrow: 1 }} />
               <nav style={{ float: "right" }}>
