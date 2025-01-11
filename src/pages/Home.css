@@ -11,3 +11,10 @@
     width: auto;
     height: auto;
 }
+.test {
+    display: block;
+    max-width: 400px;
+    /*max-height: 130px;*/
+    width: auto;
+    height: auto;
+}

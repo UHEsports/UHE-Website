@@ -165,6 +165,16 @@ const milestone_images = [
         title: 'Two two',
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
+    {
+        image: who_are_we_2,
+        title: 'Two two',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_2,
+        title: 'Two two',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
 ];
 
 function OurMilestones() {
@@ -193,11 +203,16 @@ function OurMilestones() {
                 <Slider {...settings}>
                     {
                         milestone_images.map((milestone) => {
-                            return(
+                            return (
                                 <div>
-                                    <CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />
+                                    <Grid container justifyContent='center'>
+                                        <Grid item md={8} sm={11} xs={12} >
+                                            <img src={milestone.image} className="test"/>
+                                        </Grid>
+                                    </Grid>
                                     <MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>
-                                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>
+                                    <SectionDescription style={{margin: '5px 0 20px 20px'}}
+                                                        sx={{mt: 1}}>{milestone.description}</SectionDescription>
                                 </div>
                             );
                         })
@@ -209,11 +224,12 @@ function OurMilestones() {
 }
 
 function JoinDiscord() {
-    return(
-        <Grid sx={{mt:6, backgroundColor:"#f6f6f6", p:3}} spacing={2} container justifyContent="center" alignItems="center" >
+    return (
+        <Grid sx={{mt: 6, backgroundColor: "#f6f6f6", p: 3}} spacing={2} container justifyContent="center"
+              alignItems="center">
             <Grid item lg={5} md={6}>
                 <SectionTitle>
-                    Join a community
+                Join a community
                     <br/>
                     of 1500+
                     <br/>
