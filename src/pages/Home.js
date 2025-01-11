@@ -69,7 +69,7 @@ const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     speed: 500,
     responsive: [
         {
@@ -92,24 +92,76 @@ const settings = {
 };
 
 const who_are_we_images = [
-    who_are_we_1,
-    who_are_we_2,
-    who_are_we_3,
-    who_are_we_4,
-    who_are_we_5,
-    who_are_we_6,
-    who_are_we_7,
-    who_are_we_8,
-    who_are_we_9,
-    who_are_we_10,
-    who_are_we_11,
-    who_are_we_12,
-    who_are_we_13,
+    {
+        image: who_are_we_1,
+        title: 'Scholarship Overwatch 2 varsity team (Fall 2024)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_2,
+        title: 'President of T1 visits UH Manoa',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_3,
+        title: 'The Women of UH Esports Division at UHE',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_4,
+        title: 'Counter Strike 2 varsity team (Fall 2024)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_5,
+        title: 'Activision-Blizzard Comes to Hawaii (2021-2022)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_6,
+        title: 'Students work with the Overwatch Broadcast 2021',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_7,
+        title: 'Manoa Academy of Gamer\'s Halloween Contest',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_8,
+        title: 'The women of our UH Esports program',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_9,
+        title: 'Twitch Student visits UH Esports (2019)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_10,
+        title: 'The UH Smash team wins the first UH Esports Smash Collegiate Tournament at Kawaii Kon (2023)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_11,
+        title: 'WoHE members (2023)',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_12,
+        title: 'WoHE Valorant Player',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
+    {
+        image: who_are_we_13,
+        title: 'MLBB 2024 Spring ACC Championship',
+        description: 'Tempora aut est maiores error laudantium ut architecto'
+    },
 ];
 
 function AboutSection() {
     return (
-        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={2} container>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={3} container>
             <Grid item lg={5} md={12} sm={12} xs={11}>
                 <SectionTitle>
                     Who are we?
@@ -123,13 +175,14 @@ function AboutSection() {
                     Saepe quibusdam et quia ratione earum expedita.
                 </SectionDescription>
             </Grid>
-            <Grid sx={{mt:3}} item lg={11} md={11} xs={11} >
+            {/*<Grid sx={{mt:3}} item lg={11} md={11} xs={11} >*/}
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} xs={11}>
                 {/*<Slider {...settings}>*/}
                 {/*    {*/}
-                {/*        who_are_we_images.map((image) => {*/}
+                {/*        who_are_we_images.map((who_are_we) => {*/}
                 {/*            return(*/}
                 {/*                <div>*/}
-                {/*                    <CarouselImages style={{backgroundImage:`url(${image})`}} />*/}
+                {/*                    <CarouselImages style={{backgroundImage:`url(${who_are_we.image})`}} />*/}
                 {/*                </div>*/}
                 {/*            );*/}
                 {/*        })*/}
@@ -137,16 +190,30 @@ function AboutSection() {
                 {/*</Slider>*/}
                 <Slider {...settings}>
                     {
-                        who_are_we_images.map((image) => {
-                            return(
-                                <div>
-                                    <Grid container justifyContent="center" alignItems="center" sx={{ height: '350px' }}>
-                                        <img src={image} className="whoAreWeImages" alt="Who are we images" />
+                        who_are_we_images.map((who_are_we, index) => {
+                            return (
+                                // <div>
+                                //     <Grid container justifyContent="center" alignItems="center" sx={{ height: '350px' }}>
+                                //         <img src={image} className="whoAreWeImages" alt="Who are we images" />
+                                //     </Grid>
+                                //     {/*<img src={apcu_logo} className="test" />*/}
+                                //     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
+                                //     {/*<MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>*/}
+                                //     {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
+                                // </div>
+                                <div key={{index}}>
+                                    <Grid container justifyContent="center" alignItems="center">
+                                        <Grid item>
+                                            {/*<CarouselImages style={{backgroundImage:`url("${who_are_we.image}"`}} />*/}
+                                            {/*style={{margin: 0}}*/}
+                                            <img src={who_are_we.image}  className="test" alt="Milestone Logo"/>
+                                        </Grid>
                                     </Grid>
                                     {/*<img src={apcu_logo} className="test" />*/}
                                     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
-                                    {/*<MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>*/}
-                                    {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
+                                    {/*style={{margin: '36px 0 0 0', textAlign:'center', padding: '5px'}}*/}
+                                    <MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>
+                                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{who_are_we.description}</SectionDescription>
                                 </div>
                             );
                         })
@@ -157,10 +224,10 @@ function AboutSection() {
     );
 }
 
-const MileStoneImages = styled('div')(({ theme }) => ({
+const MileStoneImages = styled('div')(({theme}) => ({
     backgroundSize: "cover",
     height: "450px",
-    borderRadius:'10px',
+    borderRadius: '10px',
     [theme.breakpoints.down('lg')]: {
         height: "300px",
         [theme.breakpoints.down('sm')]: {
@@ -169,12 +236,12 @@ const MileStoneImages = styled('div')(({ theme }) => ({
     },
 }));
 
-const MileStoneTextTitle = styled('div')(({ theme }) => ({
+const MileStoneTextTitle = styled('div')(({theme}) => ({
     textAlign: 'left',
-    fontSize:"28px",
-    fontWeight:'bold',
+    fontSize: "28px",
+    fontWeight: 'bold',
     // marginTop:'16px',
-    margin: '16px 0 0px 20px',
+    margin: '16px 0 0 20px',
 }));
 
 // import milestone_6 from '../assets/images/milestone_5_T1 Intern Jazmin 2024.jpg';

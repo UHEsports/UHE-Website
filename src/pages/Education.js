@@ -102,7 +102,7 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
     );
 }
 
-function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
+function InternshipGraphicRight({title, descriptions, videoURL, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}, mb:6}}>
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
@@ -121,8 +121,8 @@ function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
                     {/*</Slider>*/}
                         <iframe width="100%" height="450"
                                 loading="lazy"
-                                src="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2"
-                                title="YouTube video player" frameBorder="0"
+                                src={videoURL}
+                                title="YouTube video player"
                                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </Box>
@@ -131,37 +131,43 @@ function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
     );
 }
 
-function InternshipGraphicLeft({title, descriptions, images, backgroundURL}){
+function InternshipGraphicLeft({title, descriptions, videoURL, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
             <Grid item lg={5} md={5} sm={12} xs={12}>
-                <Box sx={{top:{lg:25, md:25, sm:0}, right:{lg:-30, md:-10, sm:0}, position:'relative'}}>
-                    <Slider {...imageCarouselSettings}>
-                        {
-                            images.map((image) => {
-                                return(
-                                    <>
-                                        <CarouselImages style={{backgroundImage:`url(${image})`}} />
-                                    </>
-                                );
-                            })
-                        }
-                    </Slider>
+                <Box sx={{top: {lg: 25, md: 25, sm: 0}, right: {lg: -30, md: -10, sm: 0}, position: 'relative'}}>
+                    {/*<Slider {...imageCarouselSettings}>*/}
+                    {/*    {*/}
+                    {/*        images.map((image) => {*/}
+                    {/*            return (*/}
+                    {/*                <>*/}
+                    {/*                    <CarouselImages style={{backgroundImage: `url(${image})`}}/>*/}
+                    {/*                </>*/}
+                    {/*            );*/}
+                    {/*        })*/}
+                    {/*    }*/}
+                    {/*</Slider>*/}
+                    <iframe width="100%" height="450"
+                            loading="lazy"
+                            src={videoURL}
+                            title="YouTube video player"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </Box>
             </Grid>
-            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
+            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL}/>
         </Grid>
     );
 }
 
 function Courses() {
-    const { ref, inView } = useInView({
+    const {ref, inView} = useInView({
         triggerOnce: true,
         rootMargin: '-150px',
     });
-    return(
+    return (
         // TODO remove the mb spacing. Only added to showcase footer spacing
-        <Grid sx={{backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+        <Grid sx={{backgroundColor: "#f6f6f6", pt: 1, pb: 5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
             <Grid item lg={5} md={5} sm={11} xs={11}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Courses</SectionTitle>
                 <Box sx={{mt:{lg:4, md:2, xs:2}}}>
@@ -205,9 +211,9 @@ function Education() {
             <Courses />
             {/* TODO section for special cert SKY*/}
             <InternshipHeader />
-            <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} backgroundURL={geng_background} />
-            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
-            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /> </Box>
+            <InternshipGraphicRight images={exampleImages} title="GEN G" videoURL="https://www.youtube.com/embed/MbDj0NiphBA?si=qjDZTgcK0vq4ByX_" descriptions={exampleText} backgroundURL={geng_background} />
+            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" videoURL="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
+            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" videoURL="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2" descriptions={exampleText} backgroundURL={overwatch_background} /> </Box>
             <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} backgroundURL={vanta_background} />
 
         </>
