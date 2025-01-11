@@ -1,4 +1,5 @@
 import React from "react";
+import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png'
 import {
   AppBar,
   Toolbar,
@@ -117,26 +118,37 @@ function Navbar() {
     >
       <Toolbar sx={{ flexWrap: "wrap" }}>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" justifyContent="space-between">
             <Grid
-              sx={{ display: { lg: "block", md: "block", xs: "none" } }}
-              xs={12}
+                sx={{ display: { lg: "flex", md: "flex", xs: "none" } }}
+                item
+                xs={12}
+                container
+                justifyContent="center"
+                alignItems="center"
             >
-              <img
-                alt="UHE Logo"
-                width="125"
-                src={uheLogo}
-                style={{ float: "left" }}
-              />
+              {/* Logo Container */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <img
+                    alt="UHE Logo"
+                    width="125"
+                    src={uheLogo}
+                />
+                <img
+                    alt="APCU Logo"
+                    width="125"
+                    src={apcu_white_logo}
+                />
+              </Box>
               <Box sx={{ flexGrow: 1 }} />
-              <nav style={{ float: "right", marginTop: "2rem" }}>
+              <nav style={{ float: "right" }}>
                 <Link
                   component={RouterLink}
                   underline="none"
                   variant="button"
                   color="white"
                   to="/"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Home
                 </Link>
@@ -146,7 +158,7 @@ function Navbar() {
                   variant="button"
                   color="white"
                   to="/ilab"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Ilab
                 </Link>
@@ -156,7 +168,7 @@ function Navbar() {
                   variant="button"
                   color="white"
                   to="/education"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Education
                 </Link>
@@ -166,7 +178,7 @@ function Navbar() {
                   variant="button"
                   color="white"
                   to="contact-us"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Contact Us
                 </Link>

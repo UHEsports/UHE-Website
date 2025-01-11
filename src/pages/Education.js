@@ -108,17 +108,23 @@ function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
             <Grid item lg={5} md={5} sm={12} xs={12}>
                 <Box sx={{top:{lg:25, md:25, sm:0}, left:{lg:-30, md:-10, sm:0}, position:'relative'}}>
-                    <Slider {...imageCarouselSettings}>
-                        {
-                            images.map((image) => {
-                                return(
-                                    <>
-                                        <CarouselImages style={{backgroundImage:`url(${image})`}} />
-                                    </>
-                                );
-                            })
-                        }
-                    </Slider>
+                    {/*<Slider {...imageCarouselSettings}>*/}
+                    {/*    {*/}
+                    {/*        images.map((image) => {*/}
+                    {/*            return(*/}
+                    {/*                <>*/}
+                    {/*                    <CarouselImages style={{backgroundImage:`url(${image})`}} />*/}
+                    {/*                </>*/}
+                    {/*            );*/}
+                    {/*        })*/}
+                    {/*    }*/}
+                    {/*</Slider>*/}
+                        <iframe width="100%" height="450"
+                                loading="lazy"
+                                src="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2"
+                                title="YouTube video player" frameBorder="0"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </Box>
             </Grid>
         </Grid>

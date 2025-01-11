@@ -12,9 +12,21 @@
     height: auto;
 }
 .test {
+    margin: 20px 0 20px 20px;
     display: block;
-    max-width: 400px;
-    /*max-height: 130px;*/
+    /*max-width: 400px;*/
+    max-height: 350px;
     width: auto;
     height: auto;
+}
+
+.whoAreWeImages {
+    /*margin: 20px 0 20px 20px;*/
+    display: block;
+    max-width: 500px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
