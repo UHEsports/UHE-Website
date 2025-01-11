@@ -61,21 +61,21 @@ function Navbar() {
             </Link>
           </ListItemButton>
         </ListItem>
-        <Divider />
-        <ListItem disablePadding>
-          <ListItemButton>
-            <Link
-              component={RouterLink}
-              underline="none"
-              variant="button"
-              color="black"
-              to="/ilab"
-              sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
-            >
-              Ilab
-            </Link>
-          </ListItemButton>
-        </ListItem>
+        {/*<Divider />*/}
+        {/*<ListItem disablePadding>*/}
+        {/*  <ListItemButton>*/}
+        {/*    <Link*/}
+        {/*      component={RouterLink}*/}
+        {/*      underline="none"*/}
+        {/*      variant="button"*/}
+        {/*      color="black"*/}
+        {/*      to="/ilab"*/}
+        {/*      sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}*/}
+        {/*    >*/}
+        {/*      Ilab*/}
+        {/*    </Link>*/}
+        {/*  </ListItemButton>*/}
+        {/*</ListItem>*/}
         <Divider />
         <ListItem disablePadding>
           <ListItemButton>
@@ -174,16 +174,16 @@ function Navbar() {
                 >
                   Home
                 </Link>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="/ilab"
-                  sx={{ mx: 1.5, fontWeight: "bold" }}
-                >
-                  Ilab
-                </Link>
+                {/*<Link*/}
+                {/*  component={RouterLink}*/}
+                {/*  underline="none"*/}
+                {/*  variant="button"*/}
+                {/*  color="white"*/}
+                {/*  to="/ilab"*/}
+                {/*  sx={{ mx: 1.5, fontWeight: "bold" }}*/}
+                {/*>*/}
+                {/*  Ilab*/}
+                {/*</Link>*/}
                 <Link
                   component={RouterLink}
                   underline="none"

@@ -20,12 +20,15 @@ const OpeningImage = styled('div')(({ theme, imageURL }) => ({
 const OpeningImageText = styled('div')(({ theme}) => ({
     letterSpacing: "-1px",
     fontSize:"120px",
+    marginTop:'-100px',
     marginLeft:'40px',
     fontWeight: 900,
     [theme.breakpoints.down('lg')]: {
+        marginTop:'0px',
         fontSize:"80px",
         marginLeft:'30px',
         [theme.breakpoints.down('sm')]: {
+            marginTop:'0',
             marginLeft:'20px',
             fontSize:"44px",
         },
@@ -63,21 +66,21 @@ function OpeningPageImage({ header, subtitle1, subtitle2, imageURL }) {
                 direction="column">
                 <Grid item md={12}>
                     {inView ? (
-                        <OpeningImageText className="slideIn1300ms" item md={12}>
+                        <OpeningImageText className="slideIn1300ms">
                             {header}
                         </OpeningImageText>
                     ) : null}
                 </Grid>
                 <Grid item md={12}>
                     {inView ? (
-                        <OpeningImageSubtitle className="slideIn1500ms" item md={12}>
+                        <OpeningImageSubtitle className="slideIn1500ms">
                             {subtitle1}
                         </OpeningImageSubtitle>
                     ) : null}
                 </Grid>
                 <Grid item md={12}>
                     {inView ? (
-                        <OpeningImageSubtitle className="slideIn1500ms" item md={12}>
+                        <OpeningImageSubtitle className="slideIn1500ms">
                             {subtitle2}
                         </OpeningImageSubtitle>
                     ) : null}
