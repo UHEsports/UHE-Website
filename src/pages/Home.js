@@ -8,7 +8,6 @@ import group_2 from '../assets/images/group_2.jpg';
 import group_3 from '../assets/images/group_3.jpg';
 import acm_logo from '../assets/images/ACMlogo_stacked.png';
 import apcu_logo from '../assets/images/APCU_vert_2016_black.png';
-// import group_4 from '../assets/who_are_we_images/group_4.png';
 import who_are_we_1 from '../assets/images/who_are_we_1.png';
 import who_are_we_2 from '../assets/images/who_are_we_2.png';
 import who_are_we_3 from '../assets/images/who_are_we_3.jpg';
@@ -499,11 +498,11 @@ function Sponsors() {
                 </SectionTitle>
             </Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <img src={apcu_logo} className="logos" />
+                <img src={apcu_logo} className={inView ? 'slideIn1500ms logos' : 'hidden logos'} />
             </Grid>
             <Grid lg={1} md={1}></Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <img src={acm_logo} className="logos"/>
+                <img src={acm_logo} className={inView ? 'slideIn1900ms logos' : 'hidden logos'}/>
                 {/*<SponsorLogos style={{backgroundImage: `url('${acm_logo}')`, width: "200px", height: "150px"}}*/}
                 {/*              className={inView ? 'slideIn1700ms' : 'hidden'}/>*/}
             </Grid>

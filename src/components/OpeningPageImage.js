@@ -24,11 +24,11 @@ const OpeningImageText = styled('div')(({ theme}) => ({
     marginLeft:'40px',
     fontWeight: 900,
     [theme.breakpoints.down('lg')]: {
-        marginTop:'0px',
+        marginTop:'-10px',
         fontSize:"80px",
         marginLeft:'30px',
         [theme.breakpoints.down('sm')]: {
-            marginTop:'0',
+            marginTop:'0px',
             marginLeft:'20px',
             fontSize:"44px",
         },

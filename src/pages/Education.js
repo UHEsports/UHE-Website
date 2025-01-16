@@ -5,7 +5,7 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Slider from "react-slick";
-import education from "../assets/images/education_intro_image.png";
+import education from "../assets/images/education_intro_image_v2.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import {styled} from "@mui/material";
@@ -176,7 +176,7 @@ function Courses() {
                         Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim dolor do aliqua duis nulla ad.
                         Fugiat incididunt id quis cillum eiusmod consectetur aliqua
                         <br/>
-                        <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
+                        <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN" target="_blank">Learn More</Button>
                     </SectionDescription>
                 </Box>
             </Grid>

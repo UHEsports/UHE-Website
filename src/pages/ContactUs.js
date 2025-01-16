@@ -4,7 +4,13 @@ import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/group_3.jpg";
-import headerImage from "../assets/images/group_4.png";
+import contactUs from "../assets/images/contact_us_intro_image.png";
+import skyHeadshot from "../assets/images/Nyle-Sky-Kauweloa2-jpg.webp";
+import madelineHeadshot from "../assets/images/Madeline_headshot.jpg";
+import kevinHeadshot from "../assets/images/Headshot_-_Kevin.webp";
+import katHeadshot from "../assets/images/kat_headshot.jpg";
+import gunHeadshot from "../assets/images/Gun_Headshot.webp";
+import camilleHeadshot from "../assets/images/camille_headshot.jpg";
 import {
     Divider,
     Box,
@@ -17,7 +23,7 @@ import LeadershipSection from "../components/LeadershipSection";
 
 ReactGA.send({ hitType: "pageview", page: '/contact-us', title: "ContactUs" }); // Page information for Google Analytics
 
-function InternshipHeader() {
+function GivingDescription() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-50px 0px",
@@ -144,12 +150,25 @@ function Leadership() {
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>
-        <LeadershipSection name="Sky" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
-        <LeadershipSection name="Kevin" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
-        <LeadershipSection name="Madeline Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
-        <LeadershipSection name="Alex Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
-        <LeadershipSection name="Camielle Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
-        <LeadershipSection name="Gunn Gilbert" role="ILab Coordinator" description={test} email="madeline@gmail.com" />
+        <Grid item container lg={12} justifyContent='center'>
+            <Grid lg={1.5} md={1.5} sm={0} />
+            <LeadershipSection name="Sky Kauweloa" role="Director" description="Director" email="madeline@gmail.com" headshot={skyHeadshot} />
+            <LeadershipSection name="Kevin Nguyen" role="Assistant Director" description="" email="madeline@gmail.com" headshot={kevinHeadshot} />
+            <LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" description="" email="madeline@gmail.com" headshot={madelineHeadshot} />
+            <Grid lg={1.5} md={1.5} sm={0} />
+            {/*<Grid lg={1.5} md={1.5} />*/}
+            <LeadershipSection name="Camille Castro" role="Arena Operations Manager" description="" email="madeline@gmail.com" headshot={camilleHeadshot} />
+            <LeadershipSection name="Gunwook Baik" role="Broadcast Director" description="" email="madeline@gmail.com" headshot={gunHeadshot} />
+            <LeadershipSection name="Kat Ivanov" role=" Content Director" description="" email="madeline@gmail.com" headshot={katHeadshot} />
+            {/*<Grid lg={1.5} md={1.5} />*/}
+        </Grid>
+        {/*TODO OLD*/}
+        {/*<LeadershipSection name="Sky Kauweloa" role="Director" description="" email="madeline@gmail.com" headshot={skyHeadshot} />*/}
+        {/*<LeadershipSection name="Kevin Nguyen" role="Assistant Director" description="" email="madeline@gmail.com" headshot={kevinHeadshot} />*/}
+        {/*<LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" description="" email="madeline@gmail.com" headshot={madelineHeadshot} />*/}
+        {/*<LeadershipSection name="Camille Castro" role="Arena Operations Manager" description="" email="madeline@gmail.com" headshot={camilleHeadshot} />*/}
+        {/*<LeadershipSection name="Gunwook Baik" role="Broadcast Director" description="" email="madeline@gmail.com" headshot={gunHeadshot} />*/}
+        {/*<LeadershipSection name="Kat Ivanov" role=" Content Director" description="" email="madeline@gmail.com" headshot={katHeadshot} />*/}
 
     </Grid>
   );
@@ -158,8 +177,8 @@ function Leadership() {
 function ContactUs() {
     return (
         <>
-            <OpeningPageImage header="Contact Us" imageURL={headerImage} />
-            <InternshipHeader />
+            <OpeningPageImage header="Contact Us" imageURL={contactUs} />
+            <GivingDescription />
             <DonationComponent />
             <Leadership/>
         </>
