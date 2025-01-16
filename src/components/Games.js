@@ -271,7 +271,7 @@ function MobileGameCarousel() {
                     CALL OF DUTY
                 </GameTitleText>
             </GameCard>
-            <GameCard style={{marginLeft:'10px'}} defaultBackground={nukeTown} className='csgoBackgroundTransition characterImageScale'>
+            <GameCard style={{marginLeft:'10px'}} defaultBackground={dust2} className='csgoBackgroundTransition characterImageScale'>
                 <CounterStrikeCharacterImage className="child" />
                 <GameTitleText>
                     COUNTER-STRIKE 2

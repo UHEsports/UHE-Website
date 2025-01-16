@@ -1,9 +1,6 @@
-import { Grid, styled, Divider } from '@mui/material';
+import { Grid, styled } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import SectionTitle from "../components/SectionTitle";
-import SectionSubTitle from "../components/SectionSubTitle";
 import SectionDescription from "../components/SectionDescription";
-import group_3 from "../assets/images/group_3.jpg";
 import {useMediaQuery} from "@mui/system";
 
 const LeadershipImage = styled('div')(({ theme }) => ({

@@ -63,11 +63,41 @@ const CarouselImages = styled('div')(({ theme }) => ({
     },
 }));
 
+const who_are_we_slider_settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    variableWidth: true,
+    centerMode: true,
+    // autoplay: true,
+    speed: 500,
+    responsive: [
+        {
+            breakpoint: 1300,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+            }
+        },
+        {
+            breakpoint: 975,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+};
+
 const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    // variableWidth: true,
     // autoplay: true,
     speed: 500,
     responsive: [
@@ -93,17 +123,17 @@ const settings = {
 const who_are_we_images = [
     {
         image: who_are_we_1,
-        title: 'Scholarship Overwatch 2 varsity team (Fall 2024)',
+        title: <>Scholarship Overwatch 2<br/>varsity team (Fall 2024)</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_2,
-        title: 'President of T1 visits UH Manoa',
+        title: <>President of T1<br/>visits UH Manoa</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_3,
-        title: 'The Women of UH Esports Division at UHE',
+        title: <>The Women of UH Esports Division</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
@@ -128,7 +158,7 @@ const who_are_we_images = [
     },
     {
         image: who_are_we_8,
-        title: 'The women of our UH Esports program',
+        title: <>The women of our<br/>UH Esports program</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
@@ -187,7 +217,7 @@ function AboutSection() {
                 {/*        })*/}
                 {/*    }*/}
                 {/*</Slider>*/}
-                <Slider {...settings}>
+                <Slider {...who_are_we_slider_settings}>
                     {
                         who_are_we_images.map((who_are_we, index) => {
                             return (
@@ -201,18 +231,26 @@ function AboutSection() {
                                 //     {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
                                 // </div>
                                 <div key={{index}}>
-                                    <Grid container justifyContent="center" alignItems="center">
+                                    <Grid sx={{ml:2, mt:3}} direction="column" container justifyContent="center" alignItems="center">
                                         <Grid item>
                                             {/*<CarouselImages style={{backgroundImage:`url("${who_are_we.image}"`}} />*/}
                                             {/*style={{margin: 0}}*/}
-                                            <img src={who_are_we.image}  className="test" alt="Milestone Logo"/>
+                                            <img src={who_are_we.image} className="test" alt="Milestone Logo"/>
                                         </Grid>
+                                        <Grid sx={{mt:2}}>
+                                            {/*{who_are_we.title}*/}
+                                            <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image == who_are_we_10 ? '450px': '375px'}}>{who_are_we.title}</SectionDescription>
+                                            {/*<MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>*/}
+                                        </Grid>
+                                        {/*<Grid>*/}
+
+                                        {/*</Grid>*/}
                                     </Grid>
                                     {/*<img src={apcu_logo} className="test" />*/}
                                     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
                                     {/*style={{margin: '36px 0 0 0', textAlign:'center', padding: '5px'}}*/}
-                                    <MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>
-                                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{who_are_we.description}</SectionDescription>
+                                    {/*<MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>*/}
+                                    {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{who_are_we.description}</SectionDescription>*/}
                                 </div>
                             );
                         })
@@ -239,7 +277,7 @@ const MileStoneTextTitle = styled('div')(({theme}) => ({
     textAlign: 'left',
     fontSize: "28px",
     fontWeight: 'bold',
-    // marginTop:'16px',
+    marginTop:'16px',
     margin: '16px 0 0 20px',
 }));
 
