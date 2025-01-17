@@ -49,16 +49,27 @@ import ReactGA from "react-ga4";
 
 ReactGA.send({ hitType: "pageview", page: '/', title: "Home" }); // Page information for Google Analytics
 
-const CarouselImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    height: "400px",
-    borderRadius:'10px',
-    margin: '20px 0 20px 20px',
-    backgroundPosition: 'center',
+const CarouselImages = styled('img')(({ theme }) => ({
+    objectFit: 'contain',
+    height: '350px',
+    [theme.breakpoints.down(1500)]: {
+        height: '325px',
+        [theme.breakpoints.down(1400)]: {
+            height: '300px',
+            [theme.breakpoints.down('md')]: {
+                height: '250px',
+            },
+        },
+    },
+}));
+
+const Testing = styled('div')(({ theme }) => ({
+    objectFit: 'contain',
+    width: '400px',
     [theme.breakpoints.down('lg')]: {
-        height: "300px",
+        width: '350px',
         [theme.breakpoints.down('md')]: {
-            height: "250px",
+            width: '250px',
         },
     },
 }));
@@ -68,10 +79,11 @@ const who_are_we_slider_settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    speed: 500,
+    draggable:true,
+    swipeToSlide:true,
     variableWidth: true,
     centerMode: true,
-    // autoplay: true,
-    speed: 500,
     responsive: [
         {
             breakpoint: 1300,
@@ -85,6 +97,7 @@ const who_are_we_slider_settings = {
         {
             breakpoint: 975,
             settings: {
+                arrows:false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
             }
@@ -124,73 +137,60 @@ const who_are_we_images = [
     {
         image: who_are_we_1,
         title: <>Scholarship Overwatch 2<br/>varsity team (Fall 2024)</>,
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_2,
         title: <>President of T1<br/>visits UH Manoa</>,
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_3,
-        title: <>The Women of UH Esports Division</>,
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>The Women of<br/>UH Esports Division</>,
     },
     {
         image: who_are_we_4,
-        title: 'Counter Strike 2 varsity team (Fall 2024)',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>Counter Strike 2<br/>varsity team (Fall 2024)</>,
     },
     {
         image: who_are_we_5,
-        title: 'Activision-Blizzard Comes to Hawaii (2021-2022)',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>Activision-Blizzard<br/>Comes to Hawaii (2021-2022)</>,
     },
     {
         image: who_are_we_6,
-        title: 'Students work with the Overwatch Broadcast 2021',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>Students work with<br/>the Overwatch Broadcast 2021</>,
     },
     {
         image: who_are_we_7,
-        title: 'Manoa Academy of Gamer\'s Halloween Contest',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>Manoa Academy of Gamer's<br/>Halloween Contest</>,
     },
     {
         image: who_are_we_8,
         title: <>The women of our<br/>UH Esports program</>,
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_9,
-        title: 'Twitch Student visits UH Esports (2019)',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
+        title: <>Twitch Student visits<br/>UH Esports (2019)</>,
     },
     {
         image: who_are_we_10,
         title: 'The UH Smash team wins the first UH Esports Smash Collegiate Tournament at Kawaii Kon (2023)',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_11,
         title: 'WoHE members (2023)',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_12,
         title: 'WoHE Valorant Player',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: who_are_we_13,
         title: 'MLBB 2024 Spring ACC Championship',
-        description: 'Tempora aut est maiores error laudantium ut architecto'
     },
 ];
 
 function AboutSection() {
     return (
-        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" spacing={3} container>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" container>
             <Grid item lg={5} md={12} sm={12} xs={11}>
                 <SectionTitle>
                     Who are we?
@@ -205,7 +205,7 @@ function AboutSection() {
                 </SectionDescription>
             </Grid>
             {/*<Grid sx={{mt:3}} item lg={11} md={11} xs={11} >*/}
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} xs={11}>
+            <Grid sx={{mt:{ lg:3, md:1, xs:1 }}} lg={11} md={11} sm={12} xs={12}>
                 {/*<Slider {...settings}>*/}
                 {/*    {*/}
                 {/*        who_are_we_images.map((who_are_we) => {*/}
@@ -231,20 +231,17 @@ function AboutSection() {
                                 //     {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
                                 // </div>
                                 <div key={{index}}>
-                                    <Grid sx={{ml:2, mt:3}} direction="column" container justifyContent="center" alignItems="center">
+                                    <Grid sx={{ml:2, mt:3, mb:1}} direction="column" container justifyContent="center" alignItems="center">
                                         <Grid item>
-                                            {/*<CarouselImages style={{backgroundImage:`url("${who_are_we.image}"`}} />*/}
-                                            {/*style={{margin: 0}}*/}
-                                            <img src={who_are_we.image} className="test" alt="Milestone Logo"/>
+                                            <CarouselImages src={who_are_we.image} />
+                                            {/*<img src={who_are_we.image} className="test" alt="Milestone Logo"/>*/}
                                         </Grid>
                                         <Grid sx={{mt:2}}>
-                                            {/*{who_are_we.title}*/}
-                                            <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image == who_are_we_10 ? '450px': '375px'}}>{who_are_we.title}</SectionDescription>
-                                            {/*<MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>*/}
+                                            {/*<Testing>*/}
+                                            {/*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>*/}
+                                            {/*</Testing>*/}
+                                            <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>
                                         </Grid>
-                                        {/*<Grid>*/}
-
-                                        {/*</Grid>*/}
                                     </Grid>
                                     {/*<img src={apcu_logo} className="test" />*/}
                                     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
