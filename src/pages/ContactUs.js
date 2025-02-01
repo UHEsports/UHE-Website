@@ -43,10 +43,7 @@ function GivingDescription() {
       </Grid>
       <Grid item lg={7} md={10} sm={11} xs={12}>
         <SectionDescription className={inView ? "slideIn1400ms" : "hidden"}>
-          Talk about the team’s history here. Duis in nulla ullamco cillum
-          aliqua et incididunt in culpa tempor cupidatat irure consectetur est
-          aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate
-          reprehenderit elit occaecat ad quis magna culpa anim
+            Donations to the UH Esports program will go towards travel, competition, workshops, and networking events. We appreciate anything that is given. Thank you.
         </SectionDescription>
       </Grid>
     </Grid>
@@ -72,7 +69,7 @@ const ImageTest = styled('div')(({ theme }) => ({
                         height: "375px",
                         [theme.breakpoints.down('sm')]: {
                             height: "250px",
-                            width: "435px",
+                            width: "300px",/**/
                         },
                     },
                 },
@@ -91,34 +88,32 @@ function DonationComponent() {
     return (
         <Grid container sx={{mt:{ lg:8, md:4, sm:4, xs:4} }} ref={ref}>
             <Grid item lg={5} sx={{position:'relative', display: {lg: 'flex', md: 'none', sm:'none', xs:'none' }}} justifyContent='flex-end' container>
-                <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '52%', backgroundColor: "#f5f5f5"}}></Box>
+                <Box sx={{position: 'absolute', bottom:0, left:0, width: '100%', height: '65%', backgroundColor: "#f5f5f5"}}></Box>
                 <ImageTest sx={{bottom:{lg:25, md:25, sm:0}, position:'relative'}} style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
             </Grid>
             <Grid item lg={7} md={12} sm={12} xs={12} className={inView ? "slideIn1300ms" : "hidden"}>
-                <Grid item container sx={{height:{lg:'48%'}, mt:{lg:0, md:3} }} justifyContent='center'>
+                <Grid item container sx={{height:{lg:'35%'}, mt:{lg:0, md:3} }} justifyContent='center'>
                     {/*the justfiy center is fine to leave as it does not come into use until we reach screen sm*/}
-                    <Grid item md={4} sm={8} xs={11} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' }}} justifyContent='center'>
-                        <ImageTest style={{backgroundImage: `url(${group_3})`, borderRadius:'10px'}} className={inView ? "slideIn1300ms" : "hidden"} />
+                    <Grid md={1} sx={{display: {lg: 'none', md: 'block'}}} />
+                    <Grid item lg={0} md={4} sm={8} xs={11} sx={{display: {lg: 'none', md: 'flex', sm:'flex', xs:'flex' }}} justifyContent='center'>
+                        <ImageTest style={{backgroundImage: `url(${group_3})`}} className={inView ? "slideIn1300ms" : "hidden"} />
                     </Grid>
                     <Grid item lg={11} md={6} sm={11} xs={12} sx={{p:{lg:0, md:3, sm:3, xs:3} , pb:{lg:0, md:3, sm:5}, ml:{lg:0, md:1}}}>
                         <Box sx={{height:'100%', flexDirection: 'column', display: 'flex', justifyContent:'center',alignItems:'flex-start'}}>
                             <SectionTitle sx={{textAlign:'left'}}>How to support</SectionTitle>
                             <SectionDescription sx={{mt:2}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Please follow the link "Please Donate" that leads to the UH Foundations account for UH Esports.
                             </SectionDescription>
                         </Box>
 
                     </Grid>
                 </Grid>
 
-                <Grid item container justifyContent='center' sx={{p:3, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5, sm:5, xs:5}, height:{lg:'52%'}, backgroundColor: "#f5f5f5",}}>
+                <Grid item container justifyContent='center' sx={{p:3, pl:{lg:0, md:10}, mt:{lg:0, md:5}, pb:{lg:3, md:5, sm:5, xs:5}, height:{lg:'65%'}, backgroundColor: "#f5f5f5",}}>
                     <Grid item lg={11} md={11} sm={11} xs={12} className={inView ? "slideIn1700ms" : "hidden"}>
                         <SectionTitle sx={{textAlign:'left'}}>UH Foundation</SectionTitle>
                         <SectionDescription sx={{mt:2}}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            The UH Foundation is a private, institutionally related corporation designated as a 501(c)(3) organization by the Internal Revenue Service. It is a legally separate entity from the University of Hawaiʻi, the UH Alumni Association, and all other UH affiliates. However, the UH Foundation works closely with these organizations, as well as with others in the community, exclusively for the benefit of the university
                         </SectionDescription>
                         <Button sx={{mt:{lg:2, md:3, sm:3, xs:3}, fontWeight:"bold", float:'left'}} size="large" variant="contained" color="uhegreen" href="https://giving.uhfoundation.org/funds/12938304" target="_blank">Please Donate</Button>
                     </Grid>

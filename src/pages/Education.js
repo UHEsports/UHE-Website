@@ -83,7 +83,7 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
             <SectionTitle>
                 {title}
             </SectionTitle>
-            <Box sx={{mt:1, width:{ lg:'70%', md:'75%', sm:'65%', xs:'80%'}}}>
+            <Box sx={{mt:1, width:{ lg:'70%', md:'75%', sm:'65%', xs:'88%'}}}>
                 <Slider {...textCarouselSettings}>
                     {
                         descriptions.map((text) => {
@@ -118,7 +118,7 @@ function InternshipGraphicRight({title, descriptions, videoURL, backgroundURL}){
                     {/*        })*/}
                     {/*    }*/}
                     {/*</Slider>*/}
-                        <iframe width="100%" height="450"
+                        <iframe width="100%" className="videoSize"
                                 loading="lazy"
                                 src={videoURL}
                                 title="YouTube video player"
@@ -146,7 +146,7 @@ function InternshipGraphicLeft({title, descriptions, videoURL, backgroundURL}){
                     {/*        })*/}
                     {/*    }*/}
                     {/*</Slider>*/}
-                    <iframe width="100%" height="450"
+                    <iframe width="100%" className="videoSize"
                             loading="lazy"
                             src={videoURL}
                             title="YouTube video player"
@@ -174,14 +174,14 @@ function Courses() {
                         UH's Esports & Society (COM) course is one of the longest-offered esports courses in North America for esports. The class provides a critical overview of esports infrastructures, the influence South Korea, gender in esports, the emergence of esports in higher education, media, and mobile esports cultures.
                         <br/>
                     </SectionDescription>
-                    <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN" target="_blank">Learn More</Button>
+                    <Button className={inView ? 'slideIn1500ms' : 'hidden'} sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN" target="_blank">Learn More</Button>
                 </Grid>
             </Grid>
             <Grid item lg={4} md={5} sm={10} xs={11}>
                 <img
                     style={{borderRadius:'10px'}}
                     alt="UHE Courses"
-                    width="100%"
+                    width="80%"
                     className={inView ? 'slideIn1000ms' : 'hidden'}
                     src={courses_graphic}
                 />

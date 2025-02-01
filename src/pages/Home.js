@@ -46,11 +46,14 @@ import {Link as RouterLink} from "react-router-dom";
 import Games from "../components/Games";
 import OpeningPageImage from '../components/OpeningPageImage';
 import ReactGA from "react-ga4";
+import {Box} from "@mui/material";
 
 ReactGA.send({ hitType: "pageview", page: '/', title: "Home" }); // Page information for Google Analytics
 
 const CarouselImages = styled('img')(({ theme }) => ({
-    objectFit: 'contain',
+    // objectFit: 'contain',
+    objectFit: 'cover',
+    objectPosition: 'center',
     height: '350px',
     [theme.breakpoints.down(1500)]: {
         height: '325px',
@@ -58,18 +61,11 @@ const CarouselImages = styled('img')(({ theme }) => ({
             height: '300px',
             [theme.breakpoints.down('md')]: {
                 height: '250px',
+                maxWidth:'300px'
+                // [theme.breakpoints.down('sm')]: {
+                //     height: '250px',
+                // },
             },
-        },
-    },
-}));
-
-const Testing = styled('div')(({ theme }) => ({
-    objectFit: 'contain',
-    width: '400px',
-    [theme.breakpoints.down('lg')]: {
-        width: '350px',
-        [theme.breakpoints.down('md')]: {
-            width: '250px',
         },
     },
 }));
@@ -84,24 +80,39 @@ const who_are_we_slider_settings = {
     swipeToSlide:true,
     variableWidth: true,
     centerMode: true,
+    // TODO makesure it is true
+    autoplay: false,
     responsive: [
         {
             breakpoint: 1300,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
-                infinite: true,
-                dots: true,
             }
         },
         {
             breakpoint: 975,
             settings: {
-                arrows:false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
+                dots: true,
+                arrows:false,
+
             }
-        }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                // arrows:true,
+                centerMode: false,
+                variableWidth: false,
+                arrows:false,
+            }
+        },
+
     ]
 };
 
@@ -110,17 +121,18 @@ const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // variableWidth: true,
-    // autoplay: true,
     speed: 500,
+    draggable:true,
+    swipeToSlide:true,
+    variableWidth: true,
+    centerMode: true,
+    autoplay: true,
     responsive: [
         {
             breakpoint: 1300,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
-                infinite: true,
-                dots: true,
             }
         },
         {
@@ -128,8 +140,23 @@ const settings = {
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
+                dots: true,
+                arrows:false,
+
             }
-        }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                // arrows:true,
+                centerMode: false,
+                variableWidth: false,
+                arrows:false,
+            }
+        },
     ]
 };
 
@@ -156,7 +183,7 @@ const who_are_we_images = [
     },
     {
         image: who_are_we_6,
-        title: <>Students work with<br/>the Overwatch Broadcast 2021</>,
+        title: <>Students work with the <br/> Overwatch Broadcast 2021</>,
     },
     {
         image: who_are_we_7,
@@ -172,7 +199,8 @@ const who_are_we_images = [
     },
     {
         image: who_are_we_10,
-        title: 'The UH Smash team wins the first UH Esports Smash Collegiate Tournament at Kawaii Kon (2023)',
+        title: <>The UH Smash team wins the <br/> first UH Esports Smash Collegiate<br/>Tournament at Kawaii Kon
+            (2023)</>,
     },
     {
         image: who_are_we_11,
@@ -184,19 +212,19 @@ const who_are_we_images = [
     },
     {
         image: who_are_we_13,
-        title: 'MLBB 2024 Spring ACC Championship',
+        title: <>MLBB 2024 Spring<br/>ACC Championship</>,
     },
 ];
 
 function AboutSection() {
     return (
-        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3}} justifyContent="center" container>
+        <Grid sx={{mt:{ lg:3, md:3, xs:1 }, p:3, minHeight:'300px'}} justifyContent="center" container>
             <Grid item lg={5} md={12} sm={12} xs={11}>
                 <SectionTitle>
                     Who are we?
                 </SectionTitle>
             </Grid>
-            <Grid item lg={5} md={10} sm={11} xs={12}>
+            <Grid item sx={{mt:2}} lg={5} md={10} sm={11} xs={12}>
                 <SectionDescription>
                     Tempora aut est maiores error laudantium ut architecto impedit.
                     Sit sit eius culpa sit. Non quia velit occaecati commodi.
@@ -205,7 +233,7 @@ function AboutSection() {
                 </SectionDescription>
             </Grid>
             {/*<Grid sx={{mt:3}} item lg={11} md={11} xs={11} >*/}
-            <Grid sx={{mt:{ lg:3, md:1, xs:1 }}} lg={11} md={11} sm={12} xs={12}>
+            <Grid item sx={{mt:{ lg:3, md:1, xs:2 }}} lg={11} md={11} sm={12} xs={12}>
                 {/*<Slider {...settings}>*/}
                 {/*    {*/}
                 {/*        who_are_we_images.map((who_are_we) => {*/}
@@ -231,17 +259,22 @@ function AboutSection() {
                                 //     {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
                                 // </div>
                                 <div key={{index}}>
-                                    <Grid sx={{ml:2, mt:3, mb:1}} direction="column" container justifyContent="center" alignItems="center">
-                                        <Grid item>
-                                            <CarouselImages src={who_are_we.image} />
-                                            {/*<img src={who_are_we.image} className="test" alt="Milestone Logo"/>*/}
-                                        </Grid>
-                                        <Grid sx={{mt:2}}>
-                                            {/*<Testing>*/}
-                                            {/*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>*/}
-                                            {/*</Testing>*/}
-                                            <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>
-                                        </Grid>
+                                    <Grid sx={{ml:{lg:2, md:2, sm:2, xs:0}, mt:3, mb:1, overflow:'hidden'}} direction="column" container alignItems="center">
+                                        <CarouselImages src={who_are_we.image} />
+                                        <Box sx={{mt:2}}>
+                                            <MileStoneTextTitle style={{textAlign:'center'}}>{who_are_we.title}</MileStoneTextTitle>
+                                        </Box>
+
+                                        {/*<Grid item>*/}
+                                        {/*    */}
+                                        {/*    /!*<img src={who_are_we.image} className="whoAreWeImages" alt="Milestone Logo"/>*!/*/}
+                                        {/*</Grid>*/}
+                                        {/*<Grid item sx={{mt:2}}>*/}
+                                        {/*    /!*<Testing>*!/*/}
+                                        {/*    /!*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>*!/*/}
+                                        {/*    /!*</Testing>*!/*/}
+                                        {/*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '': ''}}>{who_are_we.title}</SectionDescription>*/}
+                                        {/*</Grid>*/}
                                     </Grid>
                                     {/*<img src={apcu_logo} className="test" />*/}
                                     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
@@ -274,8 +307,8 @@ const MileStoneTextTitle = styled('div')(({theme}) => ({
     textAlign: 'left',
     fontSize: "28px",
     fontWeight: 'bold',
-    marginTop:'16px',
-    margin: '16px 0 0 20px',
+    // marginTop:'16px',
+    margin: '0px 16px 0 20px',
 }));
 
 // import milestone_6 from '../assets/images/milestone_5_T1 Intern Jazmin 2024.jpg';
@@ -295,12 +328,12 @@ const milestone_images = [
     },
     {
         image: milestone_3,
-        title: 'Aloha Pacific Federal Credit Union Scholarships',
+        title: <>Aloha Pacific Federal<br/>Credit Union Scholarships</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
         image: milestone_4,
-        title: 'Joe Marsh Visit to UH 2023 (PACE x UHE)',
+        title: <>Joe Marsh Visit to <br/>UH 2023 (PACE x UHE)</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
     {
@@ -315,7 +348,7 @@ const milestone_images = [
     },
     {
         image: milestone_7,
-        title: 'Good Jobs Hawaii x UH Esports Pathway 2024 fall',
+        title: <>Good Jobs Hawaii x UH <br/> Esports Pathway 2024 fall</>,
         description: 'Tempora aut est maiores error laudantium ut architecto'
     },
 ];
@@ -326,8 +359,8 @@ function OurMilestones() {
         rootMargin: '-170px 0px',
     });
     return(
-        <Grid sx={{mt:{ lg:1, md:1, xs:1 }, p:3}} container spacing={3} justifyContent="center">
-            <Grid item md={12} xs={12} ref={ref}>
+        <Grid sx={{mt:{ lg:1, md:1, xs:1 }, p:3}} container justifyContent="center">
+            <Grid item lg={5} md={12} sm={12} xs={11} ref={ref}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Our Milestones
                 </SectionTitle>
@@ -342,21 +375,63 @@ function OurMilestones() {
             {/*    <MileStoneTextTitle>OWL Internship</MileStoneTextTitle>*/}
             {/*    <SectionDescription sx={{mt:1}}>Tempora aut est maiores error laudantium ut architecto</SectionDescription>*/}
             {/*</Grid>*/}
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} xs={11}>
-                <Slider {...settings}>
+            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} sm={12} xs={12}>
+                {/*<Slider {...settings}>*/}
+                {/*    {*/}
+                {/*        milestone_images.map((milestone, index) => {*/}
+                {/*            return(*/}
+                {/*                <div key={{index}}>*/}
+                {/*                    <Grid container justifyContent="center" alignItems="center">*/}
+                {/*                        <Grid item>*/}
+                {/*                            <img src={milestone.image} className="test" alt="Milestone Logo" />*/}
+                {/*                        </Grid>*/}
+                {/*                    </Grid>*/}
+                {/*                    /!*<img src={apcu_logo} className="test" />*!/*/}
+                {/*                    /!*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*!/*/}
+                {/*                    <MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>*/}
+                {/*                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
+                {/*                </div>*/}
+                {/*            );*/}
+                {/*        })*/}
+                {/*    }*/}
+                {/*</Slider>*/}
+                <Slider {...who_are_we_slider_settings}>
                     {
                         milestone_images.map((milestone, index) => {
-                            return(
+                            return (
+                                // <div>
+                                //     <Grid container justifyContent="center" alignItems="center" sx={{ height: '350px' }}>
+                                //         <img src={image} className="whoAreWeImages" alt="Who are we images" />
+                                //     </Grid>
+                                //     {/*<img src={apcu_logo} className="test" />*/}
+                                //     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
+                                //     {/*<MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>*/}
+                                //     {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>*/}
+                                // </div>
                                 <div key={{index}}>
-                                    <Grid container justifyContent="center" alignItems="center">
-                                        <Grid item>
-                                            <img src={milestone.image} className="test" alt="Milestone Logo" />
-                                        </Grid>
+                                    <Grid sx={{ml:{lg:2, md:2, sm:2, xs:0}, mt:3, mb:1, overflow:'hidden'}} direction="column" container alignItems="center">
+                                        <CarouselImages src={milestone.image} />
+                                        <Box sx={{mt:2}}>
+                                            <MileStoneTextTitle style={{textAlign:'center'}}>{milestone.title}</MileStoneTextTitle>
+                                            {/*// <SectionDescription style={{textAlign:'center', maxWidth: milestone.image === who_are_we_10 ? '': ''}}>{milestone.title}</SectionDescription>*/}
+                                        </Box>
+
+                                        {/*<Grid item>*/}
+                                        {/*    */}
+                                        {/*    /!*<img src={who_are_we.image} className="whoAreWeImages" alt="Milestone Logo"/>*!/*/}
+                                        {/*</Grid>*/}
+                                        {/*<Grid item sx={{mt:2}}>*/}
+                                        {/*    /!*<Testing>*!/*/}
+                                        {/*    /!*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '450px': ''}}>{who_are_we.title}</SectionDescription>*!/*/}
+                                        {/*    /!*</Testing>*!/*/}
+                                        {/*    <SectionDescription style={{textAlign:'center', maxWidth: who_are_we.image === who_are_we_10 ? '': ''}}>{who_are_we.title}</SectionDescription>*/}
+                                        {/*</Grid>*/}
                                     </Grid>
                                     {/*<img src={apcu_logo} className="test" />*/}
                                     {/*<CarouselImages style={{backgroundImage:`url("${milestone.image}"`}} />*/}
-                                    <MileStoneTextTitle>{milestone.title}</MileStoneTextTitle>
-                                    <SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{milestone.description}</SectionDescription>
+                                    {/*style={{margin: '36px 0 0 0', textAlign:'center', padding: '5px'}}*/}
+                                    {/*<MileStoneTextTitle >{who_are_we.title}</MileStoneTextTitle>*/}
+                                    {/*<SectionDescription style={{margin: '5px 0 20px 20px',}} sx={{mt:1}}>{who_are_we.description}</SectionDescription>*/}
                                 </div>
                             );
                         })
@@ -425,62 +500,63 @@ function UHEInfoBlock() {
             alignItems="center"
             justifyContent="center"
             ref={ref}>
-            <Grid lg={4} md={5} sm={11} xs={12} item>
-                <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>
-            </Grid>
-            <Grid lg={5} md={5} sm={11} xs={12} item>
-                <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
-                    iLab
-                </SectionTitle>
-                <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
-                    Tempora aut est maiores error laudantium
-                    <br/>
-                    ut architecto impedit.
-                    <br/>
-                    <Button
-                        sx={{mt:2, fontWeight:"bold"}}
-                        size="large"
-                        variant="contained"
-                        color="uhegreen"
-                        component={RouterLink}
-                        onClick={scrollToTop}
-                        to="/ilab">
-                        Read More
-                    </Button>
-                </SectionDescription>
-            </Grid>
+            {/*<Grid lg={4} md={5} sm={11} xs={12} item>*/}
+            {/*    <UHEInfoImages style={{backgroundImage:`url("${group_2}"`}} className={inView ? 'slideIn1000ms' : 'hidden'}/>*/}
+            {/*</Grid>*/}
+            {/*<Grid lg={5} md={5} sm={11} xs={12} item>*/}
+            {/*    <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>*/}
+            {/*        iLab*/}
+            {/*    </SectionTitle>*/}
+            {/*    <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>*/}
+            {/*        Tempora aut est maiores error laudantium*/}
+            {/*        <br/>*/}
+            {/*        ut architecto impedit.*/}
+            {/*        <br/>*/}
+            {/*        /!*<Button*!/*/}
+            {/*        /!*    sx={{mt:2, fontWeight:"bold"}}*!/*/}
+            {/*        /!*    size="large"*!/*/}
+            {/*        /!*    variant="contained"*!/*/}
+            {/*        /!*    color="uhegreen"*!/*/}
+            {/*        /!*    component={RouterLink}*!/*/}
+            {/*        /!*    onClick={scrollToTop}*!/*/}
+            {/*        /!*    to="/ilab">*!/*/}
+            {/*        /!*    Read More*!/*/}
+            {/*        /!*</Button>*!/*/}
+            {/*    </SectionDescription>*/}
+            {/*</Grid>*/}
             {/*Display when it is greater than or equal to md*/}
-            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>
-                <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
-                    Education
-                </SectionTitle>
-                <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : 'hidden'}>
-                    Tempora aut est maiores error laudantium
-                    <br/>
-                    ut architecto impedit.
-                    <br/>
-                    <Button
-                        sx={{mt:2, fontWeight:"bold"}}
-                        size="large"
-                        variant="contained"
-                        color="uhegreen"
-                        component={RouterLink}
-                        onClick={scrollToTop}
-                        to="/education"
-                    >
-                        Read More
-                    </Button>
-                </SectionDescription>
-            </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={4} md={5} item>
-                <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
-            </Grid>
+            {/*<Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={5} md={5} item>*/}
+            {/*    <SectionTitle style={{textAlign:"right"}} className={inView ? 'slideIn1300ms' : 'hidden'}>*/}
+            {/*        Education*/}
+            {/*    </SectionTitle>*/}
+            {/*    <SectionDescription sx={{textAlign:"right"}} className={inView ? 'slideIn1500ms' : 'hidden'}>*/}
+            {/*        Tempora aut est maiores error laudantium*/}
+            {/*        <br/>*/}
+            {/*        ut architecto impedit.*/}
+            {/*        <br/>*/}
+            {/*        <Button*/}
+            {/*            sx={{mt:2, fontWeight:"bold"}}*/}
+            {/*            size="large"*/}
+            {/*            variant="contained"*/}
+            {/*            color="uhegreen"*/}
+            {/*            component={RouterLink}*/}
+            {/*            onClick={scrollToTop}*/}
+            {/*            to="/education"*/}
+            {/*        >*/}
+            {/*            Read More*/}
+            {/*        </Button>*/}
+            {/*    </SectionDescription>*/}
+            {/*</Grid>*/}
+            {/*<Grid sx={{ display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}} lg={4} md={5} item>*/}
+            {/*    <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />*/}
+            {/*</Grid>*/}
 
             {/*Display when it is less than md*/}
-            <Grid sx={{ mt:2, display: {lg: 'none', md: 'none', xs:'block' }}}  sm={11} xs={12} item>
+            <Grid lg={1} md={1}></Grid>
+            <Grid sx={{ mt:2, display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5}  sm={11} xs={12} item>
                 <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
-            <Grid sx={{ display: {lg: 'none', md: 'none', xs:'block' }}} sm={11} xs={12} item>
+            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5} sm={11} xs={12} item>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
@@ -506,19 +582,14 @@ function UHEInfoBlock() {
     );
 }
 
-// TODO REMOVE
-const SponsorLogos = styled('div')(() => ({
-    backgroundImage: `url('${uheLogo}')`,
-    backgroundSize: "cover",
-    // width: "150px",
-    // height:"150px"
-    // // TODO TEST
-    // display: "block",
-    // maxWidth: "200px",
-    // maxHeight: "90px",
-    // width: "auto",
-    // height: "auto",
-
+const SponsorLogos = styled('img')(({ theme }) => ({
+    display: 'block',
+    maxWidth: '175px',
+    width: 'auto',
+    height: 'auto',
+    [theme.breakpoints.down('md')]: {
+        maxWidth: '150px',
+    },
 }));
 function Sponsors() {
     const { ref, inView } = useInView({
@@ -533,11 +604,13 @@ function Sponsors() {
                 </SectionTitle>
             </Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <img src={apcu_logo} className={inView ? 'slideIn1500ms logos' : 'hidden logos'} />
+                <SponsorLogos src={apcu_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
+                {/*<img src={apcu_logo} className={inView ? 'slideIn1500ms logos' : 'hidden logos'} />*/}
             </Grid>
             <Grid lg={1} md={1}></Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <img src={acm_logo} className={inView ? 'slideIn1900ms logos' : 'hidden logos'}/>
+                <SponsorLogos src={acm_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
+                {/*<img src={acm_logo} className={inView ? 'slideIn1900ms logos' : 'hidden logos'}/>*/}
                 {/*<SponsorLogos style={{backgroundImage: `url('${acm_logo}')`, width: "200px", height: "150px"}}*/}
                 {/*              className={inView ? 'slideIn1700ms' : 'hidden'}/>*/}
             </Grid>

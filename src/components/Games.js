@@ -189,7 +189,7 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
         height: '400px',
         [theme.breakpoints.down('sm')]: {
             width: '105px !important',
-            height: '400px',
+            height: '350px',
         },
     },
 }));
@@ -210,6 +210,8 @@ const GameTitleText = styled('div')(({ theme }) => ({
         [theme.breakpoints.down('md')]: {
             left:'-115px',
             [theme.breakpoints.down('sm')]: {
+                top: '32%',
+                fontSize: "1.9rem",
                 left:'-125px',
             },
         },
@@ -317,7 +319,7 @@ function Games() {
         rootMargin: '-50px 0px',
     });
     return (
-        <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, p:2, pb:5, backgroundColor:"#f6f6f6"}} ref={ref} justifyContent="center">
+        <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, pt:4, pl:2, pr:2, pb:5, backgroundColor:"#f6f6f6"}} ref={ref} justifyContent="center">
             <Grid item md={12}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>
                     UHE Teams
