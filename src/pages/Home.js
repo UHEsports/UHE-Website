@@ -81,7 +81,7 @@ const who_are_we_slider_settings = {
     variableWidth: true,
     centerMode: true,
     // TODO makesure it is true
-    autoplay: false,
+    autoplay: true,
     responsive: [
         {
             breakpoint: 1300,
@@ -199,8 +199,7 @@ const who_are_we_images = [
     },
     {
         image: who_are_we_10,
-        title: <>The UH Smash team wins the <br/> first UH Esports Smash Collegiate<br/>Tournament at Kawaii Kon
-            (2023)</>,
+        title: <>UH Smash Team Wins UH Collegiate<br/> Tournament at Kawaii Kon (2023) </>,
     },
     {
         image: who_are_we_11,
@@ -226,10 +225,7 @@ function AboutSection() {
             </Grid>
             <Grid item sx={{mt:2}} lg={5} md={10} sm={11} xs={12}>
                 <SectionDescription>
-                    Tempora aut est maiores error laudantium ut architecto impedit.
-                    Sit sit eius culpa sit. Non quia velit occaecati commodi.
-                    Sed eos distinctio magni maxime commodi maxime.
-                    Saepe quibusdam et quia ratione earum expedita.
+                    UH Esports is a college esports program that draws on the strengths of our community of mentors, educators, and alumni to provide students with opportunities for collegiate competition in esports, career paths into the wider video games industry, and a space that welcomes a diversity of students from all UH campuses.
                 </SectionDescription>
             </Grid>
             {/*<Grid sx={{mt:3}} item lg={11} md={11} xs={11} >*/}
@@ -305,7 +301,7 @@ const MileStoneImages = styled('div')(({theme}) => ({
 
 const MileStoneTextTitle = styled('div')(({theme}) => ({
     textAlign: 'left',
-    fontSize: "28px",
+    fontSize: "24px",
     fontWeight: 'bold',
     // marginTop:'16px',
     margin: '0px 16px 0 20px',
@@ -485,7 +481,7 @@ function UHEInfoBlock() {
     });
 
     const scrollToTop = () => {
-        // behavor is auto so it instantly appears at the top instead of scrolling
+        // behavior is auto so it instantly appears at the top instead of scrolling
         window.scrollTo({
             top:0,
             behavior: "auto",
@@ -561,10 +557,7 @@ function UHEInfoBlock() {
                     Education
                 </SectionTitle>
                 <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
-                    Tempora aut est maiores error laudantium
-                    <br/>
-                    ut architecto impedit.
-                    <br/>
+                    UH offers courses, internships, practicums, and workshops related to an ever-expanding, multicultural, and fast-paced field of esports
                     <Button
                         sx={{mt:2, fontWeight:"bold"}}
                         size="large"
