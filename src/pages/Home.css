@@ -4,3 +4,11 @@
 .slick-next:before {
     color: black !important;
 }
+
+.logos {
+    display: block;
+    max-width: 175px;
+    max-height: 130px;
+    width: auto;
+    height: auto;
+}

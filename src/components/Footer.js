@@ -31,7 +31,7 @@ function Footer() {
     return(
             <Grid container sx={{pt:2, pb:4, backgroundColor: "#f6f6f6", alignItems: "center", justifyContent: "space-between"}}>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ml:{lg:3, md:1, sm:1, xs:0}}}>
-                <Box 
+                <Box
                     component="img"
                     alt="UHE Logo"
                     src={uheLogo}
@@ -40,7 +40,7 @@ function Footer() {
                             xs: '250px',  // for extra small screens (mobile)
                             sm: '300px',  // for small screens (tablets)
                             md: '150px',
-                            
+
                         }
                     }}
                 />
@@ -121,7 +121,7 @@ function Footer() {
                             uhesport@hawaii.edu<br/><br/>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822<br/>
-                            United States of America 
+                            United States of America
                         </FooterText>
                     </Grid>
                 </Grid>
@@ -145,13 +145,13 @@ function Footer() {
                             uhesport@hawaii.edu<br/><br/>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822,<br/>
-                            United States of America 
+                            United States of America
                         </FooterText>
                     </Grid>
                     <Grid sx={{alignItems: 'center', mt:{sm:1}}} sm={12} xs={12}>
                         <FooterText sx={{fontSize:{sm:'0.9rem', xs:'0.9rem'}, textAlign:'left', color:'grey', ml:{sm:11, xs:10}, mb:{sm:0, xs:5}}}>
                             <br/>
-                            &copy; 2023 UH Esports.<br/> 
+                            &copy; 2023 UH Esports.<br/>
                             All Rights reserved.
                         </FooterText>
                     </Grid>
@@ -160,6 +160,7 @@ function Footer() {
             </Grid>
     );
 }
+
 
 export default Footer;
 

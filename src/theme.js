@@ -5,7 +5,7 @@ const theme = createTheme({
         uhegreen: {
             main:"#00a772",
             contrastText: 'white',
-        }
+        },
     }
 });
 

@@ -5,47 +5,30 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Slider from "react-slick";
-import education from "../assets/images/education_intro_image.png";
+import education_opening_image from "../assets/images/education_opening_image.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
-import {styled} from "@mui/material";
-import geng_1 from "../assets/images/geng_1.png";
-import geng_2 from "../assets/images/geng_2.png";
-import geng_3 from "../assets/images/geng_3.png";
 import Button from "@mui/material/Button";
 import courses_graphic from "../assets/images/com369_graphic_fall_2023.png";
 import geng_background from "../assets/images/geng_background.png";
 import overwatch_background from "../assets/images/overwatch_background.png";
 import vanta_background from "../assets/images/vanta_background.png";
 import ReactGA from "react-ga4";
+import {styled} from "@mui/material/styles";
 
 ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" }); // Page information for Google Analytics
 
-const CarouselImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    backgroundPosition:"center",
-    height: "450px",
-    [theme.breakpoints.down('lg')]: {
-        height: "320px",
-        [theme.breakpoints.down('md')]: {
-            height: "400px",
-            [theme.breakpoints.down('sm')]: {
-                height: "300px",
-            },
+const VideoComponent = styled('iframe')(({ theme , videoURL}) => ({
+    width:"100%",
+    height: '450px',
+    title:"YouTube video player",
+    [theme.breakpoints.down(900)]: {
+        height: '400px',
+        [theme.breakpoints.down(600)]: {
+            height: '250px',
         },
     },
 }));
-
-const imageCarouselSettings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    speed: 500,
-    arrows:false,
-};
 
 const textCarouselSettings = {
     dots: true,
@@ -70,9 +53,7 @@ function InternshipHeader() {
             </Grid>
             <Grid item lg={7} md={10} sm={11} xs={12}>
                 <SectionDescription className={inView ? 'slideIn1400ms' : 'hidden'}>
-                    Talk about the team’s history here.
-                    Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
-                    Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim
+                    UH Esports prides itself on offering students unique opportunities to engage with industry. Throughout its history, the program has looked at partnering with global industries, such as the Overwatch League Gen. G, and local partners, such as Vanta Esports. All internships are offered as 3-credit courses through the College of Social Sciences (SOCs).
                 </SectionDescription>
             </Grid>
         </Grid>
@@ -85,13 +66,13 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
             <SectionTitle>
                 {title}
             </SectionTitle>
-            <Box sx={{mt:1, width:{ lg:'70%', md:'75%', sm:'65%', xs:'80%'}}}>
+            <Box sx={{mt:1, width:{ lg:'70%', md:'75%', sm:'65%', xs:'88%'}}}>
                 <Slider {...textCarouselSettings}>
                     {
                         descriptions.map((text) => {
                             return(
-                                <SectionDescription sx={{textAlign:'center'}}>
-                                    <Box sx={{fontWeight:'bold'}}>{text[0]}</Box>{text[1]}
+                                <SectionDescription sx={{maxWidth: '725px'}}>
+                                    {text[0]}
                                 </SectionDescription>
                             );
                         })
@@ -102,77 +83,59 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
     );
 }
 
-function InternshipGraphicRight({title, descriptions, images, backgroundURL}){
+function InternshipGraphicRight({title, descriptions, videoURL, backgroundURL}){
     return(
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}, mb:6}}>
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
             <Grid item lg={5} md={5} sm={12} xs={12}>
-                <Box sx={{top:{lg:25, md:25, sm:0}, left:{lg:-30, md:-10, sm:0}, position:'relative'}}>
-                    <Slider {...imageCarouselSettings}>
-                        {
-                            images.map((image) => {
-                                return(
-                                    <>
-                                        <CarouselImages style={{backgroundImage:`url(${image})`}} />
-                                    </>
-                                );
-                            })
-                        }
-                    </Slider>
+                <Box sx={{top: {lg: 25, md: 25, sm: 0}, left: {lg: -30, md: -10, sm: 0}, position: 'relative'}}>
+                    <VideoComponent src={videoURL}
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin" loading="lazy" allowFullScreen />
                 </Box>
             </Grid>
         </Grid>
     );
 }
 
-function InternshipGraphicLeft({title, descriptions, images, backgroundURL}){
-    return(
-        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
+function InternshipGraphicLeft({title, descriptions, videoURL, backgroundURL}) {
+    return (
+        <Grid container sx={{mt: {lg: 6, md: 4, sm: 4, xs: 4}}}>
             <Grid item lg={5} md={5} sm={12} xs={12}>
-                <Box sx={{top:{lg:25, md:25, sm:0}, right:{lg:-30, md:-10, sm:0}, position:'relative'}}>
-                    <Slider {...imageCarouselSettings}>
-                        {
-                            images.map((image) => {
-                                return(
-                                    <>
-                                        <CarouselImages style={{backgroundImage:`url(${image})`}} />
-                                    </>
-                                );
-                            })
-                        }
-                    </Slider>
+                <Box sx={{top: {lg: 25, md: 25, sm: 0}, right: {lg: -30, md: -10, sm: 0}, position: 'relative'}}>
+                    <VideoComponent src={videoURL}
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin" loading="lazy" allowFullScreen />
                 </Box>
             </Grid>
-            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
+            <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL}/>
         </Grid>
     );
 }
 
 function Courses() {
-    const { ref, inView } = useInView({
+    const {ref, inView} = useInView({
         triggerOnce: true,
         rootMargin: '-150px',
     });
-    return(
+    return (
         // TODO remove the mb spacing. Only added to showcase footer spacing
-        <Grid sx={{backgroundColor:"#f6f6f6", pt:1, pb:5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
+        <Grid sx={{backgroundColor: "#f6f6f6", pt: 1, pb: 5}} spacing={4} container justifyContent="center" alignItems="center" ref={ref}>
             <Grid item lg={5} md={5} sm={11} xs={11}>
                 <SectionTitle className={inView ? 'slideIn1300ms' : 'hidden'}>Courses</SectionTitle>
-                <Box sx={{mt:{lg:4, md:2, xs:2}}}>
-                    <SectionDescription style={{textAlign:'center'}} className={inView ? 'slideIn1500ms' : 'hidden'}>
-                        Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet.
-                        Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad quis magna culpa anim dolor do aliqua duis nulla ad.
-                        Fugiat incididunt id quis cillum eiusmod consectetur aliqua
+                <Grid container justifyContent="center" sx={{mt:2}}>
+                    <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
+                        UH's Esports & Society (COM) course is one of the longest-offered esports courses in North America for esports. The class provides a critical overview of esports infrastructures, the influence South Korea, gender in esports, the emergence of esports in higher education, media, and mobile esports cultures.
                         <br/>
-                        <Button sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://discord.gg/uhesports" target="_blank">Learn More</Button>
                     </SectionDescription>
-                </Box>
+                    <Button className={inView ? 'slideIn1500ms' : 'hidden'} sx={{mt:{lg:5, md:3, sm:4, xs:2}, fontWeight:"bold"}} size="large" variant="contained" color="uhegreen" href="https://www.sis.hawaii.edu/uhdad/avail.classes?i=MAN" target="_blank">Learn More</Button>
+                </Grid>
             </Grid>
             <Grid item lg={4} md={5} sm={10} xs={11}>
                 <img
                     style={{borderRadius:'10px'}}
                     alt="UHE Courses"
-                    width="100%"
+                    width="80%"
                     className={inView ? 'slideIn1000ms' : 'hidden'}
                     src={courses_graphic}
                 />
@@ -182,27 +145,28 @@ function Courses() {
 }
 
 function Education() {
-    const exampleImages = [
-        geng_1,
-        geng_2,
-        geng_3,
+    const gengDescription = [
+        ["During the summer months, students travel to work, live, and play in one of the most dynamic locations for esports in the world: Seoul, South Korea. For 3 weeks, students work at Gen G., one of South Korea's best esports organizations, with company mentors on projects that have a meaningful impact on the company's mission and operations"]
     ];
 
-    const exampleText = [
-        ["Learn from the Pros", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."],
-        ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
+    const overwatchLeagueDescription = [
+        ["In 2021 and 2022, UH Esports partnered with Activision Blizzard during the COVID-19 pandemic to put their championship season. 40 students took part over the two years in helping run the league by shadowing the OWL crew and staff. At the end of the experience, students learned valuable insights as to how operations are carried out, as well as forming lasting relationships with mentors from the league. "]
+    ];
+
+    const vantaDescription = [
+        ["During the summer, students learn about how Hawaii's scholastic esports (at the middle and high school levels) operate. Just like the Gen. G internship, individuals are slotted into teams depending on their interests (PR, Communications, Operations, or Coding), and are assigned to key projects that tackle one or more problems that Vanta Esports is seeking to address. The goal is for students to have a greater understanding of local esports on the islands. "]
     ];
 
     return (
         <>
-            <OpeningPageImage header="Education" imageURL={education}/>
+            <OpeningPageImage header="Education" imageURL={education_opening_image}/>
             <Courses />
             {/* TODO section for special cert SKY*/}
             <InternshipHeader />
-            <InternshipGraphicRight images={exampleImages} title="GEN G" descriptions={exampleText} backgroundURL={geng_background} />
-            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /></Box>
-            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight images={exampleImages} title="OVERWATCH LEAGUE" descriptions={exampleText} backgroundURL={overwatch_background} /> </Box>
-            <InternshipGraphicRight images={exampleImages} title="VANTA" descriptions={exampleText} backgroundURL={vanta_background} />
+            <InternshipGraphicRight title="GEN G" videoURL="https://www.youtube.com/embed/MbDj0NiphBA?si=qjDZTgcK0vq4ByX_" descriptions={gengDescription} backgroundURL={geng_background} />
+            <Box sx={{display: {lg: 'block', md: 'block', sm:'none', xs:'none' }}}><InternshipGraphicLeft title="OVERWATCH LEAGUE" videoURL="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2" descriptions={overwatchLeagueDescription} backgroundURL={overwatch_background} /></Box>
+            <Box sx={{display: {lg: 'none', md: 'none', sm:'block', xs:'block' }}}><InternshipGraphicRight title="OVERWATCH LEAGUE" videoURL="https://www.youtube.com/embed/2l6aOirhdQI?si=ktCsURa31nleY2tU?controls=2" descriptions={overwatchLeagueDescription} backgroundURL={overwatch_background} /> </Box>
+            <InternshipGraphicRight title="VANTA" descriptions={vantaDescription} videoURL="https://www.youtube.com/embed/QD2-khpxGHg?si=y4Xdze76xnxhYWu2" backgroundURL={vanta_background} />
 
         </>
     );

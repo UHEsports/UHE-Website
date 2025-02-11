@@ -1,4 +1,7 @@
 import React from "react";
+import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png';
+import css_logo from '../assets/images/css-logo-color-1.png';
+import isp_logo from '../assets/images/isp-colored-1.png';
 import {
   AppBar,
   Toolbar,
@@ -12,12 +15,14 @@ import {
   ListItemButton,
   Divider,
 } from "@mui/material";
-import { Outlet, Link as RouterLink } from "react-router-dom";
+
+import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 
 import uheLogo from "../assets/images/uhe_logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {
+  const { pathname } = useLocation();
   const [state, setState] = React.useState({
     top: false,
   });
@@ -55,21 +60,22 @@ function Navbar() {
             </Link>
           </ListItemButton>
         </ListItem>
-        <Divider />
-        <ListItem disablePadding>
-          <ListItemButton>
-            <Link
-              component={RouterLink}
-              underline="none"
-              variant="button"
-              color="black"
-              to="/ilab"
-              sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
-            >
-              Ilab
-            </Link>
-          </ListItemButton>
-        </ListItem>
+        {/*TODO FUTURE UPDATE*/}
+        {/*<Divider />*/}
+        {/*<ListItem disablePadding>*/}
+        {/*  <ListItemButton>*/}
+        {/*    <Link*/}
+        {/*      component={RouterLink}*/}
+        {/*      underline="none"*/}
+        {/*      variant="button"*/}
+        {/*      color="black"*/}
+        {/*      to="/ilab"*/}
+        {/*      sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}*/}
+        {/*    >*/}
+        {/*      Ilab*/}
+        {/*    </Link>*/}
+        {/*  </ListItemButton>*/}
+        {/*</ListItem>*/}
         <Divider />
         <ListItem disablePadding>
           <ListItemButton>
@@ -117,46 +123,74 @@ function Navbar() {
     >
       <Toolbar sx={{ flexWrap: "wrap" }}>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" justifyContent="space-between">
             <Grid
-              sx={{ display: { lg: "block", md: "block", xs: "none" } }}
-              xs={12}
+                sx={{ display: { lg: "flex", md: "flex", xs: "none" } }}
+                item
+                xs={12}
+                container
+                justifyContent="center"
+                alignItems="center"
             >
-              <img
-                alt="UHE Logo"
-                width="125"
-                src={uheLogo}
-                style={{ float: "left" }}
-              />
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <img
+                    alt="UHE Logo"
+                    width="125"
+                    src={uheLogo}
+                />
+                {pathname==='/' && ( // Conditionally render the APCU logo
+                    <img
+                        alt="APCU Logo"
+                        width="125"
+                        src={apcu_white_logo}
+                    />
+                )}
+                {pathname==='/education' && ( // Conditionally render the APCU logo
+                    <img
+                        alt="APCU Logo"
+                        width="75"
+                        src={css_logo}
+                    />
+                )}
+                {pathname==='/education' && ( // Conditionally render the APCU logo
+                    <img
+                        style={{marginLeft:'30px'}}
+                        alt="APCU Logo"
+                        width="250"
+                        src={isp_logo}
+                    />
+                )}
+              </Box>
               <Box sx={{ flexGrow: 1 }} />
-              <nav style={{ float: "right", marginTop: "2rem" }}>
+              <nav style={{ float: "right" }}>
                 <Link
                   component={RouterLink}
                   underline="none"
                   variant="button"
                   color="white"
                   to="/"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Home
                 </Link>
-                <Link
-                  component={RouterLink}
-                  underline="none"
-                  variant="button"
-                  color="white"
-                  to="/ilab"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
-                >
-                  Ilab
-                </Link>
+                {/*TODO FUTURE UPDATE*/}
+                {/*<Link*/}
+                {/*  component={RouterLink}*/}
+                {/*  underline="none"*/}
+                {/*  variant="button"*/}
+                {/*  color="white"*/}
+                {/*  to="/ilab"*/}
+                {/*  sx={{ mx: 1.5, fontWeight: "bold" }}*/}
+                {/*>*/}
+                {/*  Ilab*/}
+                {/*</Link>*/}
                 <Link
                   component={RouterLink}
                   underline="none"
                   variant="button"
                   color="white"
                   to="/education"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Education
                 </Link>
@@ -166,7 +200,7 @@ function Navbar() {
                   variant="button"
                   color="white"
                   to="contact-us"
-                  sx={{ my: 1, mx: 1.5, fontWeight: "bold" }}
+                  sx={{ mx: 1.5, fontWeight: "bold" }}
                 >
                   Contact Us
                 </Link>
@@ -175,7 +209,6 @@ function Navbar() {
 
             <Grid
               sx={{ display: { lg: "none", md: "none", xs: "block" } }}
-              xs={12}
             >
               <IconButton
                 size="large"
