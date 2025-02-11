@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png';
 import css_logo from '../assets/images/css-logo-color-1.png';
 import isp_logo from '../assets/images/isp-colored-1.png';
@@ -23,27 +23,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {
   const { pathname } = useLocation();
-  const [state, setState] = React.useState({
-    top: false,
-  });
+  const [open, setOpen] = React.useState(false);
 
-  // TODO come back to simplify this
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
+  const toggleDrawer = (open) => () => {
+    setOpen(open);
   };
 
-  const list = (anchor) => (
+  const list = () => (
     <Box
       sx={{ width: "auto" }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List disablePadding>
         <ListItem disablePadding>
@@ -54,6 +43,7 @@ function Navbar() {
               variant="button"
               color="black"
               to="/"
+              onClick={toggleDrawer(false)}
               sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
             >
               Home
@@ -85,6 +75,7 @@ function Navbar() {
               variant="button"
               color="black"
               to="/education"
+              onClick={toggleDrawer(false)}
               sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
             >
               Education
@@ -100,6 +91,7 @@ function Navbar() {
               variant="button"
               color="black"
               to="contact-us"
+              onClick={toggleDrawer(false)}
               sx={{ my: 1, mx: 1.5, fontWeight: "bold", width: "100%" }}
             >
               Contact Us
@@ -208,12 +200,14 @@ function Navbar() {
             </Grid>
 
             <Grid
-              sx={{ display: { lg: "none", md: "none", xs: "block" } }}
+                item
+                sx={{ display: { lg: "none", md: "none", xs: "block" } }}
+                xs={12}
             >
               <IconButton
                 size="large"
                 aria-label="menu"
-                sx={{ float: "right", color: "white" }}
+                sx={{float:"right", color: "white" }}
                 onClick={toggleDrawer("top", true)}
               >
                 <MenuIcon />
@@ -224,11 +218,11 @@ function Navbar() {
       </Toolbar>
       <Outlet />
       <Drawer
-        anchor="top"
-        open={state["top"]}
-        onClose={toggleDrawer("top", false)}
+          anchor="top"
+          open={open}
+          onClose={() => toggleDrawer(false)}
       >
-        {list("top")}
+        {list()}
       </Drawer>
     </AppBar>
   );
