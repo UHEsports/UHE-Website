@@ -5,47 +5,30 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Slider from "react-slick";
-import education from "../assets/images/education_intro_image_v2.png";
+import education_opening_image from "../assets/images/education_opening_image.png";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
-import {styled} from "@mui/material";
-import geng_1 from "../assets/images/geng_1.png";
-import geng_2 from "../assets/images/geng_2.png";
-import geng_3 from "../assets/images/geng_3.png";
 import Button from "@mui/material/Button";
 import courses_graphic from "../assets/images/com369_graphic_fall_2023.png";
 import geng_background from "../assets/images/geng_background.png";
 import overwatch_background from "../assets/images/overwatch_background.png";
 import vanta_background from "../assets/images/vanta_background.png";
 import ReactGA from "react-ga4";
+import {styled} from "@mui/material/styles";
 
 ReactGA.send({ hitType: "pageview", page: '/education', title: "Education" }); // Page information for Google Analytics
 
-const CarouselImages = styled('div')(({ theme }) => ({
-    backgroundSize: "cover",
-    backgroundPosition:"center",
-    height: "450px",
-    [theme.breakpoints.down('lg')]: {
-        height: "320px",
-        [theme.breakpoints.down('md')]: {
-            height: "400px",
-            [theme.breakpoints.down('sm')]: {
-                height: "300px",
-            },
+const VideoComponent = styled('iframe')(({ theme , videoURL}) => ({
+    width:"100%",
+    height: '450px',
+    title:"YouTube video player",
+    [theme.breakpoints.down(900)]: {
+        height: '400px',
+        [theme.breakpoints.down(600)]: {
+            height: '250px',
         },
     },
 }));
-
-const imageCarouselSettings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    speed: 500,
-    arrows:false,
-};
 
 const textCarouselSettings = {
     dots: true,
@@ -89,7 +72,6 @@ function InternshipDescription({title, descriptions, backgroundURL}) {
                         descriptions.map((text) => {
                             return(
                                 <SectionDescription sx={{maxWidth: '725px'}}>
-                                    {/*<Box>{text[0]}</Box>*/}
                                     {text[0]}
                                 </SectionDescription>
                             );
@@ -106,52 +88,24 @@ function InternshipGraphicRight({title, descriptions, videoURL, backgroundURL}){
         <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}, mb:6}}>
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL} />
             <Grid item lg={5} md={5} sm={12} xs={12}>
-                <Box sx={{top:{lg:25, md:25, sm:0}, left:{lg:-30, md:-10, sm:0}, position:'relative'}}>
-                    {/*<Slider {...imageCarouselSettings}>*/}
-                    {/*    {*/}
-                    {/*        images.map((image) => {*/}
-                    {/*            return(*/}
-                    {/*                <>*/}
-                    {/*                    <CarouselImages style={{backgroundImage:`url(${image})`}} />*/}
-                    {/*                </>*/}
-                    {/*            );*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</Slider>*/}
-                        <iframe width="100%" className="videoSize"
-                                loading="lazy"
-                                src={videoURL}
-                                title="YouTube video player"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                <Box sx={{top: {lg: 25, md: 25, sm: 0}, left: {lg: -30, md: -10, sm: 0}, position: 'relative'}}>
+                    <VideoComponent src={videoURL}
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin" loading="lazy" allowFullScreen />
                 </Box>
             </Grid>
         </Grid>
     );
 }
 
-function InternshipGraphicLeft({title, descriptions, videoURL, backgroundURL}){
-    return(
-        <Grid container sx={{mt:{ lg:6, md:4, sm:4, xs:4}}}>
+function InternshipGraphicLeft({title, descriptions, videoURL, backgroundURL}) {
+    return (
+        <Grid container sx={{mt: {lg: 6, md: 4, sm: 4, xs: 4}}}>
             <Grid item lg={5} md={5} sm={12} xs={12}>
                 <Box sx={{top: {lg: 25, md: 25, sm: 0}, right: {lg: -30, md: -10, sm: 0}, position: 'relative'}}>
-                    {/*<Slider {...imageCarouselSettings}>*/}
-                    {/*    {*/}
-                    {/*        images.map((image) => {*/}
-                    {/*            return (*/}
-                    {/*                <>*/}
-                    {/*                    <CarouselImages style={{backgroundImage: `url(${image})`}}/>*/}
-                    {/*                </>*/}
-                    {/*            );*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</Slider>*/}
-                    <iframe width="100%" className="videoSize"
-                            loading="lazy"
-                            src={videoURL}
-                            title="YouTube video player"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    <VideoComponent src={videoURL}
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin" loading="lazy" allowFullScreen />
                 </Box>
             </Grid>
             <InternshipDescription title={title} descriptions={descriptions} backgroundURL={backgroundURL}/>
@@ -191,17 +145,6 @@ function Courses() {
 }
 
 function Education() {
-    const exampleImages = [
-        geng_1,
-        geng_2,
-        geng_3,
-    ];
-
-    const exampleText = [
-        ["Learn from the Pros", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."],
-        ["Experience Korean Culture", "Duis in nulla ullamco cillum aliqua et incididunt in culpa tempor cupidatat irure consectetur est aliquip dolor, amet. Aute, adipisicing amet quis sit voluptate reprehenderit elit occaecat ad."]
-    ];
-
     const gengDescription = [
         ["During the summer months, students travel to work, live, and play in one of the most dynamic locations for esports in the world: Seoul, South Korea. For 3 weeks, students work at Gen G., one of South Korea's best esports organizations, with company mentors on projects that have a meaningful impact on the company's mission and operations"]
     ];
@@ -216,7 +159,7 @@ function Education() {
 
     return (
         <>
-            <OpeningPageImage header="Education" imageURL={education}/>
+            <OpeningPageImage header="Education" imageURL={education_opening_image}/>
             <Courses />
             {/* TODO section for special cert SKY*/}
             <InternshipHeader />

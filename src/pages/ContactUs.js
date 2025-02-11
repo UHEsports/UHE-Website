@@ -4,7 +4,7 @@ import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/group_3.jpg";
-import contactUs from "../assets/images/contact_us_intro_image.png";
+import contact_us_opening_image from "../assets/images/contact_us_opening_image.png";
 import skyHeadshot from "../assets/images/Nyle-Sky-Kauweloa2-jpg.webp";
 import madelineHeadshot from "../assets/images/Madeline_headshot.jpg";
 import kevinHeadshot from "../assets/images/Headshot_-_Kevin.webp";
@@ -125,10 +125,6 @@ function DonationComponent() {
 }
 
 function Leadership() {
-    // TODO temporary will convert into a dictionary or array that contains each member of leadership and we loop through it
-    const test = '                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n' +
-        '                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n' +
-        '                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-150px",
@@ -147,23 +143,14 @@ function Leadership() {
         </Grid>
         <Grid item container lg={12} justifyContent='center'>
             <Grid lg={1.5} md={1.5} sm={0} />
-            <LeadershipSection name="Sky Kauweloa" role="Director" description="Director" email="madeline@gmail.com" headshot={skyHeadshot} />
-            <LeadershipSection name="Kevin Nguyen" role="Assistant Director" description="" email="madeline@gmail.com" headshot={kevinHeadshot} />
-            <LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" description="" email="madeline@gmail.com" headshot={madelineHeadshot} />
+            <LeadershipSection name="Sky Kauweloa" role="Director" headshot={skyHeadshot} />
+            <LeadershipSection name="Kevin Nguyen" role="Assistant Director" headshot={kevinHeadshot} />
+            <LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" headshot={madelineHeadshot} />
             <Grid lg={1.5} md={1.5} sm={0} />
-            {/*<Grid lg={1.5} md={1.5} />*/}
-            <LeadershipSection name="Camille Castro" role="Arena Operations Manager" description="" email="madeline@gmail.com" headshot={camilleHeadshot} />
-            <LeadershipSection name="Gunwook Baik" role="Broadcast Director" description="" email="madeline@gmail.com" headshot={gunHeadshot} />
-            <LeadershipSection name="Kat Ivanov" role=" Content Director" description="" email="madeline@gmail.com" headshot={katHeadshot} />
-            {/*<Grid lg={1.5} md={1.5} />*/}
+            <LeadershipSection name="Camille Castro" role="Arena Operations Manager" headshot={camilleHeadshot} />
+            <LeadershipSection name="Gunwook Baik" role="Broadcast Director" headshot={gunHeadshot} />
+            <LeadershipSection name="Kat Ivanov" role=" Content Director" headshot={katHeadshot} />
         </Grid>
-        {/*TODO OLD*/}
-        {/*<LeadershipSection name="Sky Kauweloa" role="Director" description="" email="madeline@gmail.com" headshot={skyHeadshot} />*/}
-        {/*<LeadershipSection name="Kevin Nguyen" role="Assistant Director" description="" email="madeline@gmail.com" headshot={kevinHeadshot} />*/}
-        {/*<LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" description="" email="madeline@gmail.com" headshot={madelineHeadshot} />*/}
-        {/*<LeadershipSection name="Camille Castro" role="Arena Operations Manager" description="" email="madeline@gmail.com" headshot={camilleHeadshot} />*/}
-        {/*<LeadershipSection name="Gunwook Baik" role="Broadcast Director" description="" email="madeline@gmail.com" headshot={gunHeadshot} />*/}
-        {/*<LeadershipSection name="Kat Ivanov" role=" Content Director" description="" email="madeline@gmail.com" headshot={katHeadshot} />*/}
 
     </Grid>
   );
@@ -172,7 +159,7 @@ function Leadership() {
 function ContactUs() {
     return (
         <>
-            <OpeningPageImage header="Contact Us" imageURL={contactUs} />
+            <OpeningPageImage header="Contact Us" imageURL={contact_us_opening_image} />
             <GivingDescription />
             <DonationComponent />
             <Leadership/>

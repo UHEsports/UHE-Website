@@ -5,19 +5,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.videoSize {
-    height: 450px;
-}
-
-@media (max-width: 900px) {
-    .videoSize {
-        height: 400px; /* Optional: you can limit height on small screens */
-    }
-}
-
-@media (max-width: 600px) {
-    .videoSize {
-        height: 250px;  /* Further limit height on very small screens */
-    }
-}

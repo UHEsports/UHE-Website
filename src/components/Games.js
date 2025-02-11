@@ -10,11 +10,7 @@ import soldier from '../assets/images/soldier_cod.png';
 import sledge from '../assets/images/sledge_rainbowsix.webp';
 import alucard from '../assets/images/alucard_mlbb.png';
 import ct from '../assets/images/ct_csgo.png';
-// TODO remove examples | example start
-// import worldsEdgeGrey from '../assets/images/worlds_edge_1_v3.png';
 import summonersRift from '../assets/images/summoners_rift_1.png';
-// import havenGreen from '../assets/images/haven_2.png';
-// example end
 import dust2 from '../assets/images/dust2_1.png';
 import worldsEdge from '../assets/images/worlds_edge_v2_1.png';
 import haven from '../assets/images/haven_1.png';
@@ -27,7 +23,7 @@ import SectionTitle from "./SectionTitle";
 import {useInView} from "react-intersection-observer";
 import './Games.css';
 import Slider from "react-slick";
-
+import { useState, useEffect } from 'react';
 
 const ApexCharacterImage = styled('div')(({ theme }) => ({
     backgroundImage: `url('${wraith}')`,
@@ -220,6 +216,7 @@ const GameTitleText = styled('div')(({ theme }) => ({
 
 const mobileGamesCarouselSettings = {
     dots: true,
+    lazyLoad: true,
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -318,6 +315,7 @@ function Games() {
         triggerOnce: true,
         rootMargin: '-50px 0px',
     });
+
     return (
         <Grid container sx={{mt:{ lg:6, md:5, xs:4 }, pt:4, pl:2, pr:2, pb:5, backgroundColor:"#f6f6f6"}} ref={ref} justifyContent="center">
             <Grid item md={12}>

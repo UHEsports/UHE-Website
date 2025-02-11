@@ -1,9 +1,7 @@
 import React from "react";
 import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png';
 import css_logo from '../assets/images/css-logo-color-1.png';
-// import isp_logo from '../assets/images/isp-transparent-1.png';
 import isp_logo from '../assets/images/isp-colored-1.png';
-
 import {
   AppBar,
   Toolbar,
@@ -17,6 +15,7 @@ import {
   ListItemButton,
   Divider,
 } from "@mui/material";
+
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 
 import uheLogo from "../assets/images/uhe_logo.png";
@@ -61,6 +60,7 @@ function Navbar() {
             </Link>
           </ListItemButton>
         </ListItem>
+        {/*TODO FUTURE UPDATE*/}
         {/*<Divider />*/}
         {/*<ListItem disablePadding>*/}
         {/*  <ListItemButton>*/}
@@ -132,7 +132,6 @@ function Navbar() {
                 justifyContent="center"
                 alignItems="center"
             >
-              {/* Logo Container */}
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <img
                     alt="UHE Logo"
@@ -174,6 +173,7 @@ function Navbar() {
                 >
                   Home
                 </Link>
+                {/*TODO FUTURE UPDATE*/}
                 {/*<Link*/}
                 {/*  component={RouterLink}*/}
                 {/*  underline="none"*/}
