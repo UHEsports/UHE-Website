@@ -246,7 +246,7 @@ function OurMilestones() {
                     Our Milestones
                 </SectionTitle>
             </Grid>
-            <Grid sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} sm={12} xs={12}>
+            <Grid item sx={{mt:{ lg:2, md:1, xs:1 }}} lg={11} md={11} sm={12} xs={12}>
                 <Slider {...carousel_settings}>
                     {
                         milestone_images.map((milestone, index) => {
@@ -378,11 +378,11 @@ function UHEInfoBlock() {
             {/*</Grid>*/}
 
             {/*Display when it is less than md*/}
-            <Grid lg={1} md={1}></Grid>
-            <Grid sx={{ mt:2, display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5}  sm={11} xs={12} item>
+            <Grid item lg={1} md={1}></Grid>
+            <Grid item sx={{ mt:2, display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5}  sm={11} xs={12}>
                 <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
-            <Grid sx={{ display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5} sm={11} xs={12} item>
+            <Grid item sx={{ display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5} sm={11} xs={12}>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
@@ -429,7 +429,7 @@ function Sponsors() {
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                 <SponsorLogos src={apcu_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
             </Grid>
-            <Grid lg={1} md={1}></Grid>
+            <Grid item lg={1} md={1}></Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                 <SponsorLogos src={acm_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
             </Grid>

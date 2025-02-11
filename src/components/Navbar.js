@@ -209,7 +209,6 @@ function Navbar() {
 
             <Grid
               sx={{ display: { lg: "none", md: "none", xs: "block" } }}
-              xs={12}
             >
               <IconButton
                 size="large"
