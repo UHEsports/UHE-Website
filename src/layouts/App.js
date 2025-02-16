@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import  ReactGA from 'react-ga4';
+import FooterSectionDescription from "../components/FooterSectionDescription";
 
 const TRACKING_ID = "G-XQZWBNG700"; // Tracking ID for Google Analytics
 ReactGA.initialize(TRACKING_ID);
@@ -34,7 +35,7 @@ function App() {
         let appID = document.getElementById('AppID');
         let scrollPosition = window.scrollY;
         const maxScrollHeight = appID.clientHeight-window.innerHeight;
-        const scrollHeightOffset = 200;
+        const scrollHeightOffset = 50;
         if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
             scrollToTopBtn.classList.add("slideIn1000ms");
             scrollToTopBtn.classList.remove("slideOut1000ms");
@@ -70,10 +71,10 @@ function App() {
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
-                bottom: { xs: 45, sm: 240, md: 220, lg: 220 }, 
-                right:{xs: 50, sm: 25, md: 25, lg: 25},
-                width: { xs: '75px', sm: '90px', md: '80px', lg: '80px' }, 
-                height: { xs: '75px', sm: '90px', md: '80px', lg: '80px' },             
+                bottom: { xs: 45, sm: 210, md: 210, lg: 210 },
+                right:{xs: 35, sm: 30, md:30, lg: 30},
+                width: { xs: '70px', sm: '70px', md: '70px', lg: '70px' },
+                height: { xs: '70px', sm: '70px', md: '70px', lg: '70px' },
                 display: 'flex', 
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -81,9 +82,10 @@ function App() {
             }}
             onClick={scrollToTop}
         >
-        <ArrowUpwardIcon sx={{ fontSize: { xs: '50px', sm: '35px', md: '35px', lg: '50px' } }} /> {/* adjust icon size */}
+        <ArrowUpwardIcon sx={{ fontSize: { xs: '40px', sm: '40px', md: '40px', lg: '40px' } }} /> {/* adjust icon size */}
         </Button>
         <Footer />
+        {/*<FooterSectionDescription />*/}
     </div>
   );
 }

@@ -388,6 +388,8 @@ function UHEInfoBlock() {
                 </SectionTitle>
                 <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
                     UH offers courses, internships, practicums, and workshops related to an ever-expanding, multicultural, and fast-paced field of esports
+                </SectionDescription>
+                <Box className={inView ? 'slideIn1700ms' : 'hidden'} sx={{ display: 'flex', justifyContent: 'flex-start', mt: 2 }}>
                     <Button
                         sx={{mt:2, fontWeight:"bold"}}
                         size="large"
@@ -398,7 +400,7 @@ function UHEInfoBlock() {
                         to="/education">
                         Read More
                     </Button>
-                </SectionDescription>
+                </Box>
             </Grid>
         </Grid>
 

@@ -33,6 +33,7 @@ function Navbar() {
     <Box
       sx={{ width: "auto" }}
       role="presentation"
+      onClick={toggleDrawer(false)}
     >
       <List disablePadding>
         <ListItem disablePadding>
@@ -220,7 +221,7 @@ function Navbar() {
       <Drawer
           anchor="top"
           open={open}
-          onClose={() => toggleDrawer(false)}
+          onClose={toggleDrawer(false)}
       >
         {list()}
       </Drawer>
