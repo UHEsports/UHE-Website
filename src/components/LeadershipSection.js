@@ -21,7 +21,7 @@ const LeadershipImage = styled('div')(({ theme }) => ({
 
 const LeadershipName = styled('div')(({ theme }) => ({
     fontWeight: "700",
-    wordSpacing: '-3px',
+    // wordSpacing: '-3px',
     letterSpacing: "-1px",
     fontSize: "40px",
     [theme.breakpoints.down('lg')]: {
