@@ -10,20 +10,16 @@ import DiscordSolidIcon from "./DiscordSolidIcon";
 
 import {styled} from "@mui/material/styles";
 
-// Utilize as a DIV box
 const FooterText = styled('div')(({ theme }) => ({
     fontWeight: 600,
     letterSpacing: "-0.15px",
-    fontSize: "1.1rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize: "1.1rem",
-        // fontSize: "1rem",
-    },
+    fontSize: "18px",
 }));
+
 const ContactFooterText = styled('div')(({ theme }) => ({
     fontWeight: 300,
     letterSpacing: "-0.15px",
-    fontSize: "1.7rem",
+    fontSize: "27px",
 }));
 
 function Footer() {
@@ -47,8 +43,8 @@ function Footer() {
                     src={uheLogo}
                     sx={{
                         width: {
-                            xs: '175px',  // for extra small screens (mobile)
-                            sm: '150px',  // for small screens (tablets)
+                            xs: '175px',
+                            sm: '150px',
                             md: '150px',
                             lg: '150px',
 
@@ -56,7 +52,7 @@ function Footer() {
                     }}
                 />
 
-                    <Box sx={{display: 'flex', flexDirection: 'row', ml:{lg:4, md:4, sm:4, xs:4}}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row', ml:4}}>
                         <Link
                             underline="none"
                             variant="button"
@@ -66,7 +62,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TwitchSolidIcon sx={{fontSize:{lg:30, md: 30, sm: 30, xs: 30}}} />
+                            <TwitchSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
                             underline="none"
@@ -77,7 +73,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <InstagramSolidIcon sx={{fontSize:{lg:30, md: 30, sm: 30, xs: 30}}} />
+                            <InstagramSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
                             underline="none"
@@ -88,7 +84,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <TiktokSolidIcon sx={{fontSize:{lg:30, md: 30, sm: 30, xs: 30}}} />
+                            <TiktokSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
                             underline="none"
@@ -99,7 +95,7 @@ function Footer() {
                             target="_blank"
                             sx={{mr: 0.25 }}
                         >
-                            <DiscordSolidIcon sx={{fontSize:{lg:30, md: 30, sm: 30, xs: 30}}} />
+                            <DiscordSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
                             underline="none"
@@ -110,14 +106,14 @@ function Footer() {
                             target="_blank"
                             sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
                         >
-                            <TwitterIcon sx={{fontSize:{lg:30, md: 30, sm: 30, xs: 30}}} />
+                            <TwitterIcon sx={{fontSize:30}} />
                         </Link>
                     </Box>
 
 
 
 
-                <FooterText sx={{mt:2, textAlign:'left', color:'grey', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
+                <FooterText sx={{fontSize:'16px', fontWeight:400, mt:2, textAlign:'left', color:'grey', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
                     &copy; 2025 UH Esports. All Rights reserved.
                 </FooterText>
                 </Box>
@@ -154,7 +150,7 @@ function Footer() {
                         </FooterText>
                     </Grid>
                     <Grid item xs={12} sx={{alignItems: 'center', mt:3}} >
-                        <FooterText sx={{textAlign:'left', color:'grey', ml:4, mb:5}}>
+                        <FooterText sx={{fontSize:'16px', fontWeight:400, textAlign:'left', color:'grey', ml:4, mb:5}}>
                             &copy; 2025 UH Esports.<br/>
                             All Rights reserved.
                         </FooterText>

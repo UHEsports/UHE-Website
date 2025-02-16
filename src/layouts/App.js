@@ -81,7 +81,7 @@ function App() {
             }}
             onClick={scrollToTop}
         >
-        <ArrowUpwardIcon sx={{ fontSize: '40px'}} /> {/* adjust icon size */}
+        <ArrowUpwardIcon sx={{ fontSize: '40px'}} />
         </Button>
         <Footer />
     </div>
