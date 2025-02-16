@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Grid, Link} from '@mui/material';
 import uheLogo from "../assets/images/uhe_logo.png";
+import footerBackground from "../assets/images/footer-background.png";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramSolidIcon from "./InstagramSolidIcon";
 import TwitchSolidIcon from "./TwitchSolidIcon";
@@ -9,131 +10,157 @@ import DiscordSolidIcon from "./DiscordSolidIcon";
 
 import {styled} from "@mui/material/styles";
 
-// Utilize as a DIV box
 const FooterText = styled('div')(({ theme }) => ({
+    fontWeight: 600,
+    letterSpacing: "-0.15px",
+    fontSize: "18px",
+}));
+
+const ContactFooterText = styled('div')(({ theme }) => ({
     fontWeight: 300,
     letterSpacing: "-0.15px",
-    fontSize: "1.2rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize: "1.15rem",
-    },
+    fontSize: "27px",
 }));
 
 function Footer() {
     return(
-            <Grid container sx={{pt:2, pb:4, backgroundColor: "#f6f6f6", alignItems: "center", justifyContent: "space-between"}}>
-               <Box sx={{ml:{lg:1, md:1, sm:0, xs:0}}}>
-                   <img
-                       alt="UHE Logo"
-                       width="150px"
-                       src={uheLogo}
-                   />
-               </Box>
-               <Box sx={{display: 'flex', flexDirection: 'flex-end'}}>
-                   <Link
-                       underline="none"
-                       variant="button"
-                       color="black"
-                       rel="noopener noreferrer"
-                       href="https://www.twitch.tv/uh_esports"
-                       target="_blank"
-                       sx={{mr: 0.25 }}
-                   >
-                       <TwitchSolidIcon sx={{fontSize:35}} />
-                   </Link>
-                   <Link
-                       underline="none"
-                       variant="button"
-                       color="black"
-                       rel="noopener noreferrer"
-                       href="https://www.instagram.com/uhesports/"
-                       target="_blank"
-                       sx={{mr: 0.25 }}
-                   >
-                       <InstagramSolidIcon sx={{fontSize:35}} />
-                   </Link>
-                   <Link
-                       underline="none"
-                       variant="button"
-                       color="black"
-                       rel="noopener noreferrer"
-                       href="https://www.tiktok.com/@uhesports"
-                       target="_blank"
-                       sx={{mr: 0.25 }}
-                   >
-                       <TiktokSolidIcon sx={{fontSize:35}} />
-                   </Link>
-                   <Link
-                       underline="none"
-                       variant="button"
-                       color="black"
-                       rel="noopener noreferrer"
-                       href="https://discord.com/invite/UHEsports"
-                       target="_blank"
-                       sx={{mr: 0.25 }}
-                   >
-                       <DiscordSolidIcon sx={{fontSize:35}} />
-                   </Link>
-                   <Link
-                       underline="none"
-                       variant="button"
-                       color="black"
-                       rel="noopener noreferrer"
-                       href="https://twitter.com/UHEsport"
-                       target="_blank"
-                       sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
-                   >
-                       <TwitterIcon sx={{fontSize:35}} />
-                   </Link>
-               </Box>
+            <Grid
+                container
+                sx={{
+                    backgroundImage:`url("${footerBackground}")`,
+                    backgroundSize: '910px 830.77px',
+                    backgroundRepeat:'no-repeat',
+                    backgroundPosition: {lg:'-400px -200px', md: '-500px -200px', sm:'-550px -200px', xs:'200px -150px'},
+                    pt:{lg:6, md:6, sm:6, xs:2},
+                    pb:{lg:4, md:4, sm:4, xs:0},
+                    backgroundColor: "#f6f6f6",
+                    alignItems: "center",
+                    justifyContent: "space-between"}}>
+                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ml:{lg:1, md:1, sm:1, xs:0}}}>
+                <Box
+                    component="img"
+                    alt="UHE Logo"
+                    src={uheLogo}
+                    sx={{
+                        width: {
+                            xs: '175px',
+                            sm: '150px',
+                            md: '150px',
+                            lg: '150px',
 
-                <Grid container spacing={2} sx={{ display: { lg: "flex", md: "flex", sm: "none", xs: "none" } }}>
-                    <Grid item sx={{alignItems: 'center'}} lg={5} md={6}>
-                        <FooterText sx={{textAlign:'left', color:'grey', ml:7}}>
-                            <br/>
-                            &copy; 2023 UH Esports. All Rights reserved.
-                        </FooterText>
-                    </Grid>
-                    <Grid item lg={2} md={1} />
-                    <Grid item lg={3} md={1} >
-                        <FooterText sx={{textAlign:'right', color:'grey'}}>
-                            <br/>
+                        }
+                    }}
+                />
+
+                    <Box sx={{display: 'flex', flexDirection: 'row', ml:4}}>
+                        <Link
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            rel="noopener noreferrer"
+                            href="https://www.twitch.tv/uh_esports"
+                            target="_blank"
+                            sx={{mr: 0.25 }}
+                        >
+                            <TwitchSolidIcon sx={{fontSize:30}} />
+                        </Link>
+                        <Link
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            rel="noopener noreferrer"
+                            href="https://www.instagram.com/uhesports/"
+                            target="_blank"
+                            sx={{mr: 0.25 }}
+                        >
+                            <InstagramSolidIcon sx={{fontSize:30}} />
+                        </Link>
+                        <Link
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            rel="noopener noreferrer"
+                            href="https://www.tiktok.com/@uhesports"
+                            target="_blank"
+                            sx={{mr: 0.25 }}
+                        >
+                            <TiktokSolidIcon sx={{fontSize:30}} />
+                        </Link>
+                        <Link
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            rel="noopener noreferrer"
+                            href="https://discord.com/invite/UHEsports"
+                            target="_blank"
+                            sx={{mr: 0.25 }}
+                        >
+                            <DiscordSolidIcon sx={{fontSize:30}} />
+                        </Link>
+                        <Link
+                            underline="none"
+                            variant="button"
+                            color="black"
+                            rel="noopener noreferrer"
+                            href="https://twitter.com/UHEsport"
+                            target="_blank"
+                            sx={{mr:{lg:4, md:4, sm:3, xs:2} }}
+                        >
+                            <TwitterIcon sx={{fontSize:30}} />
+                        </Link>
+                    </Box>
+
+
+
+
+                <FooterText sx={{fontSize:'16px', fontWeight:400, mt:2, textAlign:'left', color:'grey', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
+                    &copy; 2025 UH Esports. All Rights reserved.
+                </FooterText>
+                </Box>
+               <Grid container sx={{ position: 'relative', display: { lg: "flex", md: "flex", sm: "flex", xs: "none" }}}>
+                    <Grid item lg={2} md={1} sm={2} />
+                    <Grid item sx={{position: 'absolute', right:0, top:'-159px'}} lg={3} md={4} sm={6}> {/*unable to find a way to keep the contents of each box level, so used positioning and top/right to make it even */}
+                        <ContactFooterText sx={{textAlign: 'right', color: 'black', fontWeight: 'bold', mr: 4}}>
+                            Contact
+                        </ContactFooterText>
+                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
                             uhesport@hawaii.edu
                         </FooterText>
-                    </Grid>
-                    <Grid item sx={{float:'right'}} lg={2} md={4}>
-                        <FooterText sx={{textAlign:'right', color:'grey', mr:4}}>
+                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
                             2532 Correa Rd,<br/>
-                            Honolulu, HI 96822
+                            Honolulu, HI 96822<br/>
+                            United States of America
                         </FooterText>
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={3} sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" } }}>
-                    <Grid item sm={2} xs={0}></Grid>
-                    <Grid item sm={6} xs={12}>
-                        <FooterText sx={{mr:{xs:3}, textAlign:'right', color:'grey'}}>
-                            <br/>
+
+                <Grid container sx={{ display: { lg: "none", md: "none", sm: "none", xs: "flex" }}}>
+                    <Grid item xs={12} sx={{float:'right', mt:2, ml:4}}>
+                        <ContactFooterText sx={{ textAlign: 'left', color: 'black', fontWeight: 'bold' }}>
+                            Contact
+                        </ContactFooterText>
+                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
                             uhesport@hawaii.edu
                         </FooterText>
-                    </Grid>
-                    <Grid item sx={{float:'right', mt:{sm:0, xs:2}}} sm={4} xs={12}>
-                        <FooterText sx={{textAlign:'right', color:'grey', mr:3}}>
-                            2532 Correa Rd,
-                            <br/>
-                            Honolulu, HI 96822
+                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
+                            2532 Correa Rd,<br/>
+                            Honolulu, HI 96822,<br/>
+                            United States of America
                         </FooterText>
                     </Grid>
-                    <Grid item sx={{alignItems: 'center', mt:{xs:1}}} sm={12} xs={12}>
-                        <FooterText sx={{fontSize:{sm:'0.9rem', xs:'0.9rem'}, textAlign:'left', color:'grey', ml:7}}>
-                            <br/>
-                            &copy; 2023 UH Esports. All Rights reserved.
+                    <Grid item xs={12} sx={{alignItems: 'center', mt:3}} >
+                        <FooterText sx={{fontSize:'16px', fontWeight:400, textAlign:'left', color:'grey', ml:4, mb:5}}>
+                            &copy; 2025 UH Esports.<br/>
+                            All Rights reserved.
                         </FooterText>
                     </Grid>
                 </Grid>
+
             </Grid>
     );
 }
 
 
 export default Footer;
+

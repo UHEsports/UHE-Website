@@ -34,7 +34,7 @@ function App() {
         let appID = document.getElementById('AppID');
         let scrollPosition = window.scrollY;
         const maxScrollHeight = appID.clientHeight-window.innerHeight;
-        const scrollHeightOffset = 200;
+        const scrollHeightOffset = 100;
         if (scrollPosition >= maxScrollHeight - scrollHeightOffset) {
             scrollToTopBtn.classList.add("slideIn1000ms");
             scrollToTopBtn.classList.remove("slideOut1000ms");
@@ -67,16 +67,21 @@ function App() {
             variant="contained"
             arial-label="Scroll to top"
             color="uhegreen"
-            style={{maxWidth: '50px', maxHeight: '50px', minWidth: '50px', minHeight: '50px'}}
             sx={{
                 borderRadius: '50%',
                 position: "fixed",
-                bottom: 20,
-                right: 20,
+                bottom: { xs: 45, sm: 210, md: 210, lg: 210 },
+                right:{xs: 35, sm: 30, md:30, lg: 30},
+                width: '70px',
+                height: '70px',
+                display: 'flex', 
+                alignItems: 'center',
+                justifyContent: 'center',
+
             }}
             onClick={scrollToTop}
         >
-            <ArrowUpwardIcon />
+        <ArrowUpwardIcon sx={{ fontSize: '40px'}} />
         </Button>
         <Footer />
     </div>

@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 const OpeningImage = styled('div')(({ theme, imageURL }) => ({
     backgroundImage: `url('${imageURL}')`,
+    backgroundPosition:'center',
     backgroundSize: "cover",
     height: "1000px",
     display: "flex",
