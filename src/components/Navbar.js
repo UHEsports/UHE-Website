@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import apcu_white_logo from '../assets/images/APCU_vert_2016_white.png';
-import css_logo from '../assets/images/css-logo-color-1.png';
-import isp_logo from '../assets/images/isp-colored-1.png';
+import apcu_white_logo from '../assets/images/logos/APCU_vert_2016_white.png';
+import css_logo from '../assets/images/education/css-logo-color-1.png';
+import isp_logo from '../assets/images/education/isp-colored-1.png';
 import {
   AppBar,
   Toolbar,
@@ -18,7 +18,7 @@ import {
 
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 
-import uheLogo from "../assets/images/uhe_logo.png";
+import uheLogo from "../assets/images/logos/uhe_logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {

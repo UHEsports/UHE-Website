@@ -3,14 +3,14 @@ import { useInView } from "react-intersection-observer";
 import SectionTitle from "../components/SectionTitle";
 import SectionDescription from "../components/SectionDescription";
 import OpeningPageImage from "../components/OpeningPageImage";
-import group_3 from "../assets/images/group_3.jpg";
-import contact_us_opening_image from "../assets/images/contact_us_opening_image.png";
-import skyHeadshot from "../assets/images/Nyle-Sky-Kauweloa2-jpg.webp";
-import madelineHeadshot from "../assets/images/Madeline_headshot.jpg";
-import kevinHeadshot from "../assets/images/Headshot_-_Kevin.webp";
-import katHeadshot from "../assets/images/kat_headshot.jpg";
-import gunHeadshot from "../assets/images/Gun_Headshot.webp";
-import camilleHeadshot from "../assets/images/camille_headshot.jpg";
+import group_3 from "../assets/images/contact-us/group_3.jpg";
+import contact_us_opening_image from "../assets/images/contact-us/contact_us_opening_image.png";
+import skyHeadshot from "../assets/images/contact-us/Nyle-Sky-Kauweloa2-jpg.webp";
+import madelineHeadshot from "../assets/images/contact-us/Madeline_headshot.jpg";
+import kevinHeadshot from "../assets/images/contact-us/Headshot_-_Kevin.webp";
+import katHeadshot from "../assets/images/contact-us/kat_headshot.jpg";
+import gunHeadshot from "../assets/images/contact-us/Gun_Headshot.webp";
+import camilleHeadshot from "../assets/images/contact-us/camille_headshot.jpg";
 import {
     Divider,
     Box,

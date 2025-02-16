@@ -1,6 +1,6 @@
 import React from "react";
 import {Box, Grid, Link} from '@mui/material';
-import uheLogo from "../assets/images/uhe_logo.png";
+import uheLogo from "../assets/images/logos/uhe_logo.png";
 import footerBackground from "../assets/images/footer-background.png";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramSolidIcon from "./InstagramSolidIcon";
