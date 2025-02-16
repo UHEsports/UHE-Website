@@ -201,6 +201,9 @@ const MileStoneTextTitle = styled('div')(({theme}) => ({
     fontSize: "24px",
     fontWeight: 'bold',
     margin: '0px 16px 0 20px',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: "20px",
+    },
 }));
 
 const milestone_images = [
@@ -380,13 +383,13 @@ function UHEInfoBlock() {
             {/*Display when it is less than md*/}
             <Grid item lg={1} md={1}></Grid>
             <Grid item sx={{ mt:2, display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5}  sm={11} xs={12}>
-                <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`}} className={inView ? 'slideIn1000ms' : 'hidden'} />
+                <UHEInfoImages style={{backgroundImage:`url("${education_uhe_info}"`, backgroundPosition:'center'}} className={inView ? 'slideIn1000ms' : 'hidden'} />
             </Grid>
             <Grid item sx={{ display: {lg: 'block', md: 'block', xs:'block' }}} lg={4} md={5} sm={11} xs={12}>
                 <SectionTitle style={{textAlign:"left"}} className={inView ? 'slideIn1300ms' : 'hidden'}>
                     Education
                 </SectionTitle>
-                <SectionDescription className={inView ? 'slideIn1500ms' : 'hidden'}>
+                <SectionDescription sx={{mt:2,}} className={inView ? 'slideIn1500ms' : 'hidden'}>
                     UH offers courses, internships, practicums, and workshops related to an ever-expanding, multicultural, and fast-paced field of esports
                 </SectionDescription>
                 <Box className={inView ? 'slideIn1700ms' : 'hidden'} sx={{ display: 'flex', justifyContent: 'flex-start', mt: 2 }}>

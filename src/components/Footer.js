@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Grid, Link} from '@mui/material';
 import uheLogo from "../assets/images/uhe_logo.png";
+import footerBackground from "../assets/images/footer-background.png";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramSolidIcon from "./InstagramSolidIcon";
 import TwitchSolidIcon from "./TwitchSolidIcon";
@@ -11,25 +12,34 @@ import {styled} from "@mui/material/styles";
 
 // Utilize as a DIV box
 const FooterText = styled('div')(({ theme }) => ({
-    fontWeight: 300,
+    fontWeight: 600,
     letterSpacing: "-0.15px",
-    fontSize: "1.2rem",
+    fontSize: "1.1rem",
     [theme.breakpoints.down('sm')]: {
-        fontSize: "1.15rem",
+        fontSize: "1.1rem",
+        // fontSize: "1rem",
     },
 }));
 const ContactFooterText = styled('div')(({ theme }) => ({
     fontWeight: 300,
     letterSpacing: "-0.15px",
-    fontSize: "1.5rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize: "1.7rem",
-    },
+    fontSize: "1.7rem",
 }));
 
 function Footer() {
     return(
-            <Grid container sx={{pt:{lg:6, md:6, sm:6, xs:2}, pb:{lg:4, md:4, sm:4, xs:0}, backgroundColor: "#f6f6f6", alignItems: "center", justifyContent: "space-between"}}>
+            <Grid
+                container
+                sx={{
+                    backgroundImage:`url("${footerBackground}")`,
+                    backgroundSize: '910px 830.77px',
+                    backgroundRepeat:'no-repeat',
+                    backgroundPosition: {lg:'-400px -200px', md: '-500px -200px', sm:'-550px -200px', xs:'200px -150px'},
+                    pt:{lg:6, md:6, sm:6, xs:2},
+                    pb:{lg:4, md:4, sm:4, xs:0},
+                    backgroundColor: "#f6f6f6",
+                    alignItems: "center",
+                    justifyContent: "space-between"}}>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ml:{lg:1, md:1, sm:1, xs:0}}}>
                 <Box
                     component="img"
@@ -107,21 +117,20 @@ function Footer() {
 
 
 
-                <FooterText sx={{mt:2, textAlign:'left', color:'grey', fontSize:'1.1rem', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
+                <FooterText sx={{mt:2, textAlign:'left', color:'grey', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
                     &copy; 2025 UH Esports. All Rights reserved.
                 </FooterText>
                 </Box>
-               <Grid container spacing={2} sx={{ position: 'relative', display: { lg: "flex", md: "flex", sm: "flex", xs: "none" }}}>
+               <Grid container sx={{ position: 'relative', display: { lg: "flex", md: "flex", sm: "flex", xs: "none" }}}>
                     <Grid item lg={2} md={1} sm={2} />
                     <Grid item sx={{position: 'absolute', right:0, top:'-159px'}} lg={3} md={4} sm={6}> {/*unable to find a way to keep the contents of each box level, so used positioning and top/right to make it even */}
-                        <ContactFooterText
-                            sx={{textAlign: 'right', color: 'black', fontWeight: 'bold', fontSize: '1.5rem', mr: 4}}>
+                        <ContactFooterText sx={{textAlign: 'right', color: 'black', fontWeight: 'bold', mr: 4}}>
                             Contact
                         </ContactFooterText>
-                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', fontSize:'1.1rem', mr:4}}>
+                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
                             uhesport@hawaii.edu
                         </FooterText>
-                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', fontSize:'1.1rem', mr:4}}>
+                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822<br/>
                             United States of America
@@ -131,30 +140,22 @@ function Footer() {
 
 
                 <Grid container sx={{ display: { lg: "none", md: "none", sm: "none", xs: "flex" }}}>
-                    <Grid item xs={12} sx={{float:'right', mt:{sm:0, xs:2}, ml:{xs:4}}}>
-                        {/*<FooterText>*/}
-                        {/*    <br/>*/}
-                        {/*</FooterText>*/}
-                        {/*<FooterText sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "none" } }}>*/}
-                        {/*    <br/>*/}
-                        {/*</FooterText>*/}
+                    <Grid item xs={12} sx={{float:'right', mt:2, ml:4}}>
                         <ContactFooterText sx={{ textAlign: 'left', color: 'black', fontWeight: 'bold' }}>
                             Contact
                         </ContactFooterText>
-                        <FooterText>
-                            <br/>
+                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
+                            uhesport@hawaii.edu
                         </FooterText>
-                        <FooterText sx={{textAlign:'left', color:'grey', fontSize:'1.1rem'}}>
-                            uhesport@hawaii.edu<br/><br/>
+                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822,<br/>
                             United States of America
                         </FooterText>
                     </Grid>
-                    <Grid item xs={12} sx={{alignItems: 'center', mt:{sm:1}}} >
-                        <FooterText sx={{fontSize:'1.2rem', textAlign:'left', color:'grey', ml:{xs:4}, mb:{sm:0, xs:5}}}>
-                            <br/>
-                            &copy; 2023 UH Esports.<br/>
+                    <Grid item xs={12} sx={{alignItems: 'center', mt:3}} >
+                        <FooterText sx={{textAlign:'left', color:'grey', ml:4, mb:5}}>
+                            &copy; 2025 UH Esports.<br/>
                             All Rights reserved.
                         </FooterText>
                     </Grid>

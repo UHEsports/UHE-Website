@@ -26,7 +26,7 @@ ReactGA.send({ hitType: "pageview", page: '/contact-us', title: "ContactUs" }); 
 function GivingDescription() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-50px 0px",
+    rootMargin: "-100px 0px",
   });
   return (
     <Grid
@@ -83,7 +83,7 @@ function DonationComponent() {
     // TODO the heights=52% and 48% are to give more spacing to our grid columns, this todo signifies further documentation and comments to describe the code structure.
     const { ref, inView } = useInView({
         triggerOnce: true,
-        rootMargin: "-150px",
+        rootMargin: "-100px",
     });
     return (
         <Grid container sx={{mt:{ lg:8, md:4, sm:4, xs:4} }} ref={ref}>
