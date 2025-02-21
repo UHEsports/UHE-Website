@@ -178,8 +178,9 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
     backgroundImage: `url('${defaultBackground}')`,
     // color: 'rgba(110,110,110,0)',
     // visibility: 'hidden',
+    backgroundColor:'grey',
     color:'rgba(255,255,255,1)',
-    transition: 'background-image .5s, visibility .5s',
+    transition: 'background-image .5s, color .5s',
     width: '125px !important',
     height: '450px',
     [theme.breakpoints.down('lg')]: {
@@ -203,7 +204,6 @@ const GameTitleText = styled('div')(({ theme }) => ({
     width: '420px',
     top: '47%',
     left:'-105px',
-    color:'rgba(255,255,255,1)',
     [theme.breakpoints.down('lg')]: {
         fontSize: "2.30rem",
         top: '40%',

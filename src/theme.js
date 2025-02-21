@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         uhegreen: {
-            main:"#00a772",
+            main:"#00855B",
             contrastText: 'white',
         },
     }
