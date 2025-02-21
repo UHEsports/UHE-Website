@@ -180,7 +180,7 @@ function AboutSection() {
                             return (
                                 <div key={{index}}>
                                     <Grid sx={{ml:{lg:2, md:2, sm:2, xs:0}, mt:3, mb:1, overflow:'hidden'}} direction="column" container alignItems="center">
-                                        <CarouselImages src={who_are_we.image} />
+                                        <CarouselImages alt="" src={who_are_we.image} />
                                         <Box sx={{mt:2}}>
                                             <MileStoneTextTitle style={{textAlign:'center'}}>{who_are_we.title}</MileStoneTextTitle>
                                         </Box>
@@ -256,7 +256,7 @@ function OurMilestones() {
                             return (
                                 <div key={{index}}>
                                     <Grid sx={{ml:{lg:2, md:2, sm:2, xs:0}, mt:3, mb:1, overflow:'hidden'}} direction="column" container alignItems="center">
-                                        <CarouselImages src={milestone.image} />
+                                        <CarouselImages alt="" src={milestone.image} />
                                         <Box sx={{mt:2}}>
                                             <MileStoneTextTitle style={{textAlign:'center'}}>{milestone.title}</MileStoneTextTitle>
                                         </Box>
@@ -432,11 +432,11 @@ function Sponsors() {
                 </SectionTitle>
             </Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <SponsorLogos src={apcu_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
+                <SponsorLogos alt="apcu logo" src={apcu_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
             </Grid>
             <Grid item lg={1} md={1}></Grid>
             <Grid item lg={2} md={3} xs={6} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                <SponsorLogos src={acm_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
+                <SponsorLogos alt="acm logo" src={acm_logo} className={inView ? 'slideIn1900ms' : 'hidden'} />
             </Grid>
         </Grid>
     );

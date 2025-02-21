@@ -176,8 +176,10 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundImage: `url('${defaultBackground}')`,
-    color: 'rgba(255,255,255,0)',
-    transition: 'background-image .5s, color .5s',
+    // color: 'rgba(110,110,110,0)',
+    // visibility: 'hidden',
+    color:'rgba(255,255,255,1)',
+    transition: 'background-image .5s, visibility .5s',
     width: '125px !important',
     height: '450px',
     [theme.breakpoints.down('lg')]: {
@@ -191,14 +193,17 @@ const GameCard = styled('div')(({theme, defaultBackground}) => ({
 }));
 
 const GameTitleText = styled('div')(({ theme }) => ({
+    zIndex: '99',
     fontWeight: 'bold',
     fontSize: "2.45rem",
     textAlign:'left',
     transform: 'rotate(-90deg)',
+    // position: 'fixed',
     position:'absolute',
     width: '420px',
     top: '47%',
     left:'-105px',
+    color:'rgba(255,255,255,1)',
     [theme.breakpoints.down('lg')]: {
         fontSize: "2.30rem",
         top: '40%',

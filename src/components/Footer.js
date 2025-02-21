@@ -14,12 +14,14 @@ const FooterText = styled('div')(({ theme }) => ({
     fontWeight: 600,
     letterSpacing: "-0.15px",
     fontSize: "18px",
+    color: '#6E6E6E'
 }));
 
 const ContactFooterText = styled('div')(({ theme }) => ({
     fontWeight: 300,
     letterSpacing: "-0.15px",
     fontSize: "27px",
+    color: '#6E6E6E'
 }));
 
 function Footer() {
@@ -54,6 +56,7 @@ function Footer() {
 
                     <Box sx={{display: 'flex', flexDirection: 'row', ml:4}}>
                         <Link
+                            aria-label="UHE Twitch link"
                             underline="none"
                             variant="button"
                             color="black"
@@ -65,6 +68,7 @@ function Footer() {
                             <TwitchSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
+                            aria-label="UHE Instagram link"
                             underline="none"
                             variant="button"
                             color="black"
@@ -76,6 +80,7 @@ function Footer() {
                             <InstagramSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
+                            aria-label="UHE Tiktok link"
                             underline="none"
                             variant="button"
                             color="black"
@@ -87,6 +92,7 @@ function Footer() {
                             <TiktokSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
+                            aria-label="UHE Discord link"
                             underline="none"
                             variant="button"
                             color="black"
@@ -98,6 +104,7 @@ function Footer() {
                             <DiscordSolidIcon sx={{fontSize:30}} />
                         </Link>
                         <Link
+                            aria-label="UHE Twitter link"
                             underline="none"
                             variant="button"
                             color="black"
@@ -113,7 +120,7 @@ function Footer() {
 
 
 
-                <FooterText sx={{fontSize:'16px', fontWeight:400, mt:2, textAlign:'left', color:'grey', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
+                <FooterText sx={{fontSize:'16px', fontWeight:400, mt:2, textAlign:'left', ml:{lg:4, md:4, sm:4}, display: {lg: "flex", md: "flex", sm: "flex", xs: "none"}}}>
                     &copy; 2025 UH Esports. All Rights reserved.
                 </FooterText>
                 </Box>
@@ -123,10 +130,10 @@ function Footer() {
                         <ContactFooterText sx={{textAlign: 'right', color: 'black', fontWeight: 'bold', mr: 4}}>
                             Contact
                         </ContactFooterText>
-                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
+                        <FooterText sx={{mt:3, textAlign:'right', mr:4}}>
                             uhesport@hawaii.edu
                         </FooterText>
-                        <FooterText sx={{mt:3, textAlign:'right', color:'grey', mr:4}}>
+                        <FooterText sx={{mt:3, textAlign:'right', mr:4}}>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822<br/>
                             United States of America
@@ -140,17 +147,17 @@ function Footer() {
                         <ContactFooterText sx={{ textAlign: 'left', color: 'black', fontWeight: 'bold' }}>
                             Contact
                         </ContactFooterText>
-                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
+                        <FooterText sx={{mt:3, textAlign:'left'}}>
                             uhesport@hawaii.edu
                         </FooterText>
-                        <FooterText sx={{mt:3, textAlign:'left', color:'grey'}}>
+                        <FooterText sx={{mt:3, textAlign:'left'}}>
                             2532 Correa Rd,<br/>
                             Honolulu, HI 96822,<br/>
                             United States of America
                         </FooterText>
                     </Grid>
                     <Grid item xs={12} sx={{alignItems: 'center', mt:3}} >
-                        <FooterText sx={{fontSize:'16px', fontWeight:400, textAlign:'left', color:'grey', ml:4, mb:5}}>
+                        <FooterText sx={{fontSize:'16px', fontWeight:400, textAlign:'left', ml:4, mb:5}}>
                             &copy; 2025 UH Esports.<br/>
                             All Rights reserved.
                         </FooterText>

@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { useInView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import  ReactGA from 'react-ga4';
+import {Box} from "@mui/material";
 
 const TRACKING_ID = "G-XQZWBNG700"; // Tracking ID for Google Analytics
 ReactGA.initialize(TRACKING_ID);
@@ -65,7 +66,7 @@ function App() {
         <Button
             className="scrollToTopBtn hidden"
             variant="contained"
-            arial-label="Scroll to top"
+            arial-label="Scroll to top button"
             color="uhegreen"
             sx={{
                 borderRadius: '50%',
@@ -81,7 +82,8 @@ function App() {
             }}
             onClick={scrollToTop}
         >
-        <ArrowUpwardIcon sx={{ fontSize: '40px'}} />
+            <Box sx={{display:'none'}}>scroll to top</Box>
+            <ArrowUpwardIcon role="Scroll to top" arial-label="Scroll to top" sx={{ fontSize: '40px'}} />
         </Button>
         <Footer />
     </div>

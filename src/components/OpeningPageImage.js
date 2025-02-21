@@ -58,7 +58,7 @@ function OpeningPageImage({ header, subtitle1, subtitle2, imageURL }) {
         rootMargin: '-100px 0px',
     });
     return(
-        <OpeningImage ref={ref} imageURL={imageURL}>
+        <OpeningImage ref={ref} imageURL={imageURL} sx={{backgroundColor: 'black'}}>
             <Grid
                 sx={{
                     textAlign: "left",
