@@ -6,10 +6,10 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/contact-us/group_3.jpg";
 import contact_us_opening_image from "../assets/images/contact-us/contact_us_opening_image.png";
 import skyHeadshot from "../assets/images/contact-us/Nyle-Sky-Kauweloa2-jpg.webp";
-import madelineHeadshot from "../assets/images/contact-us/Madeline_headshot.jpg";
+import zeldaHeadshot from "../assets/images/contact-us/zelda_cole.png";
 import kevinHeadshot from "../assets/images/contact-us/Headshot_-_Kevin.webp";
 import katHeadshot from "../assets/images/contact-us/kat_headshot.jpg";
-import gunHeadshot from "../assets/images/contact-us/Gun_Headshot.webp";
+import tylerHeadshot from "../assets/images/contact-us/tyler_kawakami.png";
 import camilleHeadshot from "../assets/images/contact-us/camille_headshot.jpg";
 import {
     Divider,
@@ -145,10 +145,10 @@ function Leadership() {
             <Grid lg={1.5} md={1.5} sm={0} />
             <LeadershipSection name="Sky Kauweloa" role="Director" headshot={skyHeadshot} />
             <LeadershipSection name="Kevin Nguyen" role="Assistant Director" headshot={kevinHeadshot} />
-            <LeadershipSection name="Madeline Gilbert" role="Player Support Coordinator" headshot={madelineHeadshot} />
+            <LeadershipSection name="Zelda Cole" role="Creative Director" headshot={zeldaHeadshot} />
             <Grid lg={1.5} md={1.5} sm={0} />
             <LeadershipSection name="Camille Castro" role="Arena Operations Manager" headshot={camilleHeadshot} />
-            <LeadershipSection name="Gunwook Baik" role="Broadcast Director" headshot={gunHeadshot} />
+            <LeadershipSection name="Tyler Kawakami" role="Broadcast Director" headshot={tylerHeadshot} />
             <LeadershipSection name="Kat Ivanov" role=" Content Director" headshot={katHeadshot} />
         </Grid>
 
