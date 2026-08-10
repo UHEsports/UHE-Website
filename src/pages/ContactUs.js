@@ -6,7 +6,7 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/contact-us/group_3.jpg";
 import contact_us_opening_image from "../assets/images/contact-us/contact_us_opening_image.png";
 import skyHeadshot from "../assets/images/contact-us/Nyle-Sky-Kauweloa2-jpg.webp";
-import zeldaHeadshot from "../assets/images/contact-us/zelda_cole.png";
+import brianHeadshot from "../assets/images/contact-us/brian_dang.png";
 import kevinHeadshot from "../assets/images/contact-us/Headshot_-_Kevin.webp";
 import katHeadshot from "../assets/images/contact-us/kat_headshot.jpg";
 import tylerHeadshot from "../assets/images/contact-us/tyler_kawakami.png";
@@ -22,6 +22,15 @@ import ReactGA from "react-ga4";
 import LeadershipSection from "../components/LeadershipSection";
 
 ReactGA.send({ hitType: "pageview", page: '/contact-us', title: "ContactUs" }); // Page information for Google Analytics
+
+const leaders = [
+  { name: "Sky Kauweloa", role: "Director", headshot: skyHeadshot },
+  { name: "Kevin Nguyen", role: "Assistant Director", headshot: kevinHeadshot },
+  { name: "Zelda Cole", role: "Creative Director", headshot: zeldaHeadshot },
+  { name: "Camille Castro", role: "Arena Operations Manager", headshot: camilleHeadshot },
+  { name: "Tyler Kawakami", role: "Broadcast Director", headshot: tylerHeadshot },
+  { name: "Kat Ivanov", role: "Content Director", headshot: katHeadshot },
+];
 
 function GivingDescription() {
   const { ref, inView } = useInView({
@@ -141,15 +150,21 @@ function Leadership() {
                 <Divider sx={{ borderBottomWidth: 5 }} />
             </Grid>
         </Grid>
-        <Grid item container lg={12} justifyContent='center'>
-            <Grid lg={1.5} md={1.5} sm={0} />
-            <LeadershipSection name="Sky Kauweloa" role="Director" headshot={skyHeadshot} />
-            <LeadershipSection name="Kevin Nguyen" role="Assistant Director" headshot={kevinHeadshot} />
-            <LeadershipSection name="Zelda Cole" role="Creative Director" headshot={zeldaHeadshot} />
-            <Grid lg={1.5} md={1.5} sm={0} />
-            <LeadershipSection name="Camille Castro" role="Arena Operations Manager" headshot={camilleHeadshot} />
-            <LeadershipSection name="Tyler Kawakami" role="Broadcast Director" headshot={tylerHeadshot} />
-            <LeadershipSection name="Kat Ivanov" role=" Content Director" headshot={katHeadshot} />
+        <Grid
+            item
+            container
+            lg={12}
+            justifyContent="center"
+            sx={{ maxWidth: { lg: 1100, md: 1100, sm: 640 }, mx: "auto", px: { xs: 1, sm: 2 } }}
+        >
+            {leaders.map((leader) => (
+                <LeadershipSection
+                    key={leader.name}
+                    name={leader.name}
+                    role={leader.role}
+                    headshot={leader.headshot}
+                />
+            ))}
         </Grid>
 
     </Grid>

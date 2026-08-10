@@ -36,12 +36,12 @@ const LeadershipName = styled('div')(({ theme }) => ({
 
 function LeadershipSection({ name, role, headshot }) {
     return(
-        <Grid item container lg={3} md={3} sm={5.5} xs={12} sx={{mt:3, mb:{lg:2, md:2, sm:3, xs:0}}}>
+        <Grid item container lg={4} md={4} sm={6} xs={12} sx={{mt:2, mb:{lg:1.5, md:1.5, sm:2, xs:0}, px:0.5}}>
             <Grid item container lg={12} md={12} sm={12} xs={12} justifyContent='center'>
                 <LeadershipImage sx={{ml:0}} style={{backgroundImage: `url(${headshot})`}} />
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
-                <LeadershipName sx={{mt:2}} style={{textAlign: 'center'}}>
+                <LeadershipName sx={{mt:1.5}} style={{textAlign: 'center'}}>
                     {name}
                 </LeadershipName>
             </Grid>
