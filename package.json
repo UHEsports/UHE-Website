@@ -21,11 +21,14 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
+    "ssh2-sftp-client": "^12.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy:sftp": "node scripts/deploy-sftp.js",
+    "deploy": "npm run build && npm run deploy:sftp",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

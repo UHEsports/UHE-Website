@@ -2,25 +2,45 @@
 name: update-leadership
 description: >-
   Updates the Contact Us Leadership section (add, remove, reorder, or edit
-  names, roles, and headshot images). Copies user-provided image paths into
+  names, roles, and headshot photos). Copies user-provided photos into
   src/assets/images/contact-us/, updates ContactUs.js, opens the local
-  contact-us page for review, and optionally opens a GitHub PR. Use when the
-  user asks to update leadership, change a headshot, add or remove a leader,
-  reorder leaders, or edit Contact Us leadership.
+  Contact Us page for review, then offers the share-changes skill for saving
+  and a team review link. Use when the user asks to update leadership, change
+  a headshot, add or remove a leader, reorder leaders, or edit Contact Us
+  leadership. Audience is non-technical — speak in plain language with the user.
 ---
 
 # Update Leadership (Contact Us)
+
+## Audience & how to talk to the user
+
+Users of this skill are **not** software engineers or frontend developers. They may have little or no tech background.
+
+**When talking to the user** (questions, confirmations, progress updates, summaries):
+- Use everyday words. Prefer “photo” over “headshot asset,” “web page” over “route,” “preview” over “localhost,” “save and share for review” over “open a PR.”
+- Never assume they know Git, GitHub, npm, React, imports, arrays, or file paths.
+- Explain *what changed on the site* and *what they should look at*, not which code files you edited.
+- Keep questions short and concrete. Offer simple choices (edit / add / remove / reorder).
+- If something fails, say what went wrong in plain terms and what they can try next (e.g. “I couldn’t find that photo — can you share the file again?”).
+
+**When doing the work** (agent-only steps below): keep using the technical file paths, commands, and code patterns. Do not dump those details into user-facing messages unless they ask.
+
+**Good summary example:**  
+“Updated the Leadership section on Contact Us: swapped Sky’s photo and moved Jordan after Alex. I opened the Contact Us page in your browser — please check that the names, roles, order, and photos look right.”
+
+**Avoid:**  
+“Refactored the leaders array, normalized assets under contact-us/, and hot-reloaded HashRouter at `/#/contact-us`.”
 
 ## Scope (v1)
 
 Supports **add**, **remove**, **reorder**, and **edit** for leaders on the Contact Us page.
 
-Files involved:
+Files involved (agent-only):
 - `src/pages/ContactUs.js` — imports, leader data, render order
 - `src/components/LeadershipSection.js` — presentational only (do not change unless layout is broken)
 - `src/assets/images/contact-us/` — headshot assets only (not `contact_us_opening_image.png` or `group_3.jpg`)
 
-Live route (HashRouter): `http://localhost:3000/#/contact-us`
+Live preview URL: `http://localhost:3000/#/contact-us`
 
 ## Workflow
 
@@ -32,40 +52,39 @@ Leadership update:
 - [ ] 2. Collect required inputs
 - [ ] 3. Apply image + code changes
 - [ ] 4. Normalize roles / clean unused assets
-- [ ] 5. Run locally and open Contact Us
-- [ ] 6. Offer optional GitHub PR
+- [ ] 5. Follow start-local-preview; open Contact Us
+- [ ] 6. Offer share-changes
 ```
 
 ### 1. Ask what is changing
 
-Ask the user to choose one or more:
+Ask in plain language. For example:
 
-| Option | Meaning |
-|--------|---------|
-| **Edit** | Change name, role, and/or image for existing leader(s) |
-| **Add** | Insert a new leader |
-| **Remove** | Delete a leader |
-| **Reorder** | Change display order |
+> What would you like to change on the Leadership section?
+> - **Edit** someone (name, role, and/or photo)
+> - **Add** a new person
+> - **Remove** someone
+> - **Reorder** the people shown
 
-Then ask which people are affected. Show the current roster from `ContactUs.js` so they can pick by name.
+Then ask which people are affected. Show the current roster from `ContactUs.js` as a simple name list so they can pick by name.
 
-For **Edit**, also ask which fields change: name / role / image (any combo). Leave unchanged fields alone.
+For **Edit**, also ask which fields change: name / role / photo (any combo). Leave unchanged fields alone.
 
 ### 2. Collect required inputs
 
-| Operation | Required from user |
-|-----------|-------------------|
-| Edit name | New name |
-| Edit role | New role |
-| Edit image | Absolute or relative path to the new image file |
-| Add | Name, role, image path, and insert position (or “end”) |
-| Remove | Which leader(s) |
-| Reorder | Full desired order (list of names) |
+| Operation | Ask the user for |
+|-----------|------------------|
+| Edit name | The new name |
+| Edit role | The new role / title |
+| Edit photo | Where the new photo file is (they can paste a path or point you to the file) |
+| Add | Name, role, photo, and where to place them (or “at the end”) |
+| Remove | Which person or people to remove |
+| Reorder | The full order they want, listed by name |
 
-**Image rules**
-- Allowed extensions only: `.jpg`, `.jpeg`, `.png`, `.webp`
-- Reject other types and ask for a replacement
-- Prefer a portrait headshot with the face centered (cards use `cover` at ~250×300)
+**Photo rules**
+- Allowed types only: `.jpg`, `.jpeg`, `.png`, `.webp`
+- If they send something else, politely ask for a photo in one of those formats
+- Prefer a portrait photo with the face centered (cards use `cover` at ~250×300)
 
 **Role text**
 - Trim leading/trailing whitespace
@@ -99,7 +118,7 @@ Layout: render with `justifyContent="center"` in rows of up to **3** per row (MU
 4. Update or add the `import ... from '../assets/images/contact-us/...'` in `ContactUs.js`
 5. Point that leader’s `headshot` at the import
 
-If the user’s path is pasted into chat, treat it as a filesystem path and copy from there. Confirm the file exists before copying.
+If the user’s path is pasted into chat, treat it as a filesystem path and copy from there. Confirm the file exists before copying. If it doesn’t, ask again in plain language — don’t dump error stacks.
 
 #### Remove / swap cleanup
 
@@ -124,44 +143,25 @@ When swapping an image to a new normalized name, delete the previous file for th
 
 ### 5. Local preview (required)
 
-1. If the CRA server is not already running, run `npm start` from the repo root
-2. Wait until the app responds at `http://localhost:3000`
-3. Open the Contact Us page in the default browser:
+Follow **`start-local-preview`** and open Contact Us (`http://localhost:3000/#/contact-us`).
 
-```bash
-# Windows
-start http://localhost:3000/#/contact-us
+Tell the user in plain language, for example:  
+“I opened the Contact Us page in your browser. Please check that the names, roles, order, and photos look correct.”
 
-# macOS
-open http://localhost:3000/#/contact-us
+### 6. Offer share-changes
 
-# Linux
-xdg-open http://localhost:3000/#/contact-us
-```
+After the user confirms the preview (or if they ask to proceed), follow the **`share-changes`** skill:
 
-4. Tell the user to confirm names, roles, order, and headshots on that page
-
-### 6. Optional GitHub PR
-
-After the user confirms the preview (or if they ask to proceed), **ask**:
-
-> Open a GitHub pull request for these leadership changes? (yes/no)
-
-If **no**, stop after summarizing what changed.
-
-If **yes**:
-1. Create a focused branch, e.g. `chore/update-leadership-<short-slug>`
-2. Stage only leadership-related files (ContactUs.js, new/changed/deleted assets under `contact-us/`, and this skill only if intentionally edited)
-3. Commit with a conventional message, e.g. `chore: update Contact Us leadership`
-4. Push with `-u` and create a PR via `gh pr create`
-5. Return the PR URL
-
-Do **not** force-push, amend shared history, or commit secrets. Only commit when this workflow (or the user) has approved creating the PR/commit.
+1. Ask the plain-language yes/no about saving and opening a review link
+2. If **no**, stop after summarizing what changed on the page (names, roles, photos, order)
+3. If **yes**, run `share-changes` with scope limited to leadership files (`ContactUs.js`, headshot assets under `contact-us/`) and a message like `chore: update Contact Us leadership`
 
 ## Agent constraints
 
+- Speak to the user in plain, non-technical language (see Audience section)
 - Do not edit Giving / Donation sections unless the user asks
 - Do not rename or delete non-headshot contact-us images
 - Do not invent names, roles, or images — wait for user input
-- If an image path is missing or invalid, stop and ask again
+- If an image path is missing or invalid, stop and ask again in plain language
 - Keep changes minimal and reviewable
+- Commit / review link only via `share-changes` or an explicit user request
