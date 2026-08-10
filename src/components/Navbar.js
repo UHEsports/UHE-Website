@@ -18,7 +18,7 @@ import {
 
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 
-import uheLogo from "../assets/images/logos/uhe_logo.png";
+import uheLogo from "../assets/images/logos/uhe_logo_new.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {
@@ -128,7 +128,8 @@ function Navbar() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <img
                     alt="UHE Logo"
-                    width="125"
+                    width="75"
+                    height="75"
                     src={uheLogo}
                 />
                 {pathname==='/' && ( // Conditionally render the APCU logo
