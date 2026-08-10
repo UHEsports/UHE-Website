@@ -6,7 +6,7 @@ import OpeningPageImage from "../components/OpeningPageImage";
 import group_3 from "../assets/images/contact-us/group_3.jpg";
 import contact_us_opening_image from "../assets/images/contact-us/contact_us_opening_image.png";
 import skyHeadshot from "../assets/images/contact-us/Nyle-Sky-Kauweloa2-jpg.webp";
-import brianHeadshot from "../assets/images/contact-us/brian_dang.png";
+import zeldaHeadshot from "../assets/images/contact-us/zelda_cole.png";
 import kevinHeadshot from "../assets/images/contact-us/Headshot_-_Kevin.webp";
 import katHeadshot from "../assets/images/contact-us/kat_headshot.jpg";
 import tylerHeadshot from "../assets/images/contact-us/tyler_kawakami.png";
