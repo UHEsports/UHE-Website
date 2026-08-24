@@ -17,6 +17,7 @@
 .env.*
 !.env.example
 *.log
+.idea/
 
 npm-debug.log*
 yarn-debug.log*
